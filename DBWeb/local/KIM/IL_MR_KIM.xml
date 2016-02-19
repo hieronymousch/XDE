@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - KIM execution</label>
+	<description>MR NODE FW2 - KIM execution</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>
+		<querystring id='IL_MR_KIM_SUM' database='dbnode' timeout="30000">
+			select 
+				mil.BA 
+				, mi.AO
+				, left(mpr.matman,1) 'Sec'
+				, count(mpr.pr) NrPREQ
+				, sum(if(mpr.spec_complete='Y',1,0)) 'SpecOK'
+				, sum(if(mprv.status='T',1,0)) 'NrStatusT'
+				, concat('MRN_SPE03#10#',sum(mpr.invest_basis_amount)) 'SumInvBas'
+				, concat('MRN_SPE03#10#',sum(mpr.invest_subst_amount)) 'SumInvSub'
+				, sum(mil.budget) 'SumBudget'
+				, if(sum(mil.com_committed)=0,concat('MRN_SPE03#F11#',sum(mil.com_committed)),sum(mil.com_committed)) 'SumCommitted'
+				, case 
+					when round(sum(mil.com_committed)/sum(mil.budget)*100,2)>90 then concat('MRN_SPE03#06#',round(sum(mil.com_committed)/sum(mil.budget)*100,2)) 
+					when round(sum(mil.com_committed)/sum(mil.budget)*100,2)>95 then  concat('MRN_SPE03#F04#',round(sum(mil.com_committed)/sum(mil.budget)*100,2))
+					when mil.com_committed=0 then concat('MRN_SPE03#F11#',0)
+					else concat('MRN_SPE03#F11#',round(sum(mil.com_committed)/sum(mil.budget)*100,2)) 
+				end 'RelCommitted'
+				, sum(mil.sum_ordered) 'SumOrdered'
+				, if(round(sum(mil.sum_ordered)/sum(mil.budget)*100,2)>=98,concat('MRN_SPE03#06#',round(sum(mil.sum_ordered)/sum(mil.budget)*100,2)),round(sum(mil.sum_ordered)/sum(mil.budget)*100,2)) 'RelOrdered'
+				,sum(if(mil.sum_invoiced>0,mil.sum_invoiced,0)) 'SumInvoiced'
+				,sum(mil.sum_paid) 'SumPaid'
+		from mrqr_pur_req mpr inner join 
+			(select 
+				pr
+				,max(pr_version_id) vs_id
+				from mrqr_pur_req_ver
+				where year&lt;='pYEAR' and not(status in ('U','E'))
+				group by pr)max on mpr.pr=max.pr
+		inner join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id		
+		inner join mrqr_imputation_lines mil on mil.pr=mpr.pr
+		inner join mrqr_imputation mi on mi.imp_id=mil.bim_id	
+		
+		where mpr.invest_plan_type ='KIM' 
+			and IF('pMATMAN'='',true,mpr.matman='pMATMAN')
+			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('C','I'))
+			and mpr.INVEST_REQ_READY='Y'
+			and mpr.INVEST_REQ_YEAR='pYEAR'
+			and mil.year='pYEAR'
+			and left(mil.BA,2)='74'
+			and mi.active='Y'
+			and IF('pPREQ'='',true,mpr.pr='pPREQ')
+			and (mpr.invest_basis_amount>0 or mpr.invest_subst_amount>0)
+		group by BA, AO, Sec	
+			</querystring>
+		<querystring id='IL_MR_KIM' database='dbnode'>
+			select 
+				concat('MRN_SPE05#LI',mpr.pr,'#',mpr.pr) DD
+				, concat('MRN_SPE02#9902&amp;p|PREQ=',mpr.pr,'#',mpr.pr)  PR
+				, mil.BA BA
+				, mi.AO
+				, IFNULL(mpr.name_nl, mpr.description) Name
+				, left(mpr.matman,1) 'Sec'
+				, concat('MRN_SPE09#01##',mpr.matman,'#0#',mpr.matman) 'MM'
+				, concat('MRN_SPE09#01##',mpr.LS,'#0#',mpr.LS) 'LS'
+				, if(mpr.spec_complete='Y','MRN_SPE03#F04#Y','MRN_SPE03#F15#N') 'SpecOK'
+				, if(mprv.status='T',concat('MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status),concat('MRN_SPE03#F11#MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status)) 'status'
+				, concat('MRN_SPE03#10#', mil.COM_LAUNCHED_INI) 'InvLaunch'
+				, concat('MRN_SPE03#10#',mpr.invest_basis_amount) 'InvBas'
+				, concat('MRN_SPE03#10#',mpr.invest_subst_amount) 'InvSub'
+				, if(mil.budget=0,concat('MRN_SPE03#F13#',mil.budget),mil.budget) Budget
+				, case 
+					when mprv.status='T' AND mil.com_committed=0 then concat('MRN_SPE03#F11#',mil.com_committed) 
+					when round(mil.com_committed/mil.budget,2)*100>98 then  concat('MRN_SPE03#06#',mil.com_committed)
+					when mprv.status='T' AND mil.com_committed>0 then concat('MRN_SPE03#03#',mil.com_committed) 
+					else mil.com_committed
+				end 'Committed'
+				, case 
+					when mprv.status='T' AND mil.sum_ordered=0 then concat('MRN_SPE03#F11#',mil.sum_ordered) 
+					when round(mil.sum_ordered/mil.budget,2)*100>98 then  concat('MRN_SPE03#06#',mil.sum_ordered)
+					when mprv.status='T' AND mil.sum_ordered>0 then concat('MRN_SPE03#03#',mil.sum_ordered) 
+					else mil.sum_ordered
+				end 'Ordered'
+				,mil.sum_invoiced 'Invoiced'
+				,mil.sum_paid 'Paid'
+				, case
+					when mil.COM_LAUNCHED_INI=0 AND mpr.invest_basis_amount=0 then 'UNK'
+					when mil.COM_COMMITTED=0 then 'UNK'
+					when mil.COM_LAUNCHED_INI=0 then round(abs((mpr.invest_basis_amount - mil.COM_COMMITTED)*100/mil.COM_COMMITTED),2)
+					else round(abs((mil.COM_LAUNCHED_INI - mil.COM_COMMITTED)*100/mil.COM_COMMITTED),2)
+				end 'BudgetDiff'	
+				,concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+				-- ,mprv.pr_version 'Version'
+		from mrqr_pur_req mpr inner join 
+			(select 
+				pr
+				,max(pr_version_id) vs_id
+				from mrqr_pur_req_ver
+				where year&lt;='pYEAR' and not(status in ('U','E'))
+				group by pr)max on mpr.pr=max.pr
+		inner join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id		
+		inner join mrqr_imputation_lines mil on mil.pr=mpr.pr
+		inner join mrqr_imputation mi on mi.imp_id=mil.bim_id	
+		
+		
+		where mpr.invest_plan_type ='KIM' 
+			and IF('pMATMAN'='',true,mpr.matman='pMATMAN')
+			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('C','I'))
+			and mpr.INVEST_REQ_READY='Y'
+			and mpr.INVEST_REQ_YEAR='pYEAR'
+			and mil.year='pYEAR'
+			and left(mil.BA,2)='74'
+			and mi.active='Y'
+			and IF('pPREQ'='',true,mpr.pr='pPREQ')
+			and IF('pBUDGETZERO'='on',mil.budget=0,true)
+			and (mpr.invest_basis_amount>0 or mpr.invest_subst_amount>0)
+			
+			</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='0'/>		
+		<parameter name='pLANG' value='NL'/>
+		<parameter name='pMATMAN'/>		
+		<parameter name='pSECTION'/>		
+		<parameter name='pYEAR' value='2016'/>		
+		<parameter name='pMODE' value='Main'/>	
+		<parameter name='pDIVISION' value='Sys'/>
+		<parameter name='pPREQ'/>	
+		<parameter name='pBUDGETZERO'/>	
+	</parameters>
+</dbwebdescriptor>
