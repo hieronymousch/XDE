@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - KIM execution</label>
+	<description>MR NODE FW2 - KIM execution</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>
+	
+		<querystring id='IL_MR_PREQ' database='dbnode' timeout='10000'>
+			select 
+				concat('MRN_SPE05#LI',mpr.pr,'#',mpr.pr) DD
+				, mpr.pr PR
+				, mpr.type Type
+				, mil.BA
+				, mil.AO
+				, IFNULL(mpr.name_nl, mpr.description) Name
+				, left(mpr.matman,1) 'Sec'
+				, concat('MRN_SPE09#01##',mpr.matman,'#0#',mpr.matman) 'MM'
+				, concat('MRN_SPE09#01##',mpr.LS,'#0#',mpr.LS) 'LS'
+				, if(mpr.spec_complete='Y','MRN_SPE03#F04#Y','MRN_SPE03#F15#N') 'SpecOK'
+				, if(mprv.status='T',concat('MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status),concat('MRN_SPE03#F11#MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status)) 'status'
+				, if(mil.budget=0,concat('MRN_SPE03#F13#',mil.budget),mil.budget) Budget
+				, if(mprv.status='T' AND mil.com_committed	=0,	concat('MRN_SPE03#F11#',mil.com_committed),mil.com_committed) Committed
+				,mil.sum_ordered 'Ordered'
+				,mil.sum_invoiced 'Invoiced'
+				,mil.sum_paid 'Paid'
+				,concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+				,mprv.pr_version 'Version'
+		from mrqr_pur_req mpr inner join 
+						(select 
+								pr
+								,max(pr_version_id) vs_id
+								from mrqr_pur_req_ver
+								where year&lt;='pYEAR' 
+								group by pr)max on mpr.pr=max.pr
+			inner join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id
+			left join mrqr_imputation_lines mil on mil.pr=mpr.pr 
+
+		where 
+			(length(replace(replace('pMATMAN','%',''),'_',''))&gt;=2
+                        OR length(replace(replace('pSECTION','%',''),'_',''))=1
+                        OR length(replace(replace('pPREQ','%',''),'_',''))&gt;=2               
+                        )
+			and IF('pMATMAN'='',true,mpr.matman='pMATMAN')
+			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('C','I'))
+			and IF('pPREQ'='',true,mpr.pr like 'pPREQ')
+			and IF('pYEAR'='',true,mil.year='pYEAR')
+			</querystring>
+			
+		<querystring id='IL_MR_PREQ_DETAILS_PUR_REQ' database='dbnode' timeout='10000'>	
+			select
+				concept_general,
+				concept_operational,
+				concept_technical,
+				concept_logistical,
+				renewal_contract,
+				origin_pr,
+				reference,
+				codification_clause
+			from mrqr_pur_req
+			where pr='pPREQ'
+		</querystring>
+		<querystring id='IL_MR_PREQ_DETAILS_PUR_REQ_VER' database='dbnode' timeout='10000'>	
+			select
+				pr_version,
+				type,
+				year,
+				status,
+				requestdate,
+				estimated_price,
+				reconduction,
+				reconduction_version,
+				reason,
+				program
+			from mrqr_pur_req_ver
+			where pr='pPREQ'
+		</querystring>	
+		
+		<querystring id='IL_MR_DOSS' database='dbnode'>
+			Select
+				D.dossier
+				,max.version
+				, c.seqno
+				, d.status
+				, d.ordonnateur
+				, d.comments
+				, c.role
+				, concat('MRN_SPE09#01##',c.org,'#0#',c.org) 'Org'
+				, c.result
+				, if(c.result='TIC','MRN_SPE03#F04#Y','MRN_SPE03#F15#N') TIC
+				, c.actual_startdate
+				, c.actual_enddate
+				, c.comments 'CircComments'
+			from 
+				mrqr_dos d inner join
+				(select
+					dossier_id
+					, max(dossier_version) version
+					from mrqr_dos 
+					group by dossier)max on max.dossier_id=d.dossier_id
+				inner join mrqr_dos_circlist c on d.dossier_id=c.dossier_id	
+			where 
+				d.dossier='pPREQ'
+			order by c.seqno
+			</querystring>
+			
+		<querystring id='IMPUTATION' database='dbnode'>
+			Select
+				mil.year
+				,mil.DOPA
+				,mil.BA
+				,mil.CT
+				,mil.AO
+				,mil.catalog 'Cat'
+				,mil.GL_ACCOUNT 'GLA'
+				,mil.pr_type 'Type'
+				,mil.A2
+				,mil.description
+				,mil.budget
+				,mil.sum_pr
+				,mil.sum_ordered
+				,mil.com_committed
+				,mil.com_scheduled
+				,mil.com_launched_ini
+				,mil.com_launched_cur
+				,mil.com_substitute
+				,mil.final
+							
+				
+			from 
+				mrqr_imputation_lines mil 
+			where 
+				mil.pr='pPREQ'
+			order by mil.year
+			</querystring>
+		
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='9902'/>		
+		<parameter name='pLANG' value='NL'/>
+		<parameter name='pMATMAN'/>		
+		<parameter name='pSECTION'/>		
+		<parameter name='pYEAR' value='2015'/>		
+		<parameter name='pMODE' value='Main'/>	
+		<parameter name='pDIVISION' value='Sys'/>
+		<parameter name='pPREQ'/>	
+	</parameters>
+</dbwebdescriptor>
