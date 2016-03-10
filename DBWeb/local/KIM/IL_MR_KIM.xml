@@ -12,12 +12,12 @@
 		</querystring>
 		<querystring id='IL_MR_KIM_SUM' database='dbnode' timeout="30000">
 			select 
-				mil.BA 
-				, mi.AO
+				mil.DOPA DOPA
+				, mil.BA
 				, left(mpr.matman,1) 'Sec'
 				, count(mpr.pr) NrPREQ
 				, sum(if(mpr.spec_complete='Y',1,0)) 'SpecOK'
-				, sum(if(mprv.status='T',1,0)) 'NrStatusT'
+				-- , sum(if(mprv.status='T',1,0)) 'NrStatusT'
 				, concat('MRN_SPE03#10#',sum(mpr.invest_basis_amount)) 'SumInvBas'
 				, concat('MRN_SPE03#10#',sum(mpr.invest_subst_amount)) 'SumInvSub'
 				, sum(mil.budget) 'SumBudget'
@@ -32,43 +32,45 @@
 				, if(round(sum(mil.sum_ordered)/sum(mil.budget)*100,2)>=98,concat('MRN_SPE03#06#',round(sum(mil.sum_ordered)/sum(mil.budget)*100,2)),round(sum(mil.sum_ordered)/sum(mil.budget)*100,2)) 'RelOrdered'
 				,sum(if(mil.sum_invoiced>0,mil.sum_invoiced,0)) 'SumInvoiced'
 				,sum(mil.sum_paid) 'SumPaid'
-		from mrqr_pur_req mpr inner join 
-			(select 
+		from mrqr_pur_req mpr 
+		   left join 
+			 (select 
 				pr
 				,max(pr_version_id) vs_id
 				from mrqr_pur_req_ver
-				where year&lt;='pYEAR' and not(status in ('U','E'))
+				where year&lt;='pYEAR' and not(status in ('E'))
 				group by pr)max on mpr.pr=max.pr
-		inner join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id		
-		inner join mrqr_imputation_lines mil on mil.pr=mpr.pr
-		inner join mrqr_imputation mi on mi.imp_id=mil.bim_id	
+		left join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id		
+		left join mrqr_imputation_lines mil on mil.pr=mpr.pr and mil.year='pYEAR' and left(mil.BA,2)='74'
+		left join mrqr_imputation mi on mi.imp_id=mil.bim_id	
 		
 		where mpr.invest_plan_type ='KIM' 
-			and IF('pMATMAN'='',true,mpr.matman='pMATMAN')
+			and IF('pMATMAN'='',true,mpr.matman like 'pMATMAN')
 			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
 			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('C','I'))
 			and mpr.INVEST_REQ_READY='Y'
 			and mpr.INVEST_REQ_YEAR='pYEAR'
-			and mil.year='pYEAR'
-			and left(mil.BA,2)='74'
-			and mi.active='Y'
+			-- and mil.year='pYEAR'
+			-- and left(mil.BA,2)='74'
+			-- and mi.active='Y'
 			and IF('pPREQ'='',true,mpr.pr='pPREQ')
 			and (mpr.invest_basis_amount>0 or mpr.invest_subst_amount>0)
-		group by BA, AO, Sec	
+		group by DOPA, BA, Sec	
 			</querystring>
 		<querystring id='IL_MR_KIM' database='dbnode'>
-			select 
+			select distinct
 				concat('MRN_SPE05#LI',mpr.pr,'#',mpr.pr) DD
 				, concat('MRN_SPE02#9902&amp;p|PREQ=',mpr.pr,'#',mpr.pr)  PR
+				, mil.DOPA DOPA
 				, mil.BA BA
-				, mi.AO
+				-- , mi.AO
 				, IFNULL(mpr.name_nl, mpr.description) Name
 				, left(mpr.matman,1) 'Sec'
 				, concat('MRN_SPE09#01##',mpr.matman,'#0#',mpr.matman) 'MM'
 				, concat('MRN_SPE09#01##',mpr.LS,'#0#',mpr.LS) 'LS'
 				, if(mpr.spec_complete='Y','MRN_SPE03#F04#Y','MRN_SPE03#F15#N') 'SpecOK'
 				, if(mprv.status='T',concat('MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status),concat('MRN_SPE03#F11#MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status)) 'status'
-				, concat('MRN_SPE03#10#', mil.COM_LAUNCHED_INI) 'InvLaunch'
+				, mil.COM_LAUNCHED_INI 'InvLaunch'
 				, concat('MRN_SPE03#10#',mpr.invest_basis_amount) 'InvBas'
 				, concat('MRN_SPE03#10#',mpr.invest_subst_amount) 'InvSub'
 				, if(mil.budget=0,concat('MRN_SPE03#F13#',mil.budget),mil.budget) Budget
@@ -93,32 +95,31 @@
 					else round(abs((mil.COM_LAUNCHED_INI - mil.COM_COMMITTED)*100/mil.COM_COMMITTED),2)
 				end 'BudgetDiff'	
 				,concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
-				-- ,mprv.pr_version 'Version'
-		from mrqr_pur_req mpr inner join 
+				,max(mprv.pr_version) 'Version'
+		from mrqr_pur_req mpr 
+		left join mrqr_imputation_lines mil on mil.pr=mpr.pr and mil.year='pYEAR' and left(mil.BA,2)='74' and IF('pBUDGETZERO'='on',mil.budget=0,true)
+		left join mrqr_imputation mi on mi.imp_id=mil.bim_id and mi.active='Y'
+		left join 
 			(select 
 				pr
 				,max(pr_version_id) vs_id
 				from mrqr_pur_req_ver
-				where year&lt;='pYEAR' and not(status in ('U','E'))
+				where year&lt;='pYEAR' 
+					and not(status in ('E')
+				)
 				group by pr)max on mpr.pr=max.pr
-		inner join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id		
-		inner join mrqr_imputation_lines mil on mil.pr=mpr.pr
-		inner join mrqr_imputation mi on mi.imp_id=mil.bim_id	
-		
+		left join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id			
+			
 		
 		where mpr.invest_plan_type ='KIM' 
-			and IF('pMATMAN'='',true,mpr.matman='pMATMAN')
+			and IF('pMATMAN'='',true,mpr.matman like 'pMATMAN')
 			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
 			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('C','I'))
 			and mpr.INVEST_REQ_READY='Y'
 			and mpr.INVEST_REQ_YEAR='pYEAR'
-			and mil.year='pYEAR'
-			and left(mil.BA,2)='74'
-			and mi.active='Y'
 			and IF('pPREQ'='',true,mpr.pr='pPREQ')
-			and IF('pBUDGETZERO'='on',mil.budget=0,true)
 			and (mpr.invest_basis_amount>0 or mpr.invest_subst_amount>0)
-			
+		group by mpr.pr	
 			</querystring>
 	</queries>	
 	<parameters>
@@ -131,5 +132,6 @@
 		<parameter name='pDIVISION' value='Sys'/>
 		<parameter name='pPREQ'/>	
 		<parameter name='pBUDGETZERO'/>	
+
 	</parameters>
 </dbwebdescriptor>
