@@ -27,7 +27,7 @@
 				, if (md.replaced_by_id=null, true, concat('MRN_SPE09#05##',md2.NSN,'#1#',md2.NSN)) '____NewDoc____'
 				</includeIf> 
 				, concat('MRN_SPE09#01##',ma.man_org,'#0#',ma.man_org) 'MatMan'
-				, concat('MRN_SPE20#\\\\idcn.mil.intra\\cdn-masterdata\\Global-Change\\CIDMat\\Tech Bib Defense\\index\\',md.nsn,'.PDF.HTML#_blank#8#','OpenDoc') 'DocLink'
+				, if (left(md.nsn,4)='7610',concat('MRN_SPE20#\\\\idcn.mil.intra\\cdn-masterdata\\Global-Change\\CIDMat\\Tech Bib Defense\\index\\',md.nsn,'.HTML#_blank#8#','OpenDoc'),'N/A') 'DocLink'
 			from 
 				mrqr_documents md 
 				inner join mrqr_nsn mn on md.nsn=mn.nsn and md.nsn like 'pNSN'
