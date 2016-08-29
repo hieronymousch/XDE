@@ -27,11 +27,11 @@
 				, if (md.replaced_by_id=null, true, concat('MRN_SPE09#05##',md2.NSN,'#1#',md2.NSN)) '____NewDoc____'
 				</includeIf> 
 				, concat('MRN_SPE09#01##',ma.man_org,'#0#',ma.man_org) 'MatMan'
-				, if (left(md.nsn,4)='7610',concat('MRN_SPE20#\\\\idcn.mil.intra\\cdn-masterdata\\Global-Change\\CIDMat\\Tech Bib Defense\\index\\',md.nsn,'.HTML#_blank#8#','OpenDoc'),'N/A') 'DocLink'
+				, if (left(md.nsn,4)='7610',concat('MRN_SPE20#file:\\\\\\G:\\CIDMat\\Tech Bib Defense\\index\\',md.nsn,'.HTML#_blank#8#','OpenDoc'),'N/A') 'DocLink'
 			from 
 				mrqr_documents md 
-				inner join mrqr_nsn mn on md.nsn=mn.nsn and md.nsn like 'pNSN'
-				inner join mrqr_macodes ma on mn.macode=ma.macode and md.nsn like 'pNSN'
+				inner join mrqr_nsn mn on md.nsn=mn.nsn and md.nsn like '7610-%'
+				inner join mrqr_macodes ma on mn.macode=ma.macode and md.nsn like '7610-%'
 				<includeIf paramName="pSHOWUNUSABLE" isInRequest="true" matches="on">
 				left join  mrqr_documents md2 on md2.doc_id=md.replaced_by_id
 				</includeIf>	
@@ -46,12 +46,12 @@
 				and if ('pDOCUMENT'='',true, md.document like 'pDOCUMENT')
 				and IF('pSHOWUNUSABLE'='on',true,md.usable='Y')
 				<includeIf paramName="pFUNCTION" isInRequest="true" matches=".+">
-				and mdf.function like 'pFUNCTION'
+				and if ('pFUNCTION'='',true, mdf.function like 'pFUNCTION')
 				</includeIf>	
 				and (length(replace(replace('pNSN','%',''),'_',''))&gt;=6 
                         OR length(replace(replace('pTITLE','%',''),'_',''))&gt;=2
                         OR length(replace(replace('pMATMAN','%',''),'_',''))&gt;=1
-                        
+                        OR length(replace(replace('pFUNCTION','%',''),'_',''))&gt;=4
                         )
 				
 				
