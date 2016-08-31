@@ -42,7 +42,7 @@
 				 mpr.pr  PR
 				 , left(mpr.matman,1) 'Sec'
 				, if(not(mil.DOPA is null),mil.DOPA,mi.DOPA)  DOPA
-				, if(not(mil.BA is null),mi.BA, mi.BA) BA
+				, if(not(mil.BA is null),mil.BA, mi.BA) BA
 				, if(mpr.spec_complete='Y',1,0) 'SpecOK'
 				, if(mprv.status in ('T','A','R','L'),1,0) 'PREQ_OK'
 				-- , if(dos.dos_status in ('T','A'),1,0) 'PDOSS_OK'
@@ -131,7 +131,7 @@
 				
 				mpr.pr
 				, if(not(mil.DOPA is null),mil.DOPA,mi.DOPA)  DOPA
-				, if(not(mil.BA is null),mi.BA, mi.BA) BA
+				, if(not(mil.BA is null),mil.BA, mi.BA) BA
 				, if(mpr.spec_complete='Y',1,0) 'SpecOK'
 				, if(mprv.status in ('T','A','R','L'),1,0) 'PREQ_OK'
 				, if(dos.dos_result='APP',1,0) 'PDOSS_APP'
@@ -194,7 +194,7 @@
 				concat('MRN_SPE05#LI',mpr.pr,'#',mpr.pr) DD
 				, concat('MRN_SPE02#9902&amp;p|PREQ=',mpr.pr,'#',mpr.pr)  PR
 				, if(not(mil.DOPA is null),mil.DOPA,mi.DOPA)  DOPA
-				, if(not(mil.BA is null),mi.BA, mi.BA) BA
+				, if(not(mil.BA is null),mil.BA, mi.BA) BA
 				-- , mi.AO
 				, IFNULL(mpr.name_nl, mpr.description) Name
 				, left(mpr.matman,1) 'Sec'
