@@ -2,6 +2,6 @@
 <descriptor>
  <label>Effectiveness</label>
  <source type="url">DBWeb/ProcessDescriptor/descriptor/OPSNODE/EFFECTIVENESS/effectiveness.xml</source>
- <processing type="xsl">OPSNODE/EFFECTIVENESS/XSL/EFFECTIVENESS_table.xsl</processing>
+ <processing type="xsl">OPSNODE/EFFECTIVENESS/XSL/EFFECTIVENESS.xsl</processing>
  <result type="text/html; charset=UTF-8" header="no"/>
 </descriptor>
