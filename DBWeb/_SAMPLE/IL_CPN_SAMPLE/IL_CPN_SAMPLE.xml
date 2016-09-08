@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>CPN Framework</label>
+	<description>Common Pillar Node FrameWork</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<querystring id='SAMPLES' database='dbnode'>
+			Select 
+				r.dbn_rep_name as 'Report',
+				<includeIf paramName="pLANG" matches="FR">
+					concat('MRN_SPE06#20#',r.dbn_rep_long_desc_fr) Description
+				</includeIf>
+				<includeIf paramName="pLANG" matches="NL">
+					concat('MRN_SPE06#20#',r.dbn_rep_long_desc_nl) Description
+				</includeIf>
+				<includeIf paramName="pLANG" matches="EN">
+					concat('MRN_SPE06#20#',r.dbn_rep_long_desc_en) Description
+				</includeIf>
+				,concat('MRN_SPE06#70#MRN_SPE04#L#MRN_SPE22#',substring(r.dbn_rep_name,8,100),'####Objective') Objective
+			from
+				dbn_report r
+			where
+				r.dbn_rep_id between 100000 and 101000
+		</querystring>
+		
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='999'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPT'/>
+		<parameter name='pMODE' value='Main'/>	
+	</parameters>
+</dbwebdescriptor>

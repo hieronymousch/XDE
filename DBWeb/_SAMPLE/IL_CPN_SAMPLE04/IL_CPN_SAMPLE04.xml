@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 03</label>
+	<description>FW CPN - SAMPLE 03</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='IL_MR_SAMPLE' database='dbnode'>
+			Select
+				A.ASSET
+				,A.NSN
+				,A.PN
+				,A.MFR
+				,A.SERIAL
+				,A.FUNCTION
+				,A.DESCRIPTION
+				,A.ORGANISM,A.MRC,
+				if(A.FUNCTION='FA',1,2) SEATS
+			from 
+				MRQR_ASSETS A 
+			where 
+				A.FUNCTION in ('FA','FB') 
+				AND	IF('pFUNCTION'='',true,A.FUNCTION='pFUNCTION')
+			limit 0,50
+		</querystring>
+		<querystring id='REPDIC' database='dbnode'>
+			select
+				rd.*
+			from
+				dbn_datadictionary rd
+			where
+				rd.dbn_dd_oid='pRID'
+			limit 50
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10004'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>	
+		
+		<parameter name='pFUNCTION' value=''/>				
+	</parameters>
+</dbwebdescriptor>

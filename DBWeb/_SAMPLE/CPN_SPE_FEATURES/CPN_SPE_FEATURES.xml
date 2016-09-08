@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>CPN - SPE</label>
+	<description>CPN - List of Special features for DBWeb</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pCDN</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='SPE' database='dbnode'>
+			Select
+				*
+			from 
+				dbn_mr_l_special_features_example 
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='100015'/>		
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pINFO' value='IPDT'/>		
+
+		<parameter name='pFUNCTION' value='CH'/>						
+	</parameters>
+</dbwebdescriptor>

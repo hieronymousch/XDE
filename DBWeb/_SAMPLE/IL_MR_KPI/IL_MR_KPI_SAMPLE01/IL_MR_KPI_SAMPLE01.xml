@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>KPI0013</label>
+	<description>KPI 0013</description>
+	<queries>	
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='KPI' database='dbnode'>
+			select 
+				kpi.*
+			from 
+				dbn_dwh_kpi kpi
+			where
+				kpi.kpid_code='pKPI'
+		</querystring>
+		<includeIf paramName="pMODE" matches="Main"> 
+			<querystring id='KPI_SUMMARY' database='dbnode'>
+				select
+					count(*) NBR,a.STATUS,a.ORGANISM,a.LATEST_CATEGORY,a.NSN
+				FROM
+					mrqr_assets a
+				WHERE
+					a.STATUS not in ('E','D') and 
+					a.LATEST_CATEGORY not in ('C4','C5','C6','C7','C8','CA') AND
+					a.FUNCTION='pVKEYD'
+				GROUP BY
+					a.STATUS, a.ORGANISM, a.LATEST_CATEGORY, a.NSN
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pMODE" isInRequest="true" matches="Drill-Down"> 
+			<querystring id='KPI_DETAILS' database='dbnode'>
+				Select 
+					concat('MRN_SPE16#',a.ASSET,'#',a.ASSET) ASSET,
+					concat('MRN_SPE01#ASSETA&amp;arg1=',ASSET) ILIAS,
+					concat('MRN_SPE14#',a.NSN,'#',a.NSN) NSN,
+					PN,
+					MFR,
+					SERIAL,
+					FUNCTION,
+					DESCRIPTION,
+					ORGANISM,
+					MRC
+				from 
+					mrqr_assets a
+				WHERE
+					a.`STATUS` not in ('E','D') and 
+					a.LATEST_CATEGORY not in ('C4','C5','C6','C7','C8','CA') AND
+					a.function ='pVKEYD' and
+					if('pSTATUS'='',true,a.STATUS='pSTATUS') AND
+					if('pORGANISM'='',true,a.ORGANISM='pORGANISM') AND
+					if('pNSN'='',true,a.NSN='pNSN') AND
+					if('pLATEST_CATEGORY'='',true,a.LATEST_CATEGORY='pLATEST_CATEGORY')
+			</querystring>
+		</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value=''/>
+		<parameter name='pKPI' value='0013'/>
+		<parameter name='pVKEYD' value='FA'/>
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pEXPLORE' value='NO'/>
+		<parameter name='pHIST' value='NO'/>
+		<parameter name='pINFO' value='IPDTK'/>
+
+		<parameter name='pLATEST_CATEGORY' value=''/>
+		<parameter name='pSTATUS' value=''/>		
+		<parameter name='pORGANISM' value=''/>
+		<parameter name='pNSN' value=''/>
+		<parameter name='pR1' value='ORGANISM'/>
+		<parameter name='pR2' value='STATUS'/>
+		<parameter name='pC1' value='LATEST_CATEGORY'/>
+	</parameters>
+</dbwebdescriptor>

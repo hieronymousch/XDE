@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 02</label>
+	<description>FW CPN - SAMPLE 02</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<!-- Query for Report without Prompt -->
+		<querystring id='IL_MR_SAMPLE' database='dbnode'>
+			Select
+				A.ASSET,
+				A.NSN,
+				A.PN,
+				A.MFR,
+				A.SERIAL,
+				A.FUNCTION,
+				A.DESCRIPTION,
+				A.ORGANISM,
+				A.MRC,
+				A.FIRST_ACCEPT_DATE
+			from 
+				MRQR_ASSETS A 
+			where 
+				A.FUNCTION = 'pFUNCTION'
+				AND if('pMRC'='',true,A.MRC='pMRC')
+				<!-- Utilisation de Date (Datepicker) -->
+				AND if('pDATE_ACCEPT'='',true,A.FIRST_ACCEPT_DATE&lt;='pDATE_ACCEPT')
+				<!-- Utilisation d'un Checkbox -->
+				AND if('pMUSEUM'!='on',true,A.DESCRIPTION like '%MUSEUM%')
+			limit 50
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10002'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>	
+		
+		<parameter name='pFUNCTION' value='FA'/>
+		<parameter name='pDATE_ACCEPT' value=''/>
+		<parameter name='pMUSEUM' value=''/>
+		<parameter name='pMRC' value=''/>	
+	</parameters>
+</dbwebdescriptor>

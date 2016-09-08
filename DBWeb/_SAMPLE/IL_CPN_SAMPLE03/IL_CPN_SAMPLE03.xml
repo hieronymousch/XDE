@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 04</label>
+	<description>FW CPN - SAMPLE 04</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='IL_MR_SAMPLE' database='dbnode'>
+			Select
+				concat('MRN_SPE09#01##',MRC,'#1#',MRC) MRC,
+				concat('MRN_SPE09#06##',ASSET,'#1#',ASSET) ASSET,
+				<!--
+				ASSET,
+				-->
+				concat('MRN_SPE01#ASSETA&amp;arg1=',ASSET) ILIAS,
+				concat('MRN_SPE09#05##',NSN,'#1#',NSN) NSN,
+				concat('MRN_SPE01#SPART&amp;arg1=',NSN) ILIAS2,
+				concat('MRN_SPE07#PN',PN,'#',MFR) PN_MFR,
+				if(STATUS='D',concat('MRN_SPE03#07#MRN_SPE10#AS#',STATUS),concat('MRN_SPE10#AS#',STATUS)) STATUS,
+				<!--concat('MRN_SPE22#',ASSET,'#1#1#1#TESTDEMOSPE22') SERIAL,-->
+				SERIAL,
+				FUNCTION,
+				concat('MRN_SPE06#20#MRN_SPE04#L#',DESCRIPTION) DESCRIPTION,
+				ORGANISM,
+				IFNULL(LIMITATIONS,'MRN_SPE08#white#NO_LIMIT') LIMITATIONS
+			from 
+				MRQR_ASSETS A 
+			where 
+				A.FUNCTION = 'pFUNCTION'
+			limit 0,50
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10003'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>	
+			
+		<parameter name='pFUNCTION' value='CH'/>						
+	</parameters>
+</dbwebdescriptor>

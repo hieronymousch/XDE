@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 06</label>
+	<description>FW CPN - SAMPLE 06</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='IL_MR_I1_ASSET_DG' database='dbnode'>
+			Select 
+				n.hazard, 
+				(select concat(lc1.DESCRIPTION) from mrqr_lookup_codes lc1 where lc1.type='HAZ' and lc1.code=n.hazard) HAZD,
+				(select concat(lc1.DESCRIPTION_FR) from mrqr_lookup_codes lc1 where lc1.type='HAZ' and lc1.code=n.hazard) HAZDF,
+				(select concat(lc1.DESCRIPTION_NL) from mrqr_lookup_codes lc1 where lc1.type='HAZ' and lc1.code=n.hazard) HAZDN,
+				n.un_code, 
+				(select lc2.DESCRIPTION from mrqr_lookup_codes lc2 where lc2.type='UNC' and lc2.code=n.un_code) UNCD,
+				(select lc2.DESCRIPTION_FR from mrqr_lookup_codes lc2 where lc2.type='UNC' and lc2.code=n.un_code) UNCDF,
+				(select lc2.DESCRIPTION_NL from mrqr_lookup_codes lc2 where lc2.type='UNC' and lc2.code=n.un_code) UNCDN,
+				n.shipping_name, n.net_expl_weight 
+			from 
+				MRQR_NSN n
+				join MRQR_ASSETS a on a.nsn=n.nsn 
+			where 
+				a.asset='pASSET' and (n.hazard is not null or n.un_code is not null)
+			limit 50
+		</querystring>
+		<querystring id='IL_MR_I1_ASSETA' database='dbnode'>
+				select 
+					a.* 
+				from 
+					MRQR_ASSETS a 
+				where 
+					a.ASSET='pASSET'
+				limit 50
+		</querystring>
+		<querystring id='IL_MR_I1G_FUNCTION' database='dbnode'>
+			select 
+				f.FUNCTION,
+				f.DESCRIPTION,
+				f.PARENT,
+				f.WSC,
+				(select lc.description from MRQR_LOOKUP_CODES lc where lc.code=f.wsc and lc.type='WSC') WSC_DESC,
+				f.MAN_ORG,
+				f.FICTIVE,
+				f.ESSENTIAL,
+				f.SUPERVISED,
+				concat(f.REPORT_MAINTENANCE,f.REPORT_LOGISTIC,f.REPORT_STATUS) REP_MLS,
+				f.FUEL_NSN,
+				f.CO2_TAX_APPLICABLE
+			from 
+				MRQR_ASSETS a join MRQR_functions f on a.function=f.function
+			where 
+				a.ASSET='pASSET'
+			limit 50
+		</querystring>
+		<querystring id='IL_MR_I1G_AOSAC' database='dbnode'>
+				select 
+					aos.STATUS, aos.STATUSDATE, aos.ORGANISM, aos.WO 
+				from 
+					MRQR_ASSETS_OPERATIONAL_STATUS aos 
+				where 
+					aos.ASSET='pASSET' 
+				LIMIT 10
+		</querystring>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value='10006'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>	
+		
+		<parameter name='pASSET' value='V80231'/>
+	</parameters>
+</dbwebdescriptor>

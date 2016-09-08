@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 00</label>
+	<description>FW CPN - SAMPLE 00</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='IL_MR_SAMPLE' database='dbnode'>
+			Select
+				a.ASSET,
+				a.NSN,
+				a.PN,
+				a.MFR,
+				a.SERIAL,
+				a.FUNCTION,
+				a.DESCRIPTION,
+				a.ORGANISM,
+				a.MRC,
+				1 Pilot
+			from 
+				MRQR_ASSETS a 
+			where 
+				a.FUNCTION = 'pFUNCTION'
+			limit 50
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10000'/>		
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pINFO' value='IPDT'/>
+		<!--parameter name="pUSER" value='' overrulingvalue="$auth('sAMAccountName')" toUppercase='true'/-->		
+
+		<parameter name='pFUNCTION' value="FA"/>	
+	</parameters>
+</dbwebdescriptor>

@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>I1 - ASSET Id Card</label>
+	<description>I1 - ASSET Id Card</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  
+				r.*,
+				count(v.dbn_repv_viewname) Views_Used, 
+				min(e.Ref_Status) Extr_Status 
+			from 
+				dbn_report r, dbn_report_views v, dbn_entities e 
+			where 
+				(v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select 
+					* 
+				from 
+					dbn_report_parameters
+				where 
+					dbn_repp_parid='pRID';
+		</querystring>
+		<querystring id='IL_MR_I1_ASSET_DG' database='dbnode'>
+			Select 
+				n.hazard, 
+				(select concat(lc1.DESCRIPTION) from mrqr_lookup_codes lc1 where lc1.type='HAZ' and lc1.code=n.hazard) HAZD,
+				(select concat(lc1.DESCRIPTION_FR) from mrqr_lookup_codes lc1 where lc1.type='HAZ' and lc1.code=n.hazard) HAZDF,
+				(select concat(lc1.DESCRIPTION_NL) from mrqr_lookup_codes lc1 where lc1.type='HAZ' and lc1.code=n.hazard) HAZDN,
+				n.un_code, 
+				(select lc2.DESCRIPTION from mrqr_lookup_codes lc2 where lc2.type='UNC' and lc2.code=n.un_code) UNCD,
+				(select lc2.DESCRIPTION_FR from mrqr_lookup_codes lc2 where lc2.type='UNC' and lc2.code=n.un_code) UNCDF,
+				(select lc2.DESCRIPTION_NL from mrqr_lookup_codes lc2 where lc2.type='UNC' and lc2.code=n.un_code) UNCDN,
+				n.shipping_name, n.net_expl_weight 
+			from 
+				MRQR_NSN n
+				join MRQR_ASSETS a on a.nsn=n.nsn 
+			where 
+				a.asset='pASSET' and (n.hazard is not null or n.un_code is not null);
+		</querystring>
+		<querystring id='IL_MR_I1_ASSETA' database='dbnode'>
+				select 
+					a.* 
+				from 
+					MRQR_ASSETS a 
+				where 
+					a.ASSET='pASSET';
+		</querystring>
+		<querystring id='IL_MR_I1_TOP_ASSET' database='dbnode'>
+				select 
+					ata.* 
+				from 
+					MRQR_ASSETS_TOP_ASSET ata 
+				where 
+					ata.ASSET='pASSET';
+		</querystring>
+		<querystring id='IL_MR_I1_STATE' database='dbnode'>
+				select 
+					AST.* 
+				from 
+					MRQR_ASSETS_STATES AST 
+				where 
+					AST.ASSET='pASSET';
+		</querystring>	
+		<querystring id='IL_MR_I1_STATE_ESS' database='dbnode'>
+				select 
+					ASE.* 
+				from 
+					MRQR_ASSETS_STATES_ESSENTIAL ASE 
+				where 
+					ASE.ASSET='pASSET';
+		</querystring>
+		<querystring id='IL_MR_I1G_FUNCTION' database='dbnode'>
+			select 
+				f.FUNCTION,
+				f.DESCRIPTION,
+				f.PARENT,
+				f.WSC,
+				(select lc.description from MRQR_LOOKUP_CODES lc where lc.code=f.wsc and lc.type='WSC') WSC_DESC,
+				f.MAN_ORG,
+				f.FICTIVE,
+				f.ESSENTIAL,
+				f.SUPERVISED,
+				concat(f.REPORT_MAINTENANCE,f.REPORT_LOGISTIC,f.REPORT_STATUS) REP_MLS,
+				f.FUEL_NSN,
+				f.CO2_TAX_APPLICABLE
+			from 
+				MRQR_ASSETS a join MRQR_functions f on a.function=f.function
+			where 
+				a.ASSET='pASSET';
+		</querystring>
+		<!--querystring id='IL_MR_I1G_INFRAA' database='dbnode'>
+			select 
+				a.MRC 1ECH, a.PN PLATEAU, a.MFR CRI, left(a.SERIAL,2) PROPERTY
+			from 
+				MRQR_ASSETS a
+			where 
+				a.ASSET='pASSET' and
+				a.function in ('QUARTER','QU-BUILDING');
+		</querystring-->			
+		<querystring id='IL_MR_I1G_AOSAC' database='dbnode'>
+				select 
+					aos.STATUS, aos.STATUSDATE, aos.ORGANISM, aos.WO 
+				from 
+					MRQR_ASSETS_OPERATIONAL_STATUS aos 
+				where 
+					aos.ASSET='pASSET' LIMIT 10;
+		</querystring>
+		<querystring id='IL_MR_I1G_FDC' database='dbnode'>
+				Select 
+				NAME,VALUE,QUALIFIER,UDD_COMMENT,VALIDATION_REQUIRED,VALIDATED
+			from 
+				mrqr_dynamic_characteristics
+			where 
+				DESCRIPTOR_VALUE='pASSET' and UDT_TABLE='ASSETS';
+		</querystring>
+		<querystring id='IL_MR_I1G_METER' database='dbnode'>
+			select 
+				AM.METER,
+				AM.PHYSICAL,
+				AM.LAST,
+				AM.METERDATE,
+				AM.FUEL,
+				AM.CALCULATED
+			from 
+				MRQR_ASSETS_METER AM 
+			where 
+				AM.ASSET='pASSET';
+		</querystring>
+		<querystring id='IL_MR_I1G_READINGS' database='dbnode'>
+			select 
+				date_format(r.READINGDATE, "%Y-%m") YMREA, r.MISSION_CODE_ID MIID, r.meter, sum(R.difference) DVAL   
+			from 
+				MRQR_READINGS r 
+			where 
+				R.ASSET='pASSET' and r.READINGDATE >= ADDDATE(curdate(), -365)  
+			Group by 
+				YMREA, MIID, r.meter;
+		</querystring>
+		<querystring id='IL_MR_I1G_ASSET_COMPONENTS' database='dbnode'>
+			Select  
+				N.DESCRIPTION, N.UTIL_STATUS, ncs.COMPONENT_NSN, ncs.ESSENTIAL, ncs.QTY QTYTH,ac.*,
+				concat(substr(ncs.COMPONENT_NSN,6,2),'/',substr(ncs.COMPONENT_NSN,9,3),substr(ncs.COMPONENT_NSN,13,1),'/',substr(ncs.COMPONENT_NSN,6,2),substr(ncs.COMPONENT_NSN,9,3),substr(ncs.COMPONENT_NSN,13,1),substr(ncs.COMPONENT_NSN,14,5)) NIIN2  
+			from  
+				mrqr_assets a
+				join mrqr_nsn n on n.nsn=a.NSN 
+				join mrqr_nsn_components_set ncs on ncs.NSN = a.NSN 
+				left join MRQR_ASSETS_COMPONENTS ac on (ac.ASSET=a.ASSET and ncs.COMPONENT_NSN=ac.NSN)
+			where 
+				A.ASSET='pASSET';
+		</querystring>
+		<querystring id='IL_MR_I1G_MDR' database='dbnode'>
+			Select 
+				mdr.* 
+			from 
+				MRQR_MDR mdr 
+			where 
+				mdr.ASSET='pASSET' and mdr.STATUS !='C';
+		</querystring>
+		<querystring id='IL_MR_I1G_WARRANTY' database='dbnode'>
+			select 
+				aw.* 
+			from 
+				mrqr_assets_warranties aw
+			where 
+				aw.ASSET='pASSET';
+		</querystring>
+		<querystring id='IL_MR_I1G_CREW_QUALI' database='dbnode'>
+			select	
+				a.ASSET,f.FUNCTION, fc.CREW,fcq.QUALIFICATION, fcq.REMARKS
+			from 
+				mrqr_assets a 
+				JOIN MRQR_FUNCTIONS F on a.`FUNCTION` = f.`FUNCTION`
+				JOIN mrqr_functions_crews fc on fc.FUNCTION = f.FUNCTION
+				JOIN mrqr_functions_crews_qual fcq on fcq.CREW_ID = fc.CREW_ID
+			where  
+				a.ASSET = 'pASSET'
+		</querystring>
+		<querystring id='IL_MR_I1G_WORK' database='dbnode'>
+			select 
+				w.WO, w.ASSET, w.STATUS, w.TYPE, w.WODATE, w.PLANDATE, w.STARTDATE, w.DURATION, w.MRC, w.DEPENDENT_WO, w.MOD, wds.DESCRIPTION  WDES
+			from MRQR_WORK w 
+				left join mrqr_work_description_solution wds on w.wo=wds.wo
+			where 
+				w.ASSET='pASSET' and w.STATUS &lt;&gt; 'C';
+		</querystring>
+		<querystring id='IL_MR_I1G_AWORKO' database='dbnode'>
+			SELECT 
+				w.WO, w.ASSET, w.STATUS, w.TYPE, w.WODATE, w.PLANDATE, w.STARTDATE, w.DURATION, w.MRC, w.DEPENDENT_WO, w.MOD, wds.DESCRIPTION  WDES
+			from 
+				mrqr_assets_top_asset ATA 
+				join mrqr_work w on ata.ASSET=w.ASSET
+				left join mrqr_work_description_solution wds on w.wo=wds.wo
+			where 
+				ata.TOP_ASSET='pASSET' AND
+				w.`STATUS`not in ('A','B','C')
+		</querystring>
+		<querystring id='IL_MR_I1G_WORKC_HMC' database='dbnode'>
+			select 
+				count(wo.WO) NBRWO, wo.HMC, date_format(wo.WODATE, "%Y-%m") YMWO 
+			from 
+				MRQR_WORK wo 
+			where 
+				wo.ASSET='pASSET' and wo.STATUS = 'C' and wo.WODATE >= ADDDATE(curdate(), -365) 
+			group by 
+				YMWO, wo.HMC;
+		</querystring>
+		<querystring id='IL_MR_I1G_WORKC_ATC' database='dbnode'>
+			select 
+				count(wo.WO) NBRWO, wo.ATC, date_format(wo.WODATE, "%Y-%m") YMWO 
+			from 
+				MRQR_WORK wo 
+			where 
+				wo.ASSET='pASSET' and wo.STATUS = 'C' and wo.WODATE >= ADDDATE(curdate(), -365) 
+			group by 
+				YMWO, wo.ATC;
+		</querystring>
+		<querystring id='IL_MR_I1G_LCC' database='dbnode'>
+			Select 
+				year(curdate()) YEAR,aw.C1_WO_Y C1,aw.C2_WO_Y C2,aw.C3_WO_Y C3,aw.C4_WO_Y C4,aw.C5_WO_Y C5,aw.C6_WO_Y C6,aw.C7_WO_Y C7,aw.C8_WO_Y C8,aw.C9_FU_Y C9
+			from 
+				dbn_mr_t_assets_weekly aw
+			where 
+				ASSET='pASSET'
+			UNION
+			Select 
+				year(curdate())-1 YEAR,aw.C1_WO_Y1 C1,aw.C2_WO_Y1 C2,aw.C3_WO_Y1 C3,aw.C4_WO_Y1 C4,aw.C5_WO_Y1 C5,aw.C6_WO_Y1 C6,aw.C7_WO_Y1 C7,aw.C8_WO_Y1 C8,aw.C9_FU_Y1 C9
+			from 
+				dbn_mr_t_assets_weekly aw
+			where 
+				ASSET='pASSET'
+			UNION
+			Select 
+				year(curdate())-2 YEAR,aw.C1_WO_Y2 C1,aw.C2_WO_Y2 C2,aw.C3_WO_Y2 C3,aw.C4_WO_Y2 C4,aw.C5_WO_Y2 C5,aw.C6_WO_Y2 C6,aw.C7_WO_Y2 C7,aw.C8_WO_Y2 C8,aw.C9_FU_Y2 C9
+			from 
+				dbn_mr_t_assets_weekly aw
+			where 
+				ASSET='pASSET'
+			<!--
+			UNION
+			Select 
+				year(curdate())-3 YEAR,aw.C1_WO_Y3 C1,aw.C2_WO_Y3 C2,aw.C3_WO_Y3 C3,aw.C4_WO_Y3 C4,aw.C5_WO_Y3 C5,aw.C6_WO_Y3 C6,aw.C7_WO_Y3 C7,aw.C8_WO_Y3 C8,aw.C9_FU_Y3 C9
+			from 
+				dbn_mr_t_assets_weekly aw
+			where 
+				ASSET='pASSET'
+			-->
+		</querystring>
+		<querystring id='TEMPLATE' database='dbnode'>
+			select 'Yes' Template from dual
+		</querystring>
+		<querystring id='IL_MR_I1_LOCATION' database='dbnode'>
+			select 
+				cmre.seqno ASSSEQNO, cmre.LOC ASSLOC, cmre.LOC_DESC ASSDESC, cmre.ATA ASSIN, cmre.ATD ASSOUT, cmre.GPS_LONGITUDE ASSLONG, cmre.GPS_LATITUDE ASSLAT, 'TRROAD' LOCTYPE  
+			from 
+				MRQR_ASSETS a, MRQR_CARGO_MANIFESTS_ROAD_EFFECTIVE cmre   
+			where 
+				a.ASSET='pASSET' and a.asset=cmre.asset
+			UNION
+			select 
+				999999999 ASSSEQNO, a.LATEST_STORE ASSLOC, o.description ASSDESC, 'N/A' ASSIN, 'N/A' ASSOUT, lg.GPS_LONGITUDE ASSLONG, lg.GPS_LATITUDE ASSLAT, 'LATEST STORE' LOCTYPE    
+			from 
+				MRQR_ASSETS a, MRQR_LOCATIONS_GPS lg, MRQR_ORGANISMS o   
+			where 
+				a.ASSET='pASSET' and a.LATEST_STORE=o.ORGANISM and lg.org = o.organism
+			order by 
+				assseqno desc 
+			limit 
+				0,2	
+		</querystring>
+	</queries>		
+	<parameters>
+		<parameter name='pASSET' value='V80231'/>
+		<parameter name='pRID' value='0'/>
+		<parameter name='pLANG' value='EN'/>	
+	</parameters>
+</dbwebdescriptor>

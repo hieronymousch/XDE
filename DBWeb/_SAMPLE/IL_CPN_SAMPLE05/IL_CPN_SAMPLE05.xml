@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 05</label>
+	<description>FW CPN - SAMPLE 05</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='IL_MR_I1G_FUNCTION' database='dbnode'>
+			select 
+				f.FUNCTION,
+				f.DESCRIPTION,
+				f.PARENT,
+				f.WSC,
+				(select lc.description from MRQR_LOOKUP_CODES lc where lc.code=f.wsc and lc.type='WSC') WSC_DESC,
+				f.MAN_ORG,
+				f.FICTIVE,
+				f.ESSENTIAL,
+				f.SUPERVISED,
+				concat(f.REPORT_MAINTENANCE,f.REPORT_LOGISTIC,f.REPORT_STATUS) REP_MLS,
+				f.FUEL_NSN,
+				f.CO2_TAX_APPLICABLE
+			from 
+				MRQR_ASSETS a join MRQR_functions f on a.function=f.function
+			where 
+				a.ASSET='pASSET'
+			limit 50
+		</querystring>
+		<querystring id='IL_MR_I1G_AOSAC' database='dbnode'>
+				select 
+					aos.STATUS, aos.STATUSDATE, aos.ORGANISM, aos.WO 
+				from 
+					MRQR_ASSETS_OPERATIONAL_STATUS aos 
+				where 
+					aos.ASSET='pASSET' 
+				LIMIT 10
+		</querystring>
+		<querystring id='IL_MR_I1G_METER' database='dbnode'>
+			select 
+				AM.METER,
+				AM.PHYSICAL,
+				AM.LAST,
+				AM.METERDATE,
+				AM.FUEL,
+				AM.CALCULATED
+			from 
+				MRQR_ASSETS_METER AM 
+			where 
+				AM.ASSET='pASSET'
+			limit 50
+		</querystring>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value='10005'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>	
+		
+		<parameter name='pASSET' value='FA005'/>	
+	</parameters>
+</dbwebdescriptor>
