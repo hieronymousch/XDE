@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>EMS OT V2</label>
+	<description>EMS OT V2</description>
+	<queries>
+		<!-- METADATA -->
+		<ws-query id='METADATA' url='http://mrnode.mil.intra/LRF/DBWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pINFO'>pINFO</parameter>
+			<parameter name='pLANG'>pLANG</parameter>
+			<parameter name='pRID'>pRID</parameter>
+		</ws-query>
+		
+		<includeIf paramName="pMODE" matches="Pop-Up"> 
+			<querystring id='OTV2_DETAILS' database='dbnode'>
+				select 
+					aot.*,
+					(select employeeID from ldap where sAMAccountName=aot.callApplicant) matr
+				from 
+					ems_ot_all_ot_calls aot
+				where 
+					aot.callNumber='pCALLEMS' or aot.callID='pCALLEMS'
+			</querystring>
+			<querystring id='OTV2_DETAILS_TRANSITION' database='dbnode'>
+				select 
+					otaot.NewValue Who
+					,substring(otaot.FromDate,1,16) FromDate
+					,substring(otaot.ToDate,1,16) ToDate
+					,DATEDIFF(ifnull(otaot.ToDate,curdate()),otaot.FromDate) Delta
+				from 
+					ems_ot_all_ot_calls aot
+					join ems_ot_all_ot_assignments otaot on aot.callID=otaot.callID
+				where 
+					aot.callNumber='pCALLEMS' or aot.callID='pCALLEMS'
+			</querystring>	
+		</includeIf>
+		<includeIf paramName="pMODE" matches="Main"> 
+			<!-- DATA -->
+			<querystring id='OTV2_DETAILS_2' database='dbnode'>
+				select 
+					aot.*
+				from 
+					dbn_mr_l_mrmgt lm 
+					join ems_ot_workgroups ow on ow.UniqueID=lm.OT_GROUPID
+					join ems_ot_all_ot_assignments oa on oa.NewValue=ow.Title
+					join ems_ot_all_ot_calls aot on aot.callID=oa.CallID
+				where 
+					aot.callNumber='pCALLEMS' or aot.callID='pCALLEMS'
+			</querystring>	
+		</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value='0'/>
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Pop-Up'/>
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pCALLEMS' value=''/>
+	</parameters>
+</dbwebdescriptor>

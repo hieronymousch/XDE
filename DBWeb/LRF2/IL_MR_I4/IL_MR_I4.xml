@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Look-Up</label>
+	<description>Look-Up</description>
+	<queries>
+		<!-- In All Modes -->
+			<querystring id='TEMPLATE' database='dbnode'>
+				select 'Yes' Template from dual
+			</querystring>
+			<querystring id='ORG_Info' database='dbnode'>
+				select 
+					o.* 
+				from 
+					MRQR_ORGANISMS o
+				where 
+					o.ORGANISM ='pORG';
+			</querystring>	
+		<!-- Pop_Up Version -->
+			<includeIf paramName="pMODE" matches="Pop-Up">
+			
+			</includeIf>
+		<!-- Normal Version -->
+			<includeIf paramName="pMODE" matches="Main">
+			
+			</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value='0'/>
+		<parameter name='pLANG' value='EN'/>	
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pORG' value=''/>
+	</parameters>
+</dbwebdescriptor>

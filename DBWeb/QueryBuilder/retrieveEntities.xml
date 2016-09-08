@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Retrieve all entities from DBNode</label>
+	<description>
+		Retrieve all entities from DBNode
+	</description>
+	<queries>
+		<querystring id='ListEntities' database='dbnode'>
+			SELECT
+				is_t.TABLE_SCHEMA AS 'Schema',
+				is_t.TABLE_NAME AS 'Name',
+				is_t.TABLE_TYPE AS 'Type',
+
+			IF (
+				ei.TABLE_NAME IS NULL,
+				'Local',
+				'Datamart'
+			) AS 'Source'
+			FROM
+				information_schema. TABLES AS is_t
+			LEFT JOIN entityinfo ei ON is_t.TABLE_NAME = ei.table_name
+			WHERE
+				is_t.TABLE_SCHEMA = 'dbnode'
+			ORDER BY
+				ei.TABLE_NAME -- limit 30,10
+		</querystring>
+	</queries>
+	<parameters>
+		<parameter name="language" value="N"/>
+	</parameters>
+</dbwebdescriptor>

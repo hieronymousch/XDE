@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Retrieve all joins between tables</label>
+	<description>
+		Retrieve all joins between tables
+	</description>
+	<queries>
+		<querystring id='ListFields' database='dbnode'>		
+			select distinct
+				is_c1.TABLE_NAME as table1,
+				is_c1.COLUMN_NAME as field1,
+				is_c2.TABLE_NAME as table2,
+				is_c2.COLUMN_NAME as field2
+			from `dbnode`.`local_joins` as lj force INDEX (table1,table2)
+			left join information_schema.columns AS is_c1 
+			ON 
+				lj.table1  like is_c1.TABLE_NAME AND
+				lj.field1 like is_c1.COLUMN_NAME AND is_c1.TABLE_SCHEMA='dbnode'
+			 left join information_schema.columns AS is_c2 
+			ON 
+				lj.table2  like is_c2.TABLE_NAME AND
+				lj.field2 like is_c2.COLUMN_NAME AND is_c2.TABLE_SCHEMA='dbnode'
+			where 
+				(<repeat paramName="@TableName1">
+				 lj.table1 like '@TableName1'
+				</repeat>
+				and lj.table2 like '@TableName2')
+			having table1 is not null and field1 is not null and table2 is not null and field2 is not null  
+		</querystring>
+	</queries>
+	<parameters>
+		<parameter name="@TableName1" value=""/>
+		<parameter name="@TableName2" value=""/>
+	</parameters>
+</dbwebdescriptor>

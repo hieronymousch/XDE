@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - SAMPLE 01</label>
+	<description>MR NODE FW2 - SAMPLE 01</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>	
+	<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>PDOSS approval rate</label>
+	<description>Dossiers approval rate</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<includeIf paramName="pMODE" matches="Main"> 
+			<querystring id='SUMMARY' database='dbnode'>
+			Select
+				c.org 'ORGANISM'
+				, month(c.actual_enddate) 'MONTH'
+				, count(D.dossier) 'DOSSIERS'
+			from 
+				mrqr_dos_circlist c  inner join mrqr_dos d on d.dossier_id=c.dossier_id
+				
+			where 
+				c.org='pORGANISM'
+				and c.result='APP'
+				and year(c.actual_enddate)='pYEAR'
+				
+			group by  c.org, month(c.actual_enddate)
+
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pMODE" isInRequest="true" matches="Drill-Down"> 
+			<querystring id='DETAILS' database='dbnode'>
+			Select
+				D.dossier
+				, d.status
+				, d.ordonnateur
+				, d.comments
+				, c.actual_startdate
+				, c.actual_enddate
+				, c.comments 'CircComments'
+			from 
+				mrqr_dos_circlist c  inner join mrqr_dos d on d.dossier_id=c.dossier_id
+				
+			where 
+				c.org='pORGANISM'
+				and c.result='APP'
+				and year(c.actual_enddate)='pYEAR'
+				and month(c.actual_enddate)='pMONTH'
+				
+			group by  month(c.actual_enddate)
+	
+			</querystring>
+		</includeIf>
+		
+		
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='100104'/>
+		<parameter name='pMODE' value='Main'/>				
+		<parameter name='pLANG' value='EN'/>	
+		<parameter name='pINFO' value='IPDT'/>
+		
+		<parameter name='pORGANISM' value=''/>
+		<parameter name='pMONTH' value=''/>
+		<parameter name='pYEAR' value='2015'/>
+		<parameter name='pR1' value='MONTH'/>  <!-- Kolom kop -->
+		
+		<parameter name='pR2' value='MONTH'/>  <!-- Kolom kop -->
+		<parameter name='pC1' value='ORGANISM'/>
+		<parameter name='pGR1' value='MONTH'/>
+		<parameter name='pGR2' value='MONTH'/>
+		<parameter name='pGC1' value='ORGANISM'/>
+		
+	</parameters>
+</dbwebdescriptor>

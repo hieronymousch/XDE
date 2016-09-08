@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - KIM execution</label>
+	<description>MR NODE FW2 - KIM execution</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>
+	
+		<querystring id='IL_MR_KIM' database='dbnode'>
+			select
+				concat('MRN_SPE05#LI',mrqr_pur_req.pr,'#',mrqr_pur_req.pr) DD
+				, mrqr_pur_req.pr
+				, concat('MRN_SPE07#LI',mrqr_pur_req.name_nl,'#',mrqr_pur_req.name_fr) Name
+				, left(mrqr_pur_req.matman,1) 'Sec'
+				, concat('MRN_SPE09#LI','01####',mrqr_pur_req.matman) 'MM'
+				, concat('MRN_SPE09#LI','01##Organism##',mrqr_pur_req.LS) 'LS'
+				, concat('MRN_SPE09#LI','03#Lookup#',mrqr_pur_req_ver.status,'#0',mrqr_pur_req_ver.status) 'Status'
+				, mrqr_pur_req.SPEC_COMPLETE 'SpecOK'
+				, mrqr_pur_req.invest_basis_amount 'InvBas'
+				, mrqr_pur_req.invest_subst_amount 'InvSub'
+				, mrqr_pur_req_ver.pr_version 'Version'
+				, mrqr_pur_req_ver.estimated_price 'VersionEst'
+				, pr_bud.BudgBas
+				, pr_bud.BudgSub
+				, pr_bud.year 'BudgYr'
+			--	, dos_circ.dossier
+			from mrqr_pur_req inner join 
+				(select 
+					pr
+					, pr_version_id id
+					, max(pr_version) pr_max
+				from mrqr_pur_req_ver 
+				where not(status='U') 
+				group by pr
+				)pr_version on mrqr_pur_req.pr=pr_version.pr 
+			inner join mrqr_pur_req_ver on mrqr_pur_req_ver.pr_version=pr_version.pr_max and mrqr_pur_req_ver.pr=pr_version.pr
+			inner join
+				(select	
+					pr
+					, pr_version_id
+					, pr_version_bud_id
+					, sum(amount) 'BudgBas'
+					, sum(substitution_amount) 'BudgSub'
+					, year
+				from mrqr_pur_req_ver_bud 
+				where year='pYEAR'
+				group by pr, pr_version_id,year
+				)pr_bud on pr_bud.pr_version_id=mrqr_pur_req_ver.pr_version_id and pr_bud.year=mrqr_pur_req_ver.year 
+	--		 left join 
+		--		(select mrqr_dos.dossier
+			--		from (select
+				--		mrqr_dos.dossier
+					--	, max(mrqr_dos.dossier_version) dos_max
+					--	from mrqr_dos where not(status in ('C','E','O','U')) and IF('pSECTION'='',true,left(resp_org,1)='pSECTION')
+					--	group by mrqR_dos.dossier) dos_version inner join mrqr_dos on mrqr_dos.dossier=dos_version.dossier and 	
+-- mrqr_dos.dossier_version=dos_version.dos_max inner join mrqr_dos_circlist on mrqr_dos.dossier_id=mrqr_dos_circlist.dossier_id where mrqr_dos_circlist.result='TIC')dos_circ  on dos_circ.dossier=mrqr_pur_req.pr 
+				
+	where mrqr_pur_req.invest_plan_type ='KIM' 
+			and IF('pMATMAN'='',true,mrqr_pur_req.matman='pMATMAN')
+			and IF('pSECTION'='',true,left(mrqr_pur_req.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mrqr_pur_req.matman,1) in ('S','R','A','N'),left(mrqr_pur_req.matman,1) in ('C','I'))
+			</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='0'/>		
+		<parameter name='pLANG' value='NL'/>
+		<parameter name='pMATMAN'/>		
+		<parameter name='pSECTION'/>		
+		<parameter name='pYEAR' value='2015'/>		
+		<parameter name='pMODE' value='Main'/>	
+		<parameter name='pDIVISION' value='Sys'/>					
+	</parameters>
+</dbwebdescriptor>

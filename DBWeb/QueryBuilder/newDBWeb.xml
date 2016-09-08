@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>DBWeb created by Visual QueryBuilder</label>
+	<description>
+		DBWeb created by Visual QueryBuilder
+	</description>
+	<queries>
+		<querystring id='main' database='dbnode'>
+			select 1 as t;
+		</querystring>
+	</queries>
+	<parameters>
+		<parameter name="@query" value=""/>
+	</parameters>
+</dbwebdescriptor>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>OPEN TRANSFERS</label>
+	<description>OPEN TRANSFERS</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>	
+		<querystring id='INV_TRANSFERS' database='dbnode' timeout="30000">
+			Select DISTINCT
+				concat('MRN_SPE09#01##',mto.STORE,'#0#',mto.STORE) STORE,
+				concat('MRN_SPE09#01##',mto.DESTINATION,'#0#',mto.DESTINATION) DEST,
+				concat('MRN_SPE01#SLTRAN&amp;arg1=',mto.TRANSFER) ILIAS,
+				mto.TRANSFER Trf,
+				mto.TYPE,
+				-- concat('MRN_SPE09#03#DSTAT#',mto.TYPE,'#1#',mto.TYPE),
+				mto.REQNO,
+				mto.PURNO,
+				concat('MRN_SPE09#05##',mto.NSN,'#0#',mto.NSN) '______NSN_____',
+				mn.DESCRIPTION,
+				mn.LAST_PRICE,
+				mto.Qty,
+				mto.QTY_RECEIVED,
+				mto.QTY_PLACED,
+				mto.QTY_LOST,
+				date(mto.startdate) STARTDATE,
+				date(mto.Transdate) TRANSDATE,
+				datediff(NOW(),mto.transdate) 'DAYS_OPEN',
+				concat('MRN_SPE09#01##',mto.VIA_STORE,'#0#',mto.VIA_STORE) VIA_STORE,
+				mto.TNINO,
+				substr(mto.sscc,9,16)  SSCC,
+				md.DISCREPANCY, 
+				mat.ASSET
+from 
+	mrqr_transactions_open mto inner join mrqr_nsn mn on mto.nsn=mn.nsn
+	left join mrqr_discrepancies md on mto.tnino=md.tnino
+	left join mrqr_assets_trf mat on mto.transfer=mat.transaction
+where 
+	   (length(replace(replace('pNSN','%',''),'_',''))&gt;=3 
+		OR length(replace(replace('pSTORE','%',''),'_',''))&gt;=2
+		OR length(replace(replace('pDESTINATION','%',''),'_',''))&gt;=2
+		)
+	and IF('pDESTINATION'='',true, mto.destination = 'pDESTINATION')
+	and IF('pSSCC'='',true, mto.sscc like 'pSSCC')	
+	and IF('pNSN'='',true, mto.nsn like 'pNSN')
+	and IF('pSTORE'='',true, mto.store like 'pSTORE')
+	and mto.type in ('I','F','A','U')
+	and IF('pSSCC'='',true, mto.sscc like 'pSSCC')
+	and IF('pTRANSFER'='',true, mto.transfer like 'pTRANSFER')
+	and IF('pDAYSOPEN'='',true, datediff(NOW(),mto.transdate) >'pDAYSOPEN')
+
+			
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10010'/>		
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pMODE' value='Main'/>		
+			
+		<parameter name='pSTORE'/>	
+		<parameter name='pDESTINATION' />	
+		<parameter name='pSSCC' />	
+		<parameter name='pREQNO' />
+		<parameter name='pNSN' />	
+		<parameter name='pTRANSFER' />
+		<parameter name='pDAYSOPEN' />		
+	</parameters>
+</dbwebdescriptor>

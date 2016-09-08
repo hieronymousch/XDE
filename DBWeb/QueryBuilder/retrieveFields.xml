@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Retrieve all fields from an entity from DBNode</label>
+	<description>
+		Retrieve all fields from an entity from DBNode
+	</description>
+	<queries>
+		<querystring id='ListFields' database='dbnode'>
+			SELECT 
+				is_c.TABLE_NAME AS 'Table',
+				is_c.COLUMN_NAME AS 'Name',
+				is_c.IS_NULLABLE AS 'Nullable',
+				is_c.COLUMN_TYPE AS 'DataType',
+				is_c.COLUMN_COMMENT AS 'Comment',
+				GROUP_CONCAT(CONCAT(is_s.INDEX_NAME,'(',SEQ_IN_INDEX,')') SEPARATOR ';') AS 'Index'
+			FROM 
+				information_schema.columns AS is_c
+				LEFT JOIN information_schema.statistics is_s
+				ON 
+					is_s.TABLE_SCHEMA=is_c.TABLE_SCHEMA AND
+					is_s.TABLE_NAME  = is_c.TABLE_NAME AND
+					is_s.COLUMN_NAME=is_c.COLUMN_NAME
+			WHERE 
+				'@TableName' != '' AND
+				is_c.TABLE_SCHEMA='dbnode' AND
+				is_c.TABLE_NAME = '@TableName'
+			GROUP BY is_c.COLUMN_NAME
+		</querystring>
+	</queries>
+	<parameters>
+		<parameter name="@TableName" value=""/>
+	</parameters>
+</dbwebdescriptor>

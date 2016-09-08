@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>I1 - ASSET Id Card</label>
+	<description>I1 - ASSET Id Card</description>
+	<queries>
+		<!-- Pop_Up Version -->
+		<includeIf paramName="pMODE" matches="Pop-Up">
+			<querystring id='NSN' database='dbnode'>
+				select 
+					n.NSN, 
+					n.DESCRIPTION,
+					n.DESCRIPTION_FR,
+					n.DESCRIPTION_NL,
+					concat(substr(n.NSN,6,2),'/',substr(n.NSN,9,3),substr(n.NSN,13,1),'/',substr(n.NSN,6,2),substr(n.NSN,9,3),substr(n.NSN,13,1),substr(n.NSN,14,5)) NIIN
+				from 
+					MRQR_NSN n
+					join MRQR_ASSETS a on a.NSN=n.NSN
+				where 
+					a.asset='pASSET'
+				limit 1
+			</querystring>	
+		</includeIf>
+		<!-- Normal Version -->
+		<includeIf paramName="pMODE" matches="Main">
+			<querystring id='NSN' database='dbnode'>
+				select 
+					n.NSN, 
+					n.DESCRIPTION,
+					n.DESCRIPTION_FR,
+					n.DESCRIPTION_NL,
+					concat(substr(n.NSN,6,2),'/',substr(n.NSN,9,3),substr(n.NSN,13,1),'/',substr(n.NSN,6,2),substr(n.NSN,9,3),substr(n.NSN,13,1),substr(n.NSN,14,5)) NIIN
+				from 
+					MRQR_NSN n
+					join MRQR_ASSETS a on a.NSN=n.NSN
+				where 
+					a.asset='pASSET'
+				limit 1
+			</querystring>	
+		</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pASSET' value='V80231'/>
+		<parameter name='pRID' value='0'/>
+		<parameter name='pLANG' value='EN'/>	
+		<parameter name='pMODE' value='Main'/>	
+	</parameters>
+</dbwebdescriptor>

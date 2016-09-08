@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>TBD</label>
+	<description>TBD</description>
+	<queries>
+		
+		<querystring id='export' database='dbnode'>
+			SELECT
+				'@path' as reportPath,
+				REPLACE(
+					REPLACE(
+						REPLACE("@reportParams","%","%25"),
+						' ','%20'),
+					":","&amp;") as reportFilter,
+				CONCAT('http://localhost/LRF/DBWeb/ProcessDescriptor/descriptor/','@path','.xml') as reportURL
+			FROM DUAL
+			LIMIT 1
+		</querystring>
+	</queries>
+	<parameters>
+		<parameter name='@path' value=''/>
+		<parameter name='@reportParams' value=''/>
+	</parameters>
+</dbwebdescriptor>

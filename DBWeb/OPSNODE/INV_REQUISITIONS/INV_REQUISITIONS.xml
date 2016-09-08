@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>REQUISITIONS</label>
+	<description>REQUISITIONS</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>	
+		<querystring id='INV_REQUISITIONS' database='dbnode' timeout="30000">
+			SELECT distinct
+				-- concat('MRN_SPE05#LI',qry_sscc.SSCC,'#',qry_sscc.SSCC) DD
+				 mr.reqno as 'ReqNo'
+				, concat('MRN_SPE01#SREQ&amp;arg1=',mr.reqno) ILIAS
+				, concat('MRN_SPE09#01##',mr.store,'#0#',mr.store) as 'Store'
+				, mr.req_authority 'BurAnal'
+				, mo.parent as 'Parent'
+				, concat('MRN_SPE09#03#RS#',mr.status,'#1#',mr.status) as 'Status'
+				, mr.type as 'Type'
+				, mr.code as 'Code'
+				, concat('MRN_SPE09#01##',mr.stfrom,'#0#',mr.stfrom) as 'StFrom'
+				, date(mr.reqdate) as '_ReqDate_'
+				, datediff(now(),mr.reqdate) as 'Age'
+				, mr.wo as 'WO'
+				, mr.pur_org as 'PurOrg'
+				, mr.remark as 'Comments'
+				, concat('MRN_SPE09#05##',mr_nsn.nsn,'#1#',mr_nsn.nsn) '______NSN______'
+				, mn.hazard as 'Hazard'
+				, mn.un_code as 'UN-Code'
+				, round(mr_nsn.qty,0) as 'Req_Qty'
+				, round(mr_nsn.issqty,0) as 'Iss_Qty'
+				, round(mr_nsn.recqty,0) as 'Rec_Qty'
+				, concat('MRN_SPE02#10010&amp;p|TRANSFER=',qry_sscc.transfer,'#',qry_sscc.transfer) Transfer
+				, concat('MRN_SPE20#http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF/IL_MR_SSCC/IL_MR_SSCC_DETAIL.xml?p|RID=15&amp;p|SSCC=',qry_sscc.SSCC,'#_blank#8#',qry_sscc.SSCC) as 'SSCC'
+				, mr_nsn.unit_price
+				, mn.macode
+				, mn.reap_type
+				<includeIf paramName="pACTIONS" isInRequest="true" matches="on">
+				, mrqr_requisitions_actions.text Actions
+				</includeIf>
+			FROM mrqr_requisitions mr
+				inner join mrqr_organisms mo on mo.organism=left(mr.store,2)
+				
+				<includeIf paramName="pMISSIONCODE" isInRequest="true" matches="df">
+					inner join mrqr_mission_codes mmc on mr.mission_code_id=mmc.mission_code_id
+                </includeIf>
+				left join mrqr_requisitions_nsn mr_nsn on mr.reqno=mr_nsn.reqno 
+				left join mrqr_nsn mn on mr_nsn.nsn=mn.nsn
+				
+				<includeIf paramName="pACTIONS" isInRequest="true" matches="on">
+				left join mrqr_requisitions_actions on mrqr_requisitions_actions.reqno=mr.reqno
+				</includeIf>
+				left join
+					(select distinct 
+						mto.reqno
+						, mto.nsn
+						,mto.transfer
+						, mto.SSCC 
+						, mcms.priority
+					from 
+						mrqr_transactions_open mto left join mrqr_cargo_manifests_sscc mcms on mto.sscc=mcms.sscc
+				where 
+						(length(replace(replace('pNSN','%',''),'_',''))&gt;=3 
+                        OR length(replace(replace('pSTORE','%',''),'_',''))&gt;=2
+                        OR length(replace(replace('pSTFROM','%',''),'_',''))&gt;=2
+                        OR length(replace(replace('pREQNO','%',''),'_',''))&gt;=2
+
+                        OR length(replace(replace('pMACODE','%',''),'_',''))&gt;=2 
+                        OR length(replace(replace('pMISSIONCODE','%',''),'_',''))&gt;=2 
+                        )
+					
+					and if ('pREQNO'='',true,mto.reqno like 'pREQNO')
+					and if ('pSTORE'='',true,mto.destination like 'pSTORE')
+					and if ('pSTFROM'='',true,mto.store like 'pSTFROM')
+					)qry_sscc on mr.reqno=qry_sscc.reqno and mr_nsn.nsn=qry_sscc.nsn
+			where 
+					  (length(replace(replace('pNSN','%',''),'_',''))&gt;=3 
+                        OR length(replace(replace('pSTORE','%',''),'_',''))&gt;=2
+                        OR length(replace(replace('pSTFROM','%',''),'_',''))&gt;=2
+						    OR length(replace(replace('pREQNO','%',''),'_',''))&gt;=2
+                        OR length(replace(replace('pMACODE','%',''),'_',''))&gt;=2 
+                        OR length(replace(replace('pMISSIONCODE','%',''),'_',''))&gt;=2 
+                        )
+				and IF('pREQNO'='',true, mr.reqno like 'pREQNO')	
+				and if ('pTYPE'='',true, mr.type like 'pTYPE')
+				and if ('pSTORE'='',true, mr.store like 'pSTORE')					
+				and if ('pSTFROM'='',true, mr.stfrom like 'pSTFROM')					
+				<includeIf paramName="pSTATUS" isInRequest="true" matches=".+">
+				and
+					<repeat paramName="pSTATUS" separator=";">
+						mr.status like 'pSTATUS'
+					</repeat>
+				</includeIf>	
+				and if ('pNSN'='',true, mr_nsn.nsn ='pNSN')
+				and if ('pMACODE'='',true, mr.macode ='pMACODE')
+				and if ('pPRIO'='',true, mr.code ='pPRIO')
+				and if ('pWO'='',true, mr.wo ='pWO')
+				and if ('pDATESTART'='',true,date(mr.reqdate)&gt;='pDATESTART')
+				and if ('pDATEEND'='',true,date(mr.reqdate)&lt;='pDATEEND')
+				<includeIf paramName="pMISSIONCODE" isInRequest="true" matches=".+">
+				and if ('pMISSIONCODE'='',true, mmc.mission_code like 'pMISSIONCODE')
+				</includeIf>
+				and IF('pHIDE_RECEIVED'='on',mr_nsn.qty>mr_nsn.recqty,true)
+				and IF('pHIDE_ISSUED'='on',mr_nsn.qty>mr_nsn.issqty,true)
+				
+			order by mr.reqno		
+		</querystring>
+
+		
+		
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10014'/>		
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pMODE' value='Main'/>		
+		
+		<parameter name='pSTORE' />	
+		<parameter name='pSTFROM' />	
+		<parameter name='pMISSIONCODE' />	
+		<parameter name='pSTATUS' />	
+		<parameter name='pSSCC' />	
+		<parameter name='pREQNO' />
+		<parameter name='pTYPE' />
+		<parameter name='pNSN' />	
+		<parameter name='pTRANSFER' />
+		<parameter name='pMACODE' />		
+		<parameter name='pPRIO' />		
+		<parameter name='pWO' />		
+		<parameter name='pDATESTART' />		
+		<parameter name='pDATEEND' />	
+		<parameter name='pACTIONS' />	
+		<parameter name='pHIDE_RECEIVED' />	
+		<parameter name='pHIDE_ISSUED' />	
+		
+	</parameters>
+<!--	
+	<INSERT_SQL_REP_MAIN>
+INSERT INTO `dbn_report_main` (`dbn_rep_id`, `dbn_rep_date`, `dbn_rep_name`, `dbn_rep_kpi`, `dbn_rep_visible`, `dbn_rep_special`, `dbn_rep_stat`, `dbn_rep_accept`, `dbn_rep_categ`, `dbn_rep_version`, `dbn_rep_poc`, `dbn_rep_email`, `dbn_rep_status`, `dbn_rep_responsible`, `dbn_rep_type`, `dbn_rep_secure`, `dbn_rep_refresh`, `dbn_rep_node_url`, `dbn_rep_url`, `dbn_rep_application`, `dbn_rep_dom_lev1`, `dbn_rep_dom_lev2`, `dbn_rep_dom_lev3`, `dbn_rep_long_desc_en`, `dbn_rep_long_desc_fr`, `dbn_rep_long_desc_nl`, `dbn_rep_remarks_en`, `dbn_rep_remarks_fr`, `dbn_rep_remarks_nl`, `dbn_rep_url_doc_en`, `dbn_rep_url_doc_fr`, `dbn_rep_url_doc_nl`, `dbn_rep_dbweb`, `dbn_rep_url_ilias`, `dbn_rep_remarks`, `dbn_rep_url_xls`, `dbn_rep_url_pdf`, `dbn_rep_node`) VALUES
+(10014,	'2015-10-27 00:00:00',	'INV_REQUISITIONS',	NULL,	'Y',	NULL,	3,	107,	NULL,	'0.1',	'Jeroen Franssen',	'jeroen.franssen@mil.be',	'New',	'Jeroen Franssen',	'LRF',	'Unsecure',	'',	'http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/',	'OPSNODE/INV_REQUISITIONS/INV_REQUISITIONS.xml',	'',	'Inventory',	'',	'',	'Requisitions',	'Requisitions',	'Requisitions',	'To be filled ...',	'To be filled ...',	'To be filled ...',	'http://icp.idcn.mil.intra/iwiki/bedefnl/index.php/Hoofdpagina',	'http://icp.idcn.mil.intra/iwiki/bedeffr/index.php/Accueil',	'http://icp.idcn.mil.intra/iwiki/bedefnl/index.php/Hoofdpagina',	NULL,	'https://cdcwprdils00.idcn.mil.intra/forms/frmservlet',	NULL,	NULL,	NULL,	'OPS');
+</INSERT_SQL_REP_MAIN>
+
+
+<INSERT_SQL_PARAM>
+INSERT INTO `dbn_report_parameters` (`dbn_repp_param_order`, `dbn_repp_id`, `dbn_repp_parid`, `dbn_repp_param`, `dbn_repp_param_name`, `dbn_repp_param_name_fr`, `dbn_repp_param_name_nl`, `dbn_repp_param_visible`, `dbn_repp_param_type`, `dbn_repp_param_type_detail`, `dbn_repp_param_validation`, `dbn_repp_param_format`, `dbn_repp_param_remark`, `dbn_repp_param_remark_fr`, `dbn_repp_param_remark_nl`, `dbn_repp_param_mandatory`) VALUES
+(NULL,	,	10014,	'pREQNO',	'REQNO',	'REQNO',	'REQNO',	'Y',	'',	NULL,	NULL,	'',	'SREQ number',	'SREQ numéro',	'SREQ nummer',	'N'),
+(NULL,	,	10014,	'pSTORE',	'store',	'store',	'store',	'Y',	'',	NULL,	NULL,	'',	NULL,	NULL,	NULL,	'N'),
+(NULL,	,	10014,	'pSTFROM',	'store from',	'store from',	'store from',	'Y',	'',	NULL,	NULL,	'',	NULL,	NULL,	NULL,	'N'),
+(NULL,	,	10014,	'pMACODE',	'MACODE',	'MACODE',	'MACODE',	'Y',	'',	NULL,	NULL,	'',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pNSN',	'NSN',	'NSN',	'NSN',	'Y',	'',	NULL,	NULL,	'',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pWO',	'Workorder',	'Workorder',	'Workorder',	'Y',	'',	NULL,	NULL,	'',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pSTATUS',	'Status',	'Status',	'Status',	'Y',	'drop-down',	'\'\',\'All\',\'A;O;P;R;S;U;W\',\'Active\'',	NULL,	'',	'Status van de SREQ',	'Statut du SREQ',	'Status van de SREQ',	'N'),
+(NULL,	,	10014,	'pTYPE',	'Type ',	'Type ',	'Type ',	'Y',	'drop-down',	'\'\',\'All\',\'A\',\'A	AUTOMATIC\',\'B\',\'B	SEMI-AUTOMATIC\',\'C\',\'C	RETURN FROM INT\',\'D\',\'D	PRICE AND AVAIL\',\'G\',\'G	PROGRAMMED\',\'H\',\'H	RDSTAT REQUISIT\',\'I\',\'I	ORDER OF ISSUE\',\'P\',\'P	PRIO\',\'Q\',\'Q	AUTOMATIC REQUE\',\'R\',\'R	ROUTINE\',\'S\',\'S	AUTOMATIC DISTR\',\'T\',\'T	AUTOMATIC REPLA\'',	NULL,	'',	'Type van de SREQ',	'Type du SREQ',	'Type van de SREQ',	'N'),
+(NULL,	,	10014,	'pPRIO',	'Prio Type ',	'Prio Type ',	'Prio Type ',	'Y',	'drop-down',	'\'\',\'All\',\'00\',\'00 Highest Ops Pri\',\'01\',\'01 Ops Prio SREQ\',\'02\',\'02	TECHNICAL RELEA\',\'03\',\'03	OTHER STRAT. MA\',\'06\',\'06	FMS\',\'13\',\'13	FMS\',\'1G\',\'1G	TOPASSET GROUND\',\'1M\',\'1M	TOPASSET\',\'1W\',\'1W	INCAP WAR O\',\'M1\',\'M1	MISSION<48H\',\'M2\',\'M2 MISSION>48H\',\'MI\',\'MICAP\',\'MS\',\'MESS\',\'XX\',\'OBSOLETE\'',	NULL,	'',	'Prio van de SREQ',	'Prio du SREQ',	'Prio van de SREQ',	'N'),
+(NULL,	,	10014,	'pMISSION',	'Mission code',	'Mission code',	'Mission code',	'Y',	'',	'',	NULL,	'',	'Mission code',	'Mission code',	'Mission code',	'N'),
+(NULL,	,	10014,	'pDATESTART',	'Date start',	'Date start',	'Date start',	'Y',	'',	'',	NULL,	'datepicker',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pDATEEND',	'Date End',	'Date End',	'Date End',	'Y',	'',	'',	NULL,	'datepicker',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pACTIONS',	'Show Actions',	'Show Actions',	'Show Actions',	'Y',	'checkbox',	'',	NULL,	'',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pHIDE_RECEIVED',	'Hide Received Art',	'Hide Received Art',	'Hide Received Art',	'Y',	'checkbox',	'',	NULL,	'',	'',	'',	'',	'N'),
+(NULL,	,	10014,	'pHIDE_ISSUED',	'Hide Issued Art',	'Hide Issued Art',	'Hide Issued Art',	'Y',	'checkbox',	'',	NULL,	'',	'',	'',	'',	'N');
+</INSERT_SQL_PARAM>
+
+<INSERT_SQL_VIEW>
+INSERT INTO `dbn_report_views` (`dbn_repv_id`, `dbn_repv_parid`, `dbn_repv_viewname`, `dbn_repv_source`) VALUES
+(,	10014,	'MRQR_NSN',	'DM'),
+(,	10014,	'MRQR_REQUISITIONS',	'DM'),
+(,	10014,	'MRQR_REQUISITIONS_NSN',	'DM'),
+(,	10014,	'mrqr_organisms',	'DM'),
+(,	10014,	'mrqr_mission_codes',	'DM'),
+(,	10014,	'mrqr_requisitions_actions',	'DM'),
+(,	10014,	'mrqr_transactions_open',	'DM'),
+(,	10014,	'mrqr_cargo_manifests_sscc',	'DM');
+</INSERT_SQL_VIEW>
+-->
+
+</dbwebdescriptor>

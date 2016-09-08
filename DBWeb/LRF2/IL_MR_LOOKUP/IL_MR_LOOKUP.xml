@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Look-Up</label>
+	<description>Look-Up</description>
+	<queries>
+		<!-- Pop_Up Version -->
+		<includeIf paramName="pMODE" matches="Pop-Up">
+			<querystring id='LOOKUP_CODE_Info' database='dbnode'>
+				select 
+					lc.*
+				from 
+					MRQR_LOOKUP_CODES lc  
+				where 
+					lc.CODE ='pCODE'
+					and lc.TYPE = 'pTYPE'
+			</querystring>
+		</includeIf>
+		<!-- Normal Version -->
+		<includeIf paramName="pMODE" matches="Main">
+			<!-- METADATA -->
+			<ws-query id='METADATA' url='http://mrnode.mil.intra/LRF/DBWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+				<parameter name='pINFO'>pINFO</parameter>
+				<parameter name='pLANG'>pLANG</parameter>
+				<parameter name='pRID'>pRID</parameter>
+			</ws-query>
+			<!-- DATA -->
+			<querystring id='To Be Filled' database='dbnode'>
+				select 'Yes' Template from dual
+			</querystring>
+		</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pRID' value='322'/>
+		<parameter name='pLANG' value='EN'/>	
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pCODE' value="M"/>
+		<parameter name='pTYPE' value="SSCCSTATUS"/>
+	</parameters>
+</dbwebdescriptor>

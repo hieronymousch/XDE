@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>REDIR</label>
+	<description>REDIR</description>
+	<queries>
+		<!-- METADATA -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<querystring id='Logging' database='dbnode'>
+			select 
+				concat('MRN_SPE04#L#MRN_SPE06#10#',left(dbn_repl_date,10))  Date,
+				dbn_repl_ver Ver,
+				concat('MRN_SPE04#L#MRN_SPE06#10#',dbn_repl_by) Modifier,
+				dbn_repl_type Type, 
+				dbn_repl_ems EMSv2,
+				concat('MRN_SPE04#L#MRN_SPE06#40#',dbn_repl_what) Modification
+			from 
+				dbn_report_logging
+			where 
+				dbn_repl_parid='pRID'
+			order by 
+				dbn_repl_date desc
+			limit 0,5
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value=''/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>
+		<!-- Only For Pillar Node Authentication
+		<parameter name="pUSER" value='' overrulingvalue="$auth('sAMAccountName')" toUppercase='true'/>	
+		-->	
+	</parameters>
+</dbwebdescriptor>

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR Node - METADATA</label>
+	<description>REPORT METADATA</description>
+	<queries>
+		<includeIf paramName="pcINFO" matches=".*I.*"> 
+			<querystring id='Report_Info' database='dbnode'>
+				select distinct  
+					r.*,count(v.dbn_repv_viewname) Views_Used, ifnull(min(e.Ref_Status),'OK') Extr_Status 
+				from 
+					dbn_report r 
+					left join dbn_report_views v on v.dbn_repv_parid = r.dbn_rep_id
+					left join dbn_entities e on v.dbn_repv_viewname = e.ViewName
+				where 
+					if('pcKPI'='',if('pcRID'='',r.dbn_rep_id='0',r.dbn_rep_id ='pcRID'),r.dbn_rep_kpi='pcKPI')
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*P.*"> 
+			<querystring id='Report_Prompt' database='dbnode'>
+				select 
+					rp.* 
+				from 
+					dbn_report r join dbn_report_parameters rp on r.dbn_rep_id=rp.dbn_repp_parid
+				where 
+					if('pcKPI'='',if('pcRID'='',r.dbn_rep_id='0',r.dbn_rep_id ='pcRID'),r.dbn_rep_kpi='pcKPI')
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*K.*"> 
+			<querystring id='KPI' database='dbnode'>
+				select 
+					kpi.*
+				from 
+					dbn_dwh_kpi kpi
+				where
+					kpi.kpid_code='pcKPI'
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*D.*"> 
+			<querystring id='DATA_DICTIONARY' database='dbnode'>
+				SELECT
+					MIN(dd.LANG) LANG,
+					MIN(dd.REPID) REPID,
+					MIN(dd.MODE) MODE,
+					MIN(dd.KPI) KPI,
+					MIN(dd.NAME) NAME,
+					MIN(dd.FIELD_NAME) FIELD_NAME,
+					MIN(dd.COLUMN_DATA) COLUMN_DATA,
+					MIN(dd.HINT_NO) HINT_NO,
+					MIN(dd.COMMENT) COMMENT,
+					MIN(REPLACE(dd.HINT, '#', '')) HINT,
+					GROUP_CONCAT(DISTINCT dd.FUNCTION SEPARATOR ', ') FUNCTION,
+					GROUP_CONCAT(DISTINCT dd.VIEWNAME SEPARATOR ', ') VIEWNAME,
+					MIN(dd.POPUP) POPUP
+				FROM
+					dbn_v_DataDictionary dd
+				WHERE
+					dd.lang='pcLANG' and 
+					dd.HINT_NO is NULL and
+					<includeIf paramName="pcRID" matches="">
+						(if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')) or dd.repid=9999)
+					</includeIf>
+					<includeIf paramName="pcRID" doesntMatch="">
+						(dd.repid=pcRID or dd.repid=9999)
+					</includeIf>
+				Group by
+					dd.REPID,dd.FIELD_NAME
+					<!--(if(pcRID=0,if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')),dd.repid=pcRID) or dd.repid=9999)-->
+				UNION
+				SELECT
+					MIN(dd.LANG) LANG,
+					MIN(dd.REPID) REPID,
+					MIN(dd.MODE) MODE,
+					MIN(dd.KPI) KPI,
+					MIN(dd.NAME) NAME,
+					MIN(dd.FIELD_NAME) FIELD_NAME,
+					MIN(dd.COLUMN_DATA) COLUMN_DATA,
+					MIN(dd.HINT_NO) HINT_NO,
+					MIN(dd.COMMENT) COMMENT,
+					MIN(REPLACE(dd.HINT, '#', '')) HINT,
+					GROUP_CONCAT(DISTINCT dd.FUNCTION SEPARATOR ', ') FUNCTION,
+					GROUP_CONCAT(DISTINCT dd.VIEWNAME SEPARATOR ', ') VIEWNAME,
+					MIN(dd.POPUP) POPUP
+				FROM
+					dbn_v_DataDictionary dd
+					join dbn_v_datadicsub dds on dds.dbn_rep_id=dd.REPID and dds.ddview=dd.VIEWNAME
+				WHERE
+					dd.lang='pcLANG' and 
+					dd.HINT_NO is not NULL and 
+					<includeIf paramName="pcRID" matches="">
+						(if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')) or dd.repid=9999)
+					</includeIf>
+					<includeIf paramName="pcRID" doesntMatch="">
+						(dd.repid=pcRID or dd.repid=9999)
+					</includeIf>
+				Group by
+					dd.REPID,dd.FIELD_NAME
+					<!--(if(pcRID=0,if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')),dd.repid=pcRID) or dd.repid=9999)-->
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*T.*"> 
+			<querystring id='TEMPLATE' database='dbnode'>
+				select 'Yes' Template from dual
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*S.*"> 
+			<querystring id='ILIAS_GROUP' database='dbnode'>
+				select
+					pu.MENU_GROUP,
+					pu.STARTDATE,
+					pu.ENDDATE,
+					pu.ORG,
+					pu.MRC,
+					pu.STORE,
+					CASE
+						when DATEDIFF(CURDATE(),pu.STARTDATE) >0 and pu.ENDDATE is null then 'YES'
+						when CURDATE() between pu.STARTDATE and pu.ENDDATE then 'YES'
+						else 'NO'
+					END ACTIVE
+				from
+					mrqr_persons_userinfo pu
+				where
+					pu.login='pcCDN'
+				HAVING
+					ACTIVE='YES'
+			</querystring>
+			<querystring id='ILIAS_USER' database='dbnode'>
+				select distinct
+					p.*
+				from
+					mrqr_persons_userinfo pu
+					join mrqr_persons p on p.IDNR=pu.IDNR
+				where
+					pu.login='pcCDN'
+			</querystring>
+			<querystring id='NODE_SECURITY' database='dbnode'>
+				select
+					'Group' alevel, rgu.dbn_repgu_idcn, rg.dbn_repg_usergroup, r.dbn_rep_name, r.dbn_rep_id, r.dbn_rep_secure, rgr.dbn_repg_level
+				from
+					dbn_report_group_users rgu
+					join dbn_report_group rg on rg.dbn_repg_id=rgu.dbn_repgu_pargroupid
+					join dbn_report_group_report rgr on rgr.dbn_repg_id=rg.dbn_repg_id
+					join dbn_report r on r.dbn_rep_id=rgr.dbn_repg_parid
+				where
+					rgu.dbn_repgu_idcn='pcCDN' and r.dbn_rep_id='pcRID'
+				UNION
+				SELECT
+					'INDIV', ru.dbn_repu_idcn, 'N/A', r.dbn_rep_name, r.dbn_rep_id, r.dbn_rep_secure, ru.dbn_repgu_level
+				FROM
+					dbn_report_users ru
+					join dbn_report r on r.dbn_rep_id=ru.dbn_repu_parid
+				WHERE
+					ru.dbn_repu_idcn='pcCDN' and r.dbn_rep_id='pcRID'
+			</querystring>
+			<querystring id='NISM' database='dbnode'>
+				SELECT
+					nop.dbn_o_object_name, nop.PermGroup
+				FROM
+					dbn_v_node_object_permission nop
+				WHERE
+					nop.dbn_ogu_cdn='pcCDN'
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*U.*">
+			<querystring id='USER' database='dbnode'>
+				select
+					l.*
+				from
+					ldap l
+				where
+					l.sAMAccountName='pcCDN'
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pcINFO" matches=".*G.*"> 
+			<querystring id='ALL_DATA_DICTIONARY' database='dbnode'>
+				SELECT
+					MIN(dd.LANG) LANG,
+					MIN(dd.REPID) REPID,
+					MIN(dd.MODE) MODE,
+					MIN(dd.KPI) KPI,
+					MIN(dd.NAME) NAME,
+					MIN(dd.FIELD_NAME) FIELD_NAME,
+					MIN(dd.COLUMN_DATA) COLUMN_DATA,
+					MIN(dd.HINT_NO) HINT_NO,
+					MIN(dd.COMMENT) COMMENT,
+					MIN(REPLACE(dd.HINT, '#', '')) HINT,
+					GROUP_CONCAT(DISTINCT dd.FUNCTION SEPARATOR ', ') FUNCTION,
+					GROUP_CONCAT(DISTINCT dd.VIEWNAME SEPARATOR ', ') VIEWNAME,
+					MIN(dd.POPUP) POPUP
+				FROM
+					dbn_v_DataDictionary dd
+				WHERE
+					dd.HINT_NO is NULL and
+					<includeIf paramName="pcRID" matches="">
+						(if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')) or dd.repid=9999)
+					</includeIf>
+					<includeIf paramName="pcRID" doesntMatch="">
+						(dd.repid=pcRID or dd.repid=9999)
+					</includeIf>
+				Group by
+					dd.REPID,dd.FIELD_NAME
+					<!--(if(pcRID=0,if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')),dd.repid=pcRID) or dd.repid=9999)-->
+				UNION
+				SELECT
+					MIN(dd.LANG) LANG,
+					MIN(dd.REPID) REPID,
+					MIN(dd.MODE) MODE,
+					MIN(dd.KPI) KPI,
+					MIN(dd.NAME) NAME,
+					MIN(dd.FIELD_NAME) FIELD_NAME,
+					MIN(dd.COLUMN_DATA) COLUMN_DATA,
+					MIN(dd.HINT_NO) HINT_NO,
+					MIN(dd.COMMENT) COMMENT,
+					MIN(REPLACE(dd.HINT, '#', '')) HINT,
+					GROUP_CONCAT(DISTINCT dd.FUNCTION SEPARATOR ', ') FUNCTION,
+					GROUP_CONCAT(DISTINCT dd.VIEWNAME SEPARATOR ', ') VIEWNAME,
+					MIN(dd.POPUP) POPUP
+				FROM
+					dbn_v_DataDictionary dd
+					join dbn_v_datadicsub dds on dds.dbn_rep_id=dd.REPID and dds.ddview=dd.VIEWNAME
+				WHERE
+					dd.HINT_NO is not NULL and 
+					<includeIf paramName="pcRID" matches="">
+						(if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')) or dd.repid=9999)
+					</includeIf>
+					<includeIf paramName="pcRID" doesntMatch="">
+						(dd.repid=pcRID or dd.repid=9999)
+					</includeIf>
+				Group by
+					dd.REPID,dd.FIELD_NAME
+					<!--(if(pcRID=0,if('pcKPI'='',dd.repid=0,dd.KPI in('pcKPI')),dd.repid=pcRID) or dd.repid=9999)-->
+			</querystring>
+		</includeIf>
+	</queries>	
+	<parameters>
+		<parameter name='pcINFO' value='IPKDTSUMG'/> <!-- I(nfo)-P(rompts)-K(PI)-D(atadic)-T(emplate)-S(ecurity)-U(ser)-M(ISM)-G(Generate DataDic) -->
+		<parameter name='pcKPI' value=''/>
+		<parameter name='pcRID' value='0'/>		
+		<parameter name='pcLANG' value='EN'/>		
+		<parameter name="pcCDN" value='' toUppercase="true"/>
+	</parameters>
+</dbwebdescriptor>

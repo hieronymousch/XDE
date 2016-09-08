@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>DB Node Status</label>
+	<description>Extractions DB Node Status</description>
+	<queries>
+		<!-- Pop_Up Version -->
+		<includeIf paramName="pMODE" matches="Pop-Up">
+			<querystring id='NSN' database='dbnode'>
+				select 
+					NSN, 
+					DESCRIPTION,
+					DESCRIPTION_FR,
+					DESCRIPTION_NL,
+					concat(substr(NSN,6,2),'/',substr(NSN,9,3),substr(NSN,13,1),'/',substr(NSN,6,2),substr(NSN,9,3),substr(NSN,13,1),substr(NSN,14,5)) NIIN
+				from 
+					MRQR_NSN
+				where 
+					NSN='pNSN'
+				limit 1
+			</querystring>	
+		</includeIf>
+		<!-- Normal Version -->
+		<includeIf paramName="pMODE" matches="Main">
+			<querystring id='IL_MR_I2_SPART' database='dbnode'>
+				Select 
+					n.*, 
+					concat(substr(n.NSN,6,2),'/',substr(n.NSN,9,3),substr(n.NSN,13,1),'/',substr(n.NSN,6,2),substr(n.NSN,9,3),substr(n.NSN,13,1),substr(n.NSN,14,5)) NIIN
+				 from 
+				 	MRQR_NSN n
+				 where 
+				 	n.NSN='pNSN'
+			</querystring>
+			<querystring id='TEMPLATE' database='dbnode'>
+				select 'Yes' Template from dual
+			</querystring>
+		</includeIf>
+	</queries>	
+	<parameters>
+		<parameter name='pNSN' value="7025-01-536-2525"/>
+		<parameter name='pRID' value='2'/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pMODE' value='Main'/>	
+	</parameters>
+</dbwebdescriptor>

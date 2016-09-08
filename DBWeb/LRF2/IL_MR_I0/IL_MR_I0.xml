@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>I0 - Person Id Card</label>
+	<description>I0 - Person Id Card</description>
+	<queries>
+		<!-- Pop-Up Mode -->
+		<includeIf paramName="pMODE" matches="Pop-Up">
+			<querystring id='IL_MR_I0G_LDAP' database='dbnode'>
+				select
+					l.name,
+					l.givenName,
+					l.sn,
+					l.employeeID,
+					l.employeeType,
+					l.title,
+					l.description,
+					l.department,
+					l.company,
+					l.telephoneNumber,
+					l.facsimileTelephoneNumber,
+					l.homePhone,
+					l.mobile,
+					l.otherTelephone,
+					l.otherMobile,
+					l.otherHomePhone,
+					l.ST,
+					l.Mail,
+					l.physicalDeliveryOfficeName,
+					l.streetAddress,
+					l.postalCode,
+					l.L,
+					l.sAMAccountName,
+					l.houseIdentifier,
+					l.info,
+					l.showInAddressBook,
+					l.displayName
+				from
+					ldap l
+				where
+					<includeIf paramName="pTYPE" matches="03">
+						l.sAMAccountName='pIDENTIFIER'
+					</includeIf>
+					<includeIf paramName="pTYPE" matches="02">
+						l.employeeID='pIDENTIFIER'
+					</includeIf>
+			</querystring>		
+			<querystring id='IL_MR_I0G_MPERS' database='dbnode'>
+				select distinct
+					p.IDNR,
+					p.ARMY_NUMBER,
+					p.NAME,
+					p.FIRSTNAME,
+					p.TYPE,
+					p.SEX,
+					p.Language,
+					p.ORGANISM,
+					p.CPS_CLIENT,
+					p.CPS_DOMAIN,
+					p.CATEGORY,
+					p.TITLE,
+					p.BEGINDATE,
+					p.ENDDATE,
+					p.TEL,
+					p.FAX,
+					p.NAME_PROSPECTION,
+					p.ABBREVIATION,
+					p.EMAIL,
+					p.PUR_OFF1,
+					p.PUR_OFF2,
+					p.BUYER
+				from
+					mrqr_persons_userinfo pu
+					join mrqr_persons p on p.IDNR=pu.IDNR
+				where
+					<includeIf paramName="pTYPE" matches="01">
+						p.IDNR='pIDENTIFIER'
+					</includeIf>
+					<includeIf paramName="pTYPE" matches="02">
+						p.ARMY_NUMBER='pIDENTIFIER'
+					</includeIf>
+					<includeIf paramName="pTYPE" matches="03">
+						pu.LOGIN='pIDENTIFIER'
+					</includeIf>
+			</querystring>
+			<querystring id='IL_MR_I0G_MUSER' database='dbnode'>
+				select
+					pu.IDNR,
+					pu.LOGIN,
+					pu.STARTDATE,
+					pu.ENDDATE,
+					pu.MENU_GROUP,
+					pu.ORG,
+					pu.MRC,
+					pu.STORE,
+					pu.LDAP_AUTHENTICATION,
+					pu.ASSO_ENABLED,
+					pu.LAST_LOGIN,
+					CASE
+						when DATEDIFF(CURDATE(),pu.STARTDATE) >0 and pu.ENDDATE is null then 'YES'
+						when CURDATE() between pu.STARTDATE and pu.ENDDATE then 'YES'
+						else 'NO'
+					END ACTIVE
+				from
+					mrqr_persons_userinfo pu
+					join mrqr_persons p on p.IDNR=pu.IDNR
+				where
+					<includeIf paramName="pTYPE" matches="01">
+						p.IDNR='pIDENTIFIER'
+					</includeIf>
+					<includeIf paramName="pTYPE" matches="02">
+						p.ARMY_NUMBER='pIDENTIFIER'
+					</includeIf>
+					<includeIf paramName="pTYPE" matches="03">
+						pu.LOGIN='pIDENTIFIER'
+					</includeIf>
+				HAVING
+					ACTIVE='YES'
+			</querystring>
+		</includeIf>
+		<!-- Main Mode -->
+		<includeIf paramName="pMODE" matches="Main">
+			<querystring id='IL_MR_I0G_LDAP' database='dbnode'>
+				select
+					l.name,
+					l.givenName,
+					l.sn,
+					l.employeeID,
+					l.employeeType,
+					l.title,
+					l.description,
+					l.department,
+					l.company,
+					l.telephoneNumber,
+					l.facsimileTelephoneNumber,
+					l.homePhone,
+					l.mobile,
+					l.otherTelephone,
+					l.otherMobile,
+					l.otherHomePhone,
+					l.ST,
+					l.Mail,
+					l.physicalDeliveryOfficeName,
+					l.streetAddress,
+					l.postalCode,
+					l.L,
+					l.sAMAccountName,
+					l.houseIdentifier,
+					l.info,
+					l.showInAddressBook,
+					l.displayName
+				from
+					ldap l
+				where
+					l.sAMAccountName='pIDENTIFIER' or
+					l.employeeID='pIDENTIFIER'
+			</querystring>
+			<querystring id='IL_MR_I0G_MPERS' database='dbnode'>
+				select distinct
+					p.IDNR,
+					p.ARMY_NUMBER,
+					p.NAME,
+					p.FIRSTNAME,
+					p.TYPE,
+					p.SEX,
+					p.Language,
+					p.ORGANISM,
+					p.CPS_CLIENT,
+					p.CPS_DOMAIN,
+					p.CATEGORY,
+					p.TITLE,
+					p.BEGINDATE,
+					p.ENDDATE,
+					p.TEL,
+					p.FAX,
+					p.NAME_PROSPECTION,
+					p.ABBREVIATION,
+					p.EMAIL,
+					p.PUR_OFF1,
+					p.PUR_OFF2,
+					p.BUYER
+				from
+					mrqr_persons_userinfo pu
+					join mrqr_persons p on p.IDNR=pu.IDNR
+				where
+					p.IDNR='pIDENTIFIER' or
+					pu.LOGIN='pIDENTIFIER' or
+					p.ARMY_NUMBER='pIDENTIFIER'
+			</querystring>
+			<querystring id='IL_MR_I0G_MUSER' database='dbnode'>
+				select
+					pu.IDNR,
+					pu.LOGIN,
+					pu.STARTDATE,
+					pu.ENDDATE,
+					pu.MENU_GROUP,
+					pu.ORG,
+					pu.MRC,
+					pu.STORE,
+					pu.LDAP_AUTHENTICATION,
+					pu.ASSO_ENABLED,
+					pu.LAST_LOGIN,
+					CASE
+						when DATEDIFF(CURDATE(),pu.STARTDATE) >0 and pu.ENDDATE is null then 'YES'
+						when CURDATE() between pu.STARTDATE and pu.ENDDATE then 'YES'
+						else 'NO'
+					END ACTIVE
+				from
+					mrqr_persons_userinfo pu
+					join mrqr_persons p on p.IDNR=pu.IDNR
+				where
+					pu.login='pIDENTIFIER' or
+					pu.IDNR='pIDENTIFIER' or
+					p.ARMY_NUMBER='pIDENTIFIER'
+				HAVING
+					ACTIVE='YES'
+			</querystring>
+		</includeIf>
+
+	</queries>		
+	<parameters>
+		<parameter name='pIDENTIFIER' value=''/>
+		<parameter name='pTYPE' value=''/>
+		<parameter name='pRID' value='0'/>
+		<parameter name='pLANG' value='EN'/>	
+		<parameter name='pMODE' value='Main'/>	
+	</parameters>
+</dbwebdescriptor>

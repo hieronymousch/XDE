@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Report List</label>
+	<description>List of Reports on Node</description>
+	<queries>	
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<includeIf paramName="pMODE" matches="Main">  
+			<querystring id='REP_LIST' database='dbnode'>
+				select
+					concat('MRN_SPE05#TAB01_',r.dbn_rep_id,'#',r.dbn_rep_id) DD,
+					concat('MRN_SPE04#L#',r.dbn_rep_name) dbn_rep_name,
+					concat('MRN_SPE20#',REPLACE(r.dbn_rep_node_url,'/XMLWeb/','/DBWeb/'),r.dbn_rep_url,'#_blank#0#DBWeb') DBWeb,
+					concat('MRN_SPE04#L#',r.dbn_rep_long_desc_fr) dbn_rep_desc_fr,
+					concat('MRN_SPE04#L#',r.dbn_rep_long_desc_nl) dbn_rep_desc_nl,
+					concat('MRN_SPE04#L#',r.dbn_rep_long_desc_en) dbn_rep_desc_en,
+					count(v.dbn_repv_id) View_Used,
+					concat('MRN_SPE02#',r.dbn_rep_id,'#Prompts') Prompts,
+					concat('MRN_SPE20#',r.dbn_rep_node_url,r.dbn_rep_url,'?p|LA|NG=pLANG&amp;p|RI|D=',r.dbn_rep_id,'#_blank#0#Go') Report,
+					concat('MRN_SPE20#',r.dbn_rep_url_doc_fr,'#_blank#0#DocFr') Doc_fr,
+					concat('MRN_SPE20#',r.dbn_rep_url_doc_nl,'#_blank#0#DocNl') Doc_nl
+				from 
+					dbn_report r 
+					left join dbn_report_views v on v.dbn_repv_parid = r.dbn_rep_id 
+					left join dbn_entities e on v.dbn_repv_viewname = e.ViewName
+				where 
+					if('pSTATUS'='',true,ifnull(r.dbn_rep_status,'UNK')='pSTATUS') and
+					if('pMRNTABLE'='',true,e.ViewName = 'pMRNTABLE') and
+					if('pTYPE'='',true,ifnull(r.dbn_rep_special,'REPORT')='pTYPE')
+				group by 
+					r.dbn_rep_id
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pMODE" isInRequest="true" matches="Drill-Down2"> 
+			<querystring id='REP_DETAILS' database='dbnode'>
+				select 
+					r.* 
+				from 
+					dbn_report r
+				where 
+					r.dbn_rep_id='pIDRID'
+			</querystring>
+			<querystring id='REP_VIEWS' database='dbnode'>
+				select 
+					concat('MRN_SPE04#L#',v.dbn_repv_viewname) dbn_repv_viewname,
+					e.Extr_Status,
+					e.Source,
+					e.BEGIN_DELTA,
+					e.END_DELTA
+				from 
+					dbn_report_views v left join dbn_entities e on v.dbn_repv_viewname = e.ViewName
+				where
+					v.dbn_repv_parid ='pIDRID'
+			</querystring>
+			<querystring id='REP_PARAMS' database='dbnode'>
+				select 
+					p.dbn_repp_param_order,
+					p.dbn_repp_param,
+					p.dbn_repp_param_name,
+					p.dbn_repp_param_remark
+				from 
+					dbn_report_parameters p
+				where 
+					p.dbn_repp_parid='pIDRID'
+			</querystring>
+			<querystring id='REP_KPI' database='dbnode'>
+				select 
+					kpi.kpid_code,
+					concat('MRN_SPE04#L#',kpi.kpid_denom_pLANG) kpi_Denom,
+					concat('MRN_SPE04#L#',kpi.kpid_desc_pLANG) kpid_Desc,
+					concat('MRN_SPE04#L#',dbn_param_value_pLANG) kpi_status,
+					kpi.kpid_key
+				from 
+					dbn_report r
+					join dbn_dwh_kpi kpi on r.dbn_rep_kpi=kpi.kpid_code
+					left join dbn_parameters p on (((kpi.kpid_stat = p.dbn_param_id) and (p.dbn_param_type = 'KPI')))
+				where 
+					r.dbn_rep_id='pIDRID'
+			</querystring>
+			<querystring id='REP_DD' database='dbnode'>
+				SELECT
+				dd.*
+			FROM
+				dbn_v_DataDictionary dd
+			WHERE
+				dd.lang='pLANG' and 
+				dd.repid =pIDRID
+			</querystring>
+		</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value=''/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>
+		<!-- Only For Pillar Node Authentication
+		<parameter name="pUSER" value='' overrulingvalue="$auth('sAMAccountName')" toUppercase='true'/>	
+		-->
+
+		<parameter name='pVKEYD' value=''/>
+		<parameter name='pIDRID' value=''/>
+		<parameter name='pKKEY' value=''/>
+		<parameter name='pTYPE' value=''/>
+		<parameter name='pSTATUS' value=''/>
+		<parameter name='pEXPCELL' value=''/>
+		<parameter name='pKKEY' value=''/>
+		<parameter name='pSUMMARY' value='NO'/>
+		<parameter name='pVIEW' value='User'/>
+		<parameter name='pMRNTABLE' value=''/>
+		
+		<parameter name='pR1' value='STATUS'/>
+		<parameter name='pR2' value='STATUS'/>
+		<parameter name='pC1' value='TYPE'/>
+	</parameters>
+</dbwebdescriptor>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - KIM execution</label>
+	<description>MR NODE FW2 - KIM execution</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>
+		
+		<!-- imputatielijn: Werken met com_Scheduled voor achterhalen budget van dit jaar en niet met budget -->
+		
+		<querystring id='IL_MR_KIM_SUM' database='dbnode' timeout="50000">
+			select 
+				Sec 
+				, count(pr) 'NrPREQ'
+				, sum(specok) 'NrSpecOK'
+				, sum(PREQ_OK) 'NrPREQ_OK'
+				, sum(PDOSS_APP) 'NrPDOSS_APP'
+				, sum(PDOSS_TIC) 'NrPDOSS_TIC'
+				-- , sum(TIC) 'NrTIC'
+				, round(sum(InvBas),0) 'SumInvBas'
+				-- , round(sum(InvSub),2) 'SumInvSub'
+				, round(sum(bdgt),0) 'SumBudget'
+				, round(sum(Comtd),0) 'SumComtd'
+				, case 
+					when round(sum(Comtd)/sum(bdgt)*100,2)>90 then concat('MRN_SPE03#06#',round(sum(Comtd)/sum(bdgt)*100,2),'%') 
+					when round(sum(Comtd)/sum(bdgt)*100,2)>95 then  concat('MRN_SPE03#05#',round(sum(Comtd)/sum(bdgt)*100,2),'%')
+					when sum(Comtd)=0 then concat('MRN_SPE03#F11#',0,'%')
+					else concat('MRN_SPE03#F11#',round(sum(Comtd)/sum(bdgt)*100,2),'%') 
+				 end 'RelCommitted'
+				
+				, round(sum(Ordrd),0) 'SumOrdered'
+				, if(round(sum(Ordrd)/sum(bdgt)*100,2)>=98,concat('MRN_SPE03#06#',round(sum(Ordrd)/sum(bdgt)*100,2),'%'),concat(round(sum(Ordrd)/sum(bdgt)*100,2),'%')) 'RelOrdered'
+				, round(sum(invcd),0) 'SumInvoiced'
+				, round(sum(paid),0) 'SumPaid'
+		from (		
+		select distinct
+				 mpr.pr  PR
+				 , left(mpr.matman,1) 'Sec'
+				, mi.DOPA DOPA
+				, mi.BA BA
+				, if(mpr.spec_complete='Y',1,0) 'SpecOK'
+				, if(mprv.status in ('T','A','R','L'),1,0) 'PREQ_OK'
+				-- , if(dos.dos_status in ('T','A'),1,0) 'PDOSS_OK'
+				, if(dos.dos_result='APP',1,0) 'PDOSS_APP'
+				, if(mprv.status='T',1,0) 'PDOSS_TIC'
+				, mpr.invest_basis_amount 'InvBas'
+				, mpr.invest_subst_amount 'InvSub'
+				, mil.com_scheduled 'Bdgt'
+				, mil.com_committed 'Comtd'
+				, mil.sum_ordered 'Ordrd'
+				,mil.sum_invoiced 'Invcd'
+				,mil.sum_paid 'Paid'
+				
+				,concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+		from mrqr_pur_req mpr 
+		left join mrqr_imputation_lines mil on mil.pr=mpr.pr and mil.year='pYEAR' and left(mil.BA,2)='74' and IF('pBUDGETZERO'='on',mil.com_scheduled=0,mil.com_scheduled>0)
+		left join mrqr_imputation mi on mi.pr=mpr.pr and mi.active='Y' and left(mi.BA,2)='74'
+		left join 
+			(select 
+				mrqr_pur_req_ver.pr
+				,max(mrqr_pur_req_ver.pr_version_id) vs_id
+				from mrqr_pur_req_ver inner join mrqr_pur_req on mrqr_pur_req_ver.pr=mrqr_pur_req.pr and mrqr_pur_req.invest_plan_type ='KIM' and mrqr_pur_req.INVEST_REQ_READY='Y'
+			and mrqr_pur_req.INVEST_REQ_YEAR='pYEAR'
+				where mrqr_pur_req_ver.year&lt;='pYEAR'  
+					and not(status in ('E')
+				)
+				group by pr)max on mpr.pr=max.pr
+		left join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id			
+		left join
+			(Select
+				d.dossier
+				, d.status dos_status
+				, c.result dos_result
+			from 
+				mrqr_dos d inner join
+				(select
+					dossier
+					, max(dossier_id) id
+					from mrqr_dos     
+					where not(status in ('C','E','U'))	
+					group by dossier
+					)max on max.id=d.dossier_id
+				inner join mrqr_dos_circlist c on d.dossier_id=c.dossier_id	and c.result='APP' and c.org='MR1'
+			)dos on dos.dossier=mpr.pr				
+					
+		where mpr.invest_plan_type ='KIM' 
+			and IF('pMATMAN'='',true,mpr.matman like 'pMATMAN')
+			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('I','Y'))
+			and mpr.INVEST_REQ_READY='Y'
+			and mpr.INVEST_REQ_YEAR='pYEAR'
+			and IF('pPREQ'='',true,mpr.pr='pPREQ')
+			and (mpr.invest_basis_amount>0)
+		group by pr)qry_preq
+		
+		group by sec
+		
+			</querystring>
+	
+		<querystring id='IL_MR_KIM_SUM_DOPA' database='dbnode' timeout="50000">
+			select 
+				DOPA
+				, BA
+				, count(pr) 'NrPREQ'
+				, sum(specok) 'NrSpecOK'
+				, sum(PREQ_OK) 'NrPREQ_OK'
+				, sum(PDOSS_APP) 'NrPDOSS_APP'
+				, sum(PDOSS_TIC) 'NrPDOSS_TIC'
+				, round(sum(InvBas),0) 'SumInvBas'
+				, round(sum(InvSub),0) 'SumInvSub'
+				, round(sum(bdgt),0) 'SumBudget'
+				, round(sum(Comtd),0) 'SumComtd'
+				, case 
+					when round(sum(Comtd)/sum(bdgt)*100,2)>90 then concat('MRN_SPE03#06#',round(sum(Comtd)/sum(bdgt)*100,2),'%') 
+					when round(sum(Comtd)/sum(bdgt)*100,2)>95 then  concat('MRN_SPE03#05#',round(sum(Comtd)/sum(bdgt)*100,2),'%')
+					when sum(Comtd)=0 then concat('MRN_SPE03#F11#',0,'%')
+					else concat('MRN_SPE03#F11#',round(sum(Comtd)/sum(bdgt)*100,2),'%') 
+				 end 'RelCommitted'
+				
+				, format(sum(Ordrd),2) 'SumOrdered'
+				, if(round(sum(Ordrd)/sum(bdgt)*100,2)>=98,concat('MRN_SPE03#06#',round(sum(Ordrd)/sum(bdgt)*100,2),'%'),concat(round(sum(Ordrd)/sum(bdgt)*100,2),'%')) 'RelOrdered'
+				, format(sum(invcd),2) 'SumInvoiced'
+				, format(sum(paid),2) 'SumPaid'
+		from (		
+		select distinct
+				
+				mpr.pr
+				, mi.DOPA DOPA
+				, mi.BA BA
+				, if(mpr.spec_complete='Y',1,0) 'SpecOK'
+				, if(mprv.status in ('T','A','R','L'),1,0) 'PREQ_OK'
+				, if(dos.dos_result='APP',1,0) 'PDOSS_APP'
+				, if(mprv.status='T',1,0) 'PDOSS_TIC'
+				, mpr.invest_basis_amount 'InvBas'
+				, mpr.invest_subst_amount 'InvSub'
+				, mil.com_scheduled 'Bdgt'
+				, mil.com_committed 'Comtd'
+				, mil.sum_ordered 'Ordrd'
+				,mil.sum_invoiced 'Invcd'
+				,mil.sum_paid 'Paid'
+				
+		from mrqr_pur_req mpr 
+		left join mrqr_imputation_lines mil on mil.pr=mpr.pr and mil.year='pYEAR' and left(mil.BA,2)='74' and IF('pBUDGETZERO'='on',mil.com_scheduled=0,mil.com_scheduled>0)
+		left join mrqr_imputation mi on mi.pr=mpr.pr and mi.active='Y' and left(mi.BA,2)='74'
+		left join 
+			(select 
+				mrqr_pur_req_ver.pr
+				,max(pr_version_id) vs_id
+				from mrqr_pur_req_ver inner join mrqr_pur_req on mrqr_pur_req_ver.pr=mrqr_pur_req.pr and mrqr_pur_req.invest_plan_type ='KIM' and mrqr_pur_req.INVEST_REQ_READY='Y'
+			and mrqr_pur_req.INVEST_REQ_YEAR='pYEAR'
+				where mrqr_pur_req_ver.year&lt;='pYEAR'  
+					and not(mrqr_pur_req_ver.status in ('E')
+				)
+				group by pr)max on mpr.pr=max.pr
+		left join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id			
+		left join
+			(Select
+				d.dossier
+				, d.status dos_status
+				, c.result dos_result
+			from 
+				mrqr_dos d inner join
+				(select
+					dossier
+					, max(dossier_id) id
+					from mrqr_dos     
+					where not(status in ('C','E','U'))	
+					group by dossier
+					)max on max.id=d.dossier_id
+				inner join mrqr_dos_circlist c on d.dossier_id=c.dossier_id	and c.result='APP' and c.org='MR1'
+			)dos on dos.dossier=mpr.pr				
+					
+		where mpr.invest_plan_type ='KIM' 
+			and IF('pMATMAN'='',true,mpr.matman like 'pMATMAN')
+			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('I','Y'))
+			and mpr.INVEST_REQ_READY='Y'
+			and mpr.INVEST_REQ_YEAR='pYEAR'
+			and IF('pPREQ'='',true,mpr.pr='pPREQ')
+			group by pr)qry_preq
+		
+		group by DOPA,BA
+		
+			</querystring>	
+			
+			
+		<querystring id='IL_MR_KIM' database='dbnode'>
+			select distinct
+				concat('MRN_SPE05#LI',mpr.pr,'#',mpr.pr) DD
+				, concat('MRN_SPE02#9902&amp;p|PREQ=',mpr.pr,'#',mpr.pr)  PR
+				, mi.DOPA DOPA
+				, mi.BA BA
+				-- , mi.AO
+				, IFNULL(mpr.name_nl, mpr.description) Name
+				, left(mpr.matman,1) 'Sec'
+				, concat('MRN_SPE09#01##',mpr.matman,'#0#',mpr.matman) 'MM'
+				, concat('MRN_SPE09#01##',mpr.LS,'#0#',mpr.LS) 'LS'
+				, if(mpr.spec_complete='Y','MRN_SPE03#05#Y','MRN_SPE03#F15#N') 'SpecOK'
+				, if(mprv.status in ('T','A','L'),concat('MRN_SPE03#05#MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status),concat('MRN_SPE03#F11#MRN_SPE09#03#DSTAT#',mprv.status,'#0#',mprv.status)) 'status'
+				-- , mil.COM_LAUNCHED_INI 'InvLaunch'
+				, concat('MRN_SPE03#10#',format(mpr.invest_basis_amount,2)) 'InvBas'
+				, concat('MRN_SPE03#10#',format(mpr.invest_subst_amount,2)) 'InvSub'
+				, if(mil.com_scheduled>0,concat('MRN_SPE03#05#',format(mil.com_scheduled,2)),format(mil.com_scheduled,2)) Bdgt
+				, case 
+					when mprv.status in ('T','A','L') AND mil.com_committed=0 then concat('MRN_SPE03#F11#',format(mil.com_committed,2)) 
+					when round(mil.com_committed/mil.com_scheduled,2)*100>98 then  concat('MRN_SPE03#06#',format(mil.com_committed,2))
+					when mprv.status in ('T','A','L') AND mil.com_committed>0 then concat('MRN_SPE03#03#',format(mil.com_committed,2)) 
+					else format(mil.com_committed,2)
+				end 'Comtd'
+				, case 
+					when mprv.status in ('T','A','L') AND mil.sum_ordered=0 then concat('MRN_SPE03#F11#',format(mil.sum_ordered,2)) 
+					when round(mil.sum_ordered/mil.com_scheduled,2)*100>98 then  concat('MRN_SPE03#06#',format(mil.sum_ordered,2))
+					when mprv.status in ('T','A','L') AND mil.sum_ordered>0 then concat('MRN_SPE03#03#',format(mil.sum_ordered,2)) 
+					else format(mil.sum_ordered,2)
+				end 'Ordrd'
+				,format(mil.sum_invoiced,2) 'Invcd'
+				,format(mil.sum_paid,2) 'Paid'
+				-- , case Te herbekijken na beslissing hoe gemeten moet worden. 
+				--	when mil.COM_LAUNCHED_INI=0 AND mpr.invest_basis_amount=0 then 'UNK'
+				--	when mil.COM_COMMITTED=0 then 'UNK'
+				--	when mil.COM_LAUNCHED_INI=0 then round(abs((mpr.invest_basis_amount - mil.COM_COMMITTED)*100/mil.COM_COMMITTED),2)
+				--	else round(abs((mil.COM_LAUNCHED_INI - mil.COM_COMMITTED)*100/mil.COM_COMMITTED),2)
+				-- end 'BgtD'	
+				,max(mprv.pr_version) 'Ver'
+				, dos.dos_status 'DS'
+				, if(dos.dos_result='TIC','MRN_SPE03#05#Y','MRN_SPE03#F15#N') 'TIC'
+				,concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+		from mrqr_pur_req mpr 
+		left join mrqr_imputation_lines mil on mil.pr=mpr.pr and mil.year='pYEAR' and left(mil.BA,2)='74' and IF('pBUDGETZERO'='on',mil.com_scheduled=0,mil.com_scheduled>0)
+		left join mrqr_imputation mi on mi.pr=mpr.pr and mi.active='Y' and left(mi.BA,2)='74'
+		left join 
+			(select 
+				mrqr_pur_req_ver.pr
+				,max(pr_version_id) vs_id
+				from mrqr_pur_req_ver inner join mrqr_pur_req on mrqr_pur_req_ver.pr=mrqr_pur_req.pr and mrqr_pur_req.invest_plan_type ='KIM' and mrqr_pur_req.INVEST_REQ_READY='Y'
+			and mrqr_pur_req.INVEST_REQ_YEAR='pYEAR'
+				where mrqr_pur_req_ver.year&lt;='pYEAR' 
+					and not(mrqr_pur_req_ver.status in ('E','C')
+				)
+				group by pr)max on mpr.pr=max.pr
+		left join mrqr_pur_req_ver mprv on mprv.pr_version_id=max.vs_id			
+		left join
+			(Select
+				d.dossier
+				, d.status dos_status
+				, c.result dos_result
+			from 
+				mrqr_dos d inner join
+				(select
+					dossier
+					, max(dossier_id) id
+					from mrqr_dos     
+					where not(status in ('C','E','U')) 			
+					group by dossier
+					)max on max.id=d.dossier_id
+				left join mrqr_dos_circlist c on d.dossier_id=c.dossier_id	and c.result='TIC'
+			
+			)dos on dos.dossier=mpr.pr				
+					
+		
+		where mpr.invest_plan_type ='KIM' 
+			and IF('pMATMAN'='',true,mpr.matman like 'pMATMAN')
+			and IF('pSECTION'='',true,left(mpr.matman,1)='pSECTION')
+			and IF('pDIVISION'='Sys',left(mpr.matman,1) in ('S','R','F','N'),left(mpr.matman,1) in ('I','Y'))
+			and mpr.INVEST_REQ_READY='Y'
+			and mpr.INVEST_REQ_YEAR='pYEAR'
+			and IF('pPREQ'='',true,mpr.pr='pPREQ')
+			and (mpr.invest_basis_amount>0 or mpr.invest_subst_amount>0)
+		group by mpr.pr	
+			</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='0'/>		
+		<parameter name='pLANG' value='NL'/>
+		<parameter name='pMATMAN'/>		
+		<parameter name='pSECTION'/>		
+		<parameter name='pYEAR' value='2016'/>		
+		<parameter name='pMODE' value='Main'/>	
+		<parameter name='pDIVISION' value='Sys'/>
+		<parameter name='pPREQ'/>	
+		<parameter name='pBUDGETZERO'/>	
+
+	</parameters>
+</dbwebdescriptor>

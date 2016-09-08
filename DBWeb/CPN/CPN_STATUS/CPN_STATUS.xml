@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>Node Status</label>
+	<description>List of all Extractions and Tables on Node</description>
+	<queries>	
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<includeIf paramName="pMODE" matches="Main"> 
+			<querystring id='MRN_STATUS_SUMMARY' database='dbnode'>
+				SELECT
+					e.Source SOURCE,e.Ref_Status STATUS,count(e.ViewName) NBR
+				FROM
+					dbn_entities e
+				group by 
+					SOURCE, STATUS
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pMODE" isInRequest="true" matches="Drill-Down"> 
+			<querystring id='MRN_STATUS_DETAILS' database='dbnode' timeout='100000'>
+				select 
+					concat('MRN_SPE05#DD_',e.ViewName,'#',e.ViewName) DD,
+					e.source Source,
+					e.subsource SubSource,
+					e.type Type,
+					concat('MRN_SPE04#L#',e.ViewName) ViewName,
+					(case e.Ref_Status 
+						when 'OK' then 'MRN_SPE17#1#OExtraction is OK'
+						when 'Not OK' then 'MRN_SPE17#0#NExtraction is Not OK'
+						else 'MRN_SPE17#1#OExtraction is OK' 
+						end
+					) STATUS,
+					e.LstData,
+					concat('MRN_SPE04#L#',e.description) Description,
+					concat('MRN_SPE04#R#',e.rows) ROWS,
+					group_concat(isc.column_name SEPARATOR ', ') FIELDS
+				from 
+					dbn_entities e
+					join INFORMATION_SCHEMA.COLUMNS isc on isc.table_name=e.ViewName
+				where 
+					if('pSOURCE' = '',true,e.source = 'pSOURCE') and
+					if('pSTATUS' = '',true,e.Ref_Status = 'pSTATUS')
+				group by
+					e.ViewName
+			</querystring>
+		</includeIf>
+		<includeIf paramName="pMODE" isInRequest="true" matches="Drill-Down2"> 
+			<querystring id='STATUS_INDEXES_DETAILS' database='dbnode'>
+				SELECT 
+					(case substr(index_name,1,3) 
+	                	when 'DBN' then 'LOCAL' 
+	                	when 'IX_' then 'DATAMART' 
+	                	else 'OTHER' 
+	                end) IDXSOURCE,
+					`INDEX_NAME`, 
+					`NON_UNIQUE`, 
+	                `SEQ_IN_INDEX`, 
+	                UPPER(`COLUMN_NAME`) UCN, 
+	                `COLLATION`, 
+	                `CARDINALITY`, 
+	                `SUB_PART`, 
+	                `PACKED`, 
+	                `NULLABLE`, 
+	                `INDEX_TYPE`
+                FROM 
+                	`information_schema`.`STATISTICS`
+				WHERE
+					if('pMRNTABLE' = '',true,TABLE_NAME = 'pTABLE')
+			</querystring>	
+			<querystring id='FIELDS_MR' database='dbnode'>
+				select
+					COLUMN_NAME,
+					IS_NULLABLE,
+					DATA_TYPE,
+					CHARACTER_MAXIMUM_LENGTH,
+					CHARACTER_OCTET_LENGTH,
+					NUMERIC_PRECISION,
+					NUMERIC_SCALE,
+					COLUMN_TYPE,
+					COLUMN_COMMENT
+				FROM 
+					INFORMATION_SCHEMA.COLUMNS 
+				WHERE 
+					table_name =lower('pTABLE') and 
+					COLUMN_NAME != 'Key_Id'
+			</querystring>
+			<querystring id='REPORT' database='dbnode'>
+				select
+					concat('MRN_SPE06#15#MRN_SPE04#L#',r.dbn_rep_name) dbn_rep_name,
+					concat('MRN_SPE06#35#MRN_SPE04#L#',r.dbn_rep_long_desc_fr) dbn_rep_long_desc_fr,
+					concat('MRN_SPE06#35#MRN_SPE04#L#',r.dbn_rep_long_desc_nl) dbn_rep_long_desc_nl,
+					r.dbn_rep_poc
+				FROM 
+					dbn_report r
+					join dbn_report_views rv on r.dbn_rep_id=rv.dbn_repv_parid
+				WHERE 
+					rv.dbn_repv_viewname =lower('pTABLE')
+			</querystring>
+		</includeIf>
+	</queries>		
+	<parameters>
+		<parameter name='pRID' value=''/>		
+		<parameter name='pLANG' value='EN'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pUSER' value='XXX'/>
+		<!-- Only For Pillar Node Authentication
+		<parameter name="pUSER" value='' overrulingvalue="$auth('sAMAccountName')" toUppercase='true'/>	
+		-->
+
+		<parameter name='pSTATUS' value=''/>
+		<parameter name='pTABLE' value=''/>
+		<parameter name='pSOURCE' value=''/>
+		<parameter name='pR1' value='SOURCE'/>
+		<parameter name='pR2' value='SOURCE'/>
+		<parameter name='pC1' value='STATUS'/>
+	</parameters>
+</dbwebdescriptor>

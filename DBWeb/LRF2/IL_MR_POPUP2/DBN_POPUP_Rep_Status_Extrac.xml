@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>DB Node Report Status</label>
+	<description>DB Node Report Status</description>
+	<queries>
+		<querystring id='DBN_REP_VIEWS' database='dbnode'>
+			select 
+				v.*, e.* 
+			from 
+				dbn_report_views v 
+				join dbn_report r on r.dbn_rep_id=v.dbn_repv_parid
+				left join dbn_entities e on v.dbn_repv_viewname = e.ViewName
+			where 
+				(if('pKPI'='',if('pRID'='',r.dbn_rep_id='0',r.dbn_rep_id ='pRID'),r.dbn_rep_kpi='pKPI'))
+				or
+				v.dbn_repv_parid=repid;
+		</querystring>	
+	</queries>	
+	<parameters>
+		<parameter name='repid' value='0'/>
+		<parameter name='pRID' value=''/>
+		<parameter name='pKPI' value=''/>
+	</parameters>
+</dbwebdescriptor>
