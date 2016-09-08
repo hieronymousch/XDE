@@ -26,7 +26,7 @@
 				, mcm.contract 'contract'
 				</includeIf>	
 				-- , concat('MRN_SPE20#\\\\idcn.mil.intra\\cdn-masterdata\\Global-Change\\CIDMat\\Tech Bib Defense\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
-				, concat('MRN_SPE20#\\\\idcn.mil.intra\\UnitData\\MRSYS\\EVZ\\\S\\COMMON\\MSDS\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
+				, concat('MRN_SPE20#file:\\\\\\G:\\DGMR\\35 Products\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
 			from mrqr_nsn mn 
 				inner join mrqr_macodes ma on mn.macode=ma.macode
 				inner join mrqr_nsn_security_codes mns on mn.nsn=mns.nsn and (left(mns.code,3)='ENV' or left(mns.code,4)='PREV')
