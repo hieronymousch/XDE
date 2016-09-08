@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>KPI0129</label>
+ <source type="file">/_SAMPLE/IL_MR_KPI/IL_MR_KPI_SAMPLE02/IL_MR_KPI_SAMPLE02_DATA.xml</source>
+ <processing type="xsl">_SAMPLE/IL_MR_KPI/IL_MR_KPI_SAMPLE02/XSL/IL_MR_KPI_SAMPLE02.xsl</processing> 
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

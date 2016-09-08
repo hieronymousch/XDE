@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>KPI0013</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/_SAMPLE/IL_MR_KPI/IL_MR_KPI_SAMPLE01/IL_MR_KPI_SAMPLE01.xml</source>
+ <processing type="xsl">_SAMPLE/IL_MR_KPI/IL_MR_KPI_SAMPLE01/XSL/IL_MR_KPI_SAMPLE01.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+	<!-- Template -->
+	<Label ID="UNK">
+		<LabelText lang="nl">xxx</LabelText>
+		<PopupText lang="nl">xxx</PopupText>
+		<LabelText lang="fr">xxx</LabelText>
+		<PopupText lang="fr">xxx</PopupText>
+		<LabelText lang="en">xxx</LabelText>
+		<PopupText lang="en">xxx</PopupText>
+	</Label>
+
+
+	<!-- General MRN -->
+		<Label ID="XGRAPH_TITLE">
+			<LabelText lang="nl">Dynamische Grafiek (Met Drill-Down)</LabelText>
+			<LabelText lang="fr">Graphique Dynamique (avec Drill-Down)</LabelText>
+			<LabelText lang="en">Dynamic Graphical (with Drill-Down)</LabelText>
+		</Label>
+		<Label ID="TAB_COLLAPSE">
+			<LabelText lang="nl">(Un)Collapse Tabs</LabelText>
+			<LabelText lang="fr">(Un)Collapse Tabs</LabelText>
+			<LabelText lang="en">(Un)Collapse Tabs</LabelText>
+		</Label>
+		<Label ID="XTAB_TITLE">
+			<LabelText lang="nl">Dynamische CrossTabel Samevating (Met Drill-Down)</LabelText>
+			<LabelText lang="fr">Tableau résumé croisé Dynamique (avec Drill-Down)</LabelText>
+			<LabelText lang="en">Dynamic CrossTable Summary (with Drill-Down)</LabelText>
+		</Label>
+		<Label ID="DD">
+			<LabelText lang="nl">+</LabelText>
+			<PopupText lang="nl">Klik voor Meer Details</PopupText>
+			<LabelText lang="fr">+</LabelText>
+			<PopupText lang="fr">Cliquez pour plus de détails</PopupText>
+			<LabelText lang="en">+</LabelText>
+			<PopupText lang="en">Click for More Details</PopupText>
+		</Label>
+		
+	<!-- Status -->
+		<Label ID="PAGE_TITLE_MRN_STATUS">
+			<LabelText lang="nl">Node Status</LabelText>
+			<LabelText lang="fr">Statut du Noeud</LabelText>
+			<LabelText lang="en">Node Status</LabelText>
+		</Label>
+		<Label ID="MRN_STATUS_DETAILS">
+			<LabelText lang="nl">Lijst of entities and hun status</LabelText>
+			<LabelText lang="fr">Liste des entités et leur statut</LabelText>
+			<LabelText lang="en">List of entities en their status</LabelText>
+		</Label>
+		<Label ID="STATUS_INDEXES_DETAILS">
+			<LabelText lang="nl">Lijst van Indexes</LabelText>
+			<LabelText lang="fr">Liste des index</LabelText>
+			<LabelText lang="en">Index List</LabelText>
+		</Label>
+		<Label ID="FIELDS_MR">
+			<LabelText lang="nl">Velden van de Originele View/Table (in DB Node)</LabelText>
+			<LabelText lang="fr">Champs de la Table/Vue originale (dans DB Node)</LabelText>
+			<LabelText lang="en">Fields defined in the original Table/View (in DB Node)</LabelText>
+		</Label>
+		<!-- Main Status Detail -->
+			<Label ID="DB">
+				<LabelText lang="nl">Applicatie</LabelText>
+				<LabelText lang="fr">Application</LabelText>
+				<PopupText lang="fr">Application dans laquelle les données ont été extraites</PopupText>
+				<LabelText lang="en">Application</LabelText>
+			</Label>
+			<Label ID="alias">
+				<LabelText lang="nl">Extractie Naam</LabelText>
+				<LabelText lang="fr">Nom de l'extraction</LabelText>
+				<PopupText lang="fr">Nom de l'extraction (qui peut être différente du nom de la table ou vue de l'application)</PopupText>
+				<LabelText lang="en">Extraction Name</LabelText>
+			</Label>
+			<Label ID="name">
+				<LabelText lang="nl">Table/View Naam</LabelText>
+				<LabelText lang="fr">Nom de la Table/Vue</LabelText>
+				<PopupText lang="fr">Nom de la table ou vue de l'application</PopupText>
+				<LabelText lang="en">Table/View Name</LabelText>
+			</Label>
+			<Label ID="STATUS">
+				<LabelText lang="nl">Status</LabelText>
+				<LabelText lang="fr">Statut</LabelText>
+				<PopupText lang="fr">L'extraction est-elle à jour</PopupText>
+				<LabelText lang="en">Status</LabelText>
+			</Label>
+			<Label ID="ROWS">
+				<LabelText lang="nl">Nbr Rec</LabelText>
+				<LabelText lang="fr">Nbr Enreg</LabelText>
+				<PopupText lang="fr">Nombre d'enregistrements présent dans l'extraction</PopupText>
+				<LabelText lang="en">Rec Nbr</LabelText>
+			</Label>
+			<Label ID="START_E">
+				<LabelText lang="nl">Start</LabelText>
+				<LabelText lang="fr">Début</LabelText>
+				<PopupText lang="fr">Date du début de l'extraction</PopupText>
+				<LabelText lang="en">Start</LabelText>
+			</Label>
+			<Label ID="END_E">
+				<LabelText lang="nl">Eind</LabelText>
+				<LabelText lang="fr">Fin</LabelText>
+				<PopupText lang="fr">Date de Fin de l'extraction</PopupText>
+				<LabelText lang="en">End</LabelText>
+			</Label>
+			<Label ID="DUR_SEC">
+				<LabelText lang="nl">Duur (Sec)</LabelText>
+				<LabelText lang="fr">Durée (Sec)</LabelText>
+				<PopupText lang="fr">Durée de l'extraction en secondes</PopupText>
+				<LabelText lang="en">Dur (Sec)</LabelText>
+			</Label>
+			<Label ID="DUR_MIN">
+				<LabelText lang="nl">Duur (Min)</LabelText>
+				<LabelText lang="fr">Durée (Min)</LabelText>
+				<PopupText lang="fr">Durée de l'extraction en minutes</PopupText>
+				<LabelText lang="en">Dur (Min)</LabelText>
+			</Label>
+			<Label ID="MSM_EXPCELL">
+				<LabelText lang="nl">ExpCell Code</LabelText>
+				<LabelText lang="fr">Code ExpCell</LabelText>
+				<PopupText lang="fr">Code de la cellule d'expertise à MR-Mgt. (M)-Maintenance, etc</PopupText>
+				<LabelText lang="en">ExpCell Code</LabelText>
+			</Label>
+			<Label ID="EXPERTCELL">
+				<LabelText lang="nl">ExpCell</LabelText>
+				<LabelText lang="fr">ExpCell</LabelText>
+				<PopupText lang="fr">Cellule d'expertise à MR-Mgt.</PopupText>
+				<LabelText lang="en">ExpCell</LabelText>
+			</Label>
+			<Label ID="FIELDS">
+				<LabelText lang="nl">Velden</LabelText>
+				<LabelText lang="fr">Champs</LabelText>
+				<PopupText lang="fr">Liste des champs contenus dans l'extraction. Cette liste peut différer de la table/Vue Originale de l'Application. Le champs Key-Id n'est pas repris systématiquement.</PopupText>
+				<LabelText lang="en">Fields</LabelText>
+			</Label>
+		<!-- Index Bloc -->
+			<Label ID="IDXSOURCE">
+				<LabelText lang="nl">Source</LabelText>
+				<LabelText lang="fr">Source</LabelText>
+				<PopupText lang="fr">Source de l'index</PopupText>
+				<LabelText lang="en">Source</LabelText>
+			</Label>
+			<Label ID="INDEX_NAME">
+				<LabelText lang="nl">Naam</LabelText>
+				<LabelText lang="fr">Nom</LabelText>
+				<PopupText lang="fr">Nom de l'index</PopupText>
+				<LabelText lang="en">Name</LabelText>
+			</Label>
+			<Label ID="SEQ_IN_INDEX">
+				<LabelText lang="nl">Seq</LabelText>
+				<LabelText lang="fr">Seq</LabelText>
+				<PopupText lang="fr">Séquence de l'index</PopupText>
+				<LabelText lang="en">Seq</LabelText>
+			</Label>
+			<Label ID="UCN">
+				<LabelText lang="nl">Veld</LabelText>
+				<LabelText lang="fr">Champs</LabelText>
+				<PopupText lang="fr">champ lié l'index</PopupText>
+				<LabelText lang="en">Field</LabelText>
+			</Label>
+			<Label ID="COLLATION">
+				<LabelText lang="nl">Collation</LabelText>
+				<LabelText lang="fr">Collation</LabelText>
+				<PopupText lang="fr">Aucune idée !</PopupText>
+				<LabelText lang="en">Collation</LabelText>
+			</Label>
+			<Label ID="PACKED">
+				<LabelText lang="nl">Packed</LabelText>
+				<LabelText lang="fr">Packed</LabelText>
+				<PopupText lang="fr">Aucune idée !</PopupText>
+				<LabelText lang="en">Packed</LabelText>
+			</Label>
+			<Label ID="NULLABLE">
+				<LabelText lang="nl">Null</LabelText>
+				<LabelText lang="fr">Null</LabelText>
+				<PopupText lang="fr">Champ peut-il être vide(null)</PopupText>
+				<LabelText lang="en">Null</LabelText>
+			</Label>
+			<Label ID="INDEX_TYPE">
+				<LabelText lang="nl">Type</LabelText>
+				<LabelText lang="fr">Type</LabelText>
+				<PopupText lang="fr">Source de l'index</PopupText>
+				<LabelText lang="en">Type</LabelText>
+			</Label>
+		<!-- Report List -->
+			<!-- See Bloc Report -->
+		<!-- Original -->
+			<Label ID="TOV_VIEWNAME">
+				<LabelText lang="nl">View Name</LabelText>
+				<PopupText lang="nl">Naam van de originele View</PopupText>
+				<LabelText lang="fr">View Name</LabelText>
+				<PopupText lang="fr">Nom de la Vue originale</PopupText>
+				<LabelText lang="en">View Name</LabelText>
+				<PopupText lang="en">Original View Name</PopupText>
+			</Label>
+			<Label ID="TOV_FUNCTION">
+				<LabelText lang="nl">ILIAS Scherm</LabelText>
+				<PopupText lang="nl">Naam van het ILIAS Scherm verbonden aan deze extractie</PopupText>
+				<LabelText lang="fr">Ecran ILIAS</LabelText>
+				<PopupText lang="fr">Nom de l'écran associé à cette entité/extraction</PopupText>
+				<LabelText lang="en">ILIAS Screen</LabelText>
+				<PopupText lang="en">Name of ILIAS Screen associated at this entity/extraction</PopupText>
+			</Label>
+			<Label ID="TOV_WHERE_CLAUSE">
+				<LabelText lang="nl">Criteria</LabelText>
+				<PopupText lang="nl">Where clause</PopupText>
+				<LabelText lang="fr">Critère</LabelText>
+				<PopupText lang="fr">Where Clause</PopupText>
+				<LabelText lang="en">Criteria</LabelText>
+				<PopupText lang="en">Where clause</PopupText>
+			</Label>
+			<Label ID="MSM_SUBMODULE_NAME">
+				<LabelText lang="nl">ILIAS Submodule</LabelText>
+				<PopupText lang="nl">ILIAS Submodule geassocieerd aan deze entity</PopupText>
+				<LabelText lang="fr">Sous-Module ILIAS</LabelText>
+				<PopupText lang="fr">Sous-Module ILIAS associé à cette entité</PopupText>
+				<LabelText lang="en">ILIAS SubModule</LabelText>
+				<PopupText lang="en">ILIAS SubModule associated at this entity</PopupText>
+			</Label>
+	<!-- Report -->	
+		<Label ID="PAGE_TITLE">
+			<LabelText lang="nl">NA</LabelText>
+			<LabelText lang="fr">NA</LabelText>
+			<LabelText lang="en">NA</LabelText>
+		</Label>
+		REP_LIST
+		<Label ID="REP_LIST">
+			<LabelText lang="nl">Node Reports Lijst</LabelText>
+			<LabelText lang="fr">Liste des Rapports</LabelText>
+			<LabelText lang="en">Node List of Report's</LabelText>
+		</Label>
+		<Label ID="REPORT_TITLE_KPI_LIST">
+			<LabelText lang="nl">Node Reports Lijst</LabelText>
+			<LabelText lang="fr">Liste des Rapports</LabelText>
+			<LabelText lang="en">Node List of Report's</LabelText>
+		</Label>
+		<Label ID="PAGE_TITLE_REPORT_LIST">
+			<LabelText lang="nl">Node Reports Lijst</LabelText>
+			<LabelText lang="fr">Liste des Rapports</LabelText>
+			<LabelText lang="en">Node List of Report's</LabelText>
+		</Label>
+		<Label ID="REPORT_TITLE">
+			<LabelText lang="nl">N/A</LabelText>
+			<LabelText lang="fr">N/A</LabelText>
+			<LabelText lang="en">N/A</LabelText>
+		</Label>
+		<Label ID="REP_PARAMS">
+			<LabelText lang="nl">Parameters</LabelText>
+			<LabelText lang="fr">Paramètres</LabelText>
+			<LabelText lang="en">Parameters</LabelText>
+		</Label>
+		<Label ID="REP_DETAILS">
+			<LabelText lang="nl">Details</LabelText>
+			<LabelText lang="fr">Détails</LabelText>
+			<LabelText lang="en">Details</LabelText>
+		</Label>
+		<Label ID="REP_VIEWS">
+			<LabelText lang="nl">Views and Tables gebruikte</LabelText>
+			<LabelText lang="fr">Vues et Tables utilisées</LabelText>
+			<LabelText lang="en">Views and Tables Used</LabelText>
+		</Label>
+		<Label ID="REP_LOGGING">
+			<LabelText lang="nl">Modificaties</LabelText>
+			<LabelText lang="fr">Modifications</LabelText>
+			<LabelText lang="en">Modifications</LabelText>
+		</Label>
+		<Label ID="REP_VALID">
+			<LabelText lang="nl">Validaties</LabelText>
+			<LabelText lang="fr">Validations</LabelText>
+			<LabelText lang="en">Validations</LabelText>
+		</Label>
+		<Label ID="REP_ENHANCE">
+			<LabelText lang="nl">Verbeterings</LabelText>
+			<LabelText lang="fr">Améliorations</LabelText>
+			<LabelText lang="en">Improvments</LabelText>
+		</Label>
+		<Label ID="REP_KPI">
+			<LabelText lang="nl">KPI</LabelText>
+			<LabelText lang="fr">KPI</LabelText>
+			<LabelText lang="en">KPI</LabelText>
+		</Label>
+		<Label ID="dbn_repv_viewname">
+			<LabelText lang="nl">Naam in MR Node</LabelText>
+			<PopupText lang="nl">Benaming van de View of de Table</PopupText>
+			<LabelText lang="fr">Dénomination</LabelText>
+			<PopupText lang="fr">Dénomination de la vue ou de la table</PopupText>
+			<LabelText lang="en">Name</LabelText>
+			<PopupText lang="en">View or Table Name</PopupText>
+		</Label>
+		<Label ID="vname">
+			<LabelText lang="nl">Proper Benaming</LabelText>
+			<PopupText lang="nl">Benaming zonder de SubSource</PopupText>
+			<LabelText lang="fr">Dénomination Propre</LabelText>
+			<PopupText lang="fr">Dénomination sans la SubSource</PopupText>
+			<LabelText lang="en">Clean Name</LabelText>
+			<PopupText lang="en">Name without SubSource</PopupText>
+		</Label>
+		<Label ID="SubSource">
+			<LabelText lang="nl">SubSource</LabelText>
+			<PopupText lang="nl">SubSource</PopupText>
+			<LabelText lang="fr">SubSource</LabelText>
+			<PopupText lang="fr">SubSource</PopupText>
+			<LabelText lang="en">SubSource</LabelText>
+			<PopupText lang="en">SubSource</PopupText>
+		</Label>
+		<Label ID="Ref_Status">
+			<LabelText lang="nl">Status</LabelText>
+			<PopupText lang="nl">View of Table Status</PopupText>
+			<LabelText lang="fr">Statut</LabelText>
+			<PopupText lang="fr">Status de la vue ou de la Table</PopupText>
+			<LabelText lang="en">Status</LabelText>
+			<PopupText lang="en">View or Table Status</PopupText>
+		</Label>
+		<Label ID="Source">
+			<LabelText lang="nl">Source</LabelText>
+			<PopupText lang="nl">Source</PopupText>
+			<LabelText lang="fr">Source</LabelText>
+			<PopupText lang="fr">Source</PopupText>
+			<LabelText lang="en">Source</LabelText>
+			<PopupText lang="en">Source</PopupText>
+		</Label>
+		<Label ID="dbn_rep_name">
+			<LabelText lang="nl">Benaming</LabelText>
+			<PopupText lang="nl">Benaming van het Rapport</PopupText>
+			<LabelText lang="fr">Dénomination</LabelText>
+			<PopupText lang="fr">Dénomination du rapport</PopupText>
+			<LabelText lang="en">Title</LabelText>
+			<PopupText lang="en">Report Title</PopupText>
+		</Label>
+		<Label ID="dbn_rep_desc_nl">
+			<LabelText lang="nl">Beschrijving in Nl</LabelText>
+			<PopupText lang="nl">Beschrijving in Nederlands</PopupText>
+			<LabelText lang="fr">Description en Nl</LabelText>
+			<PopupText lang="fr">Description du rapport en Néerlandais</PopupText>
+			<LabelText lang="en">Description in Du</LabelText>
+			<PopupText lang="en">Report Descripotion in Dutch</PopupText>
+		</Label>
+		<Label ID="dbn_rep_desc_fr">
+			<LabelText lang="nl">Beschrijving in Fr</LabelText>
+			<PopupText lang="nl">Beschrijving in Frans</PopupText>
+			<LabelText lang="fr">Description en Fr</LabelText>
+			<PopupText lang="fr">Description du rapport en Francais</PopupText>
+			<LabelText lang="en">Description in Fr</LabelText>
+			<PopupText lang="en">Report Descripotion in French</PopupText>
+		</Label>
+		<Label ID="dbn_rep_desc_en">
+			<LabelText lang="nl">Beschrijving in En</LabelText>
+			<PopupText lang="nl">Beschrijving in Engels</PopupText>
+			<LabelText lang="fr">Description en En</LabelText>
+			<PopupText lang="fr">Description du rapport en Anglais</PopupText>
+			<LabelText lang="en">Description in En</LabelText>
+			<PopupText lang="en">Report Descripotion in English</PopupText>
+		</Label>
+		<Label ID="EMS">
+			<LabelText lang="nl">EMS</LabelText>
+			<PopupText lang="nl">Omnitracker EMS v2 Call Nummer</PopupText>
+			<LabelText lang="fr">EMS</LabelText>
+			<PopupText lang="fr">Numéro du Call Omnitracker EMS v2</PopupText>
+			<LabelText lang="en">EMS</LabelText>
+			<PopupText lang="en">Omnitracker EMS v2 Call Number</PopupText>
+		</Label>
+		<Label ID="ExpCell">
+			<LabelText lang="nl">ExpCell</LabelText>
+			<PopupText lang="nl">MR-Mgt Expert Cell : M-MatMan, S-System, M-Maintenance, I-Inventory, B-Budget and Procurement, D-Deployment and Mobility, X-Unknown</PopupText>
+			<LabelText lang="fr">ExpCell</LabelText>
+			<PopupText lang="fr">MR-Mgt Expert Cell : M-MatMan, S-System, M-Maintenance, I-Inventory, B-Budget and Procurement, D-Deployment and Mobility, X-Unknown</PopupText>
+			<LabelText lang="en">ExpCell</LabelText>
+			<PopupText lang="en">MR-Mgt Expert Cell : M-MatMan, S-System, M-Maintenance, I-Inventory, B-Budget and Procurement, D-Deployment and Mobility, X-Unknown</PopupText>
+		</Label>
+		<Label ID="Acc_Enh">
+			<LabelText lang="nl">(A)ccept (E)nhance</LabelText>
+			<PopupText lang="nl">(A)ccept (E)nhancements</PopupText>
+			<LabelText lang="fr">(A)ccept (E)nhance</LabelText>
+			<PopupText lang="fr">(A)ccept (E)nhancements</PopupText>
+			<LabelText lang="en">(A)ccept (E)nhance</LabelText>
+			<PopupText lang="en">(A)ccept (E)nhancements</PopupText>
+		</Label>
+		<Label ID="dbn_rep_categ">
+			<LabelText lang="nl">Categ</LabelText>
+			<PopupText lang="nl">Categorie van het Rapport : (K)PI, (S)ystem, (R)eport, (D)ashboard, (I)d Card, (M)anagement, P(df), O??? </PopupText>
+			<LabelText lang="fr">Catég</LabelText>
+			<PopupText lang="fr">Catégorie du rapport : (K)PI, (S)ystem, (R)eport, (D)ashboard, (I)d Card, (M)anagement, P(df), O??? </PopupText>
+			<LabelText lang="en">Categ</LabelText>
+			<PopupText lang="en">Report Category : (K)PI, (S)ystem, (R)eport, (D)ashboard, (I)d Card, (M)anagement, P(df), O??? </PopupText>
+		</Label>
+		<Label ID="dbn_rep_status">
+			<LabelText lang="nl">Status</LabelText>
+			<PopupText lang="nl">Status van het Rapport</PopupText>
+			<LabelText lang="fr">Statut</LabelText>
+			<PopupText lang="fr">Statut du rapport</PopupText>
+			<LabelText lang="en">Status</LabelText>
+			<PopupText lang="en">Report Status</PopupText>
+		</Label>
+		<Label ID="Extr_Status">
+			<LabelText lang="nl">Betrowbaarheid</LabelText>
+			<PopupText lang="nl">Betrowbaarheid van het Rapport</PopupText>
+			<LabelText lang="fr">Pertinence</LabelText>
+			<PopupText lang="fr">Pertinence du rapport</PopupText>
+			<LabelText lang="en">Quality</LabelText>
+			<PopupText lang="en">Report Quality</PopupText>
+		</Label>
+		<Label ID="Views_Used">
+			<LabelText lang="nl">Views</LabelText>
+			<PopupText lang="nl">Views of Tables gebruikte om het rapport te genereren</PopupText>
+			<LabelText lang="fr">Vues</LabelText>
+			<PopupText lang="fr">Nombre de vues ou tables utilisées pour construire le rapport</PopupText>
+			<LabelText lang="en">Views</LabelText>
+			<PopupText lang="en">Number of Views or Tables used to build the report</PopupText>
+		</Label>
+		<Label ID="DayModif">
+			<LabelText lang="nl">Modif</LabelText>
+			<PopupText lang="nl">Aantal dagen sinds laatste modificatie</PopupText>
+			<LabelText lang="fr">Modif</LabelText>
+			<PopupText lang="fr">Nombre de jour depuis la dernière modification</PopupText>
+			<LabelText lang="en">Modif</LabelText>
+			<PopupText lang="en">Number of days since last modification</PopupText>
+		</Label>
+		<Label ID="dbn_repp_param_order">
+			<LabelText lang="nl">Order</LabelText>
+			<PopupText lang="nl">Param Order</PopupText>
+			<LabelText lang="fr">Ordre</LabelText>
+			<PopupText lang="fr">Ordre du paramètre</PopupText>
+			<LabelText lang="en">Order</LabelText>
+			<PopupText lang="en">Parameter Order</PopupText>
+		</Label>
+		<Label ID="dbn_repp_param">
+			<LabelText lang="nl">Parameter</LabelText>
+			<PopupText lang="nl">Parameter Code</PopupText>
+			<LabelText lang="fr">Paramètre</LabelText>
+			<PopupText lang="fr">Code du Paramètre</PopupText>
+			<LabelText lang="en">Parameter</LabelText>
+			<PopupText lang="en">Parameter Code</PopupText>
+		</Label>
+		<Label ID="dbn_repp_param_name">
+			<LabelText lang="nl">Benaming</LabelText>
+			<PopupText lang="nl">Benaming van de Parameter</PopupText>
+			<LabelText lang="fr">Dénomination</LabelText>
+			<PopupText lang="fr">Dénomination du Paramètre</PopupText>
+			<LabelText lang="en">Name</LabelText>
+			<PopupText lang="en">Parameter Name</PopupText>
+		</Label>
+		<Label ID="dbn_repp_param_remark">
+			<LabelText lang="nl">Opmerking</LabelText>
+			<PopupText lang="nl">Opmerking</PopupText>
+			<LabelText lang="fr">Remarque</LabelText>
+			<PopupText lang="fr">Remarque</PopupText>
+			<LabelText lang="en">Remark</LabelText>
+			<PopupText lang="en">Remark</PopupText>
+		</Label>
+		<Label ID="dbn_repl_date">
+			<LabelText lang="nl">Datum</LabelText>
+			<PopupText lang="nl">Datum van de Logging, Annpassing</PopupText>
+			<LabelText lang="fr">Date</LabelText>
+			<PopupText lang="fr">Date du Log ou de la modification</PopupText>
+			<LabelText lang="en">Date</LabelText>
+			<PopupText lang="en">Logging or Modification Date</PopupText>
+		</Label>
+		<Label ID="dbn_repl_type">
+			<LabelText lang="nl">Type</LabelText>
+			<PopupText lang="nl">Modificatie Type</PopupText>
+			<LabelText lang="fr">Type</LabelText>
+			<PopupText lang="fr">Type de Modification</PopupText>
+			<LabelText lang="en">Type</LabelText>
+			<PopupText lang="en">Modification Type</PopupText>
+		</Label>
+		<Label ID="dbn_repl_by">
+			<LabelText lang="nl">Door</LabelText>
+			<PopupText lang="nl">Uitgevoerd Door</PopupText>
+			<LabelText lang="fr">Par</LabelText>
+			<PopupText lang="fr">Exécuté par</PopupText>
+			<LabelText lang="en">By</LabelText>
+			<PopupText lang="en">Executed By</PopupText>
+		</Label>
+		<Label ID="dbn_repl_ver">
+			<LabelText lang="nl">Versie</LabelText>
+			<PopupText lang="nl">Versie na de modificatie</PopupText>
+			<LabelText lang="fr">Version</LabelText>
+			<PopupText lang="fr">Version après modification</PopupText>
+			<LabelText lang="en">Version</LabelText>
+			<PopupText lang="en">Version Nbr after modification</PopupText>
+		</Label>
+		<Label ID="dbn_repl_what">
+			<LabelText lang="nl">Details</LabelText>
+			<PopupText lang="nl">Details van de Modificatie</PopupText>
+			<LabelText lang="fr">Détails</LabelText>
+			<PopupText lang="fr">Détails de la modification</PopupText>
+			<LabelText lang="en">Details</LabelText>
+			<PopupText lang="en">Modification Details</PopupText>
+		</Label>
+		<Label ID="dbn_repl_ems">
+			<LabelText lang="nl">EMS v2</LabelText>
+			<PopupText lang="nl">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="fr">EMS v2</LabelText>
+			<PopupText lang="fr">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="en">EMS v2</LabelText>
+			<PopupText lang="en">EMS v2 Call Nbr</PopupText>
+		</Label>
+		<Label ID="dbn_repep_ems">
+			<LabelText lang="nl">EMS v2</LabelText>
+			<PopupText lang="nl">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="fr">EMS v2</LabelText>
+			<PopupText lang="fr">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="en">EMS v2</LabelText>
+			<PopupText lang="en">EMS v2 Call Nbr</PopupText>
+		</Label>
+		<Label ID="dbn_repep_prio">
+			<LabelText lang="nl">Prio</LabelText>
+			<PopupText lang="nl">Prioriteit van de verbetering</PopupText>
+			<LabelText lang="fr">Prio</LabelText>
+			<PopupText lang="fr">Priorité donnée à la proposition d'amélioration</PopupText>
+			<LabelText lang="en">Prio</LabelText>
+			<PopupText lang="en">Enhancement Priority</PopupText>
+		</Label>
+		<Label ID="dbn_repep_date">
+			<LabelText lang="nl">Datum</LabelText>
+			<PopupText lang="nl">Datum van de introductie van de verbetering</PopupText>
+			<LabelText lang="fr">Date</LabelText>
+			<PopupText lang="fr">Date de l'introduction de l'amélioration</PopupText>
+			<LabelText lang="en">Date</LabelText>
+			<PopupText lang="en">Date of Enhancement Request</PopupText>
+		</Label>
+		<Label ID="dbn_repep_by">
+			<LabelText lang="nl">Initiator</LabelText>
+			<PopupText lang="nl">Initiator van de verbetering</PopupText>
+			<LabelText lang="fr">Initiateur</LabelText>
+			<PopupText lang="fr">Initiateur de l'amélioration</PopupText>
+			<LabelText lang="en">Initiator</LabelText>
+			<PopupText lang="en">Enhancement Request Initiator</PopupText>
+		</Label>
+		<Label ID="dbn_repep_what">
+			<LabelText lang="nl">Beschrijving</LabelText>
+			<PopupText lang="nl"></PopupText>
+			<LabelText lang="fr">Description</LabelText>
+			<PopupText lang="fr">Description de l'amélioration</PopupText>
+			<LabelText lang="en">Description</LabelText>
+			<PopupText lang="en">Enhancement Description</PopupText>
+		</Label>
+		<Label ID="kpid_code">
+			<LabelText lang="nl">KPI Nr</LabelText>
+			<LabelText lang="fr">Nr KPI</LabelText>
+			<PopupText lang="fr">Code (en 4 chiffres) du KPI</PopupText>
+			<LabelText lang="en">KPI Nbr</LabelText>
+		</Label>
+		<Label ID="kpi_Denom">
+			<LabelText lang="nl">KPI Benaming</LabelText>
+			<LabelText lang="fr">Intulé du KPI</LabelText>
+			<PopupText lang="fr">Intitulé du KPI (basé sur le paramètre language)</PopupText>
+			<LabelText lang="en">KPI Denomination</LabelText>
+		</Label>
+		<Label ID="kpid_key">
+			<LabelText lang="nl">DB</LabelText>
+			<LabelText lang="fr">DB</LabelText>
+			<PopupText lang="fr">DashBoard Utilisé (ORG=Organisationnel/FUN=Fonctionnel/MIS=Mission)</PopupText>
+			<LabelText lang="en">DB</LabelText>
+		</Label>
+		<Label ID="kpid_active">
+			<LabelText lang="nl">Actieve</LabelText>
+			<LabelText lang="fr">Actif</LabelText>
+			<PopupText lang="fr">KPI actif ?</PopupText>
+			<LabelText lang="en">Active</LabelText>
+		</Label>
+		<Label ID="kpi_status">
+			<LabelText lang="nl">Status</LabelText>
+			<LabelText lang="fr">Statut</LabelText>
+			<PopupText lang="fr">Statut du KPI</PopupText>
+			<LabelText lang="en">Status</LabelText>
+		</Label>
+		<Label ID="kpid_Desc">
+			<LabelText lang="nl">Beschrijving</LabelText>
+			<LabelText lang="fr">Description</LabelText>
+			<PopupText lang="fr">Description du KPI (basé sur le paramètre language)</PopupText>
+			<LabelText lang="en">Description</LabelText>
+		</Label>
+		<Label ID="KPI_DETAILS">
+			<LabelText lang="nl">Rapport Lijst</LabelText>
+			<LabelText lang="fr">Liste des Rapports</LabelText>
+			<LabelText lang="en">Reports List</LabelText>
+		</Label>
+		<Label ID="REP_HITS">
+			<LabelText lang="nl">Rapport Statistieken</LabelText>
+			<LabelText lang="fr">Statistique du Rapport</LabelText>
+			<LabelText lang="en">Report Statistics</LabelText>
+		</Label>
+
+	<!-- Template -->				
+	<Label ID="XX">
+		<LabelText lang="nl"></LabelText>
+		<PopupText lang="nl"></PopupText>
+		<LabelText lang="fr"></LabelText>
+		<PopupText lang="fr"></PopupText>
+		<LabelText lang="en"></LabelText>
+		<PopupText lang="en"></PopupText>
+	</Label>
+	<Label ID="YY">
+		<LabelText lang="nl"></LabelText>
+		<LabelText lang="fr"></LabelText>
+		<LabelText lang="en"></LabelText>
+	</Label>
+	    
+
+
+
+	<!-- Report -->
+		<Label ID="kpid_code">
+			<LabelText lang="nl">KPI Nr</LabelText>
+			<LabelText lang="fr">Nr KPI</LabelText>
+			<PopupText lang="fr">Code (en 4 chiffres) du KPI</PopupText>
+			<LabelText lang="en">KPI Nbr</LabelText>
+		</Label>
+		<Label ID="kpid_parent">
+			<LabelText lang="nl">Parent KPI</LabelText>
+			<LabelText lang="fr">KPI Parent</LabelText>
+			<PopupText lang="fr">Code (en 4 chiffres) du KPI Parent (utilisé souvent pour les KPI consolidés)</PopupText>
+			<LabelText lang="en">KPI Parent</LabelText>
+		</Label>
+		<Label ID="delta">
+			<LabelText lang="nl">BT</LabelText>
+			<LabelText lang="fr">DC</LabelText>
+			<PopupText lang="fr">Durée du calcul du KPI exprimé en secondes</PopupText>
+			<LabelText lang="en">CD</LabelText>
+		</Label>
+		<Label ID="kpid_archive_type">
+			<LabelText lang="nl">AT</LabelText>
+			<LabelText lang="fr">TA</LabelText>
+			<PopupText lang="fr">Code du Type d'archivage</PopupText>
+			<LabelText lang="en">AT</LabelText>
+		</Label>
+		<Label ID="kpi_Denom">
+			<LabelText lang="nl">KPI Benaming</LabelText>
+			<LabelText lang="fr">Intulé du KPI</LabelText>
+			<PopupText lang="fr">Intitulé du KPI (basé sur le paramètre language)</PopupText>
+			<LabelText lang="en">KPI Denomination</LabelText>
+		</Label>
+		<Label ID="kpid_key">
+			<LabelText lang="nl">DB</LabelText>
+			<LabelText lang="fr">DB</LabelText>
+			<PopupText lang="fr">DashBoard Utilisé (ORG=Organisationnel/FUN=Fonctionnel/MIS=Mission)</PopupText>
+			<LabelText lang="en">DB</LabelText>
+		</Label>
+		<Label ID="kpid_active">
+			<LabelText lang="nl">Actieve</LabelText>
+			<LabelText lang="fr">Actif</LabelText>
+			<PopupText lang="fr">KPI actif ?</PopupText>
+			<LabelText lang="en">Active</LabelText>
+		</Label>
+		<Label ID="kpi_status">
+			<LabelText lang="nl">Status</LabelText>
+			<LabelText lang="fr">Statut</LabelText>
+			<PopupText lang="fr">Statut du KPI</PopupText>
+			<LabelText lang="en">Status</LabelText>
+		</Label>
+		<Label ID="kpid_Desc">
+			<LabelText lang="nl">Beschrijving</LabelText>
+			<LabelText lang="fr">Description</LabelText>
+			<PopupText lang="fr">Description du KPI (basé sur le paramètre language)</PopupText>
+			<LabelText lang="en">Description</LabelText>
+		</Label>
+		<Label ID="kpid_calc_rate">
+			<LabelText lang="nl">Rate</LabelText>
+			<LabelText lang="fr">Fréquence</LabelText>
+			<PopupText lang="fr">Fréquence de calcul du KPI</PopupText>
+			<LabelText lang="en">Rate</LabelText>
+		</Label>
+		<Label ID="kpid_calc_date">
+			<LabelText lang="nl">Date</LabelText>
+			<LabelText lang="fr">Date</LabelText>
+			<PopupText lang="fr">Date du dernier calcul du KPI</PopupText>
+			<LabelText lang="en">Date</LabelText>
+		</Label>
+		<Label ID="kpid_type">
+			<LabelText lang="nl">Type</LabelText>
+			<LabelText lang="fr">Type</LabelText>
+			<PopupText lang="fr">Type de KPI (KPI/INFO/CIK)</PopupText>
+			<LabelText lang="en">Type</LabelText>
+		</Label>
+		<Label ID="apply_on">
+			<LabelText lang="nl">Applic On</LabelText>
+			<LabelText lang="fr">Applicable</LabelText>
+			<PopupText lang="fr">KPI Applicable (Clé)</PopupText>
+			<LabelText lang="en">Applic On</LabelText>
+		</Label>
+		<Label ID="kpid_linked_kpi">
+			<LabelText lang="nl">Linked KPI</LabelText>
+			<LabelText lang="fr">KPI Lié</LabelText>
+			<PopupText lang="fr">KPI lié ou Parent</PopupText>
+			<LabelText lang="en">Linked KPI</LabelText>
+		</Label>
+		<Label ID="kpid_poc_name">
+			<LabelText lang="nl">POC</LabelText>
+			<LabelText lang="fr">POC</LabelText>
+			<PopupText lang="fr">Point de Contact du KPI</PopupText>
+			<LabelText lang="en">POC</LabelText>
+		</Label>
+		<Label ID="kpi_mod">
+			<LabelText lang="nl">ILIAS Module</LabelText>
+			<LabelText lang="fr">Module ILIAS</LabelText>
+			<PopupText lang="fr">KPI lié au Module ILIAS</PopupText>
+			<LabelText lang="en">Module ILIAS</LabelText>
+		</Label>
+		<Label ID="kpi_submod">
+			<LabelText lang="nl">ILIAS Sub-Module</LabelText>
+			<LabelText lang="fr">Sous-Module ILIAS</LabelText>
+			<PopupText lang="fr">KPI lié au Sous-Module ILIAS</PopupText>
+			<LabelText lang="en">Sub-Module ILIAS</LabelText>
+		</Label>
+		<Label ID="kpi_expcel">
+			<LabelText lang="nl">Expert Cell</LabelText>
+			<LabelText lang="fr">Cellule Experte</LabelText>
+			<PopupText lang="fr">Cellule Experte de MR-Mgt</PopupText>
+			<LabelText lang="en">Expert Cell</LabelText>
+		</Label>
+		<Label ID="kpid_status">
+			<LabelText lang="nl">KPI Status</LabelText>
+			<LabelText lang="fr">Statut</LabelText>
+			<PopupText lang="fr">Statut du KPI</PopupText>
+			<LabelText lang="en">Status</LabelText>
+		</Label>
+		<Label ID="kpid_show">
+			<LabelText lang="nl">E-NE</LabelText>
+			<LabelText lang="fr">E-NE</LabelText>
+			<PopupText lang="fr">KPI Essentiel ou Non-Essentiel</PopupText>
+			<LabelText lang="en">E-NE</LabelText>
+		</Label>
+		<Label ID="kpid_ShowNoValue">
+			<LabelText lang="nl">SE</LabelText>
+			<LabelText lang="fr">SE</LabelText>
+			<PopupText lang="fr">Montrer le KPI si pas de Valeur trouvée</PopupText>
+			<LabelText lang="en">SE</LabelText>
+		</Label>
+		<Label ID="kreal">
+			<LabelText lang="nl">Real</LabelText>
+			<LabelText lang="fr">Real</LabelText>
+			<PopupText lang="fr">Groupe(s) effectivement lié à ce KPI</PopupText>
+			<LabelText lang="en">Real</LabelText>
+		</Label>
+		<Label ID="ktheo">
+			<LabelText lang="nl">Theo</LabelText>
+			<LabelText lang="fr">Theo</LabelText>
+			<PopupText lang="fr">Groupes théoriques applicables au KPI</PopupText>
+			<LabelText lang="en">Theo</LabelText>
+		</Label>
+		<Label ID="dbn_rep_id">
+			<LabelText lang="nl">RID</LabelText>
+			<LabelText lang="fr">RID</LabelText>
+			<PopupText lang="fr">Clé Technique du Rapport lié au KPI</PopupText>
+			<LabelText lang="en">RID</LabelText>
+		</Label>
+		<Label ID="kpi_process">
+			<LabelText lang="nl">Process</LabelText>
+			<LabelText lang="fr">Processus</LabelText>
+			<PopupText lang="fr">Processus de la Défense lié à ce KPI</PopupText>
+			<LabelText lang="en">Process</LabelText>
+		</Label>
+		<Label ID="KPI_LIST">
+			<LabelText lang="nl">(Generic) List of KPI (Key Process Indicators) used on MR Node</LabelText>
+			<LabelText lang="fr">Liste des KPIs (Key Process Indicators) utilisés sur le MR Node</LabelText>
+			<LabelText lang="en">(Generic) List of KPI (Key Process Indicators) used on MR Node</LabelText>
+		</Label>
+		<Label ID="KPI_VALID">
+			<LabelText lang="nl">KPI Validatie</LabelText>
+			<LabelText lang="fr">Validation du KPI</LabelText>
+			<LabelText lang="en">KPI validation</LabelText>
+		</Label>
+		<Label ID="KPI_DETAILS1">
+			<LabelText lang="nl">KPI Details</LabelText>
+			<LabelText lang="fr">Détails du KPI</LabelText>
+			<LabelText lang="en">KPI Details</LabelText>
+		</Label>
+		<Label ID="KPI_SUBMOD">
+			<LabelText lang="nl">ILIAS Module and Sub-Module</LabelText>
+			<LabelText lang="fr">Module et Sous-Module ILIAS</LabelText>
+			<LabelText lang="en">ILIAS Module and SubModule</LabelText>
+		</Label>
+		<Label ID="KPI_PROC">
+			<LabelText lang="nl">Defensie Process(en)</LabelText>
+			<LabelText lang="fr">Processus Défense</LabelText>
+			<LabelText lang="en">Defense Process(es)</LabelText>
+		</Label>
+		<Label ID="KPI_HITS">
+			<LabelText lang="nl">Gebruiks Statistieken</LabelText>
+			<LabelText lang="fr">Statistiques d'utilisation</LabelText>
+			<LabelText lang="en">Use Statistics</LabelText>
+		</Label>
+		<Label ID="KI_STATS">
+			<LabelText lang="nl">Waarde Statistieken</LabelText>
+			<LabelText lang="fr">Statistiques liées aux valeurs</LabelText>
+			<LabelText lang="en">Data Statistics</LabelText>
+		</Label>
+		<Label ID="KPI_INFO_TAB">
+			<LabelText lang="nl">KPI Identiteitskaart</LabelText>
+			<LabelText lang="fr">Carte d'identité du KPI</LabelText>
+			<LabelText lang="en">KPI ID Card</LabelText>
+		</Label>
+		<Label ID="REPORT_INFO_TAB">
+			<LabelText lang="nl">Rapport Identiteitskaart</LabelText>
+			<LabelText lang="fr">Carte d'identité du Rapport lié au KPI</LabelText>
+			<LabelText lang="en">Report ID Card</LabelText>
+		</Label>
+</Dictionary>

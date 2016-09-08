@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>Report List</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml</source>
+ <processing type="none"/>
+ <result type="xml" header="no"/>
+</descriptor>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<!-- Test Repdic for Sample on Field NSN -->
+		<Label ID="NSN">
+			<LabelText lang="nl">De NSN</LabelText>
+			<PopupText lang="nl">Dit is het Nato Stock Number</PopupText>
+			<LabelText lang="fr">Le NSN</LabelText>
+			<PopupText lang="fr">C'est le Nato Stock Number</PopupText>
+			<LabelText lang="en">The NSN</LabelText>
+			<PopupText lang="en">This is the Nato Stock Number</PopupText>
+		</Label>
+		
+		<Label ID="IL_MR_SAMPLE">
+			<LabelText lang="nl">Voorbeeld 01</LabelText>
+			<PopupText lang="nl">tekst vb 01</PopupText>
+			<LabelText lang="fr">Exemple 01</LabelText>
+			<PopupText lang="fr">Texte de l'exemple 01</PopupText>
+			<LabelText lang="en">Sample 01</LabelText>
+			<PopupText lang="en">Sample 01 Sample Text</PopupText>
+		</Label>
+		
+		<Label ID="PAGE_NAME">
+			<LabelText lang="nl">Voorbeeld 00</LabelText>
+			<LabelText lang="fr">Exemple 00</LabelText>
+			<LabelText lang="en">Sample 00</LabelText>
+		</Label>
+
+		<Label ID="REPORT_TITLE">
+			<LabelText lang="nl">Rapport Title</LabelText>
+			<PopupText lang="nl">Kort Uitlegging van het rapport</PopupText>
+			<LabelText lang="fr">Titre du Rapport</LabelText>
+			<PopupText lang="fr">Courte Description du Rapport</PopupText>
+			<LabelText lang="en">Report Title</LabelText>
+			<PopupText lang="en">Report Short Description</PopupText>
+		</Label>
+				
+		<Label ID="REPORT02B_TITLE">
+			<LabelText lang="nl">Asset Lijst foor Functie : </LabelText>
+			<PopupText lang="nl">Kort Uitlegging van de ondervraging</PopupText>
+			<LabelText lang="fr">List des Assets pour la Fonction : </LabelText>
+			<PopupText lang="fr">Courte Description de la requète</PopupText>
+			<LabelText lang="en">List of Asset for Fonction : </LabelText>
+			<PopupText lang="en">Query Short Description</PopupText>
+		</Label>
+		
+	
+</Dictionary>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="PAGE_TITLE">
+		<LabelText lang="nl"></LabelText>
+		<LabelText lang="fr"></LabelText>
+		<LabelText lang="en"></LabelText>
+	</Label>
+	<Label ID="REPORT_TITLE">
+		<LabelText lang="nl"></LabelText>
+		<LabelText lang="fr"></LabelText>
+		<LabelText lang="en"></LabelText>
+	</Label>
+	<Label ID="KPI_DETAILS">
+		<LabelText lang="nl">Assets Lijst</LabelText>
+		<LabelText lang="fr">Liste des Assets</LabelText>
+		<LabelText lang="en">Assets List</LabelText>
+	</Label>	
+</Dictionary>

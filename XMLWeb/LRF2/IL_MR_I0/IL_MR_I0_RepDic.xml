@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="PAGE_TITLE">
+		<LabelText lang="nl">I1:</LabelText>
+		<LabelText lang="fr">I1:</LabelText>
+		<LabelText lang="en">I1:</LabelText>
+	</Label>
+	<Label ID="REPORT_TITLE">
+		<LabelText lang="nl">Identiteitskaard voor ASSET : </LabelText>
+		<LabelText lang="fr">Carte d'identité de l'ASSET : </LabelText>
+		<LabelText lang="en">ID Card for ASSET : </LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2_NSN_ID_BLOCK">
+		<LabelText lang="nl">NSN Id Card</LabelText>
+		<LabelText lang="fr">NSN Id Card</LabelText>
+		<LabelText lang="en">NSN Id Card</LabelText>
+	</Label>
+	<Label ID="IL_MR_I2_NSN_PIC_TIM">
+		<LabelText lang="nl">Pictures from TIM</LabelText>
+		<LabelText lang="fr">Pictures from TIM</LabelText>
+		<LabelText lang="en">Pictures from TIM</LabelText>
+	</Label>
+	<Label ID="IL_MR_I2G_SPLIMO">
+		<LabelText lang="nl">Limitation on Organism (SPLIMO)</LabelText>
+		<LabelText lang="fr">Limitation on Organism (SPLIMO)</LabelText>
+		<LabelText lang="en">Limitation on Organism (SPLIMO)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_SPLIMS">
+		<LabelText lang="nl">Limitation on Store (SPLIMS)</LabelText>
+		<LabelText lang="fr">Limitation on Store (SPLIMS)</LabelText>
+		<LabelText lang="en">Limitation on Store (SPLIMS)</LabelText>
+	</Label>
+	<Label ID="IL_MR_I2G_FUNCTIONS">
+		<LabelText lang="nl">Applicable Function(s) (APPLIC)</LabelText>
+		<LabelText lang="fr">Applicable Function(s) (APPLIC)</LabelText>
+		<LabelText lang="en">Applicable Function(s) (APPLIC)</LabelText>
+	</Label>
+	<Label ID="IL_MR_I2G_FDC">
+		<LabelText lang="nl">Dynamic Characteristics (FDC)</LabelText>
+		<LabelText lang="fr">Dynamic Characteristics (FDC)</LabelText>
+		<LabelText lang="en">Dynamic Characteristics (FDC)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_CONTRACT">
+		<LabelText lang="nl">Contracts</LabelText>
+		<LabelText lang="fr">Contracts</LabelText>
+		<LabelText lang="en">Contracts</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_MDR">
+		<LabelText lang="nl">Material Deficiency Report (MDR)</LabelText>
+		<LabelText lang="fr">Material Deficiency Report (MDR)</LabelText>
+		<LabelText lang="en">Material Deficiency Report (MDR)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_ALTERNATES">
+		<LabelText lang="nl">Alternate NSN</LabelText>
+		<LabelText lang="fr">Alternate NSN</LabelText>
+		<LabelText lang="en">Alternate NSN</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_COMPONENTS">
+		<LabelText lang="nl">List of Component(s) (SCOMP)</LabelText>
+		<LabelText lang="fr">List of Component(s) (SCOMP)</LabelText>
+		<LabelText lang="en">List of Component(s) (SCOMP)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_PART_COMPONENTS">
+		<LabelText lang="nl">Component of (SCOMP)</LabelText>
+		<LabelText lang="fr">Component of (SCOMP)</LabelText>
+		<LabelText lang="en">Component of (SCOMP)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_COMPONENTS_SET">
+		<LabelText lang="nl">List of Set Components (SPSET)</LabelText>
+		<LabelText lang="fr">List of Set Components (SPSET)</LabelText>
+		<LabelText lang="en">List of Set Components (SPSET)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_PART_COMPONENTS_SET">
+		<LabelText lang="nl">Component of Set (SPSET)</LabelText>
+		<LabelText lang="fr">Component of Set (SPSET)</LabelText>
+		<LabelText lang="en">Component of Set (SPSET)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_PN_MFR">
+		<LabelText lang="nl">Part Number (P/N) and NCAGE (MFR/SUP)</LabelText>
+		<LabelText lang="fr">Part Number (P/N) and NCAGE (MFR/SUP)</LabelText>
+		<LabelText lang="en">Part Number (P/N) and NCAGE (MFR/SUP)</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_LIST_ASSETS">
+		<LabelText lang="nl">List Of Assets</LabelText>
+		<LabelText lang="fr">List Of Assets</LabelText>
+		<LabelText lang="en">List Of Assets</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_NSN_EVOLUTIONS">
+		<LabelText lang="nl">NSN Evolutions</LabelText>
+		<LabelText lang="fr">NSN Evolutions</LabelText>
+		<LabelText lang="en">NSN Evolutions</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_NSN_BUY">
+		<LabelText lang="nl">Purchase</LabelText>
+		<LabelText lang="fr">Purchase</LabelText>
+		<LabelText lang="en">Purchase</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_NSN_TECHSPEC">
+		<LabelText lang="nl">Technical Specifications</LabelText>
+		<LabelText lang="fr">Technical Specifications</LabelText>
+		<LabelText lang="en">Technical Specifications</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_NSN_ANNOTATIONS">
+		<LabelText lang="nl">Annotations</LabelText>
+		<LabelText lang="fr">Annotations</LabelText>
+		<LabelText lang="en">Annotations</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_NSN_DOCLINKS">
+		<LabelText lang="nl">DocLinks</LabelText>
+		<LabelText lang="fr">DocLinks</LabelText>
+		<LabelText lang="en">DocLinks</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2G_LCC">
+		<LabelText lang="nl">NSN Cost</LabelText>
+		<LabelText lang="fr">NSN Cost</LabelText>
+		<LabelText lang="en">NSN Cost</LabelText>
+	</Label>
+	<Label ID="IL_MR_I2G_NSN_EVOLUTIONS_FORMER">
+		<LabelText lang="nl">NSN Evolution Former</LabelText>
+		<LabelText lang="fr">NSN Evolution Former</LabelText>
+		<LabelText lang="en">NSN Evolution Former</LabelText>
+	</Label>
+	<Label ID="IL_MR_I2G_NSN_DG">
+		<LabelText lang="nl">DG</LabelText>
+		<LabelText lang="fr">DG</LabelText>
+		<LabelText lang="en">DG</LabelText>
+	</Label>	
+	<Label ID="IL_MR_I2_NSN_Barcode">
+		<LabelText lang="nl">NSN Barcode and Label</LabelText>
+		<LabelText lang="fr">NSN Barcode and Label</LabelText>
+		<PopupText lang="fr">Barcode du NSN et Lien vers le rapport Label NSN</PopupText>
+		<LabelText lang="en">NSN Barcode and Label</LabelText>
+	</Label>
+	<Label ID="LANGUAGE">
+		<LabelText lang="nl">Taal</LabelText>
+		<PopupText lang="nl">Taal van de Technische Specificaties (SPART Tab Tech Spec)</PopupText>
+		<LabelText lang="fr">Langue</LabelText>
+		<PopupText lang="fr">Langue des spécifications Techniques (SPART Tab Tech Spec)</PopupText>
+		<LabelText lang="en">Language</LabelText>
+		<PopupText lang="en">Language of the Technical Specifications (SPART Tab Tech Spec)</PopupText>
+	</Label>
+</Dictionary>

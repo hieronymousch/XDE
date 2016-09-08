@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="PAGE_TITLE">
+		<LabelText lang="nl">N/A</LabelText>
+		<LabelText lang="fr">N/A</LabelText>
+		<LabelText lang="en">N/A</LabelText>
+	</Label>
+	<Label ID="REPORT_TITLE_KPI_LIST">
+		<LabelText lang="nl">Lijst van KPI's op de MR Node</LabelText>
+		<LabelText lang="fr">Liste des KPI's sur le MR Node</LabelText>
+		<LabelText lang="en">LIST of KPI's on MR Node</LabelText>
+	</Label>
+	<Label ID="PAGE_TITLE_KPI_LIST">
+		<LabelText lang="nl">KPI's Lijst</LabelText>
+		<LabelText lang="fr">Liste des KPI's</LabelText>
+		<LabelText lang="en">LIST of KPI's</LabelText>
+	</Label>
+	<Label ID="XTAB_TITLE">
+		<LabelText lang="nl">Dynamische CrossTabel Samevating (Met Drill-Down)</LabelText>
+		<LabelText lang="fr">Tableau résumé croisé Dynamique (avec Drill-Down)</LabelText>
+		<LabelText lang="en">Dynamic CrossTable Summary (with Drill-Down)</LabelText>
+	</Label>
+	<Label ID="XGRAPH_TITLE">
+		<LabelText lang="nl">Dynamische Grafiek (Met Drill-Down)</LabelText>
+		<LabelText lang="fr">Graphique Dynamique (avec Drill-Down)</LabelText>
+		<LabelText lang="en">Dynamic Graphical (with Drill-Down)</LabelText>
+	</Label>
+	<Label ID="TAB_COLLAPSE">
+		<LabelText lang="nl">(Un)Collapse Tabs</LabelText>
+		<LabelText lang="fr">(Un)Collapse Tabs</LabelText>
+		<LabelText lang="en">(Un)Collapse Tabs</LabelText>
+	</Label>
+	<Label ID="REPORT_TITLE">
+		<LabelText lang="nl">N/A</LabelText>
+		<LabelText lang="fr">N/A</LabelText>
+		<LabelText lang="en">N/A</LabelText>
+	</Label>
+	<Label ID="ABNORMAL_KPI_EXIST">
+		<LabelText lang="nl">Abnormaal or niet gedefinieerd KPI(s) gevonden</LabelText>
+		<LabelText lang="fr">KPI(s) Anormal(aux) ou non-définiss) trouvé(s)</LabelText>
+		<LabelText lang="en">Abnormal or Not Defined KPI(s) Found</LabelText>
+	</Label>
+	<Label ID="ESSENTIAL_KPI">
+		<LabelText lang="nl">Essentiele KPI(s) - Dynamische Stuurboord Samevaating</LabelText>
+		<PopupText lang="nl">Essentiele Key Process Indicatoren</PopupText>
+		<LabelText lang="fr">KPI(s) Essentiel(s) - Résumé du Tableau de Bord Dynamique</LabelText>
+		<PopupText lang="fr">Indicateurs de Processus Clés essentiels</PopupText>
+		<LabelText lang="en">Essential KPI - Dynamic Dashboard Summary</LabelText>
+		<PopupText lang="en">Essentials Key Process Indicators</PopupText>
+	</Label>
+	<Label ID="NON_ESSENTIAL_KPI">
+		<LabelText lang="nl">Niet-Essentiele KPI(s) - Dynamische Stuurboord Samevaating</LabelText>
+		<PopupText lang="nl">Niet-Essentiele Key Process Indicatoren</PopupText>
+		<LabelText lang="fr">KPI(s) Non-Essentiel(s) - Résumé du Tableau de Bord Dynamique</LabelText>
+		<PopupText lang="fr">Indicateurs de Processus Clés non-essentiels</PopupText>
+		<LabelText lang="en">Not-Essential KPI - Dynamic Dashboard Summary</LabelText>
+		<PopupText lang="en">Not-Essentials Key Process Indicators</PopupText>
+	</Label>	
+	<Label ID="kpid_code">
+		<LabelText lang="nl">KPI Nr</LabelText>
+		<LabelText lang="fr">Nr KPI</LabelText>
+		<PopupText lang="fr">Code (en 4 chiffres) du KPI</PopupText>
+		<LabelText lang="en">KPI Nbr</LabelText>
+	</Label>
+	<Label ID="kpid_parent">
+		<LabelText lang="nl">Parent KPI</LabelText>
+		<LabelText lang="fr">KPI Parent</LabelText>
+		<PopupText lang="fr">Code (en 4 chiffres) du KPI Parent (utilisé souvent pour les KPI consolidés)</PopupText>
+		<LabelText lang="en">KPI Parent</LabelText>
+	</Label>
+	<Label ID="delta">
+		<LabelText lang="nl">BT</LabelText>
+		<LabelText lang="fr">DC</LabelText>
+		<PopupText lang="fr">Durée du calcul du KPI exprimé en secondes</PopupText>
+		<LabelText lang="en">CD</LabelText>
+	</Label>
+	<Label ID="kpid_archive_type">
+		<LabelText lang="nl">AT</LabelText>
+		<LabelText lang="fr">TA</LabelText>
+		<PopupText lang="fr">Code du Type d'archivage</PopupText>
+		<LabelText lang="en">AT</LabelText>
+	</Label>
+	<Label ID="DD">
+		<LabelText lang="nl">+</LabelText>
+		<LabelText lang="fr">+</LabelText>
+		<PopupText lang="fr">Cliquez pour afficher les détails du KPI</PopupText>
+		<LabelText lang="en">+</LabelText>
+	</Label>
+	<Label ID="kpi_Denom">
+		<LabelText lang="nl">KPI Benaming</LabelText>
+		<LabelText lang="fr">Intulé du KPI</LabelText>
+		<PopupText lang="fr">Intitulé du KPI (basé sur le paramètre language)</PopupText>
+		<LabelText lang="en">KPI Denomination</LabelText>
+	</Label>
+	<Label ID="dbn_rep_status">
+		<LabelText lang="nl">Rep Status</LabelText>
+		<LabelText lang="fr">Statut Rap</LabelText>
+		<PopupText lang="fr">Statut du Rapport en Prod</PopupText>
+		<LabelText lang="en">Rep Status</LabelText>
+	</Label>
+	<Label ID="dbn_accrep_status">
+		<LabelText lang="nl">Acc Rep Status</LabelText>
+		<LabelText lang="fr">Statut Rap Acc</LabelText>
+		<PopupText lang="fr">Statut du Rapport en Acceptance</PopupText>
+		<LabelText lang="en">Acc Rep Status</LabelText>
+	</Label>
+	<Label ID="kpid_key">
+		<LabelText lang="nl">DB</LabelText>
+		<LabelText lang="fr">DB</LabelText>
+		<PopupText lang="fr">DashBoard Utilisé (ORG=Organisationnel/FUN=Fonctionnel/MIS=Mission)</PopupText>
+		<LabelText lang="en">DB</LabelText>
+	</Label>
+	<Label ID="kpid_active">
+		<LabelText lang="nl">Actieve</LabelText>
+		<LabelText lang="fr">Actif</LabelText>
+		<PopupText lang="fr">KPI actif ?</PopupText>
+		<LabelText lang="en">Active</LabelText>
+	</Label>
+	<Label ID="kpi_status">
+		<LabelText lang="nl">Status</LabelText>
+		<LabelText lang="fr">Statut</LabelText>
+		<PopupText lang="fr">Statut du KPI</PopupText>
+		<LabelText lang="en">Status</LabelText>
+	</Label>
+	<Label ID="kpid_Desc">
+		<LabelText lang="nl">Beschrijving</LabelText>
+		<LabelText lang="fr">Description</LabelText>
+		<PopupText lang="fr">Description du KPI (basé sur le paramètre language)</PopupText>
+		<LabelText lang="en">Description</LabelText>
+	</Label>
+	<Label ID="kpid_calc_rate">
+		<LabelText lang="nl">Rate</LabelText>
+		<LabelText lang="fr">Fréquence</LabelText>
+		<PopupText lang="fr">Fréquence de calcul du KPI</PopupText>
+		<LabelText lang="en">Rate</LabelText>
+	</Label>
+	<Label ID="kpid_calc_date">
+		<LabelText lang="nl">Date</LabelText>
+		<LabelText lang="fr">Date</LabelText>
+		<PopupText lang="fr">Date du dernier calcul du KPI</PopupText>
+		<LabelText lang="en">Date</LabelText>
+	</Label>
+	<Label ID="kpid_type">
+		<LabelText lang="nl">Type</LabelText>
+		<LabelText lang="fr">Type</LabelText>
+		<PopupText lang="fr">Type de KPI (KPI/INFO/CIK)</PopupText>
+		<LabelText lang="en">Type</LabelText>
+	</Label>
+	<Label ID="apply_on">
+		<LabelText lang="nl">Applic On</LabelText>
+		<LabelText lang="fr">Applicable</LabelText>
+		<PopupText lang="fr">KPI Applicable (Clé)</PopupText>
+		<LabelText lang="en">Applic On</LabelText>
+	</Label>
+	<Label ID="kpid_linked_kpi">
+		<LabelText lang="nl">Linked KPI</LabelText>
+		<LabelText lang="fr">KPI Lié</LabelText>
+		<PopupText lang="fr">KPI lié ou Parent</PopupText>
+		<LabelText lang="en">Linked KPI</LabelText>
+	</Label>
+	<Label ID="kpid_poc_name">
+		<LabelText lang="nl">POC</LabelText>
+		<LabelText lang="fr">POC</LabelText>
+		<PopupText lang="fr">Point de Contact du KPI</PopupText>
+		<LabelText lang="en">POC</LabelText>
+	</Label>
+	<Label ID="kpi_mod">
+		<LabelText lang="nl">ILIAS Module</LabelText>
+		<LabelText lang="fr">Module ILIAS</LabelText>
+		<PopupText lang="fr">KPI lié au Module ILIAS</PopupText>
+		<LabelText lang="en">Module ILIAS</LabelText>
+	</Label>
+	<Label ID="kpi_submod">
+		<LabelText lang="nl">ILIAS Sub-Module</LabelText>
+		<LabelText lang="fr">Sous-Module ILIAS</LabelText>
+		<PopupText lang="fr">KPI lié au Sous-Module ILIAS</PopupText>
+		<LabelText lang="en">Sub-Module ILIAS</LabelText>
+	</Label>
+	<Label ID="kpi_expcel">
+		<LabelText lang="nl">Expert Cell</LabelText>
+		<LabelText lang="fr">Cellule Experte</LabelText>
+		<PopupText lang="fr">Cellule Experte de MR-Mgt</PopupText>
+		<LabelText lang="en">Expert Cell</LabelText>
+	</Label>
+	<Label ID="kpid_status">
+		<LabelText lang="nl">KPI Status</LabelText>
+		<LabelText lang="fr">Statut</LabelText>
+		<PopupText lang="fr">Statut du KPI</PopupText>
+		<LabelText lang="en">Status</LabelText>
+	</Label>
+	<Label ID="kpid_show">
+		<LabelText lang="nl">E-NE</LabelText>
+		<LabelText lang="fr">E-NE</LabelText>
+		<PopupText lang="fr">KPI Essentiel ou Non-Essentiel</PopupText>
+		<LabelText lang="en">E-NE</LabelText>
+	</Label>
+	<Label ID="kpid_ShowNoValue">
+		<LabelText lang="nl">SE</LabelText>
+		<LabelText lang="fr">SE</LabelText>
+		<PopupText lang="fr">Montrer le KPI si pas de Valeur trouvée</PopupText>
+		<LabelText lang="en">SE</LabelText>
+	</Label>
+	<Label ID="kreal">
+		<LabelText lang="nl">Real</LabelText>
+		<LabelText lang="fr">Real</LabelText>
+		<PopupText lang="fr">Groupe(s) effectivement lié à ce KPI</PopupText>
+		<LabelText lang="en">Real</LabelText>
+	</Label>
+	<Label ID="ktheo">
+		<LabelText lang="nl">Theo</LabelText>
+		<LabelText lang="fr">Theo</LabelText>
+		<PopupText lang="fr">Groupes théoriques applicables au KPI</PopupText>
+		<LabelText lang="en">Theo</LabelText>
+	</Label>
+	<Label ID="dbn_rep_id">
+		<LabelText lang="nl">RID</LabelText>
+		<LabelText lang="fr">RID</LabelText>
+		<PopupText lang="fr">Clé Technique du Rapport lié au KPI</PopupText>
+		<LabelText lang="en">RID</LabelText>
+	</Label>
+	<Label ID="kpi_process">
+		<LabelText lang="nl">Process</LabelText>
+		<LabelText lang="fr">Processus</LabelText>
+		<PopupText lang="fr">Processus de la Défense lié à ce KPI</PopupText>
+		<LabelText lang="en">Process</LabelText>
+	</Label>
+	<Label ID="KPI_LIST">
+		<LabelText lang="nl">(Generic) List of KPI (Key Process Indicators) used on MR Node</LabelText>
+		<LabelText lang="fr">Liste des KPIs (Key Process Indicators) utilisés sur le MR Node</LabelText>
+		<LabelText lang="en">(Generic) List of KPI (Key Process Indicators) used on MR Node</LabelText>
+	</Label>
+	<Label ID="KPI_VALID">
+		<LabelText lang="nl">KPI Validatie</LabelText>
+		<LabelText lang="fr">Validation du KPI</LabelText>
+		<LabelText lang="en">KPI validation</LabelText>
+	</Label>
+	<Label ID="KPI_DETAILS">
+		<LabelText lang="nl">KPI Details</LabelText>
+		<LabelText lang="fr">Détails du KPI</LabelText>
+		<LabelText lang="en">KPI Details</LabelText>
+	</Label>
+	<Label ID="KPI_SUBMOD">
+		<LabelText lang="nl">ILIAS Module and Sub-Module</LabelText>
+		<LabelText lang="fr">Module et Sous-Module ILIAS</LabelText>
+		<LabelText lang="en">ILIAS Module and SubModule</LabelText>
+	</Label>
+	<Label ID="KPI_PROC">
+		<LabelText lang="nl">Defensie Process(en)</LabelText>
+		<LabelText lang="fr">Processus Défense</LabelText>
+		<LabelText lang="en">Defense Process(es)</LabelText>
+	</Label>
+	<Label ID="KPI_HITS">
+		<LabelText lang="nl">Gebruiks Statistieken</LabelText>
+		<LabelText lang="fr">Statistiques d'utilisation</LabelText>
+		<LabelText lang="en">Use Statistics</LabelText>
+	</Label>
+	<Label ID="KPI_STATS">
+		<LabelText lang="nl">Waarde Statistieken</LabelText>
+		<LabelText lang="fr">Statistiques liées aux valeurs</LabelText>
+		<LabelText lang="en">Data Statistics</LabelText>
+	</Label>
+	<Label ID="KPI_INFO_TAB">
+		<LabelText lang="nl">KPI Identiteitskaart</LabelText>
+		<LabelText lang="fr">Carte d'identité du KPI</LabelText>
+		<LabelText lang="en">KPI ID Card</LabelText>
+	</Label>
+	<Label ID="REPORT_INFO_TAB">
+		<LabelText lang="nl">Rapport Identiteitskaart</LabelText>
+		<LabelText lang="fr">Carte d'identité du Rapport lié au KPI</LabelText>
+		<LabelText lang="en">Report ID Card</LabelText>
+	</Label>
+</Dictionary>

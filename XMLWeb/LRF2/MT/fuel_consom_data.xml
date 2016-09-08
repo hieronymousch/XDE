@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dbqueries>
+<environment>PRD</environment>
+<label>
+MT Fuel Consommation</label>
+<description>
+MT Fuel Consommation</description>
+<dbquery id='Report_Info'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id =&apos;pRID&apos;
+		
+</originalquery>
+<parameters>
+<param name='pRID' value='0'/>
+<param name='pLANG' value='EN'/>
+<param name='pMODE' value='Main'/>
+<param name='pYear' value='2015'/>
+<param name='pORGANISM' value='02'/>
+<param name='pTreshold' value='2000'/>
+</parameters>
+<querystring>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id =&apos;0&apos;
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="DayModif" type="BIGINT"/><column name="dbn_rep_categ" type="VARCHAR"/><column name="dbn_rep_dbweb" type="VARCHAR"/><column name="dbn_rep_accept" type="INTEGER"/><column name="dbn_rep_id" type="INTEGER"/><column name="dbn_rep_date" type="TIMESTAMP"/><column name="dbn_rep_name" type="VARCHAR"/><column name="dbn_rep_visible" type="VARCHAR"/><column name="dbn_rep_version" type="VARCHAR"/><column name="dbn_rep_poc" type="VARCHAR"/><column name="dbn_rep_email" type="VARCHAR"/><column name="dbn_rep_stat" type="INTEGER"/><column name="dbn_rep_node" type="VARCHAR"/><column name="dbn_rep_responsible" type="VARCHAR"/><column name="dbn_rep_special" type="VARCHAR"/><column name="dbn_rep_kpi" type="VARCHAR"/><column name="dbn_rep_type" type="VARCHAR"/><column name="dbn_rep_secure" type="VARCHAR"/><column name="dbn_rep_refresh" type="VARCHAR"/><column name="dbn_rep_node_url" type="VARCHAR"/><column name="dbn_rep_url" type="VARCHAR"/><column name="dbn_rep_application" type="VARCHAR"/><column name="dbn_rep_dom_lev1" type="VARCHAR"/><column name="dbn_rep_dom_lev2" type="VARCHAR"/><column name="dbn_rep_dom_lev3" type="VARCHAR"/><column name="dbn_rep_long_desc_en" type="VARCHAR"/><column name="dbn_rep_long_desc_fr" type="VARCHAR"/><column name="dbn_rep_long_desc_nl" type="VARCHAR"/><column name="dbn_rep_remarks_en" type="VARCHAR"/><column name="dbn_rep_remarks_fr" type="VARCHAR"/><column name="dbn_rep_remarks_nl" type="VARCHAR"/><column name="dbn_rep_url_doc_en" type="VARCHAR"/><column name="dbn_rep_url_doc_fr" type="VARCHAR"/><column name="dbn_rep_url_doc_nl" type="VARCHAR"/><column name="dbn_rep_url_ilias" type="VARCHAR"/><column name="dbn_rep_remarks" type="VARCHAR"/><column name="dbn_rep_url_xls" type="VARCHAR"/><column name="dbn_rep_url_pdf" type="VARCHAR"/><column name="dbn_rep_status" type="VARCHAR"/><column name="dbn_accrep_status" type="VARCHAR"/><column name="Views_Used" type="BIGINT"/><column name="Extr_Status" type="VARCHAR"/>
+</columns>
+<rows>
+<row DayModif="" dbn_rep_categ="" dbn_rep_dbweb="" dbn_rep_accept="" dbn_rep_id="" dbn_rep_date="" dbn_rep_name="" dbn_rep_visible="" dbn_rep_version="" dbn_rep_poc="" dbn_rep_email="" dbn_rep_stat="" dbn_rep_node="" dbn_rep_responsible="" dbn_rep_special="" dbn_rep_kpi="" dbn_rep_type="" dbn_rep_secure="" dbn_rep_refresh="" dbn_rep_node_url="" dbn_rep_url="" dbn_rep_application="" dbn_rep_dom_lev1="" dbn_rep_dom_lev2="" dbn_rep_dom_lev3="" dbn_rep_long_desc_en="" dbn_rep_long_desc_fr="" dbn_rep_long_desc_nl="" dbn_rep_remarks_en="" dbn_rep_remarks_fr="" dbn_rep_remarks_nl="" dbn_rep_url_doc_en="" dbn_rep_url_doc_fr="" dbn_rep_url_doc_nl="" dbn_rep_url_ilias="" dbn_rep_remarks="" dbn_rep_url_xls="" dbn_rep_url_pdf="" dbn_rep_status="" dbn_accrep_status="" Views_Used="0" Extr_Status=""/>
+</rows>
+</dbquery>
+<dbquery id='Report_Prompt'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select * from dbn_report_parameters
+			where dbn_repp_parid=&apos;pRID&apos;;
+		
+</originalquery>
+<parameters>
+<param name='pRID' value='0'/>
+<param name='pLANG' value='EN'/>
+<param name='pMODE' value='Main'/>
+<param name='pYear' value='2015'/>
+<param name='pORGANISM' value='02'/>
+<param name='pTreshold' value='2000'/>
+</parameters>
+<querystring>
+			select * from dbn_report_parameters
+			where dbn_repp_parid=&apos;0&apos;;
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="dbn_repp_param_order" type="INTEGER"/><column name="dbn_repp_id" type="INTEGER"/><column name="dbn_repp_parid" type="INTEGER"/><column name="dbn_repp_param" type="VARCHAR"/><column name="dbn_repp_param_name" type="VARCHAR"/><column name="dbn_repp_param_name_fr" type="VARCHAR"/><column name="dbn_repp_param_name_nl" type="VARCHAR"/><column name="dbn_repp_param_visible" type="VARCHAR"/><column name="dbn_repp_param_type" type="VARCHAR"/><column name="dbn_repp_param_type_detail" type="VARCHAR"/><column name="dbn_repp_param_validation" type="VARCHAR"/><column name="dbn_repp_param_format" type="VARCHAR"/><column name="dbn_repp_param_remark" type="VARCHAR"/><column name="dbn_repp_param_remark_fr" type="VARCHAR"/><column name="dbn_repp_param_remark_nl" type="VARCHAR"/><column name="dbn_repp_param_mandatory" type="VARCHAR"/>
+</columns>
+<rows>
+<row dbn_repp_param_order="" dbn_repp_id="814" dbn_repp_parid="0" dbn_repp_param="" dbn_repp_param_name="" dbn_repp_param_name_fr="" dbn_repp_param_name_nl="" dbn_repp_param_visible="" dbn_repp_param_type="" dbn_repp_param_type_detail="" dbn_repp_param_validation="" dbn_repp_param_format="" dbn_repp_param_remark="" dbn_repp_param_remark_fr="" dbn_repp_param_remark_nl="" dbn_repp_param_mandatory=""/>
+</rows>
+</dbquery>
+<dbquery id='FUEL_CONSOM'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			SELECT 
+				Month(ft.FUELDATE) name, 
+				concat(f.WSC,&apos; (&apos;,lc.DESCRIPTION,&apos;)&apos;) categories, 
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1)) data
+			FROM
+				mrqr_fuel_transactions ft INNER JOIN 
+				mrqr_assets a ON ft.ASSET = a.ASSET INNER JOIN 
+				mrqr_functions f ON a.FUNCTION = f.FUNCTION INNER JOIN 
+				mrqr_lookup_codes lc ON f.WSC = lc.CODE
+			WHERE 
+				a.ORGANISM=&apos;pORGANISM&apos; AND 
+				(ft.NSN=&apos;9140-12-154-7099&apos; Or ft.NSN=&apos;9140-12-154-7099&apos;) AND 
+				lc.TYPE=&apos;WSC&apos; and
+				Year(ft.FUELDATE)=&apos;pYear&apos;
+			GROUP BY 
+				Month(ft.FUELDATE), concat(f.WSC,&apos; (&apos;,lc.DESCRIPTION,&apos;)&apos;)
+			HAVING
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1))&amp;gt;&apos;pTreshold&apos;
+			ORDER BY 
+				Month(ft.FUELDATE), 
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1)) DESC
+		
+</originalquery>
+<parameters>
+<param name='pRID' value='0'/>
+<param name='pLANG' value='EN'/>
+<param name='pMODE' value='Main'/>
+<param name='pYear' value='2015'/>
+<param name='pORGANISM' value='02'/>
+<param name='pTreshold' value='2000'/>
+</parameters>
+<querystring>
+			SELECT 
+				Month(ft.FUELDATE) name, 
+				concat(f.WSC,&apos; (&apos;,lc.DESCRIPTION,&apos;)&apos;) categories, 
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1)) data
+			FROM
+				mrqr_fuel_transactions ft INNER JOIN 
+				mrqr_assets a ON ft.ASSET = a.ASSET INNER JOIN 
+				mrqr_functions f ON a.FUNCTION = f.FUNCTION INNER JOIN 
+				mrqr_lookup_codes lc ON f.WSC = lc.CODE
+			WHERE 
+				a.ORGANISM=&apos;02&apos; AND 
+				(ft.NSN=&apos;9140-12-154-7099&apos; Or ft.NSN=&apos;9140-12-154-7099&apos;) AND 
+				lc.TYPE=&apos;WSC&apos; and
+				Year(ft.FUELDATE)=&apos;2015&apos;
+			GROUP BY 
+				Month(ft.FUELDATE), concat(f.WSC,&apos; (&apos;,lc.DESCRIPTION,&apos;)&apos;)
+			HAVING
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1))&gt;&apos;2000&apos;
+			ORDER BY 
+				Month(ft.FUELDATE), 
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1)) DESC
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="name" type="INTEGER"/><column name="categories" type="VARCHAR"/><column name="data" type="DECIMAL"/>
+</columns>
+<rows>
+<row name="1" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="8289"/>
+<row name="1" categories="RDRB (ROAD DE- ICING)" data="2257"/>
+<row name="1" categories="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" data="2083"/>
+<row name="2" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="6140"/>
+<row name="2" categories="RCER (BUS         &gt;  35 PASSENGERS)" data="3805"/>
+<row name="2" categories="RBAF (LIGHT TRUCK)" data="2670"/>
+<row name="2" categories="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" data="2053"/>
+<row name="3" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="2986"/>
+<row name="3" categories="RCER (BUS         &gt;  35 PASSENGERS)" data="2670"/>
+<row name="3" categories="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" data="2362"/>
+<row name="4" categories="RCVA (VEH  - TPT CONTAINERS)" data="2447"/>
+<row name="4" categories="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" data="2035"/>
+<row name="5" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="5195"/>
+<row name="5" categories="RCER (BUS         &gt;  35 PASSENGERS)" data="2723"/>
+<row name="6" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="8664"/>
+<row name="6" categories="RCER (BUS         &gt;  35 PASSENGERS)" data="2673"/>
+<row name="6" categories="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" data="2309"/>
+<row name="6" categories="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" data="2219"/>
+<row name="6" categories="RDRA (ROAD SWEEPER)" data="2148"/>
+<row name="7" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="3262"/>
+<row name="7" categories="RDRA (ROAD SWEEPER)" data="2121"/>
+<row name="7" categories="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" data="2021"/>
+<row name="8" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="5313"/>
+<row name="8" categories="RDRA (ROAD SWEEPER)" data="2725"/>
+<row name="8" categories="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" data="2249"/>
+<row name="8" categories="RBAF (LIGHT TRUCK)" data="2151"/>
+<row name="9" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="5564"/>
+<row name="9" categories="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" data="3033"/>
+<row name="9" categories="RBAF (LIGHT TRUCK)" data="2793"/>
+<row name="9" categories="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" data="2761"/>
+<row name="9" categories="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" data="2640"/>
+<row name="9" categories="RCER (BUS         &gt;  35 PASSENGERS)" data="2606"/>
+<row name="9" categories="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" data="2516"/>
+<row name="10" categories="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" data="5449"/>
+<row name="10" categories="RCER (BUS         &gt;  35 PASSENGERS)" data="3687"/>
+<row name="10" categories="RBAF (LIGHT TRUCK)" data="3372"/>
+<row name="10" categories="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" data="2842"/>
+<row name="10" categories="RCVA (VEH  - TPT CONTAINERS)" data="2736"/>
+<row name="10" categories="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" data="2574"/>
+<row name="10" categories="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" data="2093"/>
+</rows>
+</dbquery>
+</dbqueries>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="HRP_PHIST">
+		<LabelText lang="nl">Toon Historiek</LabelText>
+		<LabelText lang="fr">Montrer Historique</LabelText>
+		<LabelText lang="en">Show Historical</LabelText>
+	</Label>
+	<Label ID="HRP_PLANG">
+		<LabelText lang="nl">Taal</LabelText>
+		<LabelText lang="fr">Langue</LabelText>
+		<LabelText lang="en">Language</LabelText>
+	</Label>
+	<Label ID="XTAB_TITLE">
+		<LabelText lang="nl">Dynamische KruisTabel Samenvatting (Met Drill-Down)</LabelText>
+		<LabelText lang="fr">Tableau résumé croisé Dynamique (avec Drill-Down)</LabelText>
+		<LabelText lang="en">Dynamic CrossTable Summary (with Drill-Down)</LabelText>
+	</Label>
+	<Label ID="XGRAPH_TITLE">
+		<LabelText lang="nl">Dynamische Grafiek (Met Drill-Down)</LabelText>
+		<LabelText lang="fr">Graphique Dynamique (avec Drill-Down)</LabelText>
+		<LabelText lang="en">Dynamic Graphical (with Drill-Down)</LabelText>
+	</Label>
+	<Label ID="TAB_COLLAPSE">
+		<LabelText lang="nl">(Un)Collapse Tabs</LabelText>
+		<LabelText lang="fr">(Un)Collapse Tabs</LabelText>
+		<LabelText lang="en">(Un)Collapse Tabs</LabelText>
+	</Label>
+	<Label ID="LOCAL_REPORT">
+		<LabelText lang="nl">Lokaal Rapport (Ontw)</LabelText>
+		<LabelText lang="fr">Rapport Local (Dev)</LabelText>
+		<LabelText lang="en">Local Report (Dev Only)</LabelText>
+	</Label>
+	<Label ID="Rep_INFO_0">
+		<LabelText lang="nl">Geen info's op rapport (Parameter pRID niet vermeld of waarde van pRID is niet gedefinieerd/onbekend)</LabelText>
+		<LabelText lang="fr">Pas d'infos sur le rapport (Paramètre pRID est manquant ou valeur du pRID inconnue/non-définie)</LabelText>
+		<LabelText lang="en">No Report Info (Parameter pRID is missing or pRID Value missing/unknown)</LabelText>
+	</Label>
+	<Label ID="ILIAS_DATA_DICTIONARY">
+		<LabelText lang="nl">ILIAS Data Dictionary in Nederlands</LabelText>
+		<LabelText lang="fr">ILIAS Data Dictionary en français</LabelText>
+		<LabelText lang="en">ILIAS Data Dictionary in English</LabelText>
+	</Label>
+	<Label ID="KPI_LOG">
+		<LabelText lang="nl">Logging historiek</LabelText>
+		<LabelText lang="fr">Historique du Logging</LabelText>
+		<LabelText lang="en">Logging History</LabelText>
+	</Label>
+	<Label ID="HRI_REPORT_NAME">
+		<LabelText lang="nl">Naam :</LabelText>
+		<PopupText lang="nl">Naam van het Rapport</PopupText>
+		<LabelText lang="fr">Dénomination :</LabelText>
+		<PopupText lang="fr">Dénomination du Rapport</PopupText>
+		<LabelText lang="en">Name :</LabelText>
+		<PopupText lang="en">Report Name</PopupText>
+	</Label>
+	<Label ID="HRI_REPORT_STATE">
+		<LabelText lang="nl">Betrouwbaarheid :</LabelText>
+		<PopupText lang="nl">Is het Rapport gebaseerd op Up-To-Date Data ?</PopupText>
+		<LabelText lang="fr">Pertinence :</LabelText>
+		<PopupText lang="fr">Le rapport est-il basé sur des données mise à jour ?</PopupText>
+		<LabelText lang="en">Accuracy :</LabelText>
+		<PopupText lang="en">Is the report based on Up-To-Date Data ?</PopupText>
+	</Label>
+	<Label ID="HRI_REPORT_STATUS">
+		<LabelText lang="nl">Status :</LabelText>
+		<PopupText lang="nl">Status en versie van het Rapport</PopupText>
+		<LabelText lang="fr">Status :</LabelText>
+		<PopupText lang="fr">Statut et version du Rapport</PopupText>
+		<LabelText lang="en">Status :</LabelText>
+		<PopupText lang="en">Report Status and Version</PopupText>
+	</Label>
+	<Label ID="HRI_REPORT_DD">
+		<LabelText lang="nl">Data Dic :</LabelText>
+		<PopupText lang="nl">Dit Rapport gebruikt één of meerdere Data Dictionary</PopupText>
+		<LabelText lang="fr">Data Dic :</LabelText>
+		<PopupText lang="fr">Ce Rapport utilise-t-il un ou plusieurs dictionnaire de données</PopupText>
+		<LabelText lang="en">Data Dic :</LabelText>
+		<PopupText lang="en">This Report uses one or several Data Dictionaries</PopupText>
+	</Label>
+	<Label ID="HRI_REPORT_DD_LOCAL">
+		<LabelText lang="nl">Lokaal : </LabelText>
+		<PopupText lang="nl">Dit Rapport gebruikt een lokale Data Dictionary gedefinieerd door MR-Mgt en de POC van het rapport</PopupText>
+		<LabelText lang="fr">Local : </LabelText>
+		<PopupText lang="fr">Ce Rapport utilise un dictionnaire de données defini par MR-Mgt et le POC du rapport</PopupText>
+		<LabelText lang="en">Local : </LabelText>
+		<PopupText lang="en">This Report uses one a local Data Dictionaries defined by MR-Mgt and POC</PopupText>
+	</Label>
+	<Label ID="HRI_REPORT_DD_ILIAS">
+		<LabelText lang="nl">Data Dic : </LabelText>
+		<PopupText lang="nl">Dit Rapport gebruikt de ILIAS Data Dictionary. Dit betekent dat de meeste veldbenamingen gebaseerd zijn op het label en de Hint in ILIAS.</PopupText>
+		<LabelText lang="fr">Data Dic : </LabelText>
+		<PopupText lang="fr">Ce Rapport utilise le dictionnaire de données. Cela signifie que la majorité des champs du rapport porte le même nom que les labels et les Hints dans l'application ILIAS.</PopupText>
+		<LabelText lang="en">Data Dic : </LabelText>
+		<PopupText lang="en">This Report uses de ILIAS Data Dictionary. This means that most of the report fields have the same label and Hint that de field in the ILIAS Application </PopupText>
+	</Label>
+	<Label ID="HRI_REPORT_DEBUG">
+		<LabelText lang="nl">Debug : </LabelText>
+		<PopupText lang="nl">Debugging Infos</PopupText>
+		<LabelText lang="fr">Debug : </LabelText>
+		<PopupText lang="fr">Debugging Infos</PopupText>
+		<LabelText lang="en">Debug : </LabelText>
+		<PopupText lang="en">Debugging Infos</PopupText>
+	</Label>
+	<Label ID="HRP_REPORT_NO_PROMPTS">
+		<LabelText lang="nl">Geen parameters voor dit rapport</LabelText>
+		<LabelText lang="fr">Pas de paramètres de recherche définis pour ce rapport</LabelText>
+		<LabelText lang="en">No parameters defined for this report</LabelText>
+	</Label>
+	<Label ID="HRI_REPORT_ACC01">
+		<LabelText lang="nl">Betrouwbaarheid : Gegevensstatus </LabelText>
+		<LabelText lang="fr">Pertinence : Statut des données </LabelText>
+		<LabelText lang="en">Accuracy : Data Status </LabelText>
+	</Label>
+	<Label ID="HRI_REPORT_ACC02">
+		<LabelText lang="nl">SQL</LabelText>
+		<LabelText lang="fr">SQL</LabelText>
+		<LabelText lang="en">SQL</LabelText>
+	</Label>
+	<Label ID="HFI_REPORT">
+		<LabelText lang="nl">Rapport</LabelText>
+		<LabelText lang="fr">Rapport</LabelText>
+		<LabelText lang="en">Report</LabelText>
+	</Label>
+	<Label ID="HFI_UNK_REPORT">
+		<LabelText lang="nl">Onbekend Rapport</LabelText>
+		<LabelText lang="fr">Rapport inconnu</LabelText>
+		<LabelText lang="en">Unknown Report</LabelText>
+	</Label>
+	<Label ID="HFI_LOC_REPORT">
+		<LabelText lang="nl">Lokaal Rapport (Uitsluitend Ontwikkeling)</LabelText>
+		<LabelText lang="fr">Rapport Local (Developpement uniquement)</LabelText>
+		<LabelText lang="en">Local Report (For Dev Only)</LabelText>
+	</Label>
+	<Label ID="HFI_REPORT_CREATED">
+		<LabelText lang="nl">Ontwikkeld door</LabelText>
+		<LabelText lang="fr">Créé par</LabelText>
+		<LabelText lang="en">Created by</LabelText>
+	</Label>
+	<Label ID="HFI_REPORT_GENERATED">
+		<LabelText lang="nl">Dit rapport was gegenereerd op</LabelText>
+		<LabelText lang="fr">Ce rapport a été généré le </LabelText>
+		<LabelText lang="en">This report has been generated on </LabelText>
+	</Label>
+	<Label ID="HFI_REPORT_IMPROVE">
+		<LabelText lang="nl">U hebt commentaren, opmerkingen of verbeteringsvoorstellen</LabelText>
+		<PopupText lang="nl">U hebt commentaren, opmerkingen of verbeteringsvoorstellen</PopupText>
+		<LabelText lang="fr">Vous avez de commentaires, remarques ou proposition d'amélioration</LabelText>
+		<PopupText lang="fr">Vous avez de commentaires, remarques ou proposition d'amélioration</PopupText>
+		<LabelText lang="en">You have comments, remarks or improvment proposals</LabelText>
+		<PopupText lang="en">You have comments, remarks or improvment proposals</PopupText>
+	</Label>
+	<Label ID="PRID">
+		<LabelText lang="nl">Report Id</LabelText>
+		<PopupText lang="nl">Rapport Nummer (PRID Sleutel)</PopupText>
+		<LabelText lang="fr">Report Id</LabelText>
+		<PopupText lang="fr">Numéro du Rapport (Clé PRID)</PopupText>
+		<LabelText lang="en">Report Id</LabelText>
+		<PopupText lang="en">Report Number (PRID Key)</PopupText>
+	</Label>
+	<Label ID="DB_VIEW">
+		<LabelText lang="nl">Extractie</LabelText>
+		<PopupText lang="nl">Benaming van de Extractie in de DataMart (DM)</PopupText>
+		<LabelText lang="fr">Extraction</LabelText>
+		<PopupText lang="fr">Dénomination de l'extraction dans le DataMart (DM)</PopupText>
+		<LabelText lang="en">Extraction</LabelText>
+		<PopupText lang="en">Extraction Name in DataMart (DM)</PopupText>
+	</Label>	
+	<Label ID="IL_VIEW">
+		<LabelText lang="nl">View</LabelText>
+		<PopupText lang="nl">Benaming van de View in ILIAS</PopupText>
+		<LabelText lang="fr">Vue</LabelText>
+		<PopupText lang="fr">Dénomination de la Vue dans ILIAS</PopupText>
+		<LabelText lang="en">View</LabelText>
+		<PopupText lang="en">View Name in ILIAS</PopupText>
+	</Label>
+	<Label ID="IL_SCREEN">
+		<LabelText lang="nl">Scherm</LabelText>
+		<PopupText lang="nl">Benaming van het Scherm in ILIAS</PopupText>
+		<LabelText lang="fr">Ecran</LabelText>
+		<PopupText lang="fr">Dénomination de l'écran' dans ILIAS</PopupText>
+		<LabelText lang="en">Screen</LabelText>
+		<PopupText lang="en">Screen Name in ILIAS</PopupText>
+	</Label>
+	<Label ID="COLUMN_NAME">
+		<LabelText lang="nl">Veld</LabelText>
+		<PopupText lang="nl">Veldbenaming in de DM extractie en in de ILIAS view</PopupText>
+		<LabelText lang="fr">Champ</LabelText>
+		<PopupText lang="fr">Dénomination du champ dans l'extraction DM et la vue ILIAS</PopupText>
+		<LabelText lang="en">Field</LabelText>
+		<PopupText lang="en">Field Name in extraction DM and view ILIAS</PopupText>
+	</Label>
+	<Label ID="FIELD_NAME">
+		<LabelText lang="nl">ILIAS Veld</LabelText>
+		<PopupText lang="nl">Veldbenaming in het ILIAS scherm</PopupText>
+		<LabelText lang="fr">Champ ILIAS</LabelText>
+		<PopupText lang="fr">Dénomination du champ de l'écran ILIAS</PopupText>
+		<LabelText lang="en">ILIAS Field</LabelText>
+		<PopupText lang="en">Field Name in screen ILIAS</PopupText>
+	</Label>
+	<Label ID="COLUMN_DATA">
+		<LabelText lang="nl">IDB Veld</LabelText>
+		<PopupText lang="nl">Veldbenaming in de ILIAS DataBank</PopupText>
+		<LabelText lang="fr">Champ IDB</LabelText>
+		<PopupText lang="fr">Dénomination du champ dans la banque de données ILIAS</PopupText>
+		<LabelText lang="en">IDB Field</LabelText>
+		<PopupText lang="en">Field Name in de ILIAS DataBase</PopupText>
+	</Label>
+	<Label ID="COMMENT">
+		<LabelText lang="nl">Commentaar</LabelText>
+		<PopupText lang="nl">Commentaar in ILIAS voor deze Hint</PopupText>
+		<LabelText lang="fr">Commentaire</LabelText>
+		<PopupText lang="fr">Commentaire pour ce Hint</PopupText>
+		<LabelText lang="en">Comment</LabelText>
+		<PopupText lang="en">Hint Comment</PopupText>
+	</Label>
+	<Label ID="HINT_NO">
+		<LabelText lang="nl">Hint Nr</LabelText>
+		<PopupText lang="nl">Hint Nummer in ILIAS</PopupText>
+		<LabelText lang="fr">Nr Hint</LabelText>
+		<PopupText lang="fr">Numéro de Hint en ILIAS</PopupText>
+		<LabelText lang="en">Hint Nbr</LabelText>
+		<PopupText lang="en">Hint Number in ILIAS</PopupText>
+	</Label>
+	<Label ID="HINT_FR">
+		<LabelText lang="nl">Hint Text in Fr</LabelText>
+		<PopupText lang="nl">Deze tekst is zichtbaar in ILIAS indien u klikt in een veld van een scherm</PopupText>
+		<LabelText lang="fr">Texte du Hint en Fr</LabelText>
+		<PopupText lang="fr">Ce texte est visible en ILIAS lorsque vous cliquez dans un champ d'un écran</PopupText>
+		<LabelText lang="en">Hint Text in Fr</LabelText>
+		<PopupText lang="en">This text appears when you click on an ILIAS Field in a screen</PopupText>
+	</Label>	
+	<Label ID="HINT_NL">
+		<LabelText lang="nl">Hint Text in NL</LabelText>
+		<PopupText lang="nl">Deze tekst is zichtbaar in ILIAS indien u klikt in een veld van een scherm</PopupText>
+		<LabelText lang="fr">Texte du Hint en NL</LabelText>
+		<PopupText lang="fr">Ce texte est visible en ILIAS lorsque vous cliquez dans un champ d'un écran</PopupText>
+		<LabelText lang="en">Hint Text in NL</LabelText>
+		<PopupText lang="en">This text appears when you click on an ILIAS Field in a screen</PopupText>
+	</Label>
+	<Label ID="HINT_EN">
+		<LabelText lang="nl">Hint Text in En</LabelText>
+		<PopupText lang="nl">Deze tekst is zichtbaar in ILIAS indien u klikt in een veld van een scherm</PopupText>
+		<LabelText lang="fr">Texte du Hint en En</LabelText>
+		<PopupText lang="fr">Ce texte est visible en ILIAS lorsque vous cliquez dans un champ d'un écran</PopupText>
+		<LabelText lang="en">Hint Text in En</LabelText>
+		<PopupText lang="en">This text appears when you click on an ILIAS Field in a screen</PopupText>
+	</Label>
+	<Label ID="dd">
+		<LabelText lang="nl">Datum</LabelText>
+		<PopupText lang="nl">Datum</PopupText>
+		<LabelText lang="fr">Date</LabelText>
+		<PopupText lang="fr">Date</PopupText>
+		<LabelText lang="en">Date</LabelText>
+		<PopupText lang="en">Date</PopupText>
+	</Label>
+	<Label ID="dbn_repl_ver">
+		<LabelText lang="nl">Versie</LabelText>
+		<PopupText lang="nl">Versie</PopupText>
+		<LabelText lang="fr">Version</LabelText>
+		<PopupText lang="fr">Version</PopupText>
+		<LabelText lang="en">Version</LabelText>
+		<PopupText lang="en">Version</PopupText>
+	</Label>
+	<Label ID="dbn_repl_type">
+		<LabelText lang="nl">Type</LabelText>
+		<PopupText lang="nl">Type</PopupText>
+		<LabelText lang="fr">Type</LabelText>
+		<PopupText lang="fr">Type</PopupText>
+		<LabelText lang="en">Type</LabelText>
+		<PopupText lang="en">Type</PopupText>
+	</Label>
+	<Label ID="dbn_repl_by">
+		<LabelText lang="nl">Done By</LabelText>
+		<PopupText lang="nl">Done By</PopupText>
+		<LabelText lang="fr">Done By</LabelText>
+		<PopupText lang="fr">Done By</PopupText>
+		<LabelText lang="en">Done By</LabelText>
+		<PopupText lang="en">Done By</PopupText>
+	</Label>
+	<Label ID="dbn_repl_what">
+		<LabelText lang="nl">Beschrijving</LabelText>
+		<PopupText lang="nl">Beschrijving</PopupText>
+		<LabelText lang="fr">Description</LabelText>
+		<PopupText lang="fr">Description</PopupText>
+		<LabelText lang="en">Description</LabelText>
+		<PopupText lang="en">Description</PopupText>
+	</Label>
+	<Label ID="dbn_repl_ems">
+		<LabelText lang="nl">EMS v2</LabelText>
+		<PopupText lang="nl">EMS v2</PopupText>
+		<LabelText lang="fr">EMS v2</LabelText>
+		<PopupText lang="fr">EMS v2</PopupText>
+		<LabelText lang="en">EMS v2</LabelText>
+		<PopupText lang="en">EMS v2</PopupText>
+	</Label>
+</Dictionary>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<descriptor>
+   <report type="main">
+      <url>/DBWeb/ProcessDescriptor/descriptor/QueryBuilder/retrieveFields.xml</url>
+      <domain/>
+      <subdomain/>
+      <title>Retrieve all entities from DBNode</title>
+      <description/>
+      <secure>1</secure>
+      <techPOC/>
+      <changeHistory>
+         <version id="1" date="22-08-2014">Add main</version>
+      </changeHistory>
+      <tables/>
+      <help/>
+   </report>
+   <label>Retrieve all entities from DBNode</label>
+   <source type="url">/DBWeb/ProcessDescriptor/descriptor/QueryBuilder/retrieveFields.xml</source>
+   <processing type="xsl">QueryBuilder/XSL/retrieveFields.xsl</processing>
+   <result type="xml; charset=UTF-8"  header="yes"/>
+</descriptor>

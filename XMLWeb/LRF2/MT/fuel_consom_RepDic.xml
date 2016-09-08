@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="REPORT_TITLE_MAIN">
+		<LabelText lang="nl">MT: Verbruik brandstof van voertuigen </LabelText>
+		<LabelText lang="fr">MT: Consommation carburant véhicules </LabelText>
+		<LabelText lang="en">MT: Consumption fuel of vehicles </LabelText>
+		</Label>
+	<Label ID="REPORT_EXPLAIN">
+		<LabelText lang="nl">Doelstelling</LabelText>
+		<LabelText lang="fr">Objective</LabelText>
+		<LabelText lang="en">Objectif</LabelText>
+		<PopupText lang="nl">MT: Voor het jaar X, de verbruikte hoeveelheid brandstof aantonen per maand voor een eenheid.</PopupText>
+		<PopupText lang="fr">MT: Pour l'année X, montrer la quantité de carburant utilisé mensuellement pour un organisme.</PopupText>
+		<PopupText lang="en">MT: For the year X, showing the amount of used fuel per month for a unit. </PopupText>
+	</Label>
+
+</Dictionary>

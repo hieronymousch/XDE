@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>Dynamic CPN HomePage Ver1</label>
+ <source type="file">HOME/Settings_Local.xml</source>
+ <processing type="xsl">HOME/XSL/Settings.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<!-- Test Repdic for Sample on Field NSN -->
+		<Label ID="NSN">
+			<LabelText lang="nl">De NSN</LabelText>
+			<PopupText lang="nl">Dit is het Nato Stock Number</PopupText>
+			<LabelText lang="fr">Le NSN</LabelText>
+			<PopupText lang="fr">C'est le Nato Stock Number</PopupText>
+			<LabelText lang="en">The NSN</LabelText>
+			<PopupText lang="en">This is the Nato Stock Number</PopupText>
+		</Label>
+		
+
+	<!-- Special features -->
+		<Label ID="SPE_PAGENAME">
+			<LabelText lang="en">SPE List</LabelText>
+			<LabelText lang="fr">Liste des SPE</LabelText>
+			<LabelText lang="nl">SPE Lijst</LabelText>
+		</Label>	
+		<Label ID="SPE_TITLE">
+			<LabelText lang="en">Special Features List</LabelText>
+			<LabelText lang="fr">Liste des Special Features</LabelText>
+			<LabelText lang="nl">Special Features Lijst</LabelText>
+			<ObjectiveText lang="fr">
+				<ul>
+					<li>Ce rapport liste les Special Features disponible pour le FW2 au niveau de la construction du DBWeb</li>
+				</ul>
+				<ul>
+					<li>Certains SPE peuvent ne pas fonctionner sur un DB Node local. Ils ont été développés pour fonctionner sur le MR Node.</li>
+				</ul>
+			</ObjectiveText>
+			<ObjectiveText lang="nl">
+				<ul>
+					<li>Dit rapport geeft de beschikbare Special Features voor het FW2 op niveau van de opmaak van de DBWeb</li>
+				</ul>
+				<ul>
+					<li>Bepaalde SPE werken niet op een lokale DB Node. Ze werden ontwikkeld voor de MR Node.</li>
+				</ul>
+			</ObjectiveText>
+		</Label>
+		<Label ID="dbn_mr_spe_code">
+			<LabelText lang="nl">Code</LabelText>
+			<LabelText lang="fr">Code</LabelText>
+			<LabelText lang="en">Code</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_nu">
+			<LabelText lang="nl">N/U</LabelText>
+			<LabelText lang="fr">N/U</LabelText>
+			<LabelText lang="en">N/U</LabelText>
+			<PopupText lang="nl">New/Update</PopupText>
+			<PopupText lang="fr">New/Update</PopupText>
+			<PopupText lang="en">New/Update</PopupText>
+		</Label>
+		<Label ID="dbn_mr_spe_status">
+			<LabelText lang="nl">Status</LabelText>
+			<LabelText lang="fr">Statut</LabelText>
+			<LabelText lang="en">Status</LabelText>
+			<PopupText lang="nl">U-In Usage/D-Depreacated/T-In Test</PopupText>
+			<PopupText lang="fr">U-In Usage/D-Depreacated/T-In Test</PopupText>
+			<PopupText lang="en">U-In Usage/D-Depreacated/T-In Test</PopupText>
+		</Label>
+		<Label ID="dbn_mr_spe_title">
+			<LabelText lang="nl">Titel</LabelText>
+			<LabelText lang="fr">Titre</LabelText>
+			<LabelText lang="en">Title</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_description">
+			<LabelText lang="nl">Beschrijving</LabelText>
+			<LabelText lang="fr">Description</LabelText>
+			<LabelText lang="en">Description</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_remark">
+			<LabelText lang="nl">Opmerkingen</LabelText>
+			<LabelText lang="fr">Remarques</LabelText>
+			<LabelText lang="en">Remarks</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_expval">
+			<LabelText lang="nl">Voorbeeld op</LabelText>
+			<LabelText lang="fr">Exemple sur</LabelText>
+			<LabelText lang="en">Example on</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_expspe">
+			<LabelText lang="nl">Syntax</LabelText>
+			<LabelText lang="fr">Syntax</LabelText>
+			<LabelText lang="en">Syntax</LabelText>
+		</Label>
+		<Label ID="Result">
+			<LabelText lang="nl">Resultaat</LabelText>
+			<LabelText lang="fr">Résultat</LabelText>
+			<LabelText lang="en">Result</LabelText>
+		</Label>
+	<!-- Sample Titles, pages and Objectives -->
+		<!-- Sample 00 -->
+			<Label ID="REPORT00_PAGENAME">
+				<LabelText lang="en">Sample 00 : Generic with Options</LabelText>
+				<LabelText lang="fr">Exemple 00 : Générique avec Options</LabelText>
+				<LabelText lang="nl">Voorbeeld 00 : Generieke met Opties</LabelText>
+			</Label>	
+			<Label ID="REPORT00_TITLE">
+				<LabelText lang="en">Sample 00 : Generic with Options</LabelText>
+				<LabelText lang="fr">Exemple 00 : Générique avec Options</LabelText>
+				<LabelText lang="nl">Voorbeeld 00 : Generieke met Opties</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>Layout Basic pour un rapport MR Node FW2</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>Basis Layout voor een rapport MR Node FW2</li>
+					</ul>
+				</ObjectiveText>
+			</Label>
+		<!-- Sample 01 -->
+			<Label ID="REPORT01_TITLE">
+				<LabelText lang="en">Sample 01 : ...</LabelText>
+				<LabelText lang="fr">Exemple 01 : ...</LabelText>
+				<LabelText lang="nl">Voorbeeld 01 : ...</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+			          <li>...</li>
+			        </ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+			          <li>...</li>
+			        </ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT01_PAGENAME">
+				<LabelText lang="en">Sample 01</LabelText>
+				<LabelText lang="fr">Exemple 01</LabelText>
+				<LabelText lang="nl">Voorbeeld 01</LabelText>
+			</Label>	
+		<!-- Sample 02 -->
+			<Label ID="REPORT02_PAGENAME">
+				<LabelText lang="en">Sample 02</LabelText>
+				<LabelText lang="fr">Exemple 02</LabelText>
+				<LabelText lang="nl">Voorbeeld 02</LabelText>
+			</Label>	
+			<Label ID="REPORT02_TITLE">
+				<LabelText lang="en">Sample 02 : Generic minimum</LabelText>
+				<LabelText lang="fr">Exemple 02 : Générique minimum</LabelText>
+				<LabelText lang="nl">Voorbeeld 02 : Generieke minimum</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>Montrer que sur la base d'un simple DBWeb (query), il est possible de générer un résultat sous la forme d'un tableau. La différence entre les deux rapports réside dans les en-têtes des colonnes.</li>
+						<li>Dans le premier exemple, elles sont 'fixes' et basées sur le nom du champ dans le DB Web. Dans le second exemple, chaque en-tête est recherché dans le fichier DataDictionary pour la langue déterminée afin que le nom de l'en-tête soit adapté et qu'un Pop-Up explicatif lui soit ajouté. Si l'en-tête n'est pas trouvé, le nom du champ sera utilisé mais sera en italique afin d'attirer l'attention du développeur de rapport.<br/>
+						Exemple : Le champ NSN dans les deux tableaux </li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>Aantonen dat het, op basis van een eenvoudige DBWeb (query), mogelijk is om een resultaat te genereren onder de vorm van een tabel. Het verschil tussen de twee rapporten situeert zich in de hoofdingen van de kolommen.</li>
+						<li>In het eerste voorbeeld zijn ze 'vast' en gebaseerd op de naam van het veld in de DB Web. In het tweede voorbeeld wordt elke hoofding opgezocht in de DataDictionary file voor de betrokken taal opdat de naam van de hoofding aangepast zou zijn en dat een verklarende Pop-Up zou toegevoegd worden. Als de hoofding niet gevonden wordt, wordt de naam van het veld gebruikt maar zal het schuin gedrukt staan om de aandacht te trekken van de ontwikkelaar van het rapport.<br/>
+						Voorbeeld : Het veld NSN in beide tabellen </li>
+					</ul>
+				</ObjectiveText>
+			</Label>
+			<Label ID="REPORT02B_TITLE">
+				<LabelText lang="en">Sample 02 : Generic with DataDictionary</LabelText>
+				<LabelText lang="fr">Exemple 02 : Générique avec DataDictionary</LabelText>
+				<LabelText lang="nl">Voorbeeld 02 : Generieke met DataDictionary</LabelText>
+			</Label>
+		<!-- Sample 03 -->
+			<Label ID="REPORT03_PAGENAME">
+				<LabelText lang="en">Sample 03 : Generic with Options</LabelText>
+				<LabelText lang="fr">Exemple 03 : Générique avec Options</LabelText>
+				<LabelText lang="nl">Voorbeeld 03 : Generieke met Opties</LabelText>
+			</Label>	
+			<Label ID="REPORT03_TITLE">
+				<LabelText lang="en">Sample 03 : Generic with Options</LabelText>
+				<LabelText lang="fr">Exemple 03 : Générique avec Options</LabelText>
+				<LabelText lang="nl">Voorbeeld 03 : Generieke met Opties</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Montrer que sur la base d'un simple DBWeb (query), il est possible de générer un résultat sous la forme d'un tableau en utilisant différentes options du Template générique. Il est TOUJOURS recommandé de vérifier les options possible dans le fichier node_config.xsl (Template Generic_Table_DBWEB) situé dans le répertoire LRF/COMMON du XML(3)Web. 
+						</li>
+						<li>
+							Utilisation d'une variable vFUNCTION basée sur la valeur d'un paramètre (pFUNCTION).
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Aantonen dat het op basis van een eenvoudige DBWeb (query) mogelijk is om een resultaat te genereren onder de vorm van een tabel door gebruik te maken van verschillende opties van de generieke Template. Het is ALTIJD aangeraden om de verschillende opties te verifiëren in de file node_config.xsl (Template Generic_Table_DBWEB) die zich in de folder LRF/COMMON van XML(3)Web bevindt. 
+						</li>
+						<li>
+							Gebruik van een variabele vFUNCTION, gebaseerd op de waarde van een parameter (pFUNCTION).
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>
+		<!-- Sample 04 -->
+			<Label ID="REPORT04_TITLE">
+				<LabelText lang="en">Sample 04 : Generic with Special Features</LabelText>
+				<LabelText lang="fr">Exemple 04 : Générique avec Special Features</LabelText>
+				<LabelText lang="nl">Voorbeeld 04 : Generieke met Special Features</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Utilisation des Special Features dans la query afin que le résultat dispose de fonctionnalités spéciales (Hyperlien, couleur, ...)
+						</li>
+						<li>
+							L'ensemble des SPE sont repris dans le template 'SPE_Feature' du fichier Node_Config.xsl situé dans le XMLWEB/COMMON
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Gebruik van de Special Features in de query opdat het resultaat de speciale functionaliteiten bevat (Hyperlink, kleur, ...)
+						</li>
+						<li>
+							Het geheel van SPE is hernomen in de template 'SPE_Feature' van de file Node_Config.xsl die zich in de XMLWEB/COMMON bevindt.
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT04_PAGENAME">
+				<LabelText lang="en">Sample 04</LabelText>
+				<LabelText lang="fr">Exemple 04</LabelText>
+				<LabelText lang="nl">Voorbeeld 04</LabelText>
+			</Label>	
+		<!-- Sample 05 -->
+			<Label ID="REPORT05_TITLE">
+				<LabelText lang="en">Sample 05 : Generic with Special Features with Loop</LabelText>
+				<LabelText lang="fr">Exemple 05 : Générique avec Special Features with Loop</LabelText>
+				<LabelText lang="nl">Voorbeeld 05 : Generieke met Special Features with Loop</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Utilisation d'une boucle pour générer un Generic par DBWeb (Bloc1)
+						</li>
+						<li>
+							Utilisation d'une boucle pour générer un Generic "personnalisé" par DBWeb (Bloc2)
+						</li>
+						<li>
+							Utilisation de la variable UdTN (Unique dataTable Name) pour rendre unique la deuxième série de bloc générique. Sans utilisation du UdTN, une erreur serait 
+							générée car les variables du bloc 1 et 2 serait identiques. Utilisation d'un xsl:choose et du xsl:if.
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Gebruik van een loop om een Generieke te genereren via DBWeb (Blok1)
+						</li>
+						<li>
+							Gebruik van een loop om een "gepersonaliseerde" Generieke te genereren via DBWeb (Blok2)
+						</li>
+						<li>
+							Gebruik van de variabele UdTN (Unique dataTable Name) om de tweede reeks van generieke blokken uniek te maken. Zonder gebruik te maken van UdTN zou een fout gegenereerd worden omdat de variabelen van blok 1 et 2 identiek zouden zijn. Gebruik van xsl:choose en van xsl:if.
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT05_PAGENAME">
+				<LabelText lang="en">Sample 05</LabelText>
+				<LabelText lang="fr">Exemple 05</LabelText>
+				<LabelText lang="nl">Voorbeeld 05</LabelText>
+			</Label>	
+		<!-- Sample 06 -->
+			<Label ID="REPORT06_TITLE">
+				<LabelText lang="en">Sample 06 : Generic with Special Features with loop and use of Template for Single Form</LabelText>
+				<LabelText lang="fr">Exemple 06 : Générique avec Special Features with loop and use of Template for Single Form</LabelText>
+				<LabelText lang="nl">Voorbeeld 06 : Generieke met Special Features with loop and use of Template for Single Form</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Utilisation d'un Generic sur tous les DB Web sauf 2. Ces derniers seront traités comme 'template' (exception). Cela nécessite la création du QueryId 'Template' dans le DBWeb.
+							Cette approche permet de créer un rapport 'libre' ... dans ce cas ci, une "carte d'identité d'un asset" et en-dessous, deux tables "classiques génériques" basées sur un Loop des DBWeb.
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Gebruik van een Generieke in alle DB Web behalve 2. Deze laatste zullen behandeld worden als 'template' (uitzondering). Dit vereist de aanmaak van een 'Template' in de DBWeb.
+							Deze benadering laat toe om een 'vrij' rapport aan te maken ... in dit geval een "identiteitskaart van een asset" en daaronder twee "klassieke generieke" tabellen gebaseerd op een Loop van de DBWeb.
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT06_PAGENAME">
+				<LabelText lang="en">Sample 06</LabelText>
+				<LabelText lang="fr">Exemple 06</LabelText>
+				<LabelText lang="nl">Voorbeeld 06</LabelText>
+			</Label>	
+		<!-- Sample 07 -->
+			<Label ID="REPORT07_TITLE">
+				<LabelText lang="en">Sample 07 : Generic with Special Features and Drill-Down</LabelText>
+				<LabelText lang="fr">Exemple 07 : Générique avec Special Features and Drill-Down</LabelText>
+				<LabelText lang="nl">Voorbeeld 07 : Generieke met Special Features and Drill-Down</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Utilisation des Special Features dans la query afin de générer un Drill-Down (rond avec un plus) permettant de visualiser un autre rapport dans une ligne en-dessous
+						</li>
+						<li>
+							Un Drill-Down est déclenché par un SPE_05 dans la query (DBWeb). Le SPE_05# mentionnera la clé d'intérrogation du rapport à appeler, ici le nr de l'Asset. Le template aura un paramètre DDURL qui donnera l'URL à appeler.
+						</li>
+						<li>
+							Le rapport de Drill-Down est le IL_MR_SAMPLE05.xml situé dans le même répertoire. Le fait que le paramètre pMODE=Drill-Down est utilisé désactive le Header et Footer. Visualisez la Transformation afin de visualiser les particularités de cette dernière : utilisation d'un For-Each pour la génération d'un générique MAIS surtout d'utilisation d'une variable UdtN (Unique dataTable Name) afin que la variable soit toujours unique (ajout du Asset Nr) bien que l'on appelle plusieurs fois le même rapport dans Sample04 et 05.
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Gebruik van de Special Features in de query teneinde een Drill-Down te genereren (cirkel met een plus) die toelaat om een ander rapport te tonen in een lijn er onder
+						</li>
+						<li>
+							Een Drill-Down wordt aangemaakt door een SPE_05 in de query (DBWeb). De SPE_05# zal de op te roepen sleutel van de ondervraging vermelden, in dit geval het nr van het Asset. De template zal een DDURL parameter hebben die de op te roepen URL zal hernemen.
+						</li>
+						<li>
+							Het Drill-Down rapport is de IL_MR_SAMPLE05.xml die zich in dezelfde folder bevindt. Het feit dat de parameter pMODE=Drill-Down wordt gebruikt, desactiveert de Header en de Footer. Visualiseer de Transformatie teneinde de specificiteiten van deze laatste te tonen : gebruik van een For-Each voor de generatie van een generieke MAAR vooral het gebruik van een variabele UdtN (Unique dataTable Name) zodat de variabele altijd uniek is (toevoeging  van het Asset Nr) hoewel men meerdere keren hetzelfde rapport oproept in Sample04 en 05.
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT07_PAGENAME">
+				<LabelText lang="en">Sample 07</LabelText>
+				<LabelText lang="fr">Exemple 07</LabelText>
+				<LabelText lang="nl">Voorbeeld 07</LabelText>
+			</Label>	
+		<!-- Sample 08 -->
+			<Label ID="REPORT08_TITLE">
+				<LabelText lang="en">Sample 08 : Tab Usage</LabelText>
+				<LabelText lang="fr">Exemple 08 : Utilisation d'onglets</LabelText>
+				<LabelText lang="nl">Voorbeeld 08 : Gebruik van Tabs</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Utilisation de Tab afin de visualiser différentes informations
+						</li>
+						<li>
+							Dans cet exemple, le premier Tab va contenir une Liste Générique, le Second un texte quelconque et le 3ème Tab est laissé volontairement vide afin qu'il donne "un effet collapse" des Tabs. Le second Tab sera le Tab actif à l'ouverture du rapport.
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Gebruik van Tabs om verschillende informatie te tonen
+						</li>
+						<li>
+							In dit voorbeeld zal de eerste Tab een Generieke Lijst bevatten, de tweede een willekeurige tekst en de 3de Tab wordt bewust leeg gelaten opdat deze een "collapse effect" van de Tabs geeft. De tweede Tab zal de actieve Tab zijn bij het openen van het rapport.
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT08_PAGENAME">
+				<LabelText lang="en">Sample 08</LabelText>
+				<LabelText lang="fr">Exemple 08</LabelText>
+				<LabelText lang="nl">Voorbeeld 08</LabelText>
+			</Label>	
+		<!-- Sample 09 -->	
+			<Label ID="REPORT09_TITLE">
+				<LabelText lang="en">Sample 09 : Usage of Includes (DBWeb) in a Report</LabelText>
+				<LabelText lang="fr">Exemple 09 : Utilisation des Includes (DBWeb) dans un Rapport </LabelText>
+				<LabelText lang="nl">Voorbeeld 09 : Gebruik van Includes (DBWeb) in een Rapport</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+		          		<li>
+		            		L'objectif de ce rapport est de préparer l'exemple 10 qui est le tableau croisé avec Drill-Down et les suivants. Bien que le Template fait 'tout', il est important de comprendre son fonctionnement. La partie la plus complexe réside dans le DBWeb (la query) et non la Transformation.
+		          		</li>
+		          		<li>
+		            		Vous allez tester avec cet exmemple des Queries dynamiques dont le contenu change en fonction du paramètrage. Ce paramètre, dénommé pMODE permet de réutiliser le même rapport pour à la fois donner une vue globale mais aussi le Détail (résultat du Drill-Down). Afin d'éviter permettre de charger le (même) rapport de Drill-Down dans le rapport de résumé, on utilisera une fonction javascript LoadDiv.
+		          		</li>
+		          		<li>
+		            		En pMODE=Main
+		            		<ul>
+		            			<li>Seule la QueryId 'SUMMARY' est visible et donc exécutée (Voir le DBWeb)</li>
+		            			<li>Seule une partie de la transformation sera exécutée (xsl:if test="$vMODE='Main'")</li>
+		            			<li>Le Header (Bloc Info Report, Prompt) et le Footer seront visibles. Gestion automatique par le Template Body_Start et Body_End</li>
+		            			<li>Pour les KPI, le paramètre pEXPLORE est également utilisé pour gérer des visibilités,...</li>
+
+		            		</ul>
+		          		</li>
+		          		<li>
+		            		En pMODE=Drill-Down
+		            		<ul>
+		            			<li>Seule la QueryId 'DETAILS' est visible (Voir le DBWeb)</li>
+		            			<li>Seule une partie de la transformation sera exécutée (xsl:if test="$vMODE='Drill-Down'" ou xsl:if test="$vMODE!='Main'")</li>
+		            			<li>Le Header (Bloc Info Report, Prompt) et le Footer NE seront PAS visibles. Gestion automatique par le Template Body_Start et Body_End</li>
+		            		</ul>
+		          		</li>
+		        	</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+		          		<li>
+		            		Het doel van dit rapport is het voorbeeld 10 voor te bereiden dat de kruistabel is met Drill-Down en volgende. Hoewel de Template 'alles' doet, is het belangrijk om de werking ervan te begrijpen. Het meest complexe deel zit in de DBWeb (la query) en niet in de Transformatie.
+		          		</li>
+		          		<li>
+		            		U zal met dit voorbeeld Dynamische Queries kunnen testen waarvan de inhoud wijzigt in functie van de parametrisatie. Deze parameter, pMODE genoemd, laat toe om een hetzelfde rapport te hergebruiken om zowel een algemeen overzicht als het Detail (resultaat van de Drill-Down). Om te vermijden om het (zelfde) Drill-Down rapport in het overzichtsrapport te laden, zal de functie javascript LoadDiv gebruikt worden.
+		          		</li>
+		          		<li>
+		            		In pMODE=Main
+		            		<ul>
+		            			<li>Alleen de QueryId 'SUMMARY' is zichtbaar en dus uitgevoerd (Zie de DBWeb)</li>
+		            			<li>Slechts een deel van de transformatie zal uitgevoerd worden (xsl:if test="$vMODE='Main'")</li>
+		            			<li>De Header (Bloc Info Report, Prompt) en de Footer zullen zichtbaar zijn. Automatisch beheer door de Template Body_Start en Body_End</li>
+		            			<li>Voor de KPI's, de parameter pEXPLORE is ook gebruikt om de zichtbaarheden,... te beheren.</li>
+
+		            		</ul>
+		          		</li>
+		          		<li>
+		            		In pMODE=Drill-Down
+		            		<ul>
+		            			<li>Alleen de QueryId 'DETAILS' is zichtbaar (Zie de DBWeb)</li>
+		            			<li>Slechts een deel van de transformatie zal uitgevoerd worden (xsl:if test="$vMODE='Drill-Down'" of xsl:if test="$vMODE!='Main'")</li>
+		            			<li>De Header (Bloc Info Report, Prompt) en de Footer zullen NIET zichtbaar zijn. Automatisch beheer door de Template Body_Start en Body_End</li>
+		            		</ul>
+		          		</li>
+		        	</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT09_PAGENAME">
+				<LabelText lang="en">Sample 09</LabelText>
+				<LabelText lang="fr">Exemple 09</LabelText>
+				<LabelText lang="nl">Voorbeeld 09</LabelText>
+			</Label>	
+		<!-- Sample 10 -->
+			<Label ID="REPORT10_PAGENAME">
+				<LabelText lang="en">Sample 10</LabelText>
+				<LabelText lang="fr">Exemple 10</LabelText>
+				<LabelText lang="nl">Voorbeeld 10</LabelText>
+			</Label>
+			<Label ID="REPORT10_TITLE">
+				<LabelText lang="en">Sample 10 : Dynamic CrossTab with Drill-Down</LabelText>
+				<LabelText lang="fr">Exemple 10 : Tableau croisé dynamique avec Drill-Down</LabelText>
+				<LabelText lang="nl">Voorbeeld 10 : Dynamische CrossTab met Drill-Down</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+		          		<li>
+		            		L'objectif de ce rapport est de montrer qu'il est possible avec un seul rapport d'effectuer un Drill-Down sur base d'un tableau croisé dynamique. Ce rapport est 'utilisé' plusieurs fois. L'utilisation du paramêtre pMODE et du LoadDiv permet d'effectuer ce Drill-Down.
+		          		</li>
+		          		<li>
+		            		A l'ouverture du rapport, le paramêtre pMODE=Main permet la visualisation du tableau croisé dynammique. Chaque valeur permettra de charger dans un DIV situé sous le tableau le même rapport mais avec le résultat détaillé. Ce tableau croisé est dynamique car les paramêtres qui constitue le row (2) et le column peuvent être détarminé et modifié par l'utilisateur si le DBWeb a été prévu dans ce sens. 
+		          		</li>
+		          		<li>
+		            		L'avantage de ce type de rapport est sa standardisation. Attention, il est nécessaire d'être précis dans la création du tableau croisé afin que le Drill-Down fonctionne. La valeur doit être 'NBR' et le grouping doit se faire par tous les champs qui pourront être choisi pour le tableau croisé. L'initialisation des champs se fera par l'utilisation des paramètres pR1, pR2 et pC1. Il conviendra également de prévoir dans la query de détail des where clause associées à chaque possibilité de paramétrage.
+		          		</li>
+		          		<li>
+		            		Enfin, il est prévu qu'un Pop-Up LLOOKM soit possible afin d'éclairer l'utilisateur sur la signification du Code utilisé dans le tableau croisé dynamique.
+		          		</li>
+		          		<li>
+		            		Si le code pR1 et pR2 sont identiques, le tableau n'utilisera qu'une seule colonne afin donc de permettre un tableau à 1 ou 2 entrées en Row.
+		          		</li>
+		          		<li>
+		            		L'utilisation du Template générique en mode manuel faisant appel au Template Row est utilsé pour faire appel au Template XTable.
+		          		</li>
+		        	</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+		          		<li>
+		            		Het doel van dit rapport is om aan te tonen dat het mogelijk is om met één enkel rapport een Drill-Down uit te voeren op basis van een dynamische kruistabel. Dit rapport wordt meerdere keren 'gebruikt'. Het gebruik van de parameter pMODE en van LoadDiv laat toe om deze Drill-Down uit te voeren.
+		          		</li>
+		          		<li>
+		            		Bij het openen van het rapport zorgt de parameter pMODE=Main voor de visualisatie van de dynamische kruistabel. Elke waarde laat toe om hetzelfde rapport te laden in een DIV die zich onder de tabel bevindt, maar met een gedetailleerd resultaat. Deze kruistabel is dynamisch omdat de parameters die de rij (2) en de kolom vormen, kunnen bepaald en gewijzigd worden door de gebruiker indien de DBWeb hierop voorzien werd. 
+		          		</li>
+		          		<li>
+		            		Het voordeel van dit type rapport is de standaardisatie. Let op, het is onontbeerlijk om nauwkeurig te zijn bij de aanmaak van de kruistabel opdat de Drill-Down zou werken. De waarde moet 'NBR' zijn en de groepering moet gebeuren op alle velden die voor de kruistabel kunnen gekozen worden. De initialisatie van de velden zal gebeuren door het gebruik van de parameters pR1, pR2 en pC1. Er moeten in de detailquery eveneens where clauses voorzien worden die vebonden zijn aan elke mogelijke parametrisatie.
+		          		</li>
+		          		<li>
+		            		Tot slot is er ook voorzien dat een LLOOKM Pop-Up mogelijk is om de gebruiker te helpen met de betekenis van de in de dynamische kruistabel gebruikte Code.
+		          		</li>
+		          		<li>
+		            		Indien de code pR1 en pR2 identiek zijn, zal de tabel slechts één kolom gebruiken om een tabel met 1 f 2 rij-ingangen toe te laten.
+		          		</li>
+		          		<li>
+		            		Het gebruik van de generieke Template in manuele mode die beroep doet op de Row Template wordt gebruikt om de XTbale Template o pte roepen.
+		          		</li>
+		        	</ul>
+				</ObjectiveText>
+			</Label>
+		<!-- Sample 11 -->	
+			<Label ID="REPORT11_PAGENAME">
+				<LabelText lang="en">Sample 11</LabelText>
+				<LabelText lang="fr">Exemple 11</LabelText>
+				<LabelText lang="nl">Voorbeeld 11</LabelText>
+			</Label>
+			<Label ID="REPORT11_TITLE">
+				<LabelText lang="en">Sample 11 : Dynamic CrossTab with Drill-Down and Drill-Down2 in Details</LabelText>
+				<LabelText lang="fr">Exemple 11 : Tableau croisé dynamique avec Drill-Down and Drill-Down2 in Details</LabelText>
+				<LabelText lang="nl">Voorbeeld 11 : Dynamische CrossTab met Drill-Down and Drill-Down2 in Details</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+		          		<li>
+		            		Cet exemple est une extension du rapport précédent.
+		          		</li>
+		          		<li>
+		            		En mode Détail, il est prévu un Drill-Down2 qui chargera un rapport extérieur
+		          		</li>
+		          		<li>
+		            		L'avantage de ce type de rapport est sa standardisation. Attention, il est nécessaire d'être précis dans la création du tableau croisé afin que le Drill-Down fonctionne. La valeur doit être 'NBR' et le grouping doit se faire par tous les champs qui pourront être choisi pour le tableau croisé. L'initialisation des champs se fera par l'utilisation des paramètres pR1, pR2 et pC1. Il conviendra également de prévoir dans la query de détail des where clause associées à chaque possibilité de paramétrage.
+		          		</li>
+		        	</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+		          		<li>
+		            		Dit voorbeeld is een uitbreiding van het vorige rapport.
+		          		</li>
+		          		<li>
+		            		In Detail mode is een Drill-Down2 voorzien die en extern rapport zal laden
+		          		</li>
+		          		<li>
+		            		Het voordeel van dit type rapport is de standaardisatie. Let op, het is onontbeerlijk om nauwkeuring te zijn in de aanmaak van de kruistabel opdat de Drill-Down functioneert. De waarde moet 'NBR' zijn en de groepering moet gebeuren op alle velden die voor de kruistabel kunnen gekozen worden. De initialisatie van de velden zal gedaan worden door het gebruik van de parameters pR1, pR2 en pC1. Het is eveneens nuttig om in de detail-query where clauses te voorzien die verbonden zijn met elke mogelijke parametrisatie.
+		          		</li>
+		        	</ul>
+				</ObjectiveText>
+			</Label>
+		<!-- Sample 12 -->
+			<Label ID="REPORT12_PAGENAME">
+				<LabelText lang="en">Sample 12</LabelText>
+				<LabelText lang="fr">Exemple 12</LabelText>
+				<LabelText lang="nl">Voorbeeld 12</LabelText>
+			</Label>
+			<Label ID="REPORT12_TITLE">
+				<LabelText lang="en">Sample 12 : Dynamic CrossTab and Graph (Tabs) with Drill-Down</LabelText>
+				<LabelText lang="fr">Exemple 12 : Dynamic CrossTab and Graph (Tabs) with Drill-Down</LabelText>
+				<LabelText lang="nl">Voorbeeld 12 : Dynamic CrossTab and Graph (Tabs) with Drill-Down</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Utilisation de Tab afin de visualiser différentes informations
+						</li>
+						<li>
+							Attention, pour des raisons techniques, il n'est PAS possible d'avoir plus de 3 Tabs sur une page html. Cette limitation est applicable si vous appelez des rapports en Drill-Down2 (exemple 6). Il NE peut PAS y avoir plus de 3 TABS !!!
+						</li>
+						<li>
+							Dans cet exemple, le premier Tab va contenir le Tableau croisé dynamique et le Second un graphique basé sur les mêmes données.
+						</li>
+						<li>
+							Le graphique est également dynamique au niveau paramétrage. A noter qu'il possède une fonctionnalité Drill-Down sur les bloc coloré mais aussi au niveau de sa légende (bien que le pointeur de la souris ne le montre pas). Le tableau croisé et le graphique ont un paramétrage distinct ce qui permet de visualiser les mêmes données brutes selon deux approches distinctes.
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Gebruik van de Tab om de verschillende informaties te visualiseren
+						</li>
+						<li>
+							Opgelet, om technische redenen is het NIET mogelijk om meer dan 3 Tabs op één html pagina te zetten. Deze beperking is van toepassing als rapporten in Drill-Down2 (voorbeeld 6) worden opgeroepen. Er kunnen NIET méér dan 3 Tabs zijn !!!
+						</li>
+						<li>
+							In dit voorbeeld zal de eerste Tab een dynamische kruistabel bevatten en de tweede Tab een grafiek, gebaseerd op dezelfde gegevens.
+						</li>
+						<li>
+							De grafiek is eveneens dynamisch op het vlak van parametrisatie. Er valt te notern dat deze grafiek een Drill-Down functie bevat op de gekleurde blokken, evenals op het niveau van de legende (hoewel de pointer van de muis dit niet aangeeft). De kruistabel en de grafiek hebben een verschillende parametrisatie, wat toelaat om identieke gegevens vanuit twee verschillende benaderingen te visualiseren.
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+		<!-- Sample 13 -->
+			<Label ID="KPI0013">
+				<LabelText lang="en">Sample 13 : MR Node KPI Sample</LabelText>
+				<LabelText lang="fr">Exemple 13 : MR Node KPI Sample</LabelText>
+				<LabelText lang="nl">Voorbeeld 13 : MR Node KPI Sample</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Exemple de KPI 'classique' utilisant le FW2 (ce KPI est le 0013). Nombre d'assets pour une fonction ILIAS 
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Voorbeeld van een 'klassieke' KPI met gebruik van het FW2 (deze KPI is de 0013). Aantal assets voor een ILIAS functie
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>
+		<!-- Sample ADHOC -->	
+			<Label ID="Adhoc">
+				<LabelText lang="en">ADHOC : AdHoc Querying using FW2 on Your Local Node</LabelText>
+				<LabelText lang="fr">ADHOC : AdHoc Querying using FW2 on Your Local Node</LabelText>
+				<LabelText lang="nl">ADHOC : AdHoc Querying using FW2 on Your Local Node</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Rapport permettant de faire du AdHoc querying sur votre DB Node local et vous permettre de visualiser le résultat d'une simple requète en utilisant le FW2. 
+						</li>
+						<li>
+							Ce rapport est compatible avec les Special Features proposés dans le FW2. 
+						</li>
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							Rapport dat AdHoc querying op uw lokale DB Node toelaat en waarmee het resultaat van een eenvoudige opvraging getoond wordt door gebruik te maken van FW2. 
+						</li>
+						<li>
+							Dit rapport is compatibel met de Special Features, voorgesteld in het FW2. 
+						</li>
+					</ul>
+				</ObjectiveText>
+			</Label>	
+		<!-- Misceallenous -->
+			<Label ID="IL_MR_SAMPLE">
+				<LabelText lang="en">Basic Example</LabelText>
+				<LabelText lang="fr">Exemple basique</LabelText>
+				<LabelText lang="nl">Basis Voorbeeld</LabelText>
+			</Label>
+			<Label ID="LANGUAGE">
+				<LabelText lang="nl">Taal</LabelText>
+				<PopupText lang="nl">Taal van de Technische Specificaties (SPART Tab Tech Spec)</PopupText>
+				<LabelText lang="fr">Langue</LabelText>
+				<PopupText lang="fr">Langue des spécifications Techniques (SPART Tab Tech Spec)</PopupText>
+				<LabelText lang="en">Language</LabelText>
+				<PopupText lang="en">Language of the Technical Specifications (SPART Tab Tech Spec)</PopupText>
+			</Label>
+			<Label ID="TAB01">
+				<LabelText lang="nl">Asset Lijst voor Functie</LabelText>
+				<LabelText lang="fr">Liste des Asset pour la Fonction</LabelText>
+				<LabelText lang="en">Asset List for Function</LabelText>
+			</Label>
+			<Label ID="TAB02">
+				<LabelText lang="nl">Tekst voorbeeld</LabelText>
+				<LabelText lang="fr">Exemple de Texte</LabelText>
+				<LabelText lang="en">Text Sample</LabelText>
+			</Label>
+			<Label ID="ACC03">
+				<LabelText lang="nl">Accordeon 3 van RepDic (Gebaseerd op language parameter pLANG)</LabelText>
+				<LabelText lang="fr">Accordéon 3 du RepDic (basé sur le paramètre Language pLANG)</LabelText>
+				<LabelText lang="en">Accordion 3 from RepDic (Based on language parameter pLANG)</LabelText>
+			</Label>
+			<Label ID="XTAB_TITLE">
+				<LabelText lang="nl">Dynamische CrossTabel Samenvatting (Met Drill-Down)</LabelText>
+				<LabelText lang="fr">Tableau résumé croisé Dynamique (avec Drill-Down)</LabelText>
+				<LabelText lang="en">Dynamic CrossTable Summary (with Drill-Down)</LabelText>
+			</Label>
+			<Label ID="XGRAPH_TITLE">
+				<LabelText lang="nl">Dynamische Grafiek (Met Drill-Down)</LabelText>
+				<LabelText lang="fr">Graphique Dynamique (avec Drill-Down)</LabelText>
+				<LabelText lang="en">Dynamic Graphical (with Drill-Down)</LabelText>
+			</Label>
+			<Label ID="TAB_COLLAPSE">
+				<LabelText lang="nl">(Un)Collapse Tabs</LabelText>
+				<LabelText lang="fr">(Un)Collapse Tabs</LabelText>
+				<LabelText lang="en">(Un)Collapse Tabs</LabelText>
+			</Label>
+			<Label ID="FW2_TAB01">
+				<LabelText lang="nl">Informatie</LabelText>
+				<LabelText lang="fr">Information</LabelText>
+				<LabelText lang="en">Information</LabelText>
+			</Label>
+			<Label ID="FW2_TAB02">
+				<LabelText lang="nl">Update Lijst</LabelText>
+				<LabelText lang="fr">Liste des Mises à Jour</LabelText>
+				<LabelText lang="en">Update List</LabelText>
+			</Label>
+			<Label ID="FW2_TAB03">
+				<LabelText lang="nl">FW2 Voorbeelden</LabelText>
+				<LabelText lang="fr">Exemples en FW2</LabelText>
+				<LabelText lang="en">FW2 Samples</LabelText>
+			</Label>
+	<!-- Terms of Use -->
+		<Label ID="CONDITIONS">
+			<ObjectiveText lang="fr">
+				<h2>Objectif</h2>
+				Le FW2 (Framework 2 du MR Node) est un ensemble de fichiers permettant à l'utilisateur de développer plus facilement un rapport en utilisant le Local Reporting Framework (LRF) disponible sur un DB Node. 
+				La particularité de ce Framework est qu'il est utilisé sur le MR Node pour la génération des rapports.
+				Le but du kit de développement est de permettre à l'utilisateur de pouvoir facilement comprendre et utiliser les fonctionnalités proposées par ce Framework et donc de développer un rapport qui serait susceptible d'être publié sur le MR Node.<br/>
+				<b>L'objectif est donc clairement de faciliter la publication et la mise à jour de rapports sur le MR Node. Cette initiative cadre dans la vision du Q&amp;R ILIAS</b>
+				
+				<h2>Conditions d'utilisation</h2>
+				<ul>
+					<li>
+						Sur un Noeud local, appelé communément noeud de développement, ce framework pourra être utilisé à la condition que les rapports générés soient utlisés à des fins personnelles ou dans le but de préparer-modifier-corriger un rapport du MR Node
+					</li>
+					<li>Un Noeud pilier pourra utiliser le FW2 à la seule condition d'en informer MR-Mgt</li>
+					<li>
+						Il est demandé à TOUS les responsables de Noeud (Node local et pilier) de communiquer à MR-Mgt (Cdt IBANEZ C. et Adjt Dubus R.) :
+						<ul>
+							<li>de mentionner tout bug identifié</li>
+							<li>de mentionner toute amélioration</li>
+						</ul>
+					</li>
+					<li>Sur base de ce qui précède, il est donc interdit de proposer, publier et distribuer un Framework basé sur FW2 du MR Node avec un CopyRight sans l'accord explicite de MR-Mgt.</li>
+				</ul>
+				<center>
+				<font size="2" color="blue">L'utilisateur qui télécharge le FW2 et l'installe sur son DB Node s'engage donc à respecter ces conditions d'utilisation.</font><br/><br/>
+				<font size="3" color="red">En cas de non-respect de ces conditions d'utilisation, l'utilisateur se verra limiter (voire interdire) son accès au DataSet ILIAS au niveau du DataMart.</font>
+				</center>
+
+				<h2>Installation</h2>
+				<ul>
+					<li>Décompresser l'archive dans le répertoire de votre choix</li>
+					<li>Copier le contenu du répertoire HTDOCS dans le répertoire htdocs de votre DB Node</li>
+					<li>Copier le contenu du répertoire DBWEB dans le répertoire lrf\DBWeb3 de votre DB Node</li>
+					<li>Copier le contenu du répertoire XMLWEB dans le répertoire lrf\XMLWeb3 de votre DB Node</li>
+				</ul>
+
+				<h2>Questions et documentation</h2>
+				<ul>
+					<li>Dans la mesure du possible la documentation a été rédigée dans les fichiers et les exemples</li>
+					<li>Il est vivement recommandé pour un utilisateur désirant développer un rapport en utilisant le FW2 de
+						<ul>
+							<li>disposer d'une connaissance MySQL (voir cours XDE)</li>
+							<li>disposer d'une connaissance XML/XSL (voir cours XDE)</li>
+							<li>d'analyser et lire les DBWeb - Queries et XMLWeb (Transformations) fournies comme exemple dans le Kit de Développement. L'approche suivie est graduelle, chaque exemple permet de mâitriser une nouvelle fonctionnalité proposée par le FW2. Il est donc vivement recommandé de lire et comprendre TOUS les exemples dans l'ordre proposé</li>
+							<li>Aucun Support et formation ne sera prodiguée par MR-Mgt. Néanmoins, MR-Mgt a contacté les différents organismes de formation (Tourna et ECIS) afin de donner une initiation à son utilisation. MR-Mgt a recommandé qu'une formation soit mise ne place mais cette dernière ne pourra effectivement être créée que si une demande de la part des utilisateurs est exprimée.</li>
+						</ul>
+					</li>
+					<li>Il est recommandé d'utiliser le Forum DB Node MR afin d'échanger des questions sur l'utilisation du FW2. L'utilisateur est invité à commencer sa Question/Titre par 'FW2 : ...'</li>
+					<li>La documentation liées aux fonctionnalités disponible avec le FW2 seront disponible dans le Wiki ILIAS à la page 'MR Node - FW2'</li>
+				</ul>
+				
+				<h2>Mise à jour et disponibilité</h2>
+				Le FW2 est disponible sur le MR Node par le biais du 'Rapport' FW2 - MR Node Framework 2. Il est donc soumis à un versioning.
+				<h2>Dépendances</h2>
+				<ul>
+					<li>L'ensemble des dépendances sont reprise dans le kit de développement, il n'est pas recommandé de les mettre à jour :
+						<ul>
+							<li>JQuery</li>
+							<li>AngularJS</li>
+							<li>DataTable</li>
+						</ul>
+					</li>
+				</ul>
+				<center>
+					<script type="text/javascript">
+
+					  function checkForm(form)
+					  {
+					    if(!form.terms.checked) {
+					      alert("Veuillez indiquer que vous acceptez les termes et les conditions");
+					      form.terms.focus();
+					      return false;
+					    }
+					    return true;
+					  }
+
+					</script>
+					<form onsubmit="return checkForm(this);" action="http://localhost" method="POST">
+						<p><input type="checkbox" name="terms"/> J'accepte les <u>Termes et les Conditions</u></p>
+						<p><input type="submit" value="Download MR Node FW2 Dev Kit"/></p>
+					</form>
+				</center>
+			</ObjectiveText>
+			<ObjectiveText lang="nl">
+				<h2>Objectief</h2>
+				Het FW2 (Framework 2 van MR Node) is een geheel van files dat de gebruiker in staat stelt om op een eenvoudige manier een rapport te ontwikkelen, gebruik makend van het Local Reporting Framework (LRF) dat beschikbaar is op een DB Node. 
+				Het specifieke aan dit Framework is dat het gebruikt is op de MR Node voor de aanmaak van rapporten.
+				Het doel van de ontwikkel-kit is de gebruiker toe te laten om de door dit Framework voorgestelde functionaliteiten makkelijk te begrijpen en te gebruiken en bijgevolg een rapport te kunnen ontwikkelen dat op de MR Node zou kunnen gepubliceerd worden.<br/>
+				<b>Het objectief is dus duidelijk om de publicatie en de aanpassing van rapporten op de MR Node te vergemakkelijken. Dit initiatief kadert in de ILIAS Q&amp;R visie</b>
+				
+				<h2>Gebruiksvoorwaarden</h2>
+				<ul>
+					<li>
+						Op de lokale Node, ook wel de ontwikkelnode genoemd, zal dit framework kunnen gebruikt worden op voorwaarde dat de ontwikkelde rapporten gebruikt worden voor persoonlijke doeleinden of om een rapport van de MR Node voor te bereiden, te wijzigen en/of te verbeteren
+					</li>
+					<li>Een zuil-Node zal het FW2 kunnen gebruiken op voorwaarde van MR-Mgt hierover te informeren</li>
+					<li>
+						Er wordt aan ALLE verantwoordelijken van een Node (zowel lokale als zuil) gevraagd om aan MR-Mgt (Cdt IBANEZ C. en Adjt Dubus R.) :
+						<ul>
+							<li>elke vastgestelde bug te melden</li>
+							<li>elke verbetering mee te delen</li>
+						</ul>
+					</li>
+					<li>Op basis van voorgaande is het dus verboden om een Framework, gebaseerd op FW2 van de MR Node, met een CopyRight voor te stellen, te publiceren en te verdelen zonder het uitdrukkelijke akkoord van MR-Mgt.</li>
+				</ul>
+				<center>
+				<font size="2" color="blue">De gebruiker die het FW2 download en op zijn DB Node installeert, verklaart zich bijgevolg akkoord met deze gebruiksvoorwaarden.</font><br/><br/>
+				<font size="3" color="red">Ingeval deze gebruiksvoorwaarden niet gerespecteerd worden, zal de gebruiker zijn toegang tot de ILIAS DataSet op niveau van de DataMart beperkt (of ontzegd) worden.</font>
+				</center>
+
+				<h2>Installatie</h2>
+				<ul>
+					<li>De archive-file decompresseren in de folder van uw keuze</li>
+					<li>De inhoud van de folder HTDOCS copiëren in de folder htdocs van uw DB Node</li>
+					<li>De inhoud van de folder DBWEB copiëren in de folder lrf\DBWeb3 van uw DB Node</li>
+					<li>De inhoud van de folder XMLWEB copiëren in de folder lrf\XMLWeb3 van uw DB Node</li>
+				</ul>
+
+				<h2>Vragen en documentatie</h2>
+				<ul>
+					<li>In de mate van het mogelijke werd de documentatie hernomen in de files en in de voorbeelden</li>
+					<li>Het wordt sterk aanbevolen aan de gebruiker die een rapport wil ontwikkelen met FW2 om
+						<ul>
+							<li>over een goede kennis MySQL te beschikken (zie cursus XDE)</li>
+							<li>over een goede kennis XML/XSL te beschikken (zie cursus XDE)</li>
+							<li>de DBWeb - Queries en XMLWeb (Transformaties) te analyseren en te lezen die als voorbeeld in de OntwikkelKit meegeleverd worden. De gevolgde benadering is gradueel : elk voorbeeld laat toe om de nieuwe functionaliteit, voorgesteld door het FW2, te beheersen. Het is dus sterk aanbevolen om ALLE voorbeelden te lezen en te begrijpen in de voorgestelde volgorde</li>
+							<li>Er zal geen enkele steun en vorming geleverd worden door MR-Mgt. MR-Mgt heeft daarentegen contact opgenomen met de verschillende vormingsinstellingen (Doornik en ECIS) teneinde hen een initatie te geven. MR-Mgt heeft sterk aangedrongen op het in plaats stellen van een vorming, maar deze kan uiteraard pas effectief voorzien worden wanneer er een behoefte uitgedrukt wordt door de gebruikers.</li>
+						</ul>
+					</li>
+					<li>Het wordt aanbevolen om het Forum DB Node MR te gebruiken om vragen met betrekking tot het gebruik van FW2 uit te wisselen. De gebruikers worden verzocht om de vragen/titels te laten beginnen met 'FW2 : ...'</li>
+					<li>De documentatie met betrekking tot de beschikbare functionaliteiten in FW2 zullen beschikbaar zijn op de ILIAS Wiki pagina 'MR Node - FW2'</li>
+				</ul>
+				
+				<h2>Updates en beschikbaarheid</h2>
+				Het FW2 is beschikbaar op de MR Node via het 'Rapport' FW2 - MR Node Framework 2. Het is dus ook onderworpen aan versiebeheer.
+				<h2>Afhankelijkheden</h2>
+				<ul>
+					<li>Het geheel van afhankelijkheden is hernomen in de ontwikkel-kit, het wordt afgeraden om deze te updaten :
+						<ul>
+							<li>JQuery</li>
+							<li>AngularJS</li>
+							<li>DataTable</li>
+						</ul>
+					</li>
+				</ul>
+				<center>
+					<script type="text/javascript">
+
+					  function checkForm(form)
+					  {
+					    if(!form.terms.checked) {
+					      alert("Gelieve aan te duiden dat u de gebruiksvoorwaarden aanvaardt");
+					      form.terms.focus();
+					      return false;
+					    }
+					    return true;
+					  }
+
+					</script>
+					<form onsubmit="return checkForm(this);" action="http://localhost" method="POST">
+						<p><input type="checkbox" name="terms"/> Ik aanvaard de <u>Gebruiksvoorwaarden</u></p>
+						<p><input type="submit" value="Download MR Node FW2 Dev Kit"/></p>
+					</form>
+				</center>
+			</ObjectiveText>
+		</Label>
+	<!-- List of Updates -->
+		<Label ID="MRN_FW2_UPDATES">
+			<LabelText lang="nl">FW2 Modificaties</LabelText>
+			<LabelText lang="fr">Modifications du FW2</LabelText>
+			<LabelText lang="en">FW2 Modifications</LabelText>
+		</Label>
+		<Label ID="dbn_repl_date">
+			<LabelText lang="nl">Datum</LabelText>
+			<PopupText lang="nl">Datum van de Logging, Aanpassing</PopupText>
+			<LabelText lang="fr">Date</LabelText>
+			<PopupText lang="fr">Date du Log ou de la modification</PopupText>
+			<LabelText lang="en">Date</LabelText>
+			<PopupText lang="en">Logging or Modification Date</PopupText>
+		</Label>
+		<Label ID="dbn_repl_type">
+			<LabelText lang="nl">Type</LabelText>
+			<PopupText lang="nl">Modificatie Type</PopupText>
+			<LabelText lang="fr">Type</LabelText>
+			<PopupText lang="fr">Type de Modification</PopupText>
+			<LabelText lang="en">Type</LabelText>
+			<PopupText lang="en">Modification Type</PopupText>
+		</Label>
+		<Label ID="dbn_repl_by">
+			<LabelText lang="nl">Door</LabelText>
+			<PopupText lang="nl">Uitgevoerd Door</PopupText>
+			<LabelText lang="fr">Par</LabelText>
+			<PopupText lang="fr">Exécuté par</PopupText>
+			<LabelText lang="en">By</LabelText>
+			<PopupText lang="en">Executed By</PopupText>
+		</Label>
+		<Label ID="dbn_repl_ver">
+			<LabelText lang="nl">Versie</LabelText>
+			<PopupText lang="nl">Versie na de modificatie</PopupText>
+			<LabelText lang="fr">Version</LabelText>
+			<PopupText lang="fr">Version après modification</PopupText>
+			<LabelText lang="en">Version</LabelText>
+			<PopupText lang="en">Version Nbr after modification</PopupText>
+		</Label>
+		<Label ID="dbn_repl_what">
+			<LabelText lang="nl">Details</LabelText>
+			<PopupText lang="nl">Details van de Modificatie</PopupText>
+			<LabelText lang="fr">Détails</LabelText>
+			<PopupText lang="fr">Détails de la modification</PopupText>
+			<LabelText lang="en">Details</LabelText>
+			<PopupText lang="en">Modification Details</PopupText>
+		</Label>
+		<Label ID="dbn_repl_ems">
+			<LabelText lang="nl">EMS v2</LabelText>
+			<PopupText lang="nl">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="fr">EMS v2</LabelText>
+			<PopupText lang="fr">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="en">EMS v2</LabelText>
+			<PopupText lang="en">EMS v2 Call Nbr</PopupText>
+		</Label>
+		<Label ID="SPE_01_XTAB">
+			<LabelText lang="nl">Dynamische KruisTabel Samenvatting (Met Drill-Down)</LabelText>
+			<LabelText lang="fr">Tableau résumé croisé Dynamique (avec Drill-Down)</LabelText>
+			<LabelText lang="en">Dynamic CrossTable Summary (with Drill-Down)</LabelText>
+		</Label>
+		<Label ID="SPE_01_XGRAPH">
+			<LabelText lang="nl">Dynamische Grafiek (Met Drill-Down)</LabelText>
+			<LabelText lang="fr">Graphique Dynamique (avec Drill-Down)</LabelText>
+			<LabelText lang="en">Dynamic Graphical (with Drill-Down)</LabelText>
+		</Label>
+		<Label ID="COLLAPSE">
+			<LabelText lang="nl">(Un)Collapse Tabs</LabelText>
+			<LabelText lang="fr">(Un)Collapse Tabs</LabelText>
+			<LabelText lang="en">(Un)Collapse Tabs</LabelText>
+		</Label>
+</Dictionary>

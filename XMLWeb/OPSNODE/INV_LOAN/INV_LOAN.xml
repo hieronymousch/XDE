@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>Requisitions</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/OPSNODE/INV_LOAN/INV_LOAN.xml</source>
+ <processing type="xsl">OPSNODE/INV_LOAN/XSL/INV_LOAN.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<descriptor>
+   <report type="main">
+      <url>DBWeb/ProcessDescriptor/descriptor/excel/export.xml</url>
+      <domain/>
+      <subdomain/>
+      <title>TBD</title>
+      <description/>
+      <secure>1</secure>
+      <techPOC/>
+      <changeHistory>
+         <version id="1" date="22-08-2014">Add main</version>
+      </changeHistory>
+      <tables/>
+      <help/>
+   </report>
+   <label>TBD</label>
+   <source type="url">DBWeb/ProcessDescriptor/descriptor/excel/export.xml</source>
+   <processing type="xsl">excel/XSL/export.xsl</processing>
+   <result type="application/vnd.ms-excel; charset=UTF-8" header="true"/>
+</descriptor>

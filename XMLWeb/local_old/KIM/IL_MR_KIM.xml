@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>KIM follow-up</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_KIM/IL_MR_KIM.xml</source>
+ <processing type="xsl">LRF2/IL_MR_KIM/XSL/IL_MR_KIM.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

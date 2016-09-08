@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dbqueries>
+<environment>DEV</environment>
+<label>
+MR Node</label>
+<description>
+MR Node</description>
+<ws-query id='METADATA'>
+<descriptor>
+<originalurl>http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml</originalurl>
+<xpath>/dbqueries/*</xpath>
+<parameters>
+<parameter name='pcCDN'>NOBODY</parameter>
+<parameter name='pcINFO'>IPT</parameter>
+<parameter name='pcLANG'>EN</parameter>
+<parameter name='pcRID'>8001</parameter>
+</parameters>
+<globalparameters>
+<parameters>
+<param name='pRID' value='8001'/>
+<param name='pLANG' value='EN'/>
+<param name='pINFO' value='IPT'/>
+<param name='pMODE' value='Main'/>
+<param name='pCDN' value='NOBODY'/>
+</parameters>
+</globalparameters>
+<url>
+http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml?pcCDN=NOBODY&amp;pcINFO=IPT&amp;pcLANG=EN&amp;pcRID=8001
+</url>
+</descriptor>
+<ws-rows>
+<environment>PRD</environment>
+<label>MR Node - METADATA</label>
+<description>REPORT METADATA</description>
+<dbquery id="Report_Info"><descriptor><database>dbnode</database><originalquery/><parameters><param name="pcINFO" value="IPT"/><param name="pcKPI" value=""/><param name="pcRID" value="8001"/><param name="pcLANG" value="EN"/><param name="pcCDN" value="NOBODY"/></parameters><querystring>				select distinct  					r.*,count(v.dbn_repv_viewname) Views_Used, ifnull(min(e.Ref_Status),'OK') Extr_Status 				from 					dbn_report r join dbn_report_views v on v.dbn_repv_parid = r.dbn_rep_id					left join dbn_entities e on v.dbn_repv_viewname = e.ViewName				where 					if(''='',if('8001'='',r.dbn_rep_id='0',r.dbn_rep_id ='8001'),r.dbn_rep_kpi='')			</querystring></descriptor><columns><column name="DayModif" type="BIGINT"/><column name="dbn_rep_categ" type="VARCHAR"/><column name="dbn_rep_dbweb" type="VARCHAR"/><column name="dbn_rep_accept" type="INTEGER"/><column name="dbn_rep_id" type="INTEGER"/><column name="dbn_rep_date" type="TIMESTAMP"/><column name="dbn_rep_name" type="VARCHAR"/><column name="dbn_rep_visible" type="VARCHAR"/><column name="dbn_rep_version" type="VARCHAR"/><column name="dbn_rep_poc" type="VARCHAR"/><column name="dbn_rep_email" type="VARCHAR"/><column name="dbn_rep_stat" type="INTEGER"/><column name="dbn_rep_node" type="VARCHAR"/><column name="dbn_rep_responsible" type="VARCHAR"/><column name="dbn_rep_special" type="VARCHAR"/><column name="dbn_rep_kpi" type="VARCHAR"/><column name="dbn_rep_type" type="VARCHAR"/><column name="dbn_rep_secure" type="VARCHAR"/><column name="dbn_rep_refresh" type="VARCHAR"/><column name="dbn_rep_node_url" type="VARCHAR"/><column name="dbn_rep_url" type="VARCHAR"/><column name="dbn_rep_application" type="VARCHAR"/><column name="dbn_rep_dom_lev1" type="VARCHAR"/><column name="dbn_rep_dom_lev2" type="VARCHAR"/><column name="dbn_rep_dom_lev3" type="VARCHAR"/><column name="dbn_rep_long_desc_en" type="VARCHAR"/><column name="dbn_rep_long_desc_fr" type="VARCHAR"/><column name="dbn_rep_long_desc_nl" type="VARCHAR"/><column name="dbn_rep_remarks_en" type="VARCHAR"/><column name="dbn_rep_remarks_fr" type="VARCHAR"/><column name="dbn_rep_remarks_nl" type="VARCHAR"/><column name="dbn_rep_url_doc_en" type="VARCHAR"/><column name="dbn_rep_url_doc_fr" type="VARCHAR"/><column name="dbn_rep_url_doc_nl" type="VARCHAR"/><column name="dbn_rep_url_ilias" type="VARCHAR"/><column name="dbn_rep_remarks" type="VARCHAR"/><column name="dbn_rep_url_xls" type="VARCHAR"/><column name="dbn_rep_url_pdf" type="VARCHAR"/><column name="dbn_rep_status" type="VARCHAR"/><column name="dbn_accrep_status" type="VARCHAR"/><column name="Views_Used" type="BIGINT"/><column name="Extr_Status" type="VARCHAR"/></columns><rows><row DayModif="" dbn_rep_categ="" dbn_rep_dbweb="" dbn_rep_accept="" dbn_rep_id="" dbn_rep_date="" dbn_rep_name="" dbn_rep_visible="" dbn_rep_version="" dbn_rep_poc="" dbn_rep_email="" dbn_rep_stat="" dbn_rep_node="" dbn_rep_responsible="" dbn_rep_special="" dbn_rep_kpi="" dbn_rep_type="" dbn_rep_secure="" dbn_rep_refresh="" dbn_rep_node_url="" dbn_rep_url="" dbn_rep_application="" dbn_rep_dom_lev1="" dbn_rep_dom_lev2="" dbn_rep_dom_lev3="" dbn_rep_long_desc_en="" dbn_rep_long_desc_fr="" dbn_rep_long_desc_nl="" dbn_rep_remarks_en="" dbn_rep_remarks_fr="" dbn_rep_remarks_nl="" dbn_rep_url_doc_en="" dbn_rep_url_doc_fr="" dbn_rep_url_doc_nl="" dbn_rep_url_ilias="" dbn_rep_remarks="" dbn_rep_url_xls="" dbn_rep_url_pdf="" dbn_rep_status="" dbn_accrep_status="" Views_Used="0" Extr_Status="OK"/></rows></dbquery>
+<dbquery id="Report_Prompt"><descriptor><database>dbnode</database><originalquery/><parameters><param name="pcINFO" value="IPT"/><param name="pcKPI" value=""/><param name="pcRID" value="8001"/><param name="pcLANG" value="EN"/><param name="pcCDN" value="NOBODY"/></parameters><querystring>				select 					rp.* 				from 					dbn_report r join dbn_report_parameters rp on r.dbn_rep_id=rp.dbn_repp_parid				where 					if(''='',if('8001'='',r.dbn_rep_id='0',r.dbn_rep_id ='8001'),r.dbn_rep_kpi='')			</querystring></descriptor><columns><column name="dbn_repp_param_order" type="INTEGER"/><column name="dbn_repp_id" type="INTEGER"/><column name="dbn_repp_parid" type="INTEGER"/><column name="dbn_repp_param" type="VARCHAR"/><column name="dbn_repp_param_name" type="VARCHAR"/><column name="dbn_repp_param_name_fr" type="VARCHAR"/><column name="dbn_repp_param_name_nl" type="VARCHAR"/><column name="dbn_repp_param_visible" type="VARCHAR"/><column name="dbn_repp_param_type" type="VARCHAR"/><column name="dbn_repp_param_type_detail" type="VARCHAR"/><column name="dbn_repp_param_validation" type="VARCHAR"/><column name="dbn_repp_param_format" type="VARCHAR"/><column name="dbn_repp_param_remark" type="VARCHAR"/><column name="dbn_repp_param_remark_fr" type="VARCHAR"/><column name="dbn_repp_param_remark_nl" type="VARCHAR"/><column name="dbn_repp_param_mandatory" type="VARCHAR"/></columns><rows/></dbquery>
+<dbquery id="TEMPLATE"><descriptor><database>dbnode</database><originalquery/><parameters><param name="pcINFO" value="IPT"/><param name="pcKPI" value=""/><param name="pcRID" value="8001"/><param name="pcLANG" value="EN"/><param name="pcCDN" value="NOBODY"/></parameters><querystring>				select 'Yes' Template from dual			</querystring></descriptor><columns><column name="Template" type="VARCHAR"/></columns><rows><row Template="Yes"/></rows></dbquery>
+</ws-rows>
+</ws-query>
+</dbqueries>

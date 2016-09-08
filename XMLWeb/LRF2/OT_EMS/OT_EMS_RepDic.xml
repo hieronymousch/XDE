@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="PAGE_TITLE">
+		<LabelText lang="nl">OT EMS V2</LabelText>
+		<LabelText lang="fr">OT EMS V2</LabelText>
+		<LabelText lang="en">OT EMS V2</LabelText>
+	</Label>
+	<Label ID="REPORT_TITLE">
+		<LabelText lang="nl">OT EMS V2 - Info on Call</LabelText>
+		<LabelText lang="fr">OT EMS V2 - Info on Call</LabelText>
+		<LabelText lang="en">OT EMS V2 - Info on Call</LabelText>
+	</Label>
+	<Label ID="OTV2_DETAILS_TRANSITION">
+		<LabelText lang="nl">Transition Summary</LabelText>
+		<LabelText lang="fr">Transition Summary</LabelText>
+		<LabelText lang="en">Transition Summary</LabelText>
+	</Label>
+</Dictionary>

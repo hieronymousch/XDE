@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>Report List</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/CPN/CPN_REPORT/CPN_REP_LIST.xml</source>
+ <processing type="xsl">CPN/CPN_REPORT/XSL/CPN_REP_LIST.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

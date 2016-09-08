@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="ILIAS_DATA_DICTIONARY">
+		<LabelText lang="nl">ILIAS Data Dictionary in Nederlands</LabelText>
+		<LabelText lang="fr">ILIAS Data Dictionary en français</LabelText>
+		<LabelText lang="en">ILIAS Data Dictionary in English</LabelText>
+	</Label>
+	<Label ID="PRID">
+		<LabelText lang="nl">Report Id</LabelText>
+		<PopupText lang="nl">Rapport Nummer (PRID Sleutel)</PopupText>
+		<LabelText lang="fr">Report Id</LabelText>
+		<PopupText lang="fr">Numéro du Rapport (Clé PRID)</PopupText>
+		<LabelText lang="en">Report Id</LabelText>
+		<PopupText lang="en">Report Number (PRID Key)</PopupText>
+	</Label>
+	<Label ID="DB_VIEW">
+		<LabelText lang="nl">Extractie</LabelText>
+		<PopupText lang="nl">Benaming van de Extractie in de DataMart (DM)</PopupText>
+		<LabelText lang="fr">Extraction</LabelText>
+		<PopupText lang="fr">Dénomination de l'extraction dans le DataMart (DM)</PopupText>
+		<LabelText lang="en">Extraction</LabelText>
+		<PopupText lang="en">Extraction Name in DataMart (DM)</PopupText>
+	</Label>	
+	<Label ID="IL_VIEW">
+		<LabelText lang="nl">View</LabelText>
+		<PopupText lang="nl">Benaming van de View in ILIAS</PopupText>
+		<LabelText lang="fr">Vue</LabelText>
+		<PopupText lang="fr">Dénomination de la Vue dans ILIAS</PopupText>
+		<LabelText lang="en">View</LabelText>
+		<PopupText lang="en">View Name in ILIAS</PopupText>
+	</Label>
+	<Label ID="IL_SCREEN">
+		<LabelText lang="nl">Scherm</LabelText>
+		<PopupText lang="nl">Benaming van het Scherm in ILIAS</PopupText>
+		<LabelText lang="fr">Ecran</LabelText>
+		<PopupText lang="fr">Dénomination de l'écran dans ILIAS</PopupText>
+		<LabelText lang="en">Screen</LabelText>
+		<PopupText lang="en">Screen Name in ILIAS</PopupText>
+	</Label>
+	<Label ID="COLUMN_NAME">
+		<LabelText lang="nl">Veld</LabelText>
+		<PopupText lang="nl">Benaming van het Veld in de DM extractie en in de ILIAS view</PopupText>
+		<LabelText lang="fr">Champ</LabelText>
+		<PopupText lang="fr">Dénomination du champ dans l'extraction DM et la vue ILIAS</PopupText>
+		<LabelText lang="en">Field</LabelText>
+		<PopupText lang="en">Field Name in extraction DM and view ILIAS</PopupText>
+	</Label>
+	<Label ID="FIELD_NAME">
+		<LabelText lang="nl">ILIAS Veld</LabelText>
+		<PopupText lang="nl">Benaming van het Veld in het ILIAS scherm</PopupText>
+		<LabelText lang="fr">Champ ILIAS</LabelText>
+		<PopupText lang="fr">Dénomination du champ de l'écran ILIAS</PopupText>
+		<LabelText lang="en">ILIAS Field</LabelText>
+		<PopupText lang="en">Field Name in screen ILIAS</PopupText>
+	</Label>
+	<Label ID="COLUMN_DATA">
+		<LabelText lang="nl">IDB Veld</LabelText>
+		<PopupText lang="nl">Benaming van het Veld in de ILIAS DataBank</PopupText>
+		<LabelText lang="fr">Champ IDB</LabelText>
+		<PopupText lang="fr">Dénomination du champ dans la banque de données ILIAS</PopupText>
+		<LabelText lang="en">IDB Field</LabelText>
+		<PopupText lang="en">Field Name in de ILIAS DataBase</PopupText>
+	</Label>
+	<Label ID="COMMENT">
+		<LabelText lang="nl">Commentaar</LabelText>
+		<PopupText lang="nl">Commentaar in ILIAS voor deze Hint</PopupText>
+		<LabelText lang="fr">Commentaire</LabelText>
+		<PopupText lang="fr">Commentaire pour ce Hint</PopupText>
+		<LabelText lang="en">Comment</LabelText>
+		<PopupText lang="en">Hint Comment</PopupText>
+	</Label>
+	<Label ID="HINT_NO">
+		<LabelText lang="nl">Hint Nr</LabelText>
+		<PopupText lang="nl">Hint Nummer in ILIAS</PopupText>
+		<LabelText lang="fr">Nr Hint</LabelText>
+		<PopupText lang="fr">Numéro de Hint en ILIAS</PopupText>
+		<LabelText lang="en">Hint Nbr</LabelText>
+		<PopupText lang="en">Hint Number in ILIAS</PopupText>
+	</Label>
+	<Label ID="HINT_FR">
+		<LabelText lang="nl">Hint Text in Fr</LabelText>
+		<PopupText lang="nl">Deze tekst wordt getoond indien u klikt in een veld van een scherm</PopupText>
+		<LabelText lang="fr">Texte du Hint en Fr</LabelText>
+		<PopupText lang="fr">Ce texte est visible en ILIAS lorsque vous cliquez dans un champ d'un écran</PopupText>
+		<LabelText lang="en">Hint Text in Fr</LabelText>
+		<PopupText lang="en">This text appears when you click on an ILIAS Field in a screen</PopupText>
+	</Label>	
+	<Label ID="HINT_NL">
+		<LabelText lang="nl">Hint Text in NL</LabelText>
+		<PopupText lang="nl">Deze tekst wordt getoond indien u klikt in een veld van een scherm</PopupText>
+		<LabelText lang="fr">Texte du Hint en NL</LabelText>
+		<PopupText lang="fr">Ce texte est visible en ILIAS lorsque vous cliquez dans un champ d'un écran</PopupText>
+		<LabelText lang="en">Hint Text in NL</LabelText>
+		<PopupText lang="en">This text appears when you click on an ILIAS Field in a screen</PopupText>
+	</Label>
+	<Label ID="HINT_EN">
+		<LabelText lang="nl">Hint Text in En</LabelText>
+		<PopupText lang="nl">Deze tekst wordt getoond indien u klikt in een veld van een scherm</PopupText>
+		<LabelText lang="fr">Texte du Hint en En</LabelText>
+		<PopupText lang="fr">Ce texte est visible en ILIAS lorsque vous cliquez dans un champ d'un écran</PopupText>
+		<LabelText lang="en">Hint Text in En</LabelText>
+		<PopupText lang="en">This text appears when you click on an ILIAS Field in a screen</PopupText>
+	</Label>
+</Dictionary>

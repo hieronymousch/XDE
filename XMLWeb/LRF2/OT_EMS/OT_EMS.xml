@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>OT_EMS</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/LRF2/OT_EMS/OT_EMS.xml</source>
+ <processing type="xsl">LRF2/OT_EMS/XSL/OT_EMS.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

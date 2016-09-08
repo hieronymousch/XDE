@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+
+	<Label ID="REPORT_TITLE">
+		<LabelText lang="nl">Generic AdHoc Querying on </LabelText>
+		<LabelText lang="fr">Interrogation AdHoc générique sur </LabelText>
+		<LabelText lang="en">Generic AdHoc Querying on </LabelText>
+	</Label>
+	<Label ID="TITLE">
+		<LabelText lang="nl">AdHoc Querying </LabelText>
+		<LabelText lang="fr">AdHoc Querying </LabelText>
+		<LabelText lang="en">AdHoc Querying </LabelText>
+	</Label>	
+	<Label ID="SQL">
+		<LabelText lang="nl">Ondervraging</LabelText>
+		<LabelText lang="fr">Intérrogation</LabelText>
+		<LabelText lang="en">Query</LabelText>
+	</Label>
+	<Label ID="SQL_ADHOC">
+		<LabelText lang="nl">Ondervraging resultaat</LabelText>
+		<LabelText lang="fr">Résultat de l'intérrogation</LabelText>
+		<LabelText lang="en">Query Result</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_code">
+		<LabelText lang="nl">Code</LabelText>
+		<LabelText lang="fr">Code</LabelText>
+		<LabelText lang="en">Code</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_title">
+		<LabelText lang="nl">Titel</LabelText>
+		<LabelText lang="fr">Titre</LabelText>
+		<LabelText lang="en">Title</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_description">
+		<LabelText lang="nl">Beschrijving</LabelText>
+		<LabelText lang="fr">Description</LabelText>
+		<LabelText lang="en">Description</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_remark">
+		<LabelText lang="nl">Opmerkingen</LabelText>
+		<LabelText lang="fr">Remarques</LabelText>
+		<LabelText lang="en">Remarks</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_expval">
+		<LabelText lang="nl">Voorbeeld op</LabelText>
+		<LabelText lang="fr">Exemple sur</LabelText>
+		<LabelText lang="en">Example on</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_expspe">
+		<LabelText lang="nl">Syntax</LabelText>
+		<LabelText lang="fr">Syntax</LabelText>
+		<LabelText lang="en">Syntax</LabelText>
+	</Label>
+	<Label ID="dbn_mr_spe_nu">
+		<LabelText lang="nl">N/U</LabelText>
+		<LabelText lang="fr">N/U</LabelText>
+		<LabelText lang="en">N/U</LabelText>
+		<PopupText lang="nl">New/Update</PopupText>
+		<PopupText lang="fr">New/Update</PopupText>
+		<PopupText lang="en">New/Update</PopupText>
+	</Label>
+	<Label ID="dbn_mr_spe_status">
+		<LabelText lang="nl">Status</LabelText>
+		<LabelText lang="fr">Statut</LabelText>
+		<LabelText lang="en">Status</LabelText>
+		<PopupText lang="nl">U-In Usage/D-Depreacated/T-In Test</PopupText>
+		<PopupText lang="fr">U-In Usage/D-Depreacated/T-In Test</PopupText>
+		<PopupText lang="en">U-In Usage/D-Depreacated/T-In Test</PopupText>
+	</Label>
+	<Label ID="Result">
+		<LabelText lang="nl">Resultaat</LabelText>
+		<LabelText lang="fr">Résultat</LabelText>
+		<LabelText lang="en">Result</LabelText>
+	</Label>
+</Dictionary>

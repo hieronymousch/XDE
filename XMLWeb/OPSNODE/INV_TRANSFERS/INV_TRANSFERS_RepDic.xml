@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Dictionary>
+
+<!-- ******************* -->
+<!-- REPORT Dictionnary  -->
+<!-- ******************* -->
+<Label ID="STORE">
+			<LabelText lang="nl">STORE</LabelText>
+			<PopupText lang="nl">From store</PopupText>
+			<LabelText lang="fr">STORE</LabelText>
+			<PopupText lang="fr">From store</PopupText>
+			<LabelText lang="en">STORE</LabelText>
+			<PopupText lang="en">From store</PopupText>
+</Label>
+<Label ID="DEST">
+			<LabelText lang="nl">DEST</LabelText>
+			<PopupText lang="nl">Destination store</PopupText>
+			<LabelText lang="fr">DEST</LabelText>
+			<PopupText lang="fr">Destination store</PopupText>
+			<LabelText lang="en">DEST</LabelText>
+			<PopupText lang="en">Destination store</PopupText>
+</Label>
+<Label ID="Trf">
+			<LabelText lang="nl">Trf</LabelText>
+			<PopupText lang="nl">Transfer number</PopupText>
+			<LabelText lang="fr">Trf</LabelText>
+			<PopupText lang="fr">Transfer number</PopupText>
+			<LabelText lang="en">Trf</LabelText>
+			<PopupText lang="en">Transfer number</PopupText>
+</Label>
+<Label ID="TYPE">
+			<LabelText lang="nl">TYPE</LabelText>
+			<PopupText lang="nl">Transfer type</PopupText>
+			<LabelText lang="fr">TYPE</LabelText>
+			<PopupText lang="fr">Transfer type</PopupText>
+			<LabelText lang="en">TYPE</LabelText>
+			<PopupText lang="en">Transfer type</PopupText>
+</Label>
+<Label ID="REQNO">
+			<LabelText lang="nl">REQNO</LabelText>
+			<PopupText lang="nl">SREQ number</PopupText>
+			<LabelText lang="fr">REQNO</LabelText>
+			<PopupText lang="fr">SREQ number</PopupText>
+			<LabelText lang="en">REQNO</LabelText>
+			<PopupText lang="en">SREQ number</PopupText>
+</Label>
+<Label ID="PURNO">
+			<LabelText lang="nl">PURNO</LabelText>
+			<PopupText lang="nl">Purchase number</PopupText>
+			<LabelText lang="fr">PURNO</LabelText>
+			<PopupText lang="fr">Purchase number</PopupText>
+			<LabelText lang="en">PURNO</LabelText>
+			<PopupText lang="en">Purchase number</PopupText>
+</Label>
+<Label ID="TNINO">
+			<LabelText lang="nl">TNINO</LabelText>
+			<PopupText lang="nl">Issue number</PopupText>
+			<LabelText lang="fr">TNINO</LabelText>
+			<PopupText lang="fr">Issue number</PopupText>
+			<LabelText lang="en">TNINO</LabelText>
+			<PopupText lang="en">Issue number</PopupText>
+</Label>
+
+
+		<Label ID="dbn_mr_spe_code">
+			<LabelText lang="nl">Code</LabelText>
+			<LabelText lang="fr">Code</LabelText>
+			<LabelText lang="en">Code</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_nu">
+			<LabelText lang="nl">N/U</LabelText>
+			<LabelText lang="fr">N/U</LabelText>
+			<LabelText lang="en">N/U</LabelText>
+			<PopupText lang="nl">New/Update</PopupText>
+			<PopupText lang="fr">New/Update</PopupText>
+			<PopupText lang="en">New/Update</PopupText>
+		</Label>
+		<Label ID="dbn_mr_spe_status">
+			<LabelText lang="nl">Status</LabelText>
+			<LabelText lang="fr">Statut</LabelText>
+			<LabelText lang="en">Status</LabelText>
+			<PopupText lang="nl">U-In Usage/D-Depreacated/T-In Test</PopupText>
+			<PopupText lang="fr">U-In Usage/D-Depreacated/T-In Test</PopupText>
+			<PopupText lang="en">U-In Usage/D-Depreacated/T-In Test</PopupText>
+		</Label>
+		<Label ID="dbn_mr_spe_title">
+			<LabelText lang="nl">Titel</LabelText>
+			<LabelText lang="fr">Titre</LabelText>
+			<LabelText lang="en">Title</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_description">
+			<LabelText lang="nl">Beschrijving</LabelText>
+			<LabelText lang="fr">Description</LabelText>
+			<LabelText lang="en">Description</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_remark">
+			<LabelText lang="nl">Opmerkingen</LabelText>
+			<LabelText lang="fr">Remarques</LabelText>
+			<LabelText lang="en">Remarks</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_expval">
+			<LabelText lang="nl">Voorbeeld op</LabelText>
+			<LabelText lang="fr">Exemple sur</LabelText>
+			<LabelText lang="en">Example on</LabelText>
+		</Label>
+		<Label ID="dbn_mr_spe_expspe">
+			<LabelText lang="nl">Syntax</LabelText>
+			<LabelText lang="fr">Syntax</LabelText>
+			<LabelText lang="en">Syntax</LabelText>
+		</Label>
+		<Label ID="Result">
+			<LabelText lang="nl">Resultaat</LabelText>
+			<LabelText lang="fr">Résultat</LabelText>
+			<LabelText lang="en">Result</LabelText>
+		</Label>
+	<!-- Sample Titles, pages and Objectives -->
+		
+		<!-- Sample 03 -->
+			<Label ID="REPORT03_TITLE">
+				<LabelText lang="en">Open transfers for store</LabelText>
+				<LabelText lang="fr">Transfers ouverts pour un store</LabelText>
+				<LabelText lang="nl">Openstaande transfers voor een store</LabelText>
+				<ObjectiveText lang="fr">
+					<ul>
+						<li>
+							Ce rapport liste les transfers ouverts vers un store
+						</li>
+
+					</ul>
+				</ObjectiveText>
+				<ObjectiveText lang="nl">
+					<ul>
+						<li>
+							GebDit rapport geeft de openstaande transfers gericht aan een store
+						</li>
+
+					</ul>
+				</ObjectiveText>
+			</Label>	
+			<Label ID="REPORT03_PAGENAME">
+				<LabelText lang="en">Open Transfers</LabelText>
+				<LabelText lang="fr">Open Transfers</LabelText>
+				<LabelText lang="nl">Open Transfers</LabelText>
+			</Label>	
+		
+		<!-- Misceallenous -->
+			
+			<Label ID="LANGUAGE">
+				<LabelText lang="nl">Taal</LabelText>
+				<PopupText lang="nl">Taal van de Technische Specificaties (SPART Tab Tech Spec)</PopupText>
+				<LabelText lang="fr">Langue</LabelText>
+				<PopupText lang="fr">Langue des spécifications Techniques (SPART Tab Tech Spec)</PopupText>
+				<LabelText lang="en">Language</LabelText>
+				<PopupText lang="en">Language of the Technical Specifications (SPART Tab Tech Spec)</PopupText>
+			</Label>
+			
+	<!-- Terms of Use -->
+		<Label ID="CONDITIONS">
+			<ObjectiveText lang="fr">
+				<h2>Objectif</h2>
+				Le FW2 (Framework 2 du MR Node) est un ensemble de fichiers permettant à l'utilisateur de développer plus facilement un rapport en utilisant le Local Reporting Framework (LRF) disponible sur un DB Node. 
+				La particularité de ce Framework est qu'il est utilisé sur le MR Node pour la génération des rapports.
+				Le but du kit de développement est de permettre à l'utilisateur de pouvoir facilement comprendre et utiliser les fonctionnalités proposées par ce Framework et donc de développer un rapport qui serait susceptible d'être publié sur le MR Node.<br/>
+				<b>L'objectif est donc clairement de faciliter la publication et la mise à jour de rapports sur le MR Node. Cette initiative cadre dans la vision du Q&amp;R ILIAS</b>
+				
+				<h2>Conditions d'utilisation</h2>
+				<ul>
+					<li>
+						Sur un Noeud local, appelé communément noeud de développement, ce framework pourra être utilisé à la condition que les rapports générés soient utlisés à des fins personnelles ou dans le but de préparer-modifier-corriger un rapport du MR Node
+					</li>
+					<li>Un Noeud pilier pourra utiliser le FW2 à la seule condition d'en informer MR-Mgt</li>
+					<li>
+						Il est demandé à TOUS les responsables de Noeud (Node local et pilier) de communiquer à MR-Mgt (Cdt IBANEZ C. et Adjt Dubus R.) :
+						<ul>
+							<li>de mentionner tout bug identifié</li>
+							<li>de mentionner toute amélioration</li>
+						</ul>
+					</li>
+					<li>Sur base de ce qui précède, il est donc interdit de proposer, publier et distribuer un Framework basé sur FW2 du MR Node avec un CopyRight sans l'accord explicite de MR-Mgt.</li>
+				</ul>
+				<center>
+				<font size="2" color="blue">L'utilisateur qui télécharge le FW2 et l'installe sur son DB Node s'engage donc à respecter ces conditions d'utilisation.</font><br/><br/>
+				<font size="3" color="red">En cas de non-respect de ces conditions d'utilisation, l'utilisateur se verra limiter (voire interdire) son accès au DataSet ILIAS au niveau du DataMart.</font>
+				</center>
+
+				<h2>Installation</h2>
+				<ul>
+					<li>Décompresser l'archive dans le répertoire de votre choix</li>
+					<li>Copier le contenu du répertoire HTDOCS dans le répertoire htdocs de votre DB Node</li>
+					<li>Copier le contenu du répertoire DBWEB dans le répertoire lrf\DBWeb3 de votre DB Node</li>
+					<li>Copier le contenu du répertoire XMLWEB dans le répertoire lrf\XMLWeb3 de votre DB Node</li>
+				</ul>
+
+				<h2>Questions et documentation</h2>
+				<ul>
+					<li>Dans la mesure du possible la documentation a été rédigée dans les fichiers et les exemples</li>
+					<li>Il est vivement recommandé pour un utilisateur désirant développer un rapport en utilisant le FW2 de
+						<ul>
+							<li>disposer d'une connaissance MySQL (voir cours XDE)</li>
+							<li>disposer d'une connaissance XML/XSL (voir cours XDE)</li>
+							<li>d'analyser et lire les DBWeb - Queries et XMLWeb (Transformations) fournies comme exemple dans le Kit de Développement. L'approche suivie est graduelle, chaque exemple permet de mâitriser une nouvelle fonctionnalité proposée par le FW2. Il est donc vivement recommandé de lire et comprendre TOUS les exemples dans l'ordre proposé</li>
+							<li>Aucun Support et formation ne sera prodiguée par MR-Mgt. Néanmoins, MR-Mgt a contacté les différents organismes de formation (Tourna et ECIS) afin de donner une initiation à son utilisation. MR-Mgt a recommandé qu'une formation soit mise ne place mais cette dernière ne pourra effectivement être créée que si une demande de la part des utilisateurs est exprimée.</li>
+						</ul>
+					</li>
+					<li>Il est recommandé d'utiliser le Forum DB Node MR afin d'échanger des questions sur l'utilisation du FW2. L'utilisateur est invité à commencer sa Question/Titre par 'FW2 : ...'</li>
+					<li>La documentation liées aux fonctionnalités disponible avec le FW2 seront disponible dans le Wiki ILIAS à la page 'MR Node - FW2'</li>
+				</ul>
+				
+				<h2>Mise à jour et disponibilité</h2>
+				Le FW2 est disponible sur le MR Node par le biais du 'Rapport' FW2 - MR Node Framework 2. Il est donc soumis à un versioning.
+				<h2>Dépendances</h2>
+				<ul>
+					<li>L'ensemble des dépendances sont reprise dans le kit de développement, il n'est pas recommandé de les mettre à jour :
+						<ul>
+							<li>JQuery</li>
+							<li>AngularJS</li>
+							<li>DataTable</li>
+						</ul>
+					</li>
+				</ul>
+				<center>
+					<script type="text/javascript">
+
+					  function checkForm(form)
+					  {
+					    if(!form.terms.checked) {
+					      alert("Veuillez indiquer que vous acceptez les termes et les conditions");
+					      form.terms.focus();
+					      return false;
+					    }
+					    return true;
+					  }
+
+					</script>
+					<form onsubmit="return checkForm(this);" action="http://localhost" method="POST">
+						<p><input type="checkbox" name="terms"/> J'accepte les <u>Termes et les Conditions</u></p>
+						<p><input type="submit" value="Download MR Node FW2 Dev Kit"/></p>
+					</form>
+				</center>
+			</ObjectiveText>
+			<ObjectiveText lang="nl">
+				<h2>Objectief</h2>
+				Het FW2 (Framework 2 van MR Node) is een geheel van files dat de gebruiker in staat stelt om op een eenvoudige manier een rapport te ontwikkelen, gebruik makend van het Local Reporting Framework (LRF) dat beschikbaar is op een DB Node. 
+				Het specifieke aan dit Framework is dat het gebruikt is op de MR Node voor de aanmaak van rapporten.
+				Het doel van de ontwikkel-kit is de gebruiker toe te laten om de door dit Framework voorgestelde functionaliteiten makkelijk te begrijpen en te gebruiken en bijgevolg een rapport te kunnen ontwikkelen dat op de MR Node zou kunnen gepubliceerd worden.<br/>
+				<b>Het objectief is dus duidelijk om de publicatie en de aanpassing van rapporten op de MR Node te vergemakkelijken. Dit initiatief kadert in de ILIAS Q&amp;R visie</b>
+				
+				<h2>Gebruiksvoorwaarden</h2>
+				<ul>
+					<li>
+						Op de lokale Node, ook wel de ontwikkelnode genoemd, zal dit framework kunnen gebruikt worden op voorwaarde dat de ontwikkelde rapporten gebruikt worden voor persoonlijke doeleinden of om een rapport van de MR Node voor te bereiden, te wijzigen en/of te verbeteren
+					</li>
+					<li>Een zuil-Node zal het FW2 kunnen gebruiken op voorwaarde van MR-Mgt hierover te informeren</li>
+					<li>
+						Er wordt aan ALLE verantwoordelijken van een Node (zowel lokale als zuil) gevraagd om aan MR-Mgt (Cdt IBANEZ C. en Adjt Dubus R.) :
+						<ul>
+							<li>elke vastgestelde bug te melden</li>
+							<li>elke verbetering mee te delen</li>
+						</ul>
+					</li>
+					<li>Op basis van voorgaande is het dus verboden om een Framework, gebaseerd op FW2 van de MR Node, met een CopyRight voor te stellen, te publiceren en te verdelen zonder het uitdrukkelijke akkoord van MR-Mgt.</li>
+				</ul>
+				<center>
+				<font size="2" color="blue">De gebruiker die het FW2 download en op zijn DB Node installeert, verklaart zich bijgevolg akkoord met deze gebruiksvoorwaarden.</font><br/><br/>
+				<font size="3" color="red">Ingeval deze gebruiksvoorwaarden niet gerespecteerd worden, zal de gebruiker zijn toegang tot de ILIAS DataSet op niveau van de DataMart beperkt (of ontzegd) worden.</font>
+				</center>
+
+				<h2>Installatie</h2>
+				<ul>
+					<li>De archive-file decompresseren in de folder van uw keuze</li>
+					<li>De inhoud van de folder HTDOCS copiëren in de folder htdocs van uw DB Node</li>
+					<li>De inhoud van de folder DBWEB copiëren in de folder lrf\DBWeb3 van uw DB Node</li>
+					<li>De inhoud van de folder XMLWEB copiëren in de folder lrf\XMLWeb3 van uw DB Node</li>
+				</ul>
+
+				<h2>Vragen en documentatie</h2>
+				<ul>
+					<li>In de mate van het mogelijke werd de documentatie hernomen in de files en in de voorbeelden</li>
+					<li>Het wordt sterk aanbevolen aan de gebruiker die een rapport wil ontwikkelen met FW2 om
+						<ul>
+							<li>over een goede kennis MySQL te beschikken (zie cursus XDE)</li>
+							<li>over een goede kennis XML/XSL te beschikken (zie cursus XDE)</li>
+							<li>de DBWeb - Queries en XMLWeb (Transformaties) te analyseren en te lezen die als voorbeeld in de OntwikkelKit meegeleverd worden. De gevolgde benadering is gradueel : elk voorbeeld laat toe om de nieuwe functionaliteit, voorgesteld door het FW2, te beheersen. Het is dus sterk aanbevolen om ALLE voorbeelden te lezen en te begrijpen in de voorgestelde volgorde</li>
+							<li>Er zal geen enkele steun en vorming geleverd worden door MR-Mgt. MR-Mgt heeft daarentegen contact opgenomen met de verschillende vormingsinstellingen (Doornik en ECIS) teneinde hen een initatie te geven. MR-Mgt heeft sterk aangedrongen op het in plaats stellen van een vorming, maar deze kan uiteraard pas effectief voorzien worden wanneer er een behoefte uitgedrukt wordt door de gebruikers.</li>
+						</ul>
+					</li>
+					<li>Het wordt aanbevolen om het Forum DB Node MR te gebruiken om vragen met betrekking tot het gebruik van FW2 uit te wisselen. De gebruikers worden verzocht om de vragen/titels te laten beginnen met 'FW2 : ...'</li>
+					<li>De documentatie met betrekking tot de beschikbare functionaliteiten in FW2 zullen beschikbaar zijn op de ILIAS Wiki pagina 'MR Node - FW2'</li>
+				</ul>
+				
+				<h2>Updates en beschikbaarheid</h2>
+				Het FW2 is beschikbaar op de MR Node via het 'Rapport' FW2 - MR Node Framework 2. Het is dus ook onderworpen aan versiebeheer.
+				<h2>Afhankelijkheden</h2>
+				<ul>
+					<li>Het geheel van afhankelijkheden is hernomen in de ontwikkel-kit, het wordt afgeraden om deze te updaten :
+						<ul>
+							<li>JQuery</li>
+							<li>AngularJS</li>
+							<li>DataTable</li>
+						</ul>
+					</li>
+				</ul>
+				<center>
+					<script type="text/javascript">
+
+					  function checkForm(form)
+					  {
+					    if(!form.terms.checked) {
+					      alert("Gelieve aan te duiden dat u de gebruiksvoorwaarden aanvaardt");
+					      form.terms.focus();
+					      return false;
+					    }
+					    return true;
+					  }
+
+					</script>
+					<form onsubmit="return checkForm(this);" action="http://localhost" method="POST">
+						<p><input type="checkbox" name="terms"/> Ik aanvaard de <u>Gebruiksvoorwaarden</u></p>
+						<p><input type="submit" value="Download MR Node FW2 Dev Kit"/></p>
+					</form>
+				</center>
+			</ObjectiveText>
+		</Label>
+	<!-- List of Updates -->
+		<Label ID="MRN_FW2_UPDATES">
+			<LabelText lang="nl">FW2 Modificaties</LabelText>
+			<LabelText lang="fr">Modifications du FW2</LabelText>
+			<LabelText lang="en">FW2 Modifications</LabelText>
+		</Label>
+		<Label ID="dbn_repl_date">
+			<LabelText lang="nl">Datum</LabelText>
+			<PopupText lang="nl">Datum van de Logging, Aanpassing</PopupText>
+			<LabelText lang="fr">Date</LabelText>
+			<PopupText lang="fr">Date du Log ou de la modification</PopupText>
+			<LabelText lang="en">Date</LabelText>
+			<PopupText lang="en">Logging or Modification Date</PopupText>
+		</Label>
+		<Label ID="dbn_repl_type">
+			<LabelText lang="nl">Type</LabelText>
+			<PopupText lang="nl">Modificatie Type</PopupText>
+			<LabelText lang="fr">Type</LabelText>
+			<PopupText lang="fr">Type de Modification</PopupText>
+			<LabelText lang="en">Type</LabelText>
+			<PopupText lang="en">Modification Type</PopupText>
+		</Label>
+		<Label ID="dbn_repl_by">
+			<LabelText lang="nl">Door</LabelText>
+			<PopupText lang="nl">Uitgevoerd Door</PopupText>
+			<LabelText lang="fr">Par</LabelText>
+			<PopupText lang="fr">Exécuté par</PopupText>
+			<LabelText lang="en">By</LabelText>
+			<PopupText lang="en">Executed By</PopupText>
+		</Label>
+		<Label ID="dbn_repl_ver">
+			<LabelText lang="nl">Versie</LabelText>
+			<PopupText lang="nl">Versie na de modificatie</PopupText>
+			<LabelText lang="fr">Version</LabelText>
+			<PopupText lang="fr">Version après modification</PopupText>
+			<LabelText lang="en">Version</LabelText>
+			<PopupText lang="en">Version Nbr after modification</PopupText>
+		</Label>
+		<Label ID="dbn_repl_what">
+			<LabelText lang="nl">Details</LabelText>
+			<PopupText lang="nl">Details van de Modificatie</PopupText>
+			<LabelText lang="fr">Détails</LabelText>
+			<PopupText lang="fr">Détails de la modification</PopupText>
+			<LabelText lang="en">Details</LabelText>
+			<PopupText lang="en">Modification Details</PopupText>
+		</Label>
+		<Label ID="dbn_repl_ems">
+			<LabelText lang="nl">EMS v2</LabelText>
+			<PopupText lang="nl">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="fr">EMS v2</LabelText>
+			<PopupText lang="fr">EMS v2 Call Nbr</PopupText>
+			<LabelText lang="en">EMS v2</LabelText>
+			<PopupText lang="en">EMS v2 Call Nbr</PopupText>
+		</Label>
+</Dictionary>

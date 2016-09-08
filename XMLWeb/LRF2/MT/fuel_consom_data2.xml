@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dbqueries>
+<environment>PRD</environment>
+<label>
+MT Fuel Consommation</label>
+<description>
+MT Fuel Consommation</description>
+<dbquery id='Report_Info'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id =&apos;pRID&apos;
+		
+</originalquery>
+<parameters>
+<param name='pRID' value='0'/>
+<param name='pLANG' value='EN'/>
+<param name='pMODE' value='Main'/>
+<param name='pYear' value='2013:2014:2015'/>
+<param name='pORGANISM' value='02:10:15'/>
+<param name='pTreshold' value='2000'/>
+</parameters>
+<querystring>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id =&apos;0&apos;
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="DayModif" type="BIGINT"/><column name="dbn_rep_categ" type="VARCHAR"/><column name="dbn_rep_dbweb" type="VARCHAR"/><column name="dbn_rep_accept" type="INTEGER"/><column name="dbn_rep_id" type="INTEGER"/><column name="dbn_rep_date" type="TIMESTAMP"/><column name="dbn_rep_name" type="VARCHAR"/><column name="dbn_rep_visible" type="VARCHAR"/><column name="dbn_rep_version" type="VARCHAR"/><column name="dbn_rep_poc" type="VARCHAR"/><column name="dbn_rep_email" type="VARCHAR"/><column name="dbn_rep_stat" type="INTEGER"/><column name="dbn_rep_node" type="VARCHAR"/><column name="dbn_rep_responsible" type="VARCHAR"/><column name="dbn_rep_special" type="VARCHAR"/><column name="dbn_rep_kpi" type="VARCHAR"/><column name="dbn_rep_type" type="VARCHAR"/><column name="dbn_rep_secure" type="VARCHAR"/><column name="dbn_rep_refresh" type="VARCHAR"/><column name="dbn_rep_node_url" type="VARCHAR"/><column name="dbn_rep_url" type="VARCHAR"/><column name="dbn_rep_application" type="VARCHAR"/><column name="dbn_rep_dom_lev1" type="VARCHAR"/><column name="dbn_rep_dom_lev2" type="VARCHAR"/><column name="dbn_rep_dom_lev3" type="VARCHAR"/><column name="dbn_rep_long_desc_en" type="VARCHAR"/><column name="dbn_rep_long_desc_fr" type="VARCHAR"/><column name="dbn_rep_long_desc_nl" type="VARCHAR"/><column name="dbn_rep_remarks_en" type="VARCHAR"/><column name="dbn_rep_remarks_fr" type="VARCHAR"/><column name="dbn_rep_remarks_nl" type="VARCHAR"/><column name="dbn_rep_url_doc_en" type="VARCHAR"/><column name="dbn_rep_url_doc_fr" type="VARCHAR"/><column name="dbn_rep_url_doc_nl" type="VARCHAR"/><column name="dbn_rep_url_ilias" type="VARCHAR"/><column name="dbn_rep_remarks" type="VARCHAR"/><column name="dbn_rep_url_xls" type="VARCHAR"/><column name="dbn_rep_url_pdf" type="VARCHAR"/><column name="dbn_rep_status" type="VARCHAR"/><column name="dbn_accrep_status" type="VARCHAR"/><column name="Views_Used" type="BIGINT"/><column name="Extr_Status" type="VARCHAR"/>
+</columns>
+<rows>
+<row DayModif="" dbn_rep_categ="" dbn_rep_dbweb="" dbn_rep_accept="" dbn_rep_id="" dbn_rep_date="" dbn_rep_name="" dbn_rep_visible="" dbn_rep_version="" dbn_rep_poc="" dbn_rep_email="" dbn_rep_stat="" dbn_rep_node="" dbn_rep_responsible="" dbn_rep_special="" dbn_rep_kpi="" dbn_rep_type="" dbn_rep_secure="" dbn_rep_refresh="" dbn_rep_node_url="" dbn_rep_url="" dbn_rep_application="" dbn_rep_dom_lev1="" dbn_rep_dom_lev2="" dbn_rep_dom_lev3="" dbn_rep_long_desc_en="" dbn_rep_long_desc_fr="" dbn_rep_long_desc_nl="" dbn_rep_remarks_en="" dbn_rep_remarks_fr="" dbn_rep_remarks_nl="" dbn_rep_url_doc_en="" dbn_rep_url_doc_fr="" dbn_rep_url_doc_nl="" dbn_rep_url_ilias="" dbn_rep_remarks="" dbn_rep_url_xls="" dbn_rep_url_pdf="" dbn_rep_status="" dbn_accrep_status="" Views_Used="0" Extr_Status=""/>
+</rows>
+</dbquery>
+<dbquery id='Report_Prompt'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select * from dbn_report_parameters
+			where dbn_repp_parid=&apos;pRID&apos;;
+		
+</originalquery>
+<parameters>
+<param name='pRID' value='0'/>
+<param name='pLANG' value='EN'/>
+<param name='pMODE' value='Main'/>
+<param name='pYear' value='2013:2014:2015'/>
+<param name='pORGANISM' value='02:10:15'/>
+<param name='pTreshold' value='2000'/>
+</parameters>
+<querystring>
+			select * from dbn_report_parameters
+			where dbn_repp_parid=&apos;0&apos;;
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="dbn_repp_param_order" type="INTEGER"/><column name="dbn_repp_id" type="INTEGER"/><column name="dbn_repp_parid" type="INTEGER"/><column name="dbn_repp_param" type="VARCHAR"/><column name="dbn_repp_param_name" type="VARCHAR"/><column name="dbn_repp_param_name_fr" type="VARCHAR"/><column name="dbn_repp_param_name_nl" type="VARCHAR"/><column name="dbn_repp_param_visible" type="VARCHAR"/><column name="dbn_repp_param_type" type="VARCHAR"/><column name="dbn_repp_param_type_detail" type="VARCHAR"/><column name="dbn_repp_param_validation" type="VARCHAR"/><column name="dbn_repp_param_format" type="VARCHAR"/><column name="dbn_repp_param_remark" type="VARCHAR"/><column name="dbn_repp_param_remark_fr" type="VARCHAR"/><column name="dbn_repp_param_remark_nl" type="VARCHAR"/><column name="dbn_repp_param_mandatory" type="VARCHAR"/>
+</columns>
+<rows>
+<row dbn_repp_param_order="" dbn_repp_id="814" dbn_repp_parid="0" dbn_repp_param="" dbn_repp_param_name="" dbn_repp_param_name_fr="" dbn_repp_param_name_nl="" dbn_repp_param_visible="" dbn_repp_param_type="" dbn_repp_param_type_detail="" dbn_repp_param_validation="" dbn_repp_param_format="" dbn_repp_param_remark="" dbn_repp_param_remark_fr="" dbn_repp_param_remark_nl="" dbn_repp_param_mandatory=""/>
+</rows>
+</dbquery>
+<dbquery id='FUEL_CONSOM'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			SELECT 
+				left(ft.org,2) FORG,
+				DATE_FORMAT(ft.FUELDATE,&apos;%y-%m&apos;) FDATE, 
+				Month(ft.FUELDATE) FMONTH, 
+				Year(ft.FUELDATE) FYEAR, 
+				concat(f.WSC,&apos; (&apos;,lc.DESCRIPTION,&apos;)&apos;) CATEG, 
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1)) NBR
+			FROM
+				mrqr_fuel_transactions ft INNER JOIN 
+				mrqr_assets a ON ft.ASSET = a.ASSET INNER JOIN 
+				mrqr_functions f ON a.FUNCTION = f.FUNCTION INNER JOIN 
+				mrqr_lookup_codes lc ON f.WSC = lc.CODE
+			WHERE 
+				&lt;repeat paramName=&quot;pORGANISM&quot;&gt;a.ORGANISM=&apos;pORGANISM&apos;&lt;/repeat&gt; AND 
+				ft.NSN in(&apos;9140-12-154-7099&apos;,&apos;9140-12-154-7099&apos;) AND 
+				lc.TYPE=&apos;WSC&apos; and
+				&lt;repeat paramName=&quot;pYear&quot;&gt;Year(ft.FUELDATE)=&apos;pYear&apos;&lt;/repeat&gt;
+			GROUP BY 
+				FMONTH, CATEG, FYEAR, FORG
+			HAVING
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1))&amp;gt;&apos;pTreshold&apos;
+		
+</originalquery>
+<parameters>
+<param name='pRID' value='0'/>
+<param name='pLANG' value='EN'/>
+<param name='pMODE' value='Main'/>
+<param name='pYear' value='2013:2014:2015'/>
+<param name='pORGANISM' value='02:10:15'/>
+<param name='pTreshold' value='2000'/>
+</parameters>
+<querystring>
+			SELECT 
+				left(ft.org,2) FORG,
+				DATE_FORMAT(ft.FUELDATE,&apos;%y-%m&apos;) FDATE, 
+				Month(ft.FUELDATE) FMONTH, 
+				Year(ft.FUELDATE) FYEAR, 
+				concat(f.WSC,&apos; (&apos;,lc.DESCRIPTION,&apos;)&apos;) CATEG, 
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1)) NBR
+			FROM
+				mrqr_fuel_transactions ft INNER JOIN 
+				mrqr_assets a ON ft.ASSET = a.ASSET INNER JOIN 
+				mrqr_functions f ON a.FUNCTION = f.FUNCTION INNER JOIN 
+				mrqr_lookup_codes lc ON f.WSC = lc.CODE
+			WHERE 
+				(( a.ORGANISM=&apos;02&apos;) OR ( a.ORGANISM=&apos;10&apos;) OR ( a.ORGANISM=&apos;15&apos;)) AND 
+				ft.NSN in(&apos;9140-12-154-7099&apos;,&apos;9140-12-154-7099&apos;) AND 
+				lc.TYPE=&apos;WSC&apos; and
+				(( Year(ft.FUELDATE)=&apos;2013&apos;) OR ( Year(ft.FUELDATE)=&apos;2014&apos;) OR ( Year(ft.FUELDATE)=&apos;2015&apos;))
+			GROUP BY 
+				FMONTH, CATEG, FYEAR, FORG
+			HAVING
+				Sum(If(ft.IR=&apos;I&apos;,ft.QTY,(ft.QTY)*-1))&gt;&apos;2000&apos;
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="FORG" type="VARCHAR"/><column name="FDATE" type="VARCHAR"/><column name="FMONTH" type="INTEGER"/><column name="FYEAR" type="INTEGER"/><column name="CATEG" type="VARCHAR"/><column name="NBR" type="DECIMAL"/>
+</columns>
+<rows>
+<row FORG="10" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2433"/>
+<row FORG="10" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2333"/>
+<row FORG="10" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2631"/>
+<row FORG="10" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3493"/>
+<row FORG="10" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2956"/>
+<row FORG="02" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2083"/>
+<row FORG="15" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RCGG (TRAILER GASOL)" NBR="2043"/>
+<row FORG="10" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RCGG (TRAILER GASOL)" NBR="2138"/>
+<row FORG="02" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3095"/>
+<row FORG="10" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4893"/>
+<row FORG="02" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5965"/>
+<row FORG="10" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3993"/>
+<row FORG="02" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="8289"/>
+<row FORG="10" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5241"/>
+<row FORG="02" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2228"/>
+<row FORG="10" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2211"/>
+<row FORG="02" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RDRB (ROAD DE- ICING)" NBR="3129"/>
+<row FORG="10" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RDRB (ROAD DE- ICING)" NBR="2937"/>
+<row FORG="02" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RDRB (ROAD DE- ICING)" NBR="2257"/>
+<row FORG="10" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RDRB (ROAD DE- ICING)" NBR="2029"/>
+<row FORG="15" FDATE="13-01" FMONTH="1" FYEAR="2013" CATEG="RDRC (AIRCRAFT DE-ICING)" NBR="2063"/>
+<row FORG="15" FDATE="14-01" FMONTH="1" FYEAR="2014" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2453"/>
+<row FORG="15" FDATE="15-01" FMONTH="1" FYEAR="2015" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2820"/>
+<row FORG="10" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="INFR (Infra)" NBR="2028"/>
+<row FORG="G3" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="INFR (Infra)" NBR="2004"/>
+<row FORG="10" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2089"/>
+<row FORG="10" FDATE="14-02" FMONTH="2" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2480"/>
+<row FORG="10" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="3213"/>
+<row FORG="02" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="2335"/>
+<row FORG="10" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2815"/>
+<row FORG="10" FDATE="14-02" FMONTH="2" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3255"/>
+<row FORG="10" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2124"/>
+<row FORG="02" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2057"/>
+<row FORG="02" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2053"/>
+<row FORG="02" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="7069"/>
+<row FORG="10" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6539"/>
+<row FORG="02" FDATE="14-02" FMONTH="2" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3054"/>
+<row FORG="10" FDATE="14-02" FMONTH="2" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2312"/>
+<row FORG="02" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6140"/>
+<row FORG="10" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3285"/>
+<row FORG="10" FDATE="14-02" FMONTH="2" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2031"/>
+<row FORG="10" FDATE="15-02" FMONTH="2" FYEAR="2015" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2310"/>
+<row FORG="02" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RDRB (ROAD DE- ICING)" NBR="3644"/>
+<row FORG="10" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RDRB (ROAD DE- ICING)" NBR="2968"/>
+<row FORG="02" FDATE="14-02" FMONTH="2" FYEAR="2014" CATEG="RDRB (ROAD DE- ICING)" NBR="2060"/>
+<row FORG="15" FDATE="13-02" FMONTH="2" FYEAR="2013" CATEG="RDRC (AIRCRAFT DE-ICING)" NBR="2362"/>
+<row FORG="10" FDATE="14-03" FMONTH="3" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2180"/>
+<row FORG="10" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RBAF (LIGHT TRUCK)" NBR="2076"/>
+<row FORG="10" FDATE="14-03" FMONTH="3" FYEAR="2014" CATEG="RBAF (LIGHT TRUCK)" NBR="2289"/>
+<row FORG="10" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3815"/>
+<row FORG="10" FDATE="14-03" FMONTH="3" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2844"/>
+<row FORG="10" FDATE="15-03" FMONTH="3" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2202"/>
+<row FORG="02" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2071"/>
+<row FORG="02" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2357"/>
+<row FORG="02" FDATE="14-03" FMONTH="3" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2844"/>
+<row FORG="02" FDATE="15-03" FMONTH="3" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2469"/>
+<row FORG="02" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3909"/>
+<row FORG="10" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3423"/>
+<row FORG="02" FDATE="14-03" FMONTH="3" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5686"/>
+<row FORG="10" FDATE="14-03" FMONTH="3" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5784"/>
+<row FORG="02" FDATE="15-03" FMONTH="3" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2986"/>
+<row FORG="10" FDATE="15-03" FMONTH="3" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4621"/>
+<row FORG="02" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2088"/>
+<row FORG="10" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2148"/>
+<row FORG="10" FDATE="13-03" FMONTH="3" FYEAR="2013" CATEG="RDRB (ROAD DE- ICING)" NBR="2245"/>
+<row FORG="10" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2316"/>
+<row FORG="10" FDATE="14-04" FMONTH="4" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2004"/>
+<row FORG="10" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RBAF (LIGHT TRUCK)" NBR="2002"/>
+<row FORG="10" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2470"/>
+<row FORG="10" FDATE="14-04" FMONTH="4" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2756"/>
+<row FORG="10" FDATE="15-04" FMONTH="4" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2676"/>
+<row FORG="02" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2616"/>
+<row FORG="02" FDATE="14-04" FMONTH="4" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2001"/>
+<row FORG="02" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6522"/>
+<row FORG="10" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6408"/>
+<row FORG="02" FDATE="14-04" FMONTH="4" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6092"/>
+<row FORG="10" FDATE="14-04" FMONTH="4" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4835"/>
+<row FORG="10" FDATE="15-04" FMONTH="4" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="8301"/>
+<row FORG="02" FDATE="13-04" FMONTH="4" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2115"/>
+<row FORG="02" FDATE="14-04" FMONTH="4" FYEAR="2014" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="2859"/>
+<row FORG="02" FDATE="15-04" FMONTH="4" FYEAR="2015" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="2447"/>
+<row FORG="15" FDATE="15-04" FMONTH="4" FYEAR="2015" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="3631"/>
+<row FORG="10" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2196"/>
+<row FORG="10" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2353"/>
+<row FORG="10" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3078"/>
+<row FORG="10" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2140"/>
+<row FORG="10" FDATE="15-05" FMONTH="5" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2141"/>
+<row FORG="02" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2600"/>
+<row FORG="02" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2812"/>
+<row FORG="02" FDATE="15-05" FMONTH="5" FYEAR="2015" CATEG="RCER (BUS         &gt;  35 PASSENGERS)" NBR="2723"/>
+<row FORG="02" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4315"/>
+<row FORG="10" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5137"/>
+<row FORG="02" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6149"/>
+<row FORG="10" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6756"/>
+<row FORG="02" FDATE="15-05" FMONTH="5" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5195"/>
+<row FORG="10" FDATE="15-05" FMONTH="5" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4158"/>
+<row FORG="02" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2335"/>
+<row FORG="10" FDATE="13-05" FMONTH="5" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2282"/>
+<row FORG="02" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RDRA (ROAD SWEEPER)" NBR="2137"/>
+<row FORG="15" FDATE="14-05" FMONTH="5" FYEAR="2014" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2877"/>
+<row FORG="15" FDATE="15-05" FMONTH="5" FYEAR="2015" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2148"/>
+<row FORG="10" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2084"/>
+<row FORG="10" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2237"/>
+<row FORG="10" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="2585"/>
+<row FORG="10" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2436"/>
+<row FORG="10" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2845"/>
+<row FORG="02" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2217"/>
+<row FORG="02" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2414"/>
+<row FORG="02" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="3378"/>
+<row FORG="02" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2219"/>
+<row FORG="10" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2609"/>
+<row FORG="02" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RCER (BUS         &gt;  35 PASSENGERS)" NBR="2673"/>
+<row FORG="02" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3359"/>
+<row FORG="10" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="7092"/>
+<row FORG="02" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6149"/>
+<row FORG="10" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4212"/>
+<row FORG="02" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="8664"/>
+<row FORG="10" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6991"/>
+<row FORG="02" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2321"/>
+<row FORG="02" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2568"/>
+<row FORG="02" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="2899"/>
+<row FORG="02" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RDRA (ROAD SWEEPER)" NBR="2832"/>
+<row FORG="02" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RDRA (ROAD SWEEPER)" NBR="2148"/>
+<row FORG="02" FDATE="13-06" FMONTH="6" FYEAR="2013" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="2963"/>
+<row FORG="02" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="2166"/>
+<row FORG="15" FDATE="14-06" FMONTH="6" FYEAR="2014" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2055"/>
+<row FORG="02" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" NBR="2094"/>
+<row FORG="0R" FDATE="15-06" FMONTH="6" FYEAR="2015" CATEG="RPLD (LIGHT INTENSIFIER)" NBR="2924"/>
+<row FORG="10" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RBAF (LIGHT TRUCK)" NBR="2010"/>
+<row FORG="10" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2204"/>
+<row FORG="10" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2377"/>
+<row FORG="10" FDATE="15-07" FMONTH="7" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2752"/>
+<row FORG="02" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2225"/>
+<row FORG="10" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2344"/>
+<row FORG="02" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2390"/>
+<row FORG="02" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2441"/>
+<row FORG="02" FDATE="15-07" FMONTH="7" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2021"/>
+<row FORG="02" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6297"/>
+<row FORG="10" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4623"/>
+<row FORG="02" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2430"/>
+<row FORG="10" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2936"/>
+<row FORG="02" FDATE="15-07" FMONTH="7" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3262"/>
+<row FORG="10" FDATE="15-07" FMONTH="7" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2712"/>
+<row FORG="02" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2123"/>
+<row FORG="10" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2012"/>
+<row FORG="02" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RDRA (ROAD SWEEPER)" NBR="3021"/>
+<row FORG="02" FDATE="15-07" FMONTH="7" FYEAR="2015" CATEG="RDRA (ROAD SWEEPER)" NBR="2121"/>
+<row FORG="02" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="2630"/>
+<row FORG="15" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2033"/>
+<row FORG="02" FDATE="14-07" FMONTH="7" FYEAR="2014" CATEG="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" NBR="2094"/>
+<row FORG="10" FDATE="13-07" FMONTH="7" FYEAR="2013" CATEG="RSAA (FIRE FIGHT MAT AND EQT ON TRUCK)" NBR="2044"/>
+<row FORG="02" FDATE="14-08" FMONTH="8" FYEAR="2014" CATEG="F16A (F-16A SINGLE SEATER)" NBR="14621"/>
+<row FORG="10" FDATE="14-08" FMONTH="8" FYEAR="2014" CATEG="F16A (F-16A SINGLE SEATER)" NBR="5330"/>
+<row FORG="02" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="2138"/>
+<row FORG="10" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="2084"/>
+<row FORG="10" FDATE="13-08" FMONTH="8" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2462"/>
+<row FORG="10" FDATE="14-08" FMONTH="8" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2895"/>
+<row FORG="10" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2678"/>
+<row FORG="02" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" NBR="2249"/>
+<row FORG="02" FDATE="13-08" FMONTH="8" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2096"/>
+<row FORG="02" FDATE="13-08" FMONTH="8" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2998"/>
+<row FORG="10" FDATE="13-08" FMONTH="8" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6121"/>
+<row FORG="10" FDATE="14-08" FMONTH="8" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3874"/>
+<row FORG="02" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5313"/>
+<row FORG="10" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4576"/>
+<row FORG="02" FDATE="13-08" FMONTH="8" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2387"/>
+<row FORG="02" FDATE="14-08" FMONTH="8" FYEAR="2014" CATEG="RDRA (ROAD SWEEPER)" NBR="2606"/>
+<row FORG="02" FDATE="15-08" FMONTH="8" FYEAR="2015" CATEG="RDRA (ROAD SWEEPER)" NBR="2725"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="F16A (F-16A SINGLE SEATER)" NBR="3311"/>
+<row FORG="10" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RBAF (LIGHT TRUCK)" NBR="2408"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="2793"/>
+<row FORG="10" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="3085"/>
+<row FORG="10" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3692"/>
+<row FORG="10" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2930"/>
+<row FORG="10" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2148"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" NBR="2516"/>
+<row FORG="10" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" NBR="2318"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2014"/>
+<row FORG="10" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2029"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2632"/>
+<row FORG="10" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2038"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="3592"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="3367"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="3033"/>
+<row FORG="10" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="3069"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCER (BUS         &gt;  35 PASSENGERS)" NBR="2606"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5174"/>
+<row FORG="10" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6989"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6109"/>
+<row FORG="10" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4878"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5564"/>
+<row FORG="10" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3330"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="3343"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2929"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="2863"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="2263"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RDRA (ROAD SWEEPER)" NBR="2047"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RDRA (ROAD SWEEPER)" NBR="2747"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="5642"/>
+<row FORG="02" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="3768"/>
+<row FORG="10" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="8191"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RJHD (ACG 50HZ     220V &lt;--&gt; 380V)" NBR="2761"/>
+<row FORG="15" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="3284"/>
+<row FORG="15" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2049"/>
+<row FORG="02" FDATE="13-09" FMONTH="9" FYEAR="2013" CATEG="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" NBR="2835"/>
+<row FORG="02" FDATE="15-09" FMONTH="9" FYEAR="2015" CATEG="RJKC (GSE COMBINED UNITS ACG/DCG/COOLING)" NBR="2640"/>
+<row FORG="10" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RPLD (LIGHT INTENSIFIER)" NBR="3044"/>
+<row FORG="10" FDATE="14-09" FMONTH="9" FYEAR="2014" CATEG="RSAA (FIRE FIGHT MAT AND EQT ON TRUCK)" NBR="2592"/>
+<row FORG="10" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2763"/>
+<row FORG="10" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2195"/>
+<row FORG="10" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RBAF (LIGHT TRUCK)" NBR="2185"/>
+<row FORG="10" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RBAF (LIGHT TRUCK)" NBR="2117"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="3372"/>
+<row FORG="10" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RBAF (LIGHT TRUCK)" NBR="2700"/>
+<row FORG="10" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="4206"/>
+<row FORG="10" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2038"/>
+<row FORG="10" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2438"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCAA (LIGHT TRUCK      0T &lt;-&gt;    1/2T)" NBR="2842"/>
+<row FORG="02" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="3441"/>
+<row FORG="10" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2421"/>
+<row FORG="02" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="3647"/>
+<row FORG="10" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2530"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="2093"/>
+<row FORG="02" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2057"/>
+<row FORG="02" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2502"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCEM (BUS   0 &lt;-&gt;   8 PASSENGERS)" NBR="2574"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCER (BUS         &gt;  35 PASSENGERS)" NBR="3687"/>
+<row FORG="15" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCGG (TRAILER GASOL)" NBR="2267"/>
+<row FORG="02" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3905"/>
+<row FORG="10" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5611"/>
+<row FORG="02" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5951"/>
+<row FORG="10" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5778"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="5449"/>
+<row FORG="10" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3696"/>
+<row FORG="02" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="3101"/>
+<row FORG="10" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2071"/>
+<row FORG="02" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2965"/>
+<row FORG="02" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="4959"/>
+<row FORG="02" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="6851"/>
+<row FORG="02" FDATE="15-10" FMONTH="10" FYEAR="2015" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="2736"/>
+<row FORG="02" FDATE="13-10" FMONTH="10" FYEAR="2013" CATEG="RDRA (ROAD SWEEPER)" NBR="2225"/>
+<row FORG="02" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RDRA (ROAD SWEEPER)" NBR="2659"/>
+<row FORG="15" FDATE="14-10" FMONTH="10" FYEAR="2014" CATEG="RJKB (GSE-ACG 400 Hz = 110V   DCG = 28V)" NBR="2144"/>
+<row FORG="10" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RBAF (LIGHT TRUCK)" NBR="2003"/>
+<row FORG="10" FDATE="13-11" FMONTH="11" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3471"/>
+<row FORG="10" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="2865"/>
+<row FORG="02" FDATE="13-11" FMONTH="11" FYEAR="2013" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="3139"/>
+<row FORG="02" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RCAE (LIGHT TRUCK 1 1/2T &lt;-&gt; 2 1/2T)" NBR="3491"/>
+<row FORG="02" FDATE="13-11" FMONTH="11" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="3543"/>
+<row FORG="10" FDATE="13-11" FMONTH="11" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4950"/>
+<row FORG="02" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4180"/>
+<row FORG="10" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="4816"/>
+<row FORG="02" FDATE="13-11" FMONTH="11" FYEAR="2013" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="3019"/>
+<row FORG="02" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2276"/>
+<row FORG="02" FDATE="13-11" FMONTH="11" FYEAR="2013" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="4375"/>
+<row FORG="02" FDATE="14-11" FMONTH="11" FYEAR="2014" CATEG="RCVA (VEH  - TPT CONTAINERS)" NBR="4501"/>
+<row FORG="10" FDATE="13-12" FMONTH="12" FYEAR="2013" CATEG="RADD (COMBAT VEH INF WHEELED GUN)" NBR="2893"/>
+<row FORG="10" FDATE="13-12" FMONTH="12" FYEAR="2013" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="3987"/>
+<row FORG="10" FDATE="14-12" FMONTH="12" FYEAR="2014" CATEG="RBCB (COMMAND VEHICLE WHEELED)" NBR="4045"/>
+<row FORG="02" FDATE="13-12" FMONTH="12" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2998"/>
+<row FORG="10" FDATE="13-12" FMONTH="12" FYEAR="2013" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2160"/>
+<row FORG="02" FDATE="14-12" FMONTH="12" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="6767"/>
+<row FORG="10" FDATE="14-12" FMONTH="12" FYEAR="2014" CATEG="RCJH (TRACTOR STLR - TRACTION  &lt; 30T)" NBR="2249"/>
+<row FORG="02" FDATE="14-12" FMONTH="12" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2455"/>
+<row FORG="10" FDATE="14-12" FMONTH="12" FYEAR="2014" CATEG="RCQC (TRUCK TRANSPORT MAT)" NBR="2051"/>
+</rows>
+</dbquery>
+</dbqueries>

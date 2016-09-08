@@ -1,0 +1,793 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dbqueries>
+<environment>PRD</environment>
+<label>
+KPI0126</label>
+<description>
+Vending Numbers Milshop</description>
+<dbquery id='Report_Info'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select distinct  
+				r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status 
+			from 
+				dbn_report r join dbn_report_views v on v.dbn_repv_parid = r.dbn_rep_id
+				join dbn_entities e on v.dbn_repv_viewname = e.ViewName
+			where 
+				if(&apos;pKPI&apos;=&apos;&apos;,if(&apos;pRID&apos;=&apos;&apos;,r.dbn_rep_id=&apos;0&apos;,r.dbn_rep_id =&apos;pRID&apos;),r.dbn_rep_kpi=&apos;pKPI&apos;)
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select distinct  
+				r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status 
+			from 
+				dbn_report r join dbn_report_views v on v.dbn_repv_parid = r.dbn_rep_id
+				join dbn_entities e on v.dbn_repv_viewname = e.ViewName
+			where 
+				if(&apos;0129&apos;=&apos;&apos;,if(&apos;&apos;=&apos;&apos;,r.dbn_rep_id=&apos;0&apos;,r.dbn_rep_id =&apos;&apos;),r.dbn_rep_kpi=&apos;0129&apos;)
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="DayModif" type="BIGINT"/><column name="dbn_rep_categ" type="VARCHAR"/><column name="dbn_rep_dbweb" type="VARCHAR"/><column name="dbn_rep_accept" type="INTEGER"/><column name="dbn_rep_id" type="INTEGER"/><column name="dbn_rep_date" type="TIMESTAMP"/><column name="dbn_rep_name" type="VARCHAR"/><column name="dbn_rep_visible" type="VARCHAR"/><column name="dbn_rep_version" type="VARCHAR"/><column name="dbn_rep_poc" type="VARCHAR"/><column name="dbn_rep_email" type="VARCHAR"/><column name="dbn_rep_stat" type="INTEGER"/><column name="dbn_rep_node" type="VARCHAR"/><column name="dbn_rep_responsible" type="VARCHAR"/><column name="dbn_rep_special" type="VARCHAR"/><column name="dbn_rep_kpi" type="VARCHAR"/><column name="dbn_rep_type" type="VARCHAR"/><column name="dbn_rep_secure" type="VARCHAR"/><column name="dbn_rep_refresh" type="VARCHAR"/><column name="dbn_rep_node_url" type="VARCHAR"/><column name="dbn_rep_url" type="VARCHAR"/><column name="dbn_rep_application" type="VARCHAR"/><column name="dbn_rep_dom_lev1" type="VARCHAR"/><column name="dbn_rep_dom_lev2" type="VARCHAR"/><column name="dbn_rep_dom_lev3" type="VARCHAR"/><column name="dbn_rep_long_desc_en" type="VARCHAR"/><column name="dbn_rep_long_desc_fr" type="VARCHAR"/><column name="dbn_rep_long_desc_nl" type="VARCHAR"/><column name="dbn_rep_remarks_en" type="VARCHAR"/><column name="dbn_rep_remarks_fr" type="VARCHAR"/><column name="dbn_rep_remarks_nl" type="VARCHAR"/><column name="dbn_rep_url_doc_en" type="VARCHAR"/><column name="dbn_rep_url_doc_fr" type="VARCHAR"/><column name="dbn_rep_url_doc_nl" type="VARCHAR"/><column name="dbn_rep_url_ilias" type="VARCHAR"/><column name="dbn_rep_remarks" type="VARCHAR"/><column name="dbn_rep_url_xls" type="VARCHAR"/><column name="dbn_rep_url_pdf" type="VARCHAR"/><column name="dbn_rep_status" type="VARCHAR"/><column name="dbn_accrep_status" type="VARCHAR"/><column name="Views_Used" type="BIGINT"/><column name="Extr_Status" type="VARCHAR"/>
+</columns>
+<rows>
+<row DayModif="329" dbn_rep_categ="K" dbn_rep_dbweb="N" dbn_rep_accept="111" dbn_rep_id="201" dbn_rep_date="2014-08-12 00:00:00.0" dbn_rep_name="KPI0129" dbn_rep_visible="N" dbn_rep_version="" dbn_rep_poc="Cdt IBANEZ C." dbn_rep_email="crescencio.ibanez@mil.be" dbn_rep_stat="4" dbn_rep_node="MR" dbn_rep_responsible="" dbn_rep_special="KPI" dbn_rep_kpi="0129" dbn_rep_type="LRF" dbn_rep_secure="Unsecure" dbn_rep_refresh="24" dbn_rep_node_url="http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/" dbn_rep_url="_SAMPLE/IL_MR_KPI/IL_MR_KPI_SAMPLE02/IL_MR_KPI_SAMPLE02.xml" dbn_rep_application="ILIAS" dbn_rep_dom_lev1="Transport" dbn_rep_dom_lev2="" dbn_rep_dom_lev3="" dbn_rep_long_desc_en="KPI0129" dbn_rep_long_desc_fr="KPI0129" dbn_rep_long_desc_nl="KPI0129" dbn_rep_remarks_en="To be filled ..." dbn_rep_remarks_fr="To be filled ..." dbn_rep_remarks_nl="To be filled ..." dbn_rep_url_doc_en="http://icp.idcn.mil.intra/iwiki/bedefnl/index.php/Hoofdpagina" dbn_rep_url_doc_fr="http://icp.idcn.mil.intra/iwiki/bedeffr/index.php/Accueil" dbn_rep_url_doc_nl="http://icp.idcn.mil.intra/iwiki/bedefnl/index.php/Hoofdpagina" dbn_rep_url_ilias="https://cdcwprdils40.idcn.mil.intra/forms/frmservlet" dbn_rep_remarks="" dbn_rep_url_xls="" dbn_rep_url_pdf="" dbn_rep_status="04 - To Validate" dbn_accrep_status="Conv FW2 Done" Views_Used="8" Extr_Status="OK"/>
+</rows>
+</dbquery>
+<dbquery id='Report_Prompt'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+				select 
+					rp.* 
+				from 
+					dbn_report r join dbn_report_parameters rp on r.dbn_rep_id=rp.dbn_repp_parid
+				where 
+					if(&apos;pKPI&apos;=&apos;&apos;,if(&apos;pRID&apos;=&apos;&apos;,r.dbn_rep_id=&apos;0&apos;,r.dbn_rep_id =&apos;pRID&apos;),r.dbn_rep_kpi=&apos;pKPI&apos;)
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+				select 
+					rp.* 
+				from 
+					dbn_report r join dbn_report_parameters rp on r.dbn_rep_id=rp.dbn_repp_parid
+				where 
+					if(&apos;0129&apos;=&apos;&apos;,if(&apos;&apos;=&apos;&apos;,r.dbn_rep_id=&apos;0&apos;,r.dbn_rep_id =&apos;&apos;),r.dbn_rep_kpi=&apos;0129&apos;)
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="dbn_repp_param_order" type="INTEGER"/><column name="dbn_repp_id" type="INTEGER"/><column name="dbn_repp_parid" type="INTEGER"/><column name="dbn_repp_param" type="VARCHAR"/><column name="dbn_repp_param_name" type="VARCHAR"/><column name="dbn_repp_param_name_fr" type="VARCHAR"/><column name="dbn_repp_param_name_nl" type="VARCHAR"/><column name="dbn_repp_param_visible" type="VARCHAR"/><column name="dbn_repp_param_type" type="VARCHAR"/><column name="dbn_repp_param_type_detail" type="VARCHAR"/><column name="dbn_repp_param_validation" type="VARCHAR"/><column name="dbn_repp_param_format" type="VARCHAR"/><column name="dbn_repp_param_remark" type="VARCHAR"/><column name="dbn_repp_param_remark_fr" type="VARCHAR"/><column name="dbn_repp_param_remark_nl" type="VARCHAR"/><column name="dbn_repp_param_mandatory" type="VARCHAR"/>
+</columns>
+<rows>
+<row dbn_repp_param_order="" dbn_repp_id="409" dbn_repp_parid="201" dbn_repp_param="pVKEYD" dbn_repp_param_name="Tpt Org" dbn_repp_param_name_fr="Tpt Org" dbn_repp_param_name_nl="Tpt Org" dbn_repp_param_visible="" dbn_repp_param_type="Wildcards Not Allowed" dbn_repp_param_type_detail="" dbn_repp_param_validation="" dbn_repp_param_format="tekst" dbn_repp_param_remark="" dbn_repp_param_remark_fr="" dbn_repp_param_remark_nl="" dbn_repp_param_mandatory="y"/>
+</rows>
+</dbquery>
+<dbquery id='KPI'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select 
+				kpi.*
+			from 
+				dbn_dwh_kpi kpi
+			where
+				kpi.kpid_code=&apos;pKPI&apos;
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select 
+				kpi.*
+			from 
+				dbn_dwh_kpi kpi
+			where
+				kpi.kpid_code=&apos;0129&apos;
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="kpid_id" type="INTEGER"/><column name="kpid_active" type="VARCHAR"/><column name="kpid_status" type="VARCHAR"/><column name="kpid_stat" type="INTEGER"/><column name="kpid_code" type="VARCHAR"/><column name="kpid_denom_en" type="VARCHAR"/><column name="kpid_denom_nl" type="VARCHAR"/><column name="kpid_denom_fr" type="VARCHAR"/><column name="kpid_desc_en" type="VARCHAR"/><column name="kpid_desc_nl" type="VARCHAR"/><column name="kpid_desc_fr" type="VARCHAR"/><column name="kpid_sql" type="VARCHAR"/><column name="kpid_calc_date" type="DATE"/><column name="kpid_calc_rate" type="VARCHAR"/><column name="kpid_key" type="VARCHAR"/><column name="kpid_val_key" type="VARCHAR"/><column name="kpid_show" type="VARCHAR"/><column name="kpid_ShowNoValue" type="VARCHAR"/><column name="kpid_linked_kpi" type="VARCHAR"/><column name="kpid_parent" type="VARCHAR"/><column name="kpid_type" type="VARCHAR"/><column name="kpid_val_type" type="VARCHAR"/><column name="kpid_archive_type" type="VARCHAR"/><column name="kpid_poc_name" type="VARCHAR"/><column name="kpid_poc_tel" type="VARCHAR"/><column name="kpid_poc_email" type="VARCHAR"/><column name="kpid_tre_1" type="DOUBLE"/><column name="kpid_tre_2" type="DOUBLE"/><column name="kpid_tre_3" type="DOUBLE"/><column name="kpid_tre_type" type="VARCHAR"/><column name="kpid_calc_status" type="VARCHAR"/><column name="kpid_calc_start" type="TIMESTAMP"/><column name="kpid_calc_end" type="TIMESTAMP"/><column name="kpid_comment" type="VARCHAR"/><column name="kpid_test_code" type="VARCHAR"/>
+</columns>
+<rows>
+<row kpid_id="107" kpid_active="Y" kpid_status="" kpid_stat="105" kpid_code="0129" kpid_denom_en="Nbr of Tpt Missions Today" kpid_denom_nl="Nbr of Tpt Missions Today" kpid_denom_fr="Nbr of Tpt Missions Today" kpid_desc_en="Nbr of Tpt Missions Today" kpid_desc_nl="Nbr of Tpt Missions Today" kpid_desc_fr="Nbr of Tpt Missions Today" kpid_sql="INSERT dbn_dwh_kpi_values (kpiv_kpi_id, kpiv_value, kpiv_key, kpiv_key_value) 
+	select &apos;107&apos;,count(a.ASSET), &apos;ORG&apos;, a.TPTMOBCTR 
+FROM	
+	mrqr_assets a
+	join mrqr_transport_missions_vehicles tmv on tmv.VEHICLE = a.ASSET
+	join mrqr_transport_missions tm on tm.MISSION=tmv.MISSION
+WHERE
+	a.TPTMOBCTR is not null and (
+	(DATE_FORMAT(tm.ENDDATE,&apos;%y-%m-%d&apos;) = DATE_FORMAT(CURRENT_DATE(),&apos;%y-%m-%d&apos;)
+	OR
+	DATE_FORMAT(tm.STARTDATE,&apos;%y-%m-%d&apos;)  = DATE_FORMAT(CURRENT_DATE(),&apos;%y-%m-%d&apos;)
+	OR 
+	(DATE_FORMAT(tm.STARTDATE,&apos;%y-%m-%d&apos;)&lt;= DATE_FORMAT(CURRENT_DATE(),&apos;%y-%m-%d&apos;) and DATE_FORMAT(tm.ENDDATE,&apos;%y-%m-%d&apos;)&gt;= DATE_FORMAT(CURRENT_DATE(),&apos;%y-%m-%d&apos;))))
+GROUP BY
+	a.TPTMOBCTR" kpid_calc_date="2015-07-07" kpid_calc_rate="DAILY" kpid_key="ORG" kpid_val_key="" kpid_show="N" kpid_ShowNoValue="Y" kpid_linked_kpi="" kpid_parent="" kpid_type="KPI" kpid_val_type="NUMBER" kpid_archive_type="" kpid_poc_name="Cdt IBANEZ C." kpid_poc_tel="9-2400-1469" kpid_poc_email="crescencio.ibanez@mil.be" kpid_tre_1="" kpid_tre_2="" kpid_tre_3="" kpid_tre_type="GREATER" kpid_calc_status="DONE" kpid_calc_start="2015-07-07 05:48:49.0" kpid_calc_end="2015-07-07 05:48:51.0" kpid_comment="" kpid_test_code=""/>
+</rows>
+</dbquery>
+<dbquery id='ASSETS'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select 
+				concat(&apos;MRN_SPE16#&apos;,a.ASSET,&apos;#&apos;,a.ASSET) ASSET,
+				concat(&apos;MRN_SPE01#ASSETA&amp;amp;arg1=&apos;,a.ASSET) ILIAS,
+				concat(&apos;MRN_SPE11#&apos;,a.TITULAR_ORG) TITULAR_ORG,
+				concat(&apos;MRN_SPE11#&apos;,a.ORGANISM) ORGANISM,
+				concat(&apos;MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- &apos;,n.DESCRIPTION,&apos;#- &apos;,n.ALB) NSN_DESC_ALB,	
+				concat(&apos;MRN_SPE11#&apos;,a.TPTMOBCTR) TPTMOBCTR,
+				concat(&apos;MRN_SPE06#40#MRN_SPE14#&apos;,a.NSN,&apos;#&apos;,a.NSN) NSN,
+				a.LIMITATIONS,
+				concat(&apos;MRN_SPE10#AS#&apos;,a.STATUS) assstatus,
+				concat(&apos;MRN_SPE10#ASSIGNMENT#&apos;,a.REASON) REASON,
+				IF(ase.ESSENTIAL = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) ESSENTIAL,
+				IF(ass.MAINTENANCE = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) MAINTENANCE,
+				IF(ass.LOGISTIC = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) LOGISTIC,
+				IF(ass.STATUS = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) STATUS,
+				IF(ass.OPERATIONAL = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) OPERATIONAL,
+				concat(&apos;MRN_SPE22#&apos;,a.ASSET,&apos;####REM_POT&apos;) REM_POT,
+				&lt;!--
+				(select(SELECT CASE 1 	WHEN aos.status = &apos;O&apos; THEN concat(&apos;MRN_SPE03#05#MRN_SPE10#SO#&apos;,aos.status)
+										WHEN aos.status = &apos;Q&apos; THEN concat(&apos;MRN_SPE03#10#MRN_SPE10#SO#&apos;,aos.status)
+										WHEN aos.status = &apos;C&apos; THEN concat(&apos;MRN_SPE03#08#MRN_SPE10#SO#&apos;,aos.status)
+										WHEN aos.status = &apos;F&apos; THEN concat(&apos;MRN_SPE03#07#MRN_SPE10#SO#&apos;,aos.status)
+									ELSE aos.status
+				END)
+						from mrqr_assets_operational_status aos 
+							where aos.asset=a.asset order by aos.statusdate desc) AOSTATUS,		
+				--&gt;			
+				f.WSC,
+				a.LATEST_CATEGORY LC
+			from 
+				mrqr_assets a 
+				join mrqr_nsn n on a.nsn = n.nsn
+				left join mrqr_assets_states ass on ass.asset=a.asset 
+				left join mrqr_assets_states_essential ase on ase.asset=a.asset
+				left join mrqr_functions f on f.function=a.function
+			where 
+				(a.TPTMOBCTR = &apos;pVKEYD&apos;) 
+				and if(&apos;pWSC&apos;=&apos;&apos;,true,&lt;repeat paramName=&quot;pWSC&quot;&gt;f.WSC=&apos;pWSC&apos;&lt;/repeat&gt;) 
+				and a.ASSET like &apos;V_____&apos;
+			order by a.ASSET
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select 
+				concat(&apos;MRN_SPE16#&apos;,a.ASSET,&apos;#&apos;,a.ASSET) ASSET,
+				concat(&apos;MRN_SPE01#ASSETA&amp;arg1=&apos;,a.ASSET) ILIAS,
+				concat(&apos;MRN_SPE11#&apos;,a.TITULAR_ORG) TITULAR_ORG,
+				concat(&apos;MRN_SPE11#&apos;,a.ORGANISM) ORGANISM,
+				concat(&apos;MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- &apos;,n.DESCRIPTION,&apos;#- &apos;,n.ALB) NSN_DESC_ALB,	
+				concat(&apos;MRN_SPE11#&apos;,a.TPTMOBCTR) TPTMOBCTR,
+				concat(&apos;MRN_SPE06#40#MRN_SPE14#&apos;,a.NSN,&apos;#&apos;,a.NSN) NSN,
+				a.LIMITATIONS,
+				concat(&apos;MRN_SPE10#AS#&apos;,a.STATUS) assstatus,
+				concat(&apos;MRN_SPE10#ASSIGNMENT#&apos;,a.REASON) REASON,
+				IF(ase.ESSENTIAL = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) ESSENTIAL,
+				IF(ass.MAINTENANCE = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) MAINTENANCE,
+				IF(ass.LOGISTIC = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) LOGISTIC,
+				IF(ass.STATUS = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) STATUS,
+				IF(ass.OPERATIONAL = &apos;BAD&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B&apos;,&apos;MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G&apos;) OPERATIONAL,
+				concat(&apos;MRN_SPE22#&apos;,a.ASSET,&apos;####REM_POT&apos;) REM_POT,
+							
+				f.WSC,
+				a.LATEST_CATEGORY LC
+			from 
+				mrqr_assets a 
+				join mrqr_nsn n on a.nsn = n.nsn
+				left join mrqr_assets_states ass on ass.asset=a.asset 
+				left join mrqr_assets_states_essential ase on ase.asset=a.asset
+				left join mrqr_functions f on f.function=a.function
+			where 
+				(a.TPTMOBCTR = &apos;TEPE&apos;) 
+				and if(&apos;&apos;=&apos;&apos;,true,(( f.WSC=&apos;&apos;))) 
+				and a.ASSET like &apos;V_____&apos;
+			order by a.ASSET
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="ASSET" type="VARCHAR"/><column name="ILIAS" type="VARCHAR"/><column name="TITULAR_ORG" type="VARCHAR"/><column name="ORGANISM" type="VARCHAR"/><column name="NSN_DESC_ALB" type="VARCHAR"/><column name="TPTMOBCTR" type="VARCHAR"/><column name="NSN" type="VARCHAR"/><column name="LIMITATIONS" type="VARCHAR"/><column name="assstatus" type="VARCHAR"/><column name="REASON" type="VARCHAR"/><column name="ESSENTIAL" type="VARCHAR"/><column name="MAINTENANCE" type="VARCHAR"/><column name="LOGISTIC" type="VARCHAR"/><column name="STATUS" type="VARCHAR"/><column name="OPERATIONAL" type="VARCHAR"/><column name="REM_POT" type="VARCHAR"/><column name="WSC" type="VARCHAR"/><column name="LC" type="VARCHAR"/>
+</columns>
+<rows>
+<row ASSET="MRN_SPE16#V10095#V10095" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V10095" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- CITROËN JUMPER C-27 D FOURGON" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-115-7834#2320-13-115-7834" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V10095####REM_POT" WSC="RBAF" LC="C1"/>
+<row ASSET="MRN_SPE16#V10252#V10252" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V10252" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- CITROËN JUMPER C-27D POLICE" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-7222#2320-13-116-7222" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V10252####REM_POT" WSC="RTAJ" LC="C1"/>
+<row ASSET="MRN_SPE16#V10395#V10395" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V10395" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V10395####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V10764#V10764" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V10764" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,PANEL#- MERCEDES SPRINTER 208 DB OF CDI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-117-0938#2320-13-117-0938" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V10764####REM_POT" WSC="RBAF" LC="C1"/>
+<row ASSET="MRN_SPE16#V10927#V10927" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V10927" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- VW CADDY LIFE 1600 TDI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-395-8443#2310-12-395-8443" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V10927####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V10928#V10928" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V10928" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- VW CADDY LIFE 1600 TDI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-395-8443#2310-12-395-8443" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V10928####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11104#V11104" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11104" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V11104####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11105#V11105" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11105" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V11105####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11106#V11106" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11106" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" REM_POT="MRN_SPE22#V11106####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11145#V11145" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11145" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V11145####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11147#V11147" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11147" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V11147####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11149#V11149" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11149" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V11149####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11163#V11163" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11163" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" REM_POT="MRN_SPE22#V11163####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V11187#V11187" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V11187" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-5186#2310-13-118-5186" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" REM_POT="MRN_SPE22#V11187####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20079#V20079" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20079" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20079####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20082#V20082" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20082" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20082####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20088#V20088" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20088" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20088####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20097#V20097" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20097" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20097####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20103#V20103" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20103" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20103####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20159#V20159" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20159" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20159####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20241#V20241" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20241" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20241####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20288#V20288" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20288" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20288####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20292#V20292" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20292" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-116-8659#2320-13-116-8659" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20292####REM_POT" WSC="RCAA" LC="C1"/>
+<row ASSET="MRN_SPE16#V20408#V20408" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20408" TITULAR_ORG="MRN_SPE11#TEDI" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,PANEL#- MERCEDES SPRINTER 208 DB OF CDI" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-117-0938#2320-13-117-0938" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#L" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20408####REM_POT" WSC="RBAF" LC="C1"/>
+<row ASSET="MRN_SPE16#V20615#V20615" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20615" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300M FOURGON" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-5830#2320-13-118-5830" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20615####REM_POT" WSC="RBAF" LC="C1"/>
+<row ASSET="MRN_SPE16#V20679#V20679" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20679" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300S" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-5829#2320-13-118-5829" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20679####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20687#V20687" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20687" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300S" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-5829#2320-13-118-5829" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20687####REM_POT" WSC="RGEF" LC="C1"/>
+<row ASSET="MRN_SPE16#V20729#V20729" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20729" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300S" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-5829#2320-13-118-5829" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20729####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20730#V20730" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20730" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300S" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-5829#2320-13-118-5829" LIMITATIONS="" assstatus="MRN_SPE10#AS#C" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20730####REM_POT" WSC="RCEM" LC="C3"/>
+<row ASSET="MRN_SPE16#V20758#V20758" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20758" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20758####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20784#V20784" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20784" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20784####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20790#V20790" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20790" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20790####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20792#V20792" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20792" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" REM_POT="MRN_SPE22#V20792####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20819#V20819" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20819" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20819####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20832#V20832" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20832" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20832####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20835#V20835" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20835" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" REM_POT="MRN_SPE22#V20835####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20859#V20859" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20859" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20859####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V20860#V20860" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V20860" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-5192#2310-14-573-5192" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V20860####REM_POT" WSC="RCEM" LC="C1"/>
+<row ASSET="MRN_SPE16#V37319#V37319" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37319" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- VOLKSWAGEN LT35D - FOURGON" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-115-5313#2320-13-115-5313" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V37319####REM_POT" WSC="RBAF" LC="C1"/>
+<row ASSET="MRN_SPE16#V37490#V37490" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37490" TITULAR_ORG="MRN_SPE11#TEDI" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-6846#2320-13-118-6846" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#L" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" REM_POT="MRN_SPE22#V37490####REM_POT" WSC="RCQC" LC="C1"/>
+<row ASSET="MRN_SPE16#V37565#V37565" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37565" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-6846#2320-13-118-6846" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V37565####REM_POT" WSC="RCQC" LC="C1"/>
+<row ASSET="MRN_SPE16#V37567#V37567" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37567" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-6846#2320-13-118-6846" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V37567####REM_POT" WSC="RCQC" LC="C1"/>
+<row ASSET="MRN_SPE16#V37599#V37599" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37599" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-6845#2320-13-118-6845" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V37599####REM_POT" WSC="RCQC" LC="C1"/>
+<row ASSET="MRN_SPE16#V37600#V37600" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37600" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-6846#2320-13-118-6846" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V37600####REM_POT" WSC="RCQC" LC="C1"/>
+<row ASSET="MRN_SPE16#V37635#V37635" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V37635" TITULAR_ORG="MRN_SPE11#TEDI" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2320-13-118-6846#2320-13-118-6846" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#L" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V37635####REM_POT" WSC="RCQC" LC="C1"/>
+<row ASSET="MRN_SPE16#V80460#V80460" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80460" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE SEDAN#- RENAULT MEGANE CLASSIC, TYPE &quot;LA1U&quot;" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-DE-008-8480#2310-DE-008-8480" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80460####REM_POT" WSC="RCED" LC="C1"/>
+<row ASSET="MRN_SPE16#V80523#V80523" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80523" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-9148#2310-13-118-9148" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80523####REM_POT" WSC="RCED" LC="C1"/>
+<row ASSET="MRN_SPE16#V80524#V80524" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80524" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-9148#2310-13-118-9148" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80524####REM_POT" WSC="RCED" LC="C1"/>
+<row ASSET="MRN_SPE16#V80525#V80525" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80525" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-13-118-9148#2310-13-118-9148" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80525####REM_POT" WSC="RCED" LC="C1"/>
+<row ASSET="MRN_SPE16#V80676#V80676" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80676" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-388-4517#2310-12-388-4517" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80676####REM_POT" WSC="RCEE" LC="C1"/>
+<row ASSET="MRN_SPE16#V80677#V80677" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80677" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-388-4517#2310-12-388-4517" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80677####REM_POT" WSC="RCEE" LC="C1"/>
+<row ASSET="MRN_SPE16#V80692#V80692" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80692" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-388-4517#2310-12-388-4517" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80692####REM_POT" WSC="RCEE" LC="C1"/>
+<row ASSET="MRN_SPE16#V80694#V80694" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80694" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-388-4517#2310-12-388-4517" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80694####REM_POT" WSC="RCEE" LC="C1"/>
+<row ASSET="MRN_SPE16#V80700#V80700" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80700" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-388-4517#2310-12-388-4517" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80700####REM_POT" WSC="RCEE" LC="C1"/>
+<row ASSET="MRN_SPE16#V80703#V80703" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80703" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-12-388-4517#2310-12-388-4517" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80703####REM_POT" WSC="RCEE" LC="C1"/>
+<row ASSET="MRN_SPE16#V80779#V80779" ILIAS="MRN_SPE01#ASSETA&amp;arg1=V80779" TITULAR_ORG="MRN_SPE11#TEPE" ORGANISM="MRN_SPE11#TE" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- RENAULT MEGANE AUTHENTIQUE DCI 90" TPTMOBCTR="MRN_SPE11#TEPE" NSN="MRN_SPE06#40#MRN_SPE14#2310-14-573-0449#2310-14-573-0449" LIMITATIONS="" assstatus="MRN_SPE10#AS#I" REASON="MRN_SPE10#ASSIGNMENT#M" ESSENTIAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" MAINTENANCE="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/close-2-icon.png#Test#25#25##;MRN_SPE08#white#B" LOGISTIC="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" STATUS="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" OPERATIONAL="MRN_SPE50#MRN_SPE21#http://localhost/Default2/CPN/img/Flat/check-1-icon.png#Test#25#25##;MRN_SPE08#white#G" REM_POT="MRN_SPE22#V80779####REM_POT" WSC="RCED" LC="C1"/>
+</rows>
+</dbquery>
+<dbquery id='ASSET_REM_POT'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select 
+				ata.TOP_ASSET,w.WO,W.ASSET,FORMAT(wm.remaining_potential,0) REM_POT, WM.meter, w.PPM,format((wm.INTERVAL / wm.TOLERANCE),&apos;##,##&apos;) TOLERANCE
+			from 
+				mrqr_assets a 
+				join mrqr_assets_top_asset ata on ata.top_asset=a.asset 
+				join mrqr_work w on w.asset=ata.asset left join mrqr_functions f on f.function=a.function
+				join mrqr_wo_meters wm on wm.WO = w.wo
+			where 
+				(a.TPTMOBCTR = &apos;pVKEYD&apos;) and w.STATUS not in (&apos;B&apos;,&apos;C&apos;) 
+				and a.ASSET like &apos;V_____&apos;
+			order by 
+				wm.remaining_potential asc
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select 
+				ata.TOP_ASSET,w.WO,W.ASSET,FORMAT(wm.remaining_potential,0) REM_POT, WM.meter, w.PPM,format((wm.INTERVAL / wm.TOLERANCE),&apos;##,##&apos;) TOLERANCE
+			from 
+				mrqr_assets a 
+				join mrqr_assets_top_asset ata on ata.top_asset=a.asset 
+				join mrqr_work w on w.asset=ata.asset left join mrqr_functions f on f.function=a.function
+				join mrqr_wo_meters wm on wm.WO = w.wo
+			where 
+				(a.TPTMOBCTR = &apos;TEPE&apos;) and w.STATUS not in (&apos;B&apos;,&apos;C&apos;) 
+				and a.ASSET like &apos;V_____&apos;
+			order by 
+				wm.remaining_potential asc
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="TOP_ASSET" type="VARCHAR"/><column name="WO" type="VARCHAR"/><column name="ASSET" type="VARCHAR"/><column name="REM_POT" type="VARCHAR"/><column name="meter" type="VARCHAR"/><column name="PPM" type="VARCHAR"/><column name="TOLERANCE" type="VARCHAR"/>
+</columns>
+<rows>
+<row TOP_ASSET="V11163" WO="45578242" ASSET="V11163" REM_POT="" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V37490" WO="45359493" ASSET="V37490" REM_POT="" meter="CD" PPM="LTC1AHEL" TOLERANCE=""/>
+<row TOP_ASSET="V11147" WO="45578243" ASSET="V11147" REM_POT="" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11106" WO="45578255" ASSET="V11106" REM_POT="" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V37600" WO="45969952" ASSET="V37600" REM_POT="" meter="CD" PPM="LTC1AHEL" TOLERANCE=""/>
+<row TOP_ASSET="V37567" WO="46198481" ASSET="V37567" REM_POT="" meter="CD" PPM="LTC1AHEL" TOLERANCE=""/>
+<row TOP_ASSET="V37565" WO="45604361" ASSET="V37565" REM_POT="" meter="CD" PPM="LTC1AHEL" TOLERANCE=""/>
+<row TOP_ASSET="V37635" WO="45659652" ASSET="V37635" REM_POT="" meter="CD" PPM="LTC1AHEL" TOLERANCE=""/>
+<row TOP_ASSET="V37490" WO="45088481" ASSET="V37490" REM_POT="-13,134" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V10095" WO="45509348" ASSET="V10095" REM_POT="-4,561" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V80524" WO="45633150" ASSET="V80524" REM_POT="-2,778" meter="KM" PPM="LTCB20K" TOLERANCE="2,000"/>
+<row TOP_ASSET="V80523" WO="45648587" ASSET="V80523" REM_POT="-926" meter="KM" PPM="LTCB20K" TOLERANCE="2,000"/>
+<row TOP_ASSET="V37490" WO="45088481" ASSET="V37490" REM_POT="-731" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V11163" WO="45923926" ASSET="V11163" REM_POT="-264" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20784" WO="45579432" ASSET="V20784" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11149" WO="45630406" ASSET="V11149" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20832" WO="45622726" ASSET="V20832" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20835" WO="45630463" ASSET="V20835" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20819" WO="45578909" ASSET="V20819" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20859" WO="45579046" ASSET="V20859" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20792" WO="45630404" ASSET="V20792" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20860" WO="45578261" ASSET="V20860" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20790" WO="45579452" ASSET="V20790" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11105" WO="45630462" ASSET="V11105" REM_POT="-96" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20679" WO="45509065" ASSET="V20679" REM_POT="-83" meter="CD" PPM="LTCB25K" TOLERANCE="37"/>
+<row TOP_ASSET="V10095" WO="45509348" ASSET="V10095" REM_POT="-75" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V20758" WO="45579434" ASSET="V20758" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20615" WO="45578252" ASSET="V20615" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80677" WO="45578239" ASSET="V80677" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80692" WO="45578454" ASSET="V80692" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80703" WO="45578907" ASSET="V80703" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80700" WO="45550104" ASSET="V80700" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80694" WO="45578376" ASSET="V80694" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80779" WO="45579747" ASSET="V80779" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80676" WO="45578238" ASSET="V80676" REM_POT="-51" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V37565" WO="45585970" ASSET="V37565" REM_POT="-20" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V10927" WO="45757270" ASSET="V10927" REM_POT="-18" meter="CD" PPM="LTCVA30K" TOLERANCE=""/>
+<row TOP_ASSET="V80700" WO="45582817" ASSET="V80700" REM_POT="-18" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V10928" WO="45757271" ASSET="V10928" REM_POT="-17" meter="CD" PPM="LTCVA30K" TOLERANCE=""/>
+<row TOP_ASSET="V80676" WO="45594622" ASSET="V80676" REM_POT="-10" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V80677" WO="45622494" ASSET="V80677" REM_POT="5" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V80524" WO="45633150" ASSET="V80524" REM_POT="8" meter="CD" PPM="LTCB20K" TOLERANCE="37"/>
+<row TOP_ASSET="V80523" WO="45648587" ASSET="V80523" REM_POT="8" meter="CD" PPM="LTCB20K" TOLERANCE="37"/>
+<row TOP_ASSET="V20615" WO="45647931" ASSET="V20615" REM_POT="11" meter="CD" PPM="LTCB25K" TOLERANCE="37"/>
+<row TOP_ASSET="V37635" WO="45659651" ASSET="V37635" REM_POT="22" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V80694" WO="45694237" ASSET="V80694" REM_POT="38" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V11187" WO="45714562" ASSET="V11187" REM_POT="43" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V20292" WO="45610083" ASSET="V20292" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20097" WO="46214723" ASSET="V20097" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20159" WO="45637941" ASSET="V20159" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20687" WO="45691574" ASSET="V20687" REM_POT="47" meter="CD" PPM="LTCB25K" TOLERANCE="37"/>
+<row TOP_ASSET="V20729" WO="45832148" ASSET="V20729" REM_POT="47" meter="CD" PPM="LTCB25K" TOLERANCE="37"/>
+<row TOP_ASSET="V20241" WO="45801636" ASSET="V20241" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20103" WO="46197724" ASSET="V20103" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20082" WO="45851424" ASSET="V20082" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20730" WO="45832149" ASSET="V20730" REM_POT="47" meter="CD" PPM="LTCB25K" TOLERANCE="37"/>
+<row TOP_ASSET="V37319" WO="46184538" ASSET="V37319" REM_POT="47" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V20088" WO="45648586" ASSET="V20088" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V10395" WO="46002508" ASSET="V10395" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20079" WO="45746240" ASSET="V20079" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20288" WO="45774928" ASSET="V20288" REM_POT="47" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V80460" WO="45738923" ASSET="V80460" REM_POT="53" meter="CD" PPM="LTCB20K" TOLERANCE="37"/>
+<row TOP_ASSET="V11104" WO="45775445" ASSET="V11104" REM_POT="66" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V37599" WO="45801842" ASSET="V37599" REM_POT="72" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V10764" WO="45851613" ASSET="V10764" REM_POT="89" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20758" WO="45248720" ASSET="V20758" REM_POT="100" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20832" WO="45932849" ASSET="V20832" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20790" WO="45955217" ASSET="V20790" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11106" WO="45929404" ASSET="V11106" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11105" WO="45929401" ASSET="V11105" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V10095" WO="45923925" ASSET="V10095" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80703" WO="45923930" ASSET="V80703" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20758" WO="45955215" ASSET="V20758" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20819" WO="45933806" ASSET="V20819" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20859" WO="45928021" ASSET="V20859" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80779" WO="45923932" ASSET="V80779" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80694" WO="45928017" ASSET="V80694" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20615" WO="45906231" ASSET="V20615" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11147" WO="45930599" ASSET="V11147" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80677" WO="45928018" ASSET="V80677" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20835" WO="45928014" ASSET="V20835" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20792" WO="45929352" ASSET="V20792" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20860" WO="45928020" ASSET="V20860" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80692" WO="45928019" ASSET="V80692" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80676" WO="45929406" ASSET="V80676" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V80700" WO="45923931" ASSET="V80700" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V20784" WO="45930606" ASSET="V20784" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V11149" WO="45933811" ASSET="V11149" REM_POT="101" meter="CD" PPM="LTC1AWTY" TOLERANCE="73"/>
+<row TOP_ASSET="V10095" WO="45578228" ASSET="V10095" REM_POT="102" meter="CD" PPM="LTC1ASTY" TOLERANCE="73"/>
+<row TOP_ASSET="V10252" WO="45953886" ASSET="V10252" REM_POT="165" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V37600" WO="45979231" ASSET="V37600" REM_POT="183" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V11147" WO="46136646" ASSET="V11147" REM_POT="183" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V11106" WO="46119119" ASSET="V11106" REM_POT="198" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V11163" WO="46059878" ASSET="V11163" REM_POT="233" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V11149" WO="46059879" ASSET="V11149" REM_POT="233" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V80779" WO="46149291" ASSET="V80779" REM_POT="242" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V80525" WO="46174928" ASSET="V80525" REM_POT="262" meter="CD" PPM="LTCB20K" TOLERANCE="37"/>
+<row TOP_ASSET="V11145" WO="46163700" ASSET="V11145" REM_POT="262" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V37567" WO="46198482" ASSET="V37567" REM_POT="285" meter="CD" PPM="LTCB10K" TOLERANCE="37"/>
+<row TOP_ASSET="V11105" WO="46214112" ASSET="V11105" REM_POT="305" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V80692" WO="46224417" ASSET="V80692" REM_POT="318" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V80703" WO="46234485" ASSET="V80703" REM_POT="325" meter="CD" PPM="LTCB30K" TOLERANCE="37"/>
+<row TOP_ASSET="V20408" WO="46292074" ASSET="V20408" REM_POT="352" meter="CD" PPM="LTCB15K" TOLERANCE="37"/>
+<row TOP_ASSET="V20784" WO="45952006" ASSET="V20784" REM_POT="523" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20832" WO="45989903" ASSET="V20832" REM_POT="534" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20819" WO="45975223" ASSET="V20819" REM_POT="549" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20859" WO="46002543" ASSET="V20859" REM_POT="565" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20790" WO="46002503" ASSET="V20790" REM_POT="570" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20860" WO="46025057" ASSET="V20860" REM_POT="572" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20835" WO="46002548" ASSET="V20835" REM_POT="572" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20792" WO="46046885" ASSET="V20792" REM_POT="580" meter="CD" PPM="LTCB24K" TOLERANCE="73"/>
+<row TOP_ASSET="V20288" WO="45774928" ASSET="V20288" REM_POT="2,535" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V37635" WO="45659651" ASSET="V37635" REM_POT="2,836" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V37565" WO="45585970" ASSET="V37565" REM_POT="2,947" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V37599" WO="45801842" ASSET="V37599" REM_POT="5,587" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V20088" WO="45648586" ASSET="V20088" REM_POT="5,592" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V37600" WO="45979231" ASSET="V37600" REM_POT="5,691" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V20292" WO="45610083" ASSET="V20292" REM_POT="5,913" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V20241" WO="45801636" ASSET="V20241" REM_POT="6,164" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V20159" WO="45637941" ASSET="V20159" REM_POT="6,667" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V20079" WO="45746240" ASSET="V20079" REM_POT="6,701" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V20679" WO="45509065" ASSET="V20679" REM_POT="7,620" meter="KM" PPM="LTCB25K" TOLERANCE="2,500"/>
+<row TOP_ASSET="V10764" WO="45851613" ASSET="V10764" REM_POT="8,038" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V10252" WO="45953886" ASSET="V10252" REM_POT="8,518" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V20082" WO="45851424" ASSET="V20082" REM_POT="8,571" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V37319" WO="46184538" ASSET="V37319" REM_POT="8,938" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V20729" WO="45832148" ASSET="V20729" REM_POT="9,739" meter="KM" PPM="LTCB25K" TOLERANCE="2,500"/>
+<row TOP_ASSET="V37567" WO="46198482" ASSET="V37567" REM_POT="9,890" meter="KM" PPM="LTCB10K" TOLERANCE="1,000"/>
+<row TOP_ASSET="V20103" WO="46197724" ASSET="V20103" REM_POT="11,263" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V80460" WO="45738923" ASSET="V80460" REM_POT="11,947" meter="KM" PPM="LTCB20K" TOLERANCE="2,000"/>
+<row TOP_ASSET="V80677" WO="45622494" ASSET="V80677" REM_POT="12,604" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V20730" WO="45832149" ASSET="V20730" REM_POT="12,850" meter="KM" PPM="LTCB25K" TOLERANCE="2,500"/>
+<row TOP_ASSET="V20097" WO="46214723" ASSET="V20097" REM_POT="13,171" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V80676" WO="45594622" ASSET="V80676" REM_POT="13,586" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V80694" WO="45694237" ASSET="V80694" REM_POT="14,462" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V10395" WO="46002508" ASSET="V10395" REM_POT="14,630" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V20408" WO="46292074" ASSET="V20408" REM_POT="15,000" meter="KM" PPM="LTCB15K" TOLERANCE="1,500"/>
+<row TOP_ASSET="V20615" WO="45647931" ASSET="V20615" REM_POT="15,821" meter="KM" PPM="LTCB25K" TOLERANCE="2,500"/>
+<row TOP_ASSET="V80525" WO="46174928" ASSET="V80525" REM_POT="16,314" meter="KM" PPM="LTCB20K" TOLERANCE="2,000"/>
+<row TOP_ASSET="V10927" WO="45757270" ASSET="V10927" REM_POT="16,603" meter="KM" PPM="LTCVA30K" TOLERANCE=""/>
+<row TOP_ASSET="V80779" WO="46149291" ASSET="V80779" REM_POT="16,938" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V11187" WO="45714562" ASSET="V11187" REM_POT="16,978" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V80700" WO="45582817" ASSET="V80700" REM_POT="19,160" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V11104" WO="45775445" ASSET="V11104" REM_POT="19,320" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V20687" WO="45691574" ASSET="V20687" REM_POT="19,592" meter="KM" PPM="LTCB25K" TOLERANCE="2,500"/>
+<row TOP_ASSET="V10928" WO="45757271" ASSET="V10928" REM_POT="20,035" meter="KM" PPM="LTCVA30K" TOLERANCE=""/>
+<row TOP_ASSET="V11147" WO="46136646" ASSET="V11147" REM_POT="20,173" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V11149" WO="46059879" ASSET="V11149" REM_POT="23,916" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V11106" WO="46119119" ASSET="V11106" REM_POT="24,741" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V11145" WO="46163700" ASSET="V11145" REM_POT="25,781" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V20758" WO="45248720" ASSET="V20758" REM_POT="25,948" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V11105" WO="46214112" ASSET="V11105" REM_POT="27,483" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V80703" WO="46234485" ASSET="V80703" REM_POT="27,583" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V11163" WO="46059878" ASSET="V11163" REM_POT="28,381" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V80692" WO="46224417" ASSET="V80692" REM_POT="28,620" meter="KM" PPM="LTCB30K" TOLERANCE="3,000"/>
+<row TOP_ASSET="V20832" WO="45989903" ASSET="V20832" REM_POT="38,006" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20819" WO="45975223" ASSET="V20819" REM_POT="38,016" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20784" WO="45952006" ASSET="V20784" REM_POT="38,718" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20859" WO="46002543" ASSET="V20859" REM_POT="39,628" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20792" WO="46046885" ASSET="V20792" REM_POT="40,657" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20835" WO="46002548" ASSET="V20835" REM_POT="41,537" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20860" WO="46025057" ASSET="V20860" REM_POT="41,892" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+<row TOP_ASSET="V20790" WO="46002503" ASSET="V20790" REM_POT="42,828" meter="KM" PPM="LTCB24K" TOLERANCE="4,800"/>
+</rows>
+</dbquery>
+<dbquery id='KPI_DETAILS'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select 
+				tm.MISSION,
+				concat(&apos;MRN_SPE22#&apos;,tm.MISSION,&apos;####Mis4Pdf&apos;) GEN_PDF,
+				concat(&apos;MRN_SPE22#&apos;,tm.MISSION,&apos;####Mis4Pdf2&apos;) PDF2,
+				IF((SELECT COUNT(tuj2.LOC) FROM MRQR_TRANSPORT_UNIT_JOURNEY tuj2 where tuj2.OMU_ID=tmv.OMU_ID and 		tuj2.LOCATION_PURPOSE = &apos;DES&apos;) &amp;gt; 1,
+				(SELECT max(concat(&apos;MRN_SPE03#07#&apos;,tuj3.LOC_DESC))FROM MRQR_TRANSPORT_UNIT_JOURNEY tuj3 	where tuj3.OMU_ID=tmv.OMU_ID 	and tuj3.LOCATION_PURPOSE = &apos;DES&apos;
+						ORDER BY tuj3.ETA DESC),
+				(SELECT max(concat(&apos;MRN_SPE03#05#&apos;,tuj3.LOC_DESC))FROM MRQR_TRANSPORT_UNIT_JOURNEY tuj3 	where tuj3.OMU_ID=tmv.OMU_ID 	and tuj3.LOCATION_PURPOSE = &apos;DES&apos;
+						ORDER BY tuj3.ETA DESC)) DES,
+				concat(&apos;MRN_SPE01#TRPREQ&amp;amp;arg2=&apos;,tm.MISSION) TRPREQ,
+				concat(&apos;MRN_SPE16#&apos;,a.ASSET,&apos;#&apos;,a.ASSET) ASSET,
+				concat(&apos;MRN_SPE01#ASSETA&amp;amp;arg1=&apos;,a.ASSET) ASSETA,
+				concat(&apos;MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- &apos;,n.DESCRIPTION,&apos;#- &apos;,n.ALB) NSN_DESC_ALB,
+				MIN(tuj.ETA) START, 
+				MAX(tuj.ETA) END, 
+				f.WSC
+			FROM	
+				MRQR_ASSETS a
+				join mrqr_nsn n on a.nsn = n.nsn
+				join MRQR_TRANSPORT_MISSIONS_VEHICLES tmv on tmv.VEHICLE = a.ASSET
+				join MRQR_TRANSPORT_MISSIONS tm on tm.MISSION=tmv.MISSION
+				join MRQR_TRANSPORT_UNIT_JOURNEY tuj on tuj.OMU_ID=tmv.OMU_ID
+				join MRQR_FUNCTIONS f on f.function=a.function
+			WHERE
+				a.TPTMOBCTR=&apos;pVKEYD&apos; and
+				(tm.ENDDATE BETWEEN DATE_ADD(CURDATE(), INTERVAL -1 DAY) and DATE_ADD(CURDATE(), INTERVAL +14 DAY)
+				OR
+				tm.STARTDATE BETWEEN DATE_ADD(CURDATE(), INTERVAL -1 DAY) and DATE_ADD(CURDATE(), INTERVAL +14 DAY)
+				OR	
+				(tm.STARTDATE&amp;lt;=DATE_ADD(CURDATE(), INTERVAL -1 DAY) and CURDATE()&amp;gt;=DATE_ADD(CURDATE(), INTERVAL +14 DAY)))
+			GROUP BY
+				a.ASSET, a.DESCRIPTION, a.TPTMOBCTR, tm.MISSION, tm.STARTDATE, tm.ENDDATE, tmv.OMU_ID, f.WSC
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select 
+				tm.MISSION,
+				concat(&apos;MRN_SPE22#&apos;,tm.MISSION,&apos;####Mis4Pdf&apos;) GEN_PDF,
+				concat(&apos;MRN_SPE22#&apos;,tm.MISSION,&apos;####Mis4Pdf2&apos;) PDF2,
+				IF((SELECT COUNT(tuj2.LOC) FROM MRQR_TRANSPORT_UNIT_JOURNEY tuj2 where tuj2.OMU_ID=tmv.OMU_ID and 		tuj2.LOCATION_PURPOSE = &apos;DES&apos;) &gt; 1,
+				(SELECT max(concat(&apos;MRN_SPE03#07#&apos;,tuj3.LOC_DESC))FROM MRQR_TRANSPORT_UNIT_JOURNEY tuj3 	where tuj3.OMU_ID=tmv.OMU_ID 	and tuj3.LOCATION_PURPOSE = &apos;DES&apos;
+						ORDER BY tuj3.ETA DESC),
+				(SELECT max(concat(&apos;MRN_SPE03#05#&apos;,tuj3.LOC_DESC))FROM MRQR_TRANSPORT_UNIT_JOURNEY tuj3 	where tuj3.OMU_ID=tmv.OMU_ID 	and tuj3.LOCATION_PURPOSE = &apos;DES&apos;
+						ORDER BY tuj3.ETA DESC)) DES,
+				concat(&apos;MRN_SPE01#TRPREQ&amp;arg2=&apos;,tm.MISSION) TRPREQ,
+				concat(&apos;MRN_SPE16#&apos;,a.ASSET,&apos;#&apos;,a.ASSET) ASSET,
+				concat(&apos;MRN_SPE01#ASSETA&amp;arg1=&apos;,a.ASSET) ASSETA,
+				concat(&apos;MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- &apos;,n.DESCRIPTION,&apos;#- &apos;,n.ALB) NSN_DESC_ALB,
+				MIN(tuj.ETA) START, 
+				MAX(tuj.ETA) END, 
+				f.WSC
+			FROM	
+				MRQR_ASSETS a
+				join mrqr_nsn n on a.nsn = n.nsn
+				join MRQR_TRANSPORT_MISSIONS_VEHICLES tmv on tmv.VEHICLE = a.ASSET
+				join MRQR_TRANSPORT_MISSIONS tm on tm.MISSION=tmv.MISSION
+				join MRQR_TRANSPORT_UNIT_JOURNEY tuj on tuj.OMU_ID=tmv.OMU_ID
+				join MRQR_FUNCTIONS f on f.function=a.function
+			WHERE
+				a.TPTMOBCTR=&apos;TEPE&apos; and
+				(tm.ENDDATE BETWEEN DATE_ADD(CURDATE(), INTERVAL -1 DAY) and DATE_ADD(CURDATE(), INTERVAL +14 DAY)
+				OR
+				tm.STARTDATE BETWEEN DATE_ADD(CURDATE(), INTERVAL -1 DAY) and DATE_ADD(CURDATE(), INTERVAL +14 DAY)
+				OR	
+				(tm.STARTDATE&lt;=DATE_ADD(CURDATE(), INTERVAL -1 DAY) and CURDATE()&gt;=DATE_ADD(CURDATE(), INTERVAL +14 DAY)))
+			GROUP BY
+				a.ASSET, a.DESCRIPTION, a.TPTMOBCTR, tm.MISSION, tm.STARTDATE, tm.ENDDATE, tmv.OMU_ID, f.WSC
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="MISSION" type="VARCHAR"/><column name="GEN_PDF" type="VARCHAR"/><column name="PDF2" type="VARCHAR"/><column name="DES" type="VARCHAR"/><column name="TRPREQ" type="VARCHAR"/><column name="ASSET" type="VARCHAR"/><column name="ASSETA" type="VARCHAR"/><column name="NSN_DESC_ALB" type="VARCHAR"/><column name="START" type="DATETIME"/><column name="END" type="DATETIME"/><column name="WSC" type="VARCHAR"/>
+</columns>
+<rows>
+<row MISSION="NTR0458698" GEN_PDF="MRN_SPE22#NTR0458698####Mis4Pdf" PDF2="MRN_SPE22#NTR0458698####Mis4Pdf2" DES="MRN_SPE03#05#Brucargo Air Freight" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0458698" ASSET="MRN_SPE16#V10764#V10764" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V10764" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,PANEL#- MERCEDES SPRINTER 208 DB OF CDI" START="2015-07-01 11:00:00.0" END="2015-07-15 11:00:00.0" WSC="RBAF"/>
+<row MISSION="NTR0458703" GEN_PDF="MRN_SPE22#NTR0458703####Mis4Pdf" PDF2="MRN_SPE22#NTR0458703####Mis4Pdf2" DES="MRN_SPE03#05#Brucargo Air Freight" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0458703" ASSET="MRN_SPE16#V10764#V10764" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V10764" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,PANEL#- MERCEDES SPRINTER 208 DB OF CDI" START="2015-07-15 13:00:00.0" END="2015-07-31 13:00:00.0" WSC="RBAF"/>
+<row MISSION="NTR0466451" GEN_PDF="MRN_SPE22#NTR0466451####Mis4Pdf" PDF2="MRN_SPE22#NTR0466451####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466451" ASSET="MRN_SPE16#V10927#V10927" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V10927" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- VW CADDY LIFE 1600 TDI" START="2015-07-01 08:00:00.0" END="2015-07-09 09:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0462254" GEN_PDF="MRN_SPE22#NTR0462254####Mis4Pdf" PDF2="MRN_SPE22#NTR0462254####Mis4Pdf2" DES="MRN_SPE03#05#France" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0462254" ASSET="MRN_SPE16#V10928#V10928" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V10928" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- VW CADDY LIFE 1600 TDI" START="2015-06-22 08:00:00.0" END="2015-07-06 09:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466743" GEN_PDF="MRN_SPE22#NTR0466743####Mis4Pdf" PDF2="MRN_SPE22#NTR0466743####Mis4Pdf2" DES="MRN_SPE03#05#BELGIUM SEE ADDRESS" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466743" ASSET="MRN_SPE16#V10928#V10928" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V10928" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- VW CADDY LIFE 1600 TDI" START="2015-07-01 15:47:00.0" END="2015-07-17 15:48:00.0" WSC="RCAA"/>
+<row MISSION="NTR0465283" GEN_PDF="MRN_SPE22#NTR0465283####Mis4Pdf" PDF2="MRN_SPE22#NTR0465283####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0465283" ASSET="MRN_SPE16#V11104#V11104" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11104" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-15 14:00:00.0" END="2015-07-23 08:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0465285" GEN_PDF="MRN_SPE22#NTR0465285####Mis4Pdf" PDF2="MRN_SPE22#NTR0465285####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0465285" ASSET="MRN_SPE16#V11105#V11105" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11105" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-15 14:00:00.0" END="2015-07-24 08:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466462" GEN_PDF="MRN_SPE22#NTR0466462####Mis4Pdf" PDF2="MRN_SPE22#NTR0466462####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466462" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-06 18:00:00.0" END="2015-07-07 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466479" GEN_PDF="MRN_SPE22#NTR0466479####Mis4Pdf" PDF2="MRN_SPE22#NTR0466479####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466479" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-07 18:00:00.0" END="2015-07-08 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466484" GEN_PDF="MRN_SPE22#NTR0466484####Mis4Pdf" PDF2="MRN_SPE22#NTR0466484####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466484" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-08 18:00:00.0" END="2015-07-09 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466491" GEN_PDF="MRN_SPE22#NTR0466491####Mis4Pdf" PDF2="MRN_SPE22#NTR0466491####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466491" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-09 18:00:00.0" END="2015-07-10 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466564" GEN_PDF="MRN_SPE22#NTR0466564####Mis4Pdf" PDF2="MRN_SPE22#NTR0466564####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466564" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-13 18:00:00.0" END="2015-07-14 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466569" GEN_PDF="MRN_SPE22#NTR0466569####Mis4Pdf" PDF2="MRN_SPE22#NTR0466569####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466569" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-14 18:00:00.0" END="2015-07-15 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466575" GEN_PDF="MRN_SPE22#NTR0466575####Mis4Pdf" PDF2="MRN_SPE22#NTR0466575####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466575" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-15 18:00:00.0" END="2015-07-16 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466577" GEN_PDF="MRN_SPE22#NTR0466577####Mis4Pdf" PDF2="MRN_SPE22#NTR0466577####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466577" ASSET="MRN_SPE16#V11145#V11145" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11145" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-16 18:00:00.0" END="2015-07-17 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466462" GEN_PDF="MRN_SPE22#NTR0466462####Mis4Pdf" PDF2="MRN_SPE22#NTR0466462####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466462" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-06 18:00:00.0" END="2015-07-07 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466479" GEN_PDF="MRN_SPE22#NTR0466479####Mis4Pdf" PDF2="MRN_SPE22#NTR0466479####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466479" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-07 18:00:00.0" END="2015-07-08 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466484" GEN_PDF="MRN_SPE22#NTR0466484####Mis4Pdf" PDF2="MRN_SPE22#NTR0466484####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466484" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-08 18:00:00.0" END="2015-07-09 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466491" GEN_PDF="MRN_SPE22#NTR0466491####Mis4Pdf" PDF2="MRN_SPE22#NTR0466491####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466491" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-09 18:00:00.0" END="2015-07-10 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466564" GEN_PDF="MRN_SPE22#NTR0466564####Mis4Pdf" PDF2="MRN_SPE22#NTR0466564####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466564" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-13 18:00:00.0" END="2015-07-14 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466569" GEN_PDF="MRN_SPE22#NTR0466569####Mis4Pdf" PDF2="MRN_SPE22#NTR0466569####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466569" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-14 18:00:00.0" END="2015-07-15 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466575" GEN_PDF="MRN_SPE22#NTR0466575####Mis4Pdf" PDF2="MRN_SPE22#NTR0466575####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466575" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-15 18:00:00.0" END="2015-07-16 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466577" GEN_PDF="MRN_SPE22#NTR0466577####Mis4Pdf" PDF2="MRN_SPE22#NTR0466577####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466577" ASSET="MRN_SPE16#V11147#V11147" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11147" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-16 18:00:00.0" END="2015-07-17 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466462" GEN_PDF="MRN_SPE22#NTR0466462####Mis4Pdf" PDF2="MRN_SPE22#NTR0466462####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466462" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-06 18:00:00.0" END="2015-07-07 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466479" GEN_PDF="MRN_SPE22#NTR0466479####Mis4Pdf" PDF2="MRN_SPE22#NTR0466479####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466479" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-07 18:00:00.0" END="2015-07-08 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466484" GEN_PDF="MRN_SPE22#NTR0466484####Mis4Pdf" PDF2="MRN_SPE22#NTR0466484####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466484" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-08 18:00:00.0" END="2015-07-09 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466491" GEN_PDF="MRN_SPE22#NTR0466491####Mis4Pdf" PDF2="MRN_SPE22#NTR0466491####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466491" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-09 18:00:00.0" END="2015-07-10 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466564" GEN_PDF="MRN_SPE22#NTR0466564####Mis4Pdf" PDF2="MRN_SPE22#NTR0466564####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466564" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-13 18:00:00.0" END="2015-07-14 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466569" GEN_PDF="MRN_SPE22#NTR0466569####Mis4Pdf" PDF2="MRN_SPE22#NTR0466569####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466569" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-14 18:00:00.0" END="2015-07-15 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466575" GEN_PDF="MRN_SPE22#NTR0466575####Mis4Pdf" PDF2="MRN_SPE22#NTR0466575####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466575" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-15 18:00:00.0" END="2015-07-16 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0466577" GEN_PDF="MRN_SPE22#NTR0466577####Mis4Pdf" PDF2="MRN_SPE22#NTR0466577####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466577" ASSET="MRN_SPE16#V11149#V11149" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V11149" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,UTILITY#- OPEL COMBO 1.7 DI" START="2015-07-16 18:00:00.0" END="2015-07-17 06:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0467859" GEN_PDF="MRN_SPE22#NTR0467859####Mis4Pdf" PDF2="MRN_SPE22#NTR0467859####Mis4Pdf2" DES="MRN_SPE03#05#BRASSCHAAT (MIL)" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0467859" ASSET="MRN_SPE16#V20159#V20159" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20159" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" START="2015-07-07 06:00:00.0" END="2015-07-07 14:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0461029" GEN_PDF="MRN_SPE22#NTR0461029####Mis4Pdf" PDF2="MRN_SPE22#NTR0461029####Mis4Pdf2" DES="MRN_SPE03#05#LEOPOLDSBURG" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0461029" ASSET="MRN_SPE16#V20241#V20241" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20241" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" START="2015-06-12 14:00:00.0" END="2015-07-06 08:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0465530" GEN_PDF="MRN_SPE22#NTR0465530####Mis4Pdf" PDF2="MRN_SPE22#NTR0465530####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0465530" ASSET="MRN_SPE16#V20241#V20241" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20241" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" START="2015-07-06 09:00:00.0" END="2015-07-10 09:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0452153" GEN_PDF="MRN_SPE22#NTR0452153####Mis4Pdf" PDF2="MRN_SPE22#NTR0452153####Mis4Pdf2" DES="MRN_SPE03#05#SAFFRAANBERG" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0452153" ASSET="MRN_SPE16#V20288#V20288" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20288" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- PEUGEOT PARTNER" START="2015-07-06 05:00:00.0" END="2015-07-06 13:00:00.0" WSC="RCAA"/>
+<row MISSION="NTR0424997" GEN_PDF="MRN_SPE22#NTR0424997####Mis4Pdf" PDF2="MRN_SPE22#NTR0424997####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0424997" ASSET="MRN_SPE16#V20615#V20615" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20615" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300M FOURGON" START="2015-07-17 08:00:00.0" END="2015-07-22 08:00:00.0" WSC="RBAF"/>
+<row MISSION="NTR0466556" GEN_PDF="MRN_SPE22#NTR0466556####Mis4Pdf" PDF2="MRN_SPE22#NTR0466556####Mis4Pdf2" DES="MRN_SPE03#05#LEOPOLDSBURG/BEVERLO" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466556" ASSET="MRN_SPE16#V20679#V20679" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20679" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300S" START="2015-07-07 14:30:00.0" END="2015-07-09 08:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0464663" GEN_PDF="MRN_SPE22#NTR0464663####Mis4Pdf" PDF2="MRN_SPE22#NTR0464663####Mis4Pdf2" DES="MRN_SPE03#05#MARCHE LES DAMES" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0464663" ASSET="MRN_SPE16#V20687#V20687" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20687" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARRYALL#- FORD TRANSIT 300S" START="2015-07-16 07:00:00.0" END="2015-07-17 08:00:00.0" WSC="RGEF"/>
+<row MISSION="NTR0459703" GEN_PDF="MRN_SPE22#NTR0459703####Mis4Pdf" PDF2="MRN_SPE22#NTR0459703####Mis4Pdf2" DES="" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0459703" ASSET="MRN_SPE16#V20790#V20790" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20790" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-14 08:00:00.0" END="2015-07-22 08:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0459703" GEN_PDF="MRN_SPE22#NTR0459703####Mis4Pdf" PDF2="MRN_SPE22#NTR0459703####Mis4Pdf2" DES="" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0459703" ASSET="MRN_SPE16#V20792#V20792" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20792" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-14 08:00:00.0" END="2015-07-22 08:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0464697" GEN_PDF="MRN_SPE22#NTR0464697####Mis4Pdf" PDF2="MRN_SPE22#NTR0464697####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0464697" ASSET="MRN_SPE16#V20819#V20819" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20819" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-15 08:00:00.0" END="2015-07-24 13:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0466458" GEN_PDF="MRN_SPE22#NTR0466458####Mis4Pdf" PDF2="MRN_SPE22#NTR0466458####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466458" ASSET="MRN_SPE16#V20832#V20832" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20832" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-06 07:00:00.0" END="2015-07-10 14:30:00.0" WSC="RCEM"/>
+<row MISSION="NTR0466561" GEN_PDF="MRN_SPE22#NTR0466561####Mis4Pdf" PDF2="MRN_SPE22#NTR0466561####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466561" ASSET="MRN_SPE16#V20832#V20832" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20832" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-13 07:00:00.0" END="2015-07-17 14:30:00.0" WSC="RCEM"/>
+<row MISSION="NTR0466454" GEN_PDF="MRN_SPE22#NTR0466454####Mis4Pdf" PDF2="MRN_SPE22#NTR0466454####Mis4Pdf2" DES="MRN_SPE03#05#Vilvoorde" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466454" ASSET="MRN_SPE16#V20859#V20859" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20859" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-06 07:00:00.0" END="2015-07-10 14:30:00.0" WSC="RCEM"/>
+<row MISSION="NTR0466560" GEN_PDF="MRN_SPE22#NTR0466560####Mis4Pdf" PDF2="MRN_SPE22#NTR0466560####Mis4Pdf2" DES="MRN_SPE03#05#Vilvoorde" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466560" ASSET="MRN_SPE16#V20859#V20859" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20859" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-13 07:00:00.0" END="2015-07-17 14:30:00.0" WSC="RCEM"/>
+<row MISSION="NTR0462315" GEN_PDF="MRN_SPE22#NTR0462315####Mis4Pdf" PDF2="MRN_SPE22#NTR0462315####Mis4Pdf2" DES="MRN_SPE03#05#Ville De Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0462315" ASSET="MRN_SPE16#V20860#V20860" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20860" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-16 07:00:00.0" END="2015-07-16 14:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0462964" GEN_PDF="MRN_SPE22#NTR0462964####Mis4Pdf" PDF2="MRN_SPE22#NTR0462964####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0462964" ASSET="MRN_SPE16#V20860#V20860" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20860" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-17 08:00:00.0" END="2015-07-22 08:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0463285" GEN_PDF="MRN_SPE22#NTR0463285####Mis4Pdf" PDF2="MRN_SPE22#NTR0463285####Mis4Pdf2" DES="MRN_SPE03#05#BRUSSEL KW KONINKLIJKE MIL SCHOOL" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0463285" ASSET="MRN_SPE16#V20860#V20860" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V20860" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,STATION WAGON#- PEUGEOT BOXER 9 PLACES" START="2015-07-03 14:00:00.0" END="2015-07-06 08:00:00.0" WSC="RCEM"/>
+<row MISSION="NTR0461902" GEN_PDF="MRN_SPE22#NTR0461902####Mis4Pdf" PDF2="MRN_SPE22#NTR0461902####Mis4Pdf2" DES="MRN_SPE03#05#SPORTC DEF BUR TRANSPORT" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0461902" ASSET="MRN_SPE16#V37319#V37319" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V37319" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- VOLKSWAGEN LT35D - FOURGON" START="2015-06-26 12:00:00.0" END="2015-07-17 11:00:00.0" WSC="RBAF"/>
+<row MISSION="NTR0461907" GEN_PDF="MRN_SPE22#NTR0461907####Mis4Pdf" PDF2="MRN_SPE22#NTR0461907####Mis4Pdf2" DES="MRN_SPE03#05#SPORTC DEF BUR TRANSPORT" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0461907" ASSET="MRN_SPE16#V37319#V37319" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V37319" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,UTILITY#- VOLKSWAGEN LT35D - FOURGON" START="2015-07-17 12:00:00.0" END="2015-07-31 11:00:00.0" WSC="RBAF"/>
+<row MISSION="NTR0467295" GEN_PDF="MRN_SPE22#NTR0467295####Mis4Pdf" PDF2="MRN_SPE22#NTR0467295####Mis4Pdf2" DES="MRN_SPE03#05#TEB - MOBCENT EVERE ZUID" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0467295" ASSET="MRN_SPE16#V37567#V37567" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V37567" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" START="2015-07-15 09:00:00.0" END="2015-07-22 10:20:00.0" WSC="RCQC"/>
+<row MISSION="NTR0460902" GEN_PDF="MRN_SPE22#NTR0460902####Mis4Pdf" PDF2="MRN_SPE22#NTR0460902####Mis4Pdf2" DES="" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0460902" ASSET="MRN_SPE16#V37600#V37600" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V37600" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" START="2015-07-20 08:00:00.0" END="2015-07-20 12:00:00.0" WSC="RCQC"/>
+<row MISSION="NTR0467448" GEN_PDF="MRN_SPE22#NTR0467448####Mis4Pdf" PDF2="MRN_SPE22#NTR0467448####Mis4Pdf2" DES="MRN_SPE03#05#IEPER MAG KLAS III - CL III" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0467448" ASSET="MRN_SPE16#V37600#V37600" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V37600" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" START="2015-07-08 15:00:00.0" END="2015-07-10 08:00:00.0" WSC="RCQC"/>
+<row MISSION="NTR0468331" GEN_PDF="MRN_SPE22#NTR0468331####Mis4Pdf" PDF2="MRN_SPE22#NTR0468331####Mis4Pdf2" DES="MRN_SPE03#05#Evere" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0468331" ASSET="MRN_SPE16#V37600#V37600" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V37600" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- TRUCK,CARGO#- MERCEDES 1117/N - CARGO HAYON STANDARD" START="2015-07-07 09:00:00.0" END="2015-07-07 12:00:00.0" WSC="RCQC"/>
+<row MISSION="NTR0466462" GEN_PDF="MRN_SPE22#NTR0466462####Mis4Pdf" PDF2="MRN_SPE22#NTR0466462####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466462" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-06 18:00:00.0" END="2015-07-07 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466479" GEN_PDF="MRN_SPE22#NTR0466479####Mis4Pdf" PDF2="MRN_SPE22#NTR0466479####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466479" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-07 18:00:00.0" END="2015-07-08 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466484" GEN_PDF="MRN_SPE22#NTR0466484####Mis4Pdf" PDF2="MRN_SPE22#NTR0466484####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466484" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-08 18:00:00.0" END="2015-07-09 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466491" GEN_PDF="MRN_SPE22#NTR0466491####Mis4Pdf" PDF2="MRN_SPE22#NTR0466491####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466491" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-09 18:00:00.0" END="2015-07-10 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466564" GEN_PDF="MRN_SPE22#NTR0466564####Mis4Pdf" PDF2="MRN_SPE22#NTR0466564####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466564" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-13 18:00:00.0" END="2015-07-14 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466569" GEN_PDF="MRN_SPE22#NTR0466569####Mis4Pdf" PDF2="MRN_SPE22#NTR0466569####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466569" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-14 18:00:00.0" END="2015-07-15 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466575" GEN_PDF="MRN_SPE22#NTR0466575####Mis4Pdf" PDF2="MRN_SPE22#NTR0466575####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466575" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-15 18:00:00.0" END="2015-07-16 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466577" GEN_PDF="MRN_SPE22#NTR0466577####Mis4Pdf" PDF2="MRN_SPE22#NTR0466577####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466577" ASSET="MRN_SPE16#V80523#V80523" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80523" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-16 18:00:00.0" END="2015-07-17 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466462" GEN_PDF="MRN_SPE22#NTR0466462####Mis4Pdf" PDF2="MRN_SPE22#NTR0466462####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466462" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-06 18:00:00.0" END="2015-07-07 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466479" GEN_PDF="MRN_SPE22#NTR0466479####Mis4Pdf" PDF2="MRN_SPE22#NTR0466479####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466479" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-07 18:00:00.0" END="2015-07-08 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466484" GEN_PDF="MRN_SPE22#NTR0466484####Mis4Pdf" PDF2="MRN_SPE22#NTR0466484####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466484" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-08 18:00:00.0" END="2015-07-09 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466491" GEN_PDF="MRN_SPE22#NTR0466491####Mis4Pdf" PDF2="MRN_SPE22#NTR0466491####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466491" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-09 18:00:00.0" END="2015-07-10 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466564" GEN_PDF="MRN_SPE22#NTR0466564####Mis4Pdf" PDF2="MRN_SPE22#NTR0466564####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466564" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-13 18:00:00.0" END="2015-07-14 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466569" GEN_PDF="MRN_SPE22#NTR0466569####Mis4Pdf" PDF2="MRN_SPE22#NTR0466569####Mis4Pdf2" DES="MRN_SPE03#05#Brussel/Bruxelles" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466569" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-14 18:00:00.0" END="2015-07-15 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466575" GEN_PDF="MRN_SPE22#NTR0466575####Mis4Pdf" PDF2="MRN_SPE22#NTR0466575####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466575" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-15 18:00:00.0" END="2015-07-16 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0466577" GEN_PDF="MRN_SPE22#NTR0466577####Mis4Pdf" PDF2="MRN_SPE22#NTR0466577####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466577" ASSET="MRN_SPE16#V80525#V80525" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80525" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- PEUGEOT 307 XR CONF" START="2015-07-16 18:00:00.0" END="2015-07-17 06:00:00.0" WSC="RCED"/>
+<row MISSION="NTR0452266" GEN_PDF="MRN_SPE22#NTR0452266####Mis4Pdf" PDF2="MRN_SPE22#NTR0452266####Mis4Pdf2" DES="MRN_SPE03#05#GEILENKIRCHEN" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0452266" ASSET="MRN_SPE16#V80676#V80676" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80676" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" START="2015-07-10 13:00:00.0" END="2015-07-20 09:00:00.0" WSC="RCEE"/>
+<row MISSION="NTR0466401" GEN_PDF="MRN_SPE22#NTR0466401####Mis4Pdf" PDF2="MRN_SPE22#NTR0466401####Mis4Pdf2" DES="MRN_SPE03#07#ZEEBRUGGE MARINEBASIS" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466401" ASSET="MRN_SPE16#V80677#V80677" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80677" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" START="2015-07-09 07:00:00.0" END="2015-07-10 17:00:00.0" WSC="RCEE"/>
+<row MISSION="NTR0454437" GEN_PDF="MRN_SPE22#NTR0454437####Mis4Pdf" PDF2="MRN_SPE22#NTR0454437####Mis4Pdf2" DES="MRN_SPE03#05#Netherlands" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0454437" ASSET="MRN_SPE16#V80692#V80692" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80692" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" START="2015-06-26 10:00:00.0" END="2015-07-06 10:00:00.0" WSC="RCEE"/>
+<row MISSION="NTR0462234" GEN_PDF="MRN_SPE22#NTR0462234####Mis4Pdf" PDF2="MRN_SPE22#NTR0462234####Mis4Pdf2" DES="MRN_SPE03#05#France" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0462234" ASSET="MRN_SPE16#V80703#V80703" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80703" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- OPEL CORSA 1300 CDTI 5 PORTES" START="2015-07-03 13:30:00.0" END="2015-07-10 15:00:00.0" WSC="RCEE"/>
+<row MISSION="NTR0466447" GEN_PDF="MRN_SPE22#NTR0466447####Mis4Pdf" PDF2="MRN_SPE22#NTR0466447####Mis4Pdf2" DES="MRN_SPE03#05#Belgium" TRPREQ="MRN_SPE01#TRPREQ&amp;arg2=NTR0466447" ASSET="MRN_SPE16#V80779#V80779" ASSETA="MRN_SPE01#ASSETA&amp;arg1=V80779" NSN_DESC_ALB="MRN_SPE04#L#MRN_SPE06#40#MRN_SPE07#- AUTOMOBILE,SEDAN#- RENAULT MEGANE AUTHENTIQUE DCI 90" START="2015-06-30 10:00:00.0" END="2015-07-13 08:00:00.0" WSC="RCED"/>
+</rows>
+</dbquery>
+<dbquery id='KPI_SUMMARY'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			select &apos;Yes&apos; Template from dual
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select &apos;NADA&apos; from dual
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="NADA" type="VARCHAR"/>
+</columns>
+<rows>
+<row NADA="NADA"/>
+</rows>
+</dbquery>
+<dbquery id='TEMPLATE'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+			SELECT
+				didd.*
+			FROM
+				dbn_ilias_data_dictionary didd 
+				join dbn_report r on r.dbn_rep_id=didd.PRID
+			WHERE
+				if(&apos;pKPI&apos;=&apos;&apos;,if(&apos;pRID&apos;=&apos;&apos;,r.dbn_rep_id=&apos;0&apos;,r.dbn_rep_id =&apos;pRID&apos;),r.dbn_rep_kpi=&apos;pKPI&apos;) and 
+				didd.FIELD_NAME is not null	 AND
+				didd.COLUMN_NAME in (&apos;NSN&apos;, &apos;ILIAS&apos;, &apos;NSN_DESC_ALB&apos;, &apos;DESC_FR_NL&apos;, &apos;UTIL_STATUS&apos;, &apos;GL_ACC&apos;, &apos;GL_STK&apos;, &apos;GL_QTY&apos;)
+		
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			select &apos;Yes&apos; Template from dual
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="Template" type="VARCHAR"/>
+</columns>
+<rows>
+<row Template="Yes"/>
+</rows>
+</dbquery>
+<dbquery id='ILIAS_DATA_DICTIONARY'>
+<descriptor>
+<database>dbnode</database>
+<originalquery>
+</originalquery>
+<parameters>
+<param name='pRID' value=''/>
+<param name='pKPI' value='0129'/>
+<param name='pVKEYD' value='TEPE'/>
+<param name='pMODE' value='Main'/>
+<param name='pLANG' value='FR'/>
+<param name='pEXPLORE' value='YES'/>
+<param name='pHIST' value='YES'/>
+<param name='pINPUT' value='M'/>
+<param name='pVALUE' value='06-14'/>
+<param name='pWSC' value=''/>
+</parameters>
+<querystring>
+			SELECT
+				didd.*
+			FROM
+				dbn_ilias_data_dictionary didd 
+				join dbn_report r on r.dbn_rep_id=didd.PRID
+			WHERE
+				if(&apos;0129&apos;=&apos;&apos;,if(&apos;&apos;=&apos;&apos;,r.dbn_rep_id=&apos;0&apos;,r.dbn_rep_id =&apos;&apos;),r.dbn_rep_kpi=&apos;0129&apos;) and 
+				didd.FIELD_NAME is not null	 AND
+				didd.COLUMN_NAME in (&apos;NSN&apos;, &apos;ILIAS&apos;, &apos;NSN_DESC_ALB&apos;, &apos;DESC_FR_NL&apos;, &apos;UTIL_STATUS&apos;, &apos;GL_ACC&apos;, &apos;GL_STK&apos;, &apos;GL_QTY&apos;)
+		
+</querystring>
+</descriptor>
+<columns>
+<column name="PRID" type="INTEGER"/><column name="DB_VIEW" type="VARCHAR"/><column name="IL_VIEW" type="VARCHAR"/><column name="IL_SCREEN" type="VARCHAR"/><column name="COLUMN_NAME" type="VARCHAR"/><column name="FIELD_NAME" type="VARCHAR"/><column name="COLUMN_DATA" type="VARCHAR"/><column name="COMMENT" type="VARCHAR"/><column name="HINT_NO" type="DECIMAL"/><column name="HINT_FR" type="VARCHAR"/><column name="HINT_NL" type="VARCHAR"/><column name="HINT_EN" type="VARCHAR"/>
+</columns>
+<rows>
+<row PRID="201" DB_VIEW="MRQR_ASSETS" IL_VIEW="ASSETS_VU" IL_SCREEN="ASSETA" COLUMN_NAME="NSN" FIELD_NAME="NSN" COLUMN_DATA="ASS_PART" COMMENT="NSN of the asset." HINT_NO="804" HINT_FR="NSN de l&apos;asset." HINT_NL="NSN van het asset." HINT_EN="NSN of the asset."/>
+<row PRID="201" DB_VIEW="MRQR_NSN" IL_VIEW="NSN_VU" IL_SCREEN="SPART" COLUMN_NAME="NSN" FIELD_NAME="NSN" COLUMN_DATA="PART_NO" COMMENT="Nato Stock Number." HINT_NO="4658" HINT_FR="Codification de l&apos;article (NSN).##" HINT_NL="Stock nummer (NSN).##" HINT_EN="Nato Stock Number."/>
+<row PRID="201" DB_VIEW="MRQR_NSN" IL_VIEW="NSN_VU" IL_SCREEN="SPART" COLUMN_NAME="UTIL_STATUS" FIELD_NAME="Utilisation status" COLUMN_DATA="PART_UTIL_STATUS" COMMENT="Code of the utilisation status." HINT_NO="4311" HINT_FR="Statut d&apos;utilisation." HINT_NL="Gebruiksstatuut." HINT_EN="Utilisation status code.##"/>
+</rows>
+</dbquery>
+</dbqueries>

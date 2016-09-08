@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>Report List For QR Node ILIAS</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/COMMON/QRNI_METADATA.xml</source>
+ <processing type="none"/>
+ <result type="xml" header="no"/>
+</descriptor>
