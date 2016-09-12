@@ -227,7 +227,7 @@
 				--	else round(abs((mil.COM_LAUNCHED_INI - mil.COM_COMMITTED)*100/mil.COM_COMMITTED),2)
 				-- end 'BgtD'	
 				,max(mprv.pr_version) 'Ver'
-				, dos.dos_status 'DS'
+				-- , dos.dos_status 'DS'
 				, if(dos.dos_result='TIC','MRN_SPE03#05#Y','MRN_SPE03#F15#N') 'TIC'
 				-- , concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
 				, mc.dossier
