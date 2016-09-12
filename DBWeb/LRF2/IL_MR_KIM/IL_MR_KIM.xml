@@ -264,7 +264,7 @@
 			
 			)dos on dos.dossier=mpr.pr				
 		left join mrqr_commitments_requests mcr on mcr.imp_id=mil.imp_ln_id
-		left join mrqr_commitments mc on mc.commitment_id=mcr.commitment_id and mc.year=2016 and mc.status='A' and not(mc.approval_date) is null
+		left join mrqr_commitments mc on mc.commitment_id=mcr.commitment_id and mc.year='pYEAR' and mc.status='A' and not(mc.approval_date) is null
 			
 		
 		where mpr.invest_plan_type ='KIM' 
