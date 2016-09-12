@@ -229,7 +229,9 @@
 				,max(mprv.pr_version) 'Ver'
 				, dos.dos_status 'DS'
 				, if(dos.dos_result='TIC','MRN_SPE03#05#Y','MRN_SPE03#F15#N') 'TIC'
-				,concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+				, concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+				, date(mc.approval_date) ApprovDate
+
 		from mrqr_pur_req mpr 
 		left join mrqr_imputation_lines mil on mil.pr=mpr.pr and mil.year='pYEAR' and left(mil.BA,2)='74' and IF('pBUDGETZERO'='on',mil.com_scheduled=0,mil.com_scheduled>0)
 		left join mrqr_imputation mi on mi.pr=mpr.pr and mi.active='Y' and left(mi.BA,2)='74'
@@ -261,7 +263,9 @@
 				left join mrqr_dos_circlist c on d.dossier_id=c.dossier_id	and c.result='TIC'
 			
 			)dos on dos.dossier=mpr.pr				
-					
+		left join mrqr_commitments_requests mcr on mcr.imp_id=mil.imp_ln_id
+		left join mrqr_commitments mc on mc.commitment_id=mcr.commitment_id and mc.year=2016 and mc.status='A' and not(mc.approval_date) is null
+			
 		
 		where mpr.invest_plan_type ='KIM' 
 			and IF('pMATMAN'='',true,mpr.matman like 'pMATMAN')
