@@ -229,7 +229,8 @@
 				,max(mprv.pr_version) 'Ver'
 				, dos.dos_status 'DS'
 				, if(dos.dos_result='TIC','MRN_SPE03#05#Y','MRN_SPE03#F15#N') 'TIC'
-				, concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+				-- , concat('MRN_SPE01#PREQ&amp;arg1=',mpr.pr) L
+				, mc.dossier
 				, date(mc.approval_date) ApprovDate
 
 		from mrqr_pur_req mpr 
