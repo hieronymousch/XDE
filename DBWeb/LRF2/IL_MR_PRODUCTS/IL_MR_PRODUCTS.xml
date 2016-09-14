@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- , concat('MRN_SPE20#\\\\idcn.mil.intra\\cdn-masterdata\\Global-Change\\CIDMat\\Tech Bib Defense\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink' -->
 <dbwebdescriptor version='2.0'>
 	<label>MR NODE FW2 - SAMPLE 01</label>
 	<description>MR NODE FW2 - SAMPLE 01</description>
@@ -22,14 +23,25 @@
 				, mn.un_code UN_Code
 				, mn.macode 'macode'
 				, mn.hazard 'hazard'
+				<includeIf paramName="pSTORE" isInRequest="true" matches=".+">
+				, msb.store 'store'
+				, msb.binloc 'binloc'
+				, msb.zone 'zone'
+				, msb.lot 'lot'
+				, msb.expdate 'expdate'
+				
+				</includeIf>	
 				<includeIf paramName="pCONTRACT" isInRequest="true" matches=".+">
 				, mcm.contract 'contract'
 				</includeIf>	
-				-- , concat('MRN_SPE20#\\\\idcn.mil.intra\\cdn-masterdata\\Global-Change\\CIDMat\\Tech Bib Defense\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
+				
 				, concat('MRN_SPE20#file:\\\\\\G:\\DGMR\\35 Products\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
 			from mrqr_nsn mn 
 				inner join mrqr_macodes ma on mn.macode=ma.macode
 				inner join mrqr_nsn_security_codes mns on mn.nsn=mns.nsn and (left(mns.code,3)='ENV' or left(mns.code,4)='PREV')
+				<includeIf paramName="pSTORE" isInRequest="true" matches=".+">
+				inner join  mrqr_stock_binloc msb on mn.nsn=msb.nsn and msb.store='pSTORE'
+				</includeIf>		
 				<includeIf paramName="pCONTRACT" isInRequest="true" matches=".+">
 				left join  mrqr_contracts_material mcm on mn.nsn=mcm.nsn and mcm.enddate>=now()
 				</includeIf>		
@@ -47,6 +59,7 @@
                         OR length(replace(replace('pCONTRACT','%',''),'_',''))&gt;=3
                         OR length(replace(replace('pMATMAN','%',''),'_',''))&gt;=2
                         OR length(replace(replace('pMACODE','%',''),'_',''))&gt;=3
+                        OR length(replace(replace('pSTORE','%',''),'_',''))&gt;=3
                         
                         )
 			order by mn.nsn
@@ -60,6 +73,7 @@
 		<parameter name='pCONTRACT' value=''/>				
 		<parameter name='pMATMAN' value=''/>				
 		<parameter name='pMACODE' value=''/>				
+		<parameter name='pSTORE' value=''/>				
 				
 	</parameters>
 </dbwebdescriptor>
