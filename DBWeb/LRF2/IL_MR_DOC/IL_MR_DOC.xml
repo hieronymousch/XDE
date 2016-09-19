@@ -16,7 +16,8 @@
 				, concat('MRN_SPE01#ADOC&amp;arg1=',md.nsn) ILIAS
 				, md.document
 				, md.title
-				, md.type
+				, if(md.type='CH','MRN_SPE03#F13#CH', md.type) as 'Type'
+				, concat('MRN_SPE20#http://msywsledt153935.idcn.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_DOC/IL_MR_DOC.xml?p|N|SN=',md2.nsn,'#_blank#8#',md2.nsn) as 'Parent' 
 				, if(md.usable='Y','MRN_SPE03#F04#Y','MRN_SPE03#F15#N') as 'Usable'
 				, md.keyword
 				, md.comments
@@ -27,7 +28,7 @@
 				, if (md.replaced_by_id=null, true, concat('MRN_SPE09#05##',md2.NSN,'#1#',md2.NSN)) '____NewDoc____'
 				</includeIf> 
 				, concat('MRN_SPE09#01##',ma.man_org,'#0#',ma.man_org) 'MatMan'
-				, if (left(md.nsn,4)='7610',concat('MRN_SPE20#file:\\\\\\G:\\CIDMat\\Tech Bib Defense\\index\\',md.nsn,'.HTML#_blank#8#','OpenDoc'),'N/A') 'DocLink'
+				, if(not(md2.nsn is null) and md.type='CH',concat('MRN_SPE20#file:\\\\\\G:\\CIDMat\\Tech Bib Defense\\index\\',md2.nsn,'.HTML#_blank#8#','OpenDocParent'),if(left(md.nsn,4)='7610',concat('MRN_SPE20#file:\\\\\\G:\\CIDMat\\Tech Bib Defense\\index\\',md.nsn,'.HTML#_blank#8#','OpenDoc'),'N/A')) 'DocLink'
 			from 
 				mrqr_documents md 
 				inner join mrqr_nsn mn on md.nsn=mn.nsn and md.nsn like '7610-%'
@@ -38,6 +39,7 @@
 				<includeIf paramName="pFUNCTION" isInRequest="true" matches=".+">
 				left join mrqr_documents_function mdf on md.doc_id=mdf.doc_id
 				</includeIf>	
+				left join mrqr_documents md2 on md.parent_id=md2.doc_id
 			where 
 				if ('pTITLE'='',true, md.title like 'pTITLE')
 				and if ('pNSN'='',true, md.NSN like 'pNSN')
