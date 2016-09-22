@@ -12,10 +12,11 @@
 		</ws-query>
 	</queries>	
 	<parameters>
-		<parameter name='pRID' value=''/>		
+		<parameter name='pRID' value='10103'/>		
 		<parameter name='pLANG' value='EN'/>		
-		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pINFO' value='IPDTU'/>
 		<parameter name='pMODE' value='Main'/>
+		<parameter name='pUSER' value='IBANEZ.C'/>
 		<!-- Only For Pillar Node Authentication
 		<parameter name="pUSER" value='' overrulingvalue="$auth('sAMAccountName')" toUppercase='true'/>	
 		-->

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>DB Node Report Logging</label>
+	<description>DB Node Report Logging</description>
+	<queries>
+		<querystring id='DBN_REP_LOGGING' database='dbnode'>
+			select 
+				rl.*
+			from 
+				dbn_report_logging rl
+			where 
+				dbn_repl_parid=repid
+			order by dbn_repl_id desc
+			limit 0,7
+		</querystring>	
+	</queries>	
+	<parameters>
+		<parameter name='repid' value='0'/>
+	</parameters>
+</dbwebdescriptor>

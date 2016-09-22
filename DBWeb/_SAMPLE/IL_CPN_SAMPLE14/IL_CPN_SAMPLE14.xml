@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>FW CPN - SAMPLE 14</label>
+	<description>FW CPN - SAMPLE 14</description>
+	<queries>
+		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
+		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
+			<parameter name='pcINFO'>pINFO</parameter>
+			<parameter name='pcLANG'>pLANG</parameter>
+			<parameter name='pcRID'>pRID</parameter>
+			<parameter name='pcCDN'>pUSER</parameter>
+		</ws-query>
+		<!-- Real Queries for Report -->
+		<querystring id='IL_MR_SAMPLE' database='dbnode'>
+			select
+				mp.NAME
+				,mp.FIRSTNAME
+				,mp.ARMY_NUMBER
+				,mp.TEL
+				,mp.EMAIL
+				,mp.ORGANISM
+				,mqp.QUALIFICATION
+				,mqp.CERTIFICATE
+				,mqp.STARTDATE
+				,mqp.ENDDATE
+			from
+				mrqr_persons mp	JOIN mrqr_persons_qualifications mqp ON mp.IDNR = mqp.IDNR
+			where
+				mp.ARMY_NUMBER != ''
+				<includeIf paramName="pName" doesntMatch="">
+					and mp.NAME='pName'
+				</includeIf>
+				<includeIf paramName="pQualification" doesntMatch="">
+					and
+						<repeat paramName="pQualification">
+							mqp.QUALIFICATION='pQualification'
+						</repeat>
+				</includeIf>
+				<includeIf paramName="pOrg" matches="(.)*[0-9a-zA-Z]+(.)*">
+					and mp.ORGANISM='pOrg'
+				</includeIf>
+				<includeIf paramName="pEndDate" matches="(.)*[0-9a-zA-Z]+(.)*">
+					and mqp.ENDDATE &lt; 'pEndDate'
+				</includeIf>
+			order by
+				mp.ARMY_NUMBER
+		</querystring>
+		
+		<querystring id="qualifications" database="dbnode">
+			SELECT DISTINCT
+				q.QUALIFICATION DATA
+				,q.QUALIFICATION DISPLAY
+			FROM
+				mrqr_persons_qualifications q
+			ORDER BY
+				q.QUALIFICATION ASC
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='10014'/>		
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pMODE' value='Main'/>
+		<parameter name='pINFO' value='IPDT'/>
+
+		<parameter name='pOrg' value=''/>
+		<parameter name='pName' value=''/>
+		<parameter name='pQualification' value='EOS BUS'/>
+		<parameter name='pEndDate' value=''/>
+	</parameters>
+</dbwebdescriptor>

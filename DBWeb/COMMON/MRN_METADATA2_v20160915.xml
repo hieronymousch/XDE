@@ -6,19 +6,12 @@
 		<includeIf paramName="pcINFO" matches=".*I.*"> 
 			<querystring id='Report_Info' database='dbnode'>
 				select distinct  
-					sq1.log, r.*,count(v.dbn_repv_viewname) Views_Used, ifnull(min(e.Ref_Status),'OK') Extr_Status 
+					r.*,count(v.dbn_repv_viewname) Views_Used, ifnull(min(e.Ref_Status),'OK') Extr_Status 
 				from 
 					dbn_report r 
 					left join dbn_report_views v on v.dbn_repv_parid = r.dbn_rep_id
 					left join dbn_entities e on v.dbn_repv_viewname = e.ViewName
-					left join 
-					(select 
-						max(rl.dbn_repl_id) log, rl.dbn_repl_parid
-					FROM
-						dbn_report_logging rl 
-					GROUP BY
-						rl.dbn_repl_parid) SQ1 on SQ1.dbn_repl_parid=r.dbn_rep_id
-				where
+				where 
 					if('pcKPI'='',if('pcRID'='',r.dbn_rep_id='0',r.dbn_rep_id ='pcRID'),r.dbn_rep_kpi='pcKPI')
 			</querystring>
 		</includeIf>

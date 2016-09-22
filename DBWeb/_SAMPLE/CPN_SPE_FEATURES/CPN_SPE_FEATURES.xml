@@ -13,9 +13,34 @@
 		<!-- Real Queries for Report -->
 		<querystring id='SPE' database='dbnode'>
 			Select
-				*
+				dbn_mr_spe_nu
+				,dbn_mr_spe_code
+				,dbn_mr_spe_title
+				,dbn_mr_spe_status
+				,concat('MRN_SPE06#10#',dbn_mr_spe_description) dbn_mr_spe_description
+				,concat('MRN_SPE06#35#',dbn_mr_spe_remark) dbn_mr_spe_remark
+				,concat('MRN_SPE06#20#',dbn_mr_spe_expval) dbn_mr_spe_expval
+				,dbn_mr_spe_expspe
 			from 
 				dbn_mr_l_special_features_example 
+			where
+				dbn_mr_spe_status not like '%D%'
+		</querystring>
+		<!-- Real Queries for Report -->
+		<querystring id='SPE_DEPRECATED' database='dbnode'>
+			Select
+				dbn_mr_spe_nu
+				,dbn_mr_spe_code
+				,dbn_mr_spe_title
+				,dbn_mr_spe_status
+				,concat('MRN_SPE06#10#',dbn_mr_spe_description) dbn_mr_spe_description
+				,concat('MRN_SPE06#35#',dbn_mr_spe_remark) dbn_mr_spe_remark
+				,concat('MRN_SPE06#20#',dbn_mr_spe_expval) dbn_mr_spe_expval
+				,dbn_mr_spe_expspe
+			from 
+				dbn_mr_l_special_features_example 
+			where
+				dbn_mr_spe_status  like '%D%'
 		</querystring>
 	</queries>	
 	<parameters>

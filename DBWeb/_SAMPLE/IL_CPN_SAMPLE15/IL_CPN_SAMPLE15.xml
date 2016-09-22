@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <dbwebdescriptor version='2.0'>
-	<label>FW CPN - SAMPLE 10</label>
-	<description>FW CPN - SAMPLE 10</description>
+	<label>FW CPN - SAMPLE 15</label>
+	<description>FW CPN - SAMPLE 15</description>
 	<queries>
 		<!-- METADATA - Always in First Position - Incluse this ws-query if Report DataModel is used -->
 		<ws-query id='METADATA' url='http://localhost/LRF/XMLWeb/ProcessDescriptor/descriptor/COMMON/MRN_METADATA2.xml' xpath='/dbqueries/*' auth='RealTimeNodeAuth'>
@@ -14,58 +14,81 @@
 		<includeIf paramName="pMODE" matches="Main"> 
 			<querystring id='SUMMARY' database='dbnode'>
 				Select
-					count(ASSET) NBR,STATUS,ORGANISM, MRC, DESCRIPTION
+					count(ASSET) NBR,STATUS,ORGANISM, FUNCTION
 				from 
 					MRQR_ASSETS A 
 				where 
-					A.ASSET like '%'
+					A.ASSET like 'F____'
 				GROUP BY
-					ORGANISM, STATUS, MRC
+					ORGANISM, STATUS, FUNCTION
 				limit 50
 			</querystring>
 		</includeIf>
+		<includeIf paramName="pENTRY" matches="PIVOT"> 
+			<querystring id='PIVOT' database='dbnode'>
+				Select
+					ASSET,
+					STATUS,
+					ORGANISM,
+					MRC,
+					FUNCTION,
+					LATEST_CATEGORY
+				from 
+					MRQR_ASSETS A 
+				where 
+					A.ASSET like 'FA0%'
+			</querystring>
+		</includeIf>
+		
 		<includeIf paramName="pMODE" isInRequest="true" matches="Drill-Down"> 
 			<querystring id='DETAILS' database='dbnode'>
 				Select
-					concat('MRN_SPE09#01##',MRC,'#1#',MRC) MRC,
-					concat('MRN_SPE09#06##',ASSET,'#1#',ASSET) ASSET,
+					concat('MRN_SPE11#',MRC) MRC,
+					concat('MRN_SPE02#24&amp;p|AS|SET=',ASSET,'#',ASSET) ASSET,
 					concat('MRN_SPE01#ASSETA&amp;arg1=',ASSET) ILIAS,
-					concat('MRN_SPE09#05##',NSN,'#1#',NSN) NSN,
+					concat('MRN_SPE02#2&amp;p|NS|N=',NSN,'#',NSN) NSN,
 					concat('MRN_SPE01#SPART&amp;arg1=',NSN) ILIAS2,
 					concat('MRN_SPE07#PN',PN,'#',MFR) PN_MFR,
 					if(STATUS='D',concat('MRN_SPE03#07#MRN_SPE10#AS#',STATUS),concat('MRN_SPE10#AS#',STATUS)) STATUS,
 					SERIAL,
-					1 Pilot,
 					FUNCTION,
 					concat('MRN_SPE06#20#MRN_SPE04#L#',DESCRIPTION) DESCRIPTION,
 					ORGANISM,
 					IFNULL(LIMITATIONS,'MRN_SPE08#white#NO_LIMIT') LIMITATIONS
-					
 				from 
 					MRQR_ASSETS A 
 				where 
 					A.ASSET like 'FA0%' and
 					if('pSTATUS'='',true,STATUS ='pSTATUS') and 
-					if('pMRC'='',true,MRC ='pMRC') and 
-					if('pDESCRIPTION'='',true,DESCRIPTION ='pDESCRIPTION') and 
 					if('pORGANISM'='',true,ORGANISM ='pORGANISM')
-				limit 100
+				limit 50
 			</querystring>
 		</includeIf>
+		<querystring id='IL_MR_SAMPLE' database='dbnode'>
+			Select
+				ASSET,NSN,PN,MFR,SERIAL,FUNCTION,DESCRIPTION,ORGANISM,MRC,STATUS
+			from 
+				MRQR_ASSETS A 
+			where 
+				A.ASSET like 'FA0%' and
+				if('pSTATUS'='',true,STATUS='pSTATUS') and
+				if('pORGANISM'='',true,ORGANISM='pORGANISM')
+		</querystring>
 	</queries>	
 	<parameters>
-		<parameter name='pRID' value='10010'/>		
+		<parameter name='pRID' value='10012'/>		
 		<parameter name='pLANG' value='EN'/>
 		<parameter name='pMODE' value='Main'/>
 		<parameter name='pINFO' value='IPDT'/>
-		<!--parameter name='pUSER' value="D'HOORE.M"/-->
-		
+
+		<parameter name='pENTRY' value='PIVOT'/>
 		<parameter name='pORGANISM' value=''/>
-		<parameter name='pDESCRIPTION' value=''/>
 		<parameter name='pSTATUS' value=''/>
-		<parameter name='pMRC' value=''/>
-		<parameter name='pR1' value='ORGANISM'/>
-		<parameter name='pR2' value='MRC'/>
-		<parameter name='pC1' value='STATUS'/>
+		<parameter name='pR1' value='FUNCTION'/>
+		<parameter name='pR2' value='STATUS'/>
+		<parameter name='pC1' value='ORGANISM'/>
+		<parameter name='pGR1' value='ORGANISM'/>
+		<parameter name='pGR2' value='ORGANISM'/>
+		<parameter name='pGC1' value='STATUS'/>
 	</parameters>
 </dbwebdescriptor>
