@@ -3,13 +3,13 @@
 	<xsl:output method="html" indent="yes"/>
 <!-- Common Pillar Node FW - Components - By CPN Dev Core Team -->
 	 
-	 	<xsl:variable name="CPNVersion" select="'1.0.4'"/>
-		<!-- Notification Counter : Last used Notification is 46 -->
+	 	<xsl:variable name="CPNVersion" select="'1.0.3b'"/>
+		<!-- Notification Counter : Last used Notification is 43 -->
 
 	 	<!-- Common Pillar Std variable Declaration -->
 	 	
 		 	<!-- ILIAS Links -->
-			 	<xsl:variable name="vURL_IOLP" select="'https://cdcwprdils10.idcn.mil.intra/forms/frmservlet?config=ilias_'"/>
+			 	<xsl:variable name="vURL_IOLP" select="'https://cdcwprdils40.idcn.mil.intra/forms/frmservlet?config=ilias_'"/>
 			 	<xsl:variable name="vURL_ITOP" select="'https://cdcwaccils05.idcn.mil.intra:8890/forms/frmservlet?config=ilias_'"/>
 			 	<xsl:variable name="vURL_IPAT" select="'https://cdcwaccils40.idcn.mil.intra/forms/frmservlet?config=ilias_'"/>
 			 	<xsl:variable name="vURL_IVXX" select="'https://cdcwaccils20.idcn.mil.intra/forms/frmservlet?config=ilias_'"/>
@@ -25,12 +25,9 @@
 			 	<xsl:variable name="vURL_OPSN" select="'http://opsnode.mil.intra'"/>
 			 	<xsl:variable name="vURL_QRN" select="'http://qrnode.mil.intra/ILIAS'"/>
 			 	<xsl:variable name="vURL_WIKI" select="'http://icp.mil.intra/'"/>
-			 	<xsl:variable name="vURL_DAM" select="'https://cdclprdptllb01.idcn.mil.intra/iliasrestservice/rest/dam'"/> 
-			 	<!-- For NSN add /PARTS/1005-13-112-2513/0 -->
 	 		<!-- Global variables -->
 			 	<xsl:variable name="vHtDocsConfig" select="'Default2'"/> 	<!-- Folder Name containing CPN Configuation Files -->
 			 	<xsl:variable name="vNodeConfig" select="'Local'"/> 		<!-- Folder Name containing Node Configuation Files (MRN_Prod/MRN_Accept/OPSN_Prod/QRNI_Prod/Local)-->
-			 	<xsl:variable name="vDeployedNode" select="'N'"/> 		<!-- Deployed Node ? Y/N Default 'N'-->
 			 	<xsl:variable name="vNodedT" select="'99'"/> 		<!-- Default dataTable Config-->
 			 	<xsl:variable name="vNodedTXLS" select="'Y'"/> 		<!-- Default XLS in dT (Y/N)-->
 			 	<xsl:variable name="vNodedTPDF" select="'Y'"/> 		<!-- Default PDF in dT (Y/N)-->
@@ -39,20 +36,16 @@
 				<xsl:variable name="vNodeHeatMap" select="'Y'"/> 	<!-- Show HeatMap (Y/N) -->
 				<xsl:variable name="vTabDefault" select="'pill'"/> 	<!-- Default Tab type (tab/pill) -->
 				<xsl:variable name="vNodeNRT" select="'NRT'"/> 		<!-- Std color for Query Block : NRT=Grey (datamart) / RT for Real-Time ILIAS -->
-			 	<xsl:variable name="vNodeName" select="'My Local Node'"/> 		<!-- Node Name MR Node/QR Node ILIAS/Ops Node/Local Node -->
-			 	<xsl:variable name="vWebMaster" select="'Your Name'"/>	<!-- Node POC (Administrators) -->
+			 	<xsl:variable name="vNodeName" select="'Local Node'"/> 		<!-- Node Name MR Node/QR Node ILIAS/Ops Node/Local Node -->
+			 	<xsl:variable name="vWebMaster" select="'POPOL'"/>	<!-- Node POC (Administrators) -->
 			 	<xsl:variable name="vNodeRedirect" select="'/LRF/XMLWeb/ProcessDescriptor/descriptor/HOME/Redir.xml'"/> 	<!-- Redirect Page URL--> 
 			 	<xsl:variable name="vNodeInputFormType" select="'M'"/> 			<!-- Default Input Method -->
 			 	<xsl:variable name="vUseDataModel" select="'Y'"/> 	<!-- Use CPN Report Data Model (Y or N). If No : Basic Prompt, no Info on Report, ... -->
-			 	<xsl:variable name="vNodeFeedback" select="-1"/> 			<!-- Pillar Node : RepId for Feedback/-1 If N/A -->
-			 	<xsl:variable name="vNodeDataDic" select="-1"/>			<!-- Pillar Node : RepId for DataDic/-1 If N/A -->
-			 	<xsl:variable name="vListAdminCDN">'CDN1','CDN2'</xsl:variable> 		<!-- Pillar Node : Administrators CDN login -->
-				<xsl:variable name="vListDevCDN">'CDN3','CDN4'</xsl:variable> 	<!-- Pillar Node : Developpers CDN login -->
-				<xsl:variable name="vRepStatWarning">'99'</xsl:variable> 	<!-- Report Status for which a warning will be displayed -->
-				<xsl:variable name="vPeriodEncourageInDays">7</xsl:variable> 		<!-- Number of days for Encouraging Message -->
-				<xsl:variable name="vPeriodEncourageTrigger">1000</xsl:variable> 		<!-- Number of Hits in Period to Generate Encouraging Message -->
-				<xsl:variable name="vTotalEncourageTrigger">2500</xsl:variable> 		<!-- Number of Cumulated Hits for Encouraging Message (multiple of) -->
-				<xsl:variable name="vMGT" select="'MR-MGT'"/> 						<!-- Pillar Node : NISM management -->
+			 	<xsl:variable name="vNodeFeedback" select="-1"/> 	<!-- Pillar Node : RepId for Feedback/-1 If N/A -->
+			 	<xsl:variable name="vNodeDataDic" select="-1"/>		<!-- Pillar Node : RepId for DataDic/-1 If N/A -->
+			 	<xsl:variable name="vListAdminCDN">'XXXX','YYYY'</xsl:variable> <!-- Pillar Node : Administrators CDN login -->
+				<xsl:variable name="vListDevCDN">'AAAA','BBBB'</xsl:variable> 	<!-- Pillar Node : Developpers CDN login -->
+				<xsl:variable name="vMGT" select="'MR-Mgt'"/> 						<!-- Pillar Node : NISM management Code -->
 				<xsl:variable name="vNIMSBaseUrl" select="'/ressources/MISM/'"/> 	<!-- Pillar Node : NISM Base Url -->
 			<!-- Mandatory Parameters -->
 				<xsl:variable name="vQUOTE">'</xsl:variable> 	<!-- Used for Securization Mechanism - replaced by '' -->
@@ -67,13 +60,11 @@
 				</xsl:variable>
 				<xsl:variable name="vMODE" select="distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value)"/>
 				<xsl:variable name="vINFO" select="distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pINFO']/@value)"/>
-				<!-- Quote are remove from CDN username to avoid errors in dataTable -->
+				<!--xsl:variable name="vUSER" select="replace(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pUSER']/@value)),$vQUOTE,'')"/>
+				<xsl:variable name="vCDN" select="if(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pcCDN']/@value))='') then 'UNK' else replace(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pcCDN']/@value)),$vQUOTE,'')"/-->
+				
 				<xsl:variable name="vUSER" select="replace(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pUSER']/@value)),$vQUOTE,'')"/>
 				<xsl:variable name="vCDN" select="if(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pcCDN']/@value))='') then 'UNK' else replace(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pcCDN']/@value)),$vQUOTE,'')"/>
-				
-				<!--xsl:variable name="vUSER" select="replace(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pUSER']/@value)),$vQUOTE,'')"/-->
-				<!--xsl:variable name="vCDN" select="if(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pcCDN']/@value))='') then 'UNK' else replace(upper-case(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pcCDN']/@value)),$vQUOTE,'')"/-->
-				
 				<!-- Important ... Security Pilar Node (Do not modify) -->
 				<xsl:variable name="vPROFILE">
 					<xsl:choose>
@@ -289,7 +280,7 @@
 						          </a>
 						          <ul class="dropdown-menu">
 						            <li><a href="#" data-toggle="modal" data-target="#CPN_Report_Infos" role="button">Report Infos</a></li>
-									<xsl:if test="not($vNIMSBaseUrl='' or $vNodeConfig='Local') and $vPROFILE='Node_Admin'">
+									<xsl:if test="not($vNIMSBaseUrl='' and $vNodeConfig='Local') and $vPROFILE='Node_Admin'">
 										<li role="separator" class="divider"></li>
 						            	<li>
 											<a target="_blank">
@@ -298,15 +289,7 @@
 												<xsl:text> </xsl:text><i>Manage Report</i>
 											</a>
 										</li> 
-						            	<xsl:if test="$vKPI!=''">
-											<li>
-												<a target="_blank">
-													<xsl:attribute name="href"><xsl:value-of select="$vNIMSBaseUrl"/>/index.php/main/kpi_summary?pKPI=<xsl:value-of select="//dbquery[@id='KPI']/rows/row/@kpid_id"/></xsl:attribute>
-													<img border="0px" class="avatar" width="17px" src="/Default2/CPN/img/alphabet/RepK.png"/>
-													<xsl:text> </xsl:text><i>Manage KPI</i>
-												</a>
-											</li> 
-						            	</xsl:if>
+						            	
 									</xsl:if>
 						            
 						            <xsl:choose>
@@ -331,42 +314,12 @@
 						            <xsl:if test="$vNodeDataDic!=-1 and $vPROFILE!='User'">
 						            	<li role="separator" class="divider"></li>
 						            	<li><a target="DataDicRep" href="{$vNodeRedirect}?pRID={$vNodeDataDic}&amp;pVRID={$vRID}&amp;pLANG={$vLANG}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Data Dictionary </a></li>
-									</xsl:if>
-									<xsl:variable name="GenRepDicParam" select="distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pINFO']/@value)"/>
-									<xsl:if test="contains($GenRepDicParam,'G')">
-										<xsl:call-template name="TNotif">
-											<xsl:with-param name="tMsg" select="'You have called Report in Data Dictionary Mode. A file will be generated will all Data Dictionary Used in this Report'"/>
-											<xsl:with-param name="tTitle" select="'T32 - Data Dictionary Generation'"/> 
-											<xsl:with-param name="tType" select="1"/> 	
-											<xsl:with-param name="tAppear" select="1000"/>
-											<xsl:with-param name="tDuration" select="2000"/>  	
-										</xsl:call-template>
-										<script>
-											<!-- Localstorage DD_DBWeb -->
-											localStorage.removeItem('DataDic_DB_<xsl:value-of select="$vRID"/>');
-											delete window.localStorage['DataDic_DB_<xsl:value-of select="$vRID"/>'];
-											var DataDicListDB=""
-											localStorage.setItem('DataDic_DB_<xsl:value-of select="$vRID"/>',DataDicListDB);
-											<!-- Localstorage DD_XMLWeb -->
-											localStorage.removeItem('DataDic_XML_<xsl:value-of select="$vRID"/>');
-											delete window.localStorage['DataDic_XML_<xsl:value-of select="$vRID"/>'];
-											var DataDicListXML=""
-											localStorage.setItem('DataDic_XML_<xsl:value-of select="$vRID"/>',DataDicListXML);
-											<!-- Localstorage Not Found -->
-											localStorage.removeItem('DataDic_NF_<xsl:value-of select="$vRID"/>');
-											delete window.localStorage['DataDic_NF_<xsl:value-of select="$vRID"/>'];
-											var DataDicListNF=""
-											localStorage.setItem('DataDic_NF_<xsl:value-of select="$vRID"/>',DataDicListNF);
-										</script>
-										<li>
-											<a  data-toggle="modal" data-target="#CPN_DYNPOPUP" role="button">
-												<xsl:attribute name="onclick">$('#DataDicListDB').html(localStorage.getItem('DataDic_DB_<xsl:value-of select="$vRID"/>'));$('#DataDicListXML').html(localStorage.getItem('DataDic_XML_<xsl:value-of select="$vRID"/>'));$('#DataDicListNF').html(localStorage.getItem('DataDic_NF_<xsl:value-of select="$vRID"/>'));</xsl:attribute>
-												<xsl:attribute name="href">/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_GEN_DOC.xml?pLANG=<xsl:value-of select="$vLANG"/>&amp;pRID=<xsl:value-of select="$vRID"/></xsl:attribute>
-												<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-												 Data Dic Used (4Dev)
-											</a>
-										</li>
-									</xsl:if>
+
+										<xsl:variable name="GenRepDicParam" select="distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pINFO']/@value)"/>
+						            	<xsl:if test="contains($GenRepDicParam,'G')">
+											<li><a href="#" data-toggle="modal" data-target="#CPN_Generate_DataDic" role="button"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Data Dic Used</a></li>
+										</xsl:if>
+						            </xsl:if>
 						            <li role="separator" class="divider"></li>
 										<xsl:choose>
 											<xsl:when test="$vLANG='FR' and //dbquery[@id='Report_Info']/rows/row/@dbn_rep_url_doc_fr!=''">
@@ -785,17 +738,9 @@
 			                        <div class="col-md-12">
 			                            <ul class="nav nav-tabs">
 										  	<li class="active"><a data-toggle="tab" href="#LS">Local Storage</a></li>
-										  	<xsl:if test="$vNodeConfig!='Local'">
-												<li>
-													<a data-toggle="tab" href="#LOG">Log</a>
-												</li>
-										  	</xsl:if>
-										  	<li>
-												<a data-toggle="tab" href="#Tool_DD">Data Dic Used</a>
-											</li>
 										  	<xsl:if test="$vPROFILE!='User' or $vNodeConfig='Local'">
 											  	<li>
-											  		<a data-toggle="tab" href="#DEBUG">Debugging Links</a>
+											  	<a data-toggle="tab" href="#DEBUG">Debugging Links</a>
 											  	</li>
 											</xsl:if>
 										</ul>
@@ -804,111 +749,78 @@
 										  	<div id="LS" class="tab-pane fade in active">
 										    	<h4>DataTable Settings Used in this Report </h4>
 					                            	<p style="font-style:italic">
-						                            	DataTables has the option of being able to save the state of a table (its paging position, ordering state etc) so that is can be restored when the user reloads a page, or comes back to the page after visiting a sub-page.<br/>
-						                            	<center>
-															<button type="button" class="btn btn-danger" >
-																<xsl:attribute name="onclick">var url = window.location.href;var URLRep = url.substring(0,url.indexOf("?")).substring(url.substring(0,url.indexOf("?")).indexOf("LRF/XMLWeb/Process")-1);CleardTSettings4URL(URLRep);$("#CPN_Report_Toolbox").modal('hide')</xsl:attribute>
-																Reset All Report Layout (All Blocks)
-															</button>	
-						                                </center>
-						                                <br/>
-						                            	<small>
-						                            		<ul>
-							                            		<script>
-								                            		var url = window.location.href;
-																	var URLRep = url.substring(0,url.indexOf("?")).substring(url.substring(0,url.indexOf("?")).indexOf("LRF/XMLWeb/Process")-1);
-																	for(var i=0, len=localStorage.length; i&lt;len; i++) {
-																	    var key = localStorage.key(i);
-																	    if(key.indexOf(URLRep)>-1) {
-																	    	document.write("<li>"+key+"</li>");
-																	    }
-																	}
-								                            	</script>
-								                            </ul>
-								                        </small>
-							                            <hr/>
+					                            	This page additional Technical Infos.
+				                            		<br/>
+					                            	<center>
+														<button type="button" class="btn btn-danger" >
+															<xsl:attribute name="onclick">var url = window.location.href;var URLRep = url.substring(0,url.indexOf("?")).substring(url.substring(0,url.indexOf("?")).indexOf("LRF/XMLWeb/Process")-1);CleardTSettings4URL(URLRep);$("#CPN_Report_Toolbox").modal('hide')</xsl:attribute>
+															Reset All Report Layout (All Blocks)
+														</button>	
+					                                </center>
+					                                <br/>
+					                            	<small>
+					                            		<ul>
+						                            		<script>
+							                            		var url = window.location.href;
+																var URLRep = url.substring(0,url.indexOf("?")).substring(url.substring(0,url.indexOf("?")).indexOf("LRF/XMLWeb/Process")-1);
+																for(var i=0, len=localStorage.length; i&lt;len; i++) {
+																    var key = localStorage.key(i);
+																    if(key.indexOf(URLRep)>-1) {
+																    	document.write("<li>"+key+"</li>");
+																    }
+																}
+							                            	</script>
+							                            </ul>
+							                        </small>
+						                            <hr/>
 					                            	</p>
 										  	</div>
-											<xsl:if test="$vNodeConfig!='Local'">
-											  	<div id="LOG" class="tab-pane fade">
-											    	<h4>Logging</h4>
-						                            	<p style="font-style:italic">
-							                            	Log is an array containing informations which allow Encouraging and New Modication Warning.
-							                            	<br/>
-							                            	<center>
-																<button type="button" class="btn btn-danger" >
-																	<xsl:attribute name="onclick">alert(localStorage.getItem('Report_<xsl:value-of select="$vRID"/>_Settings'));</xsl:attribute>
-																	View Logging
-																</button>	
-							                                </center>
-						                            	</p>
-											  	</div>
-											</xsl:if>
-										  	<div id="Tool_DD" class="tab-pane fade">
-										    	<h4>Data Dictonary</h4>
-					                            	<p style="font-style:italic">
-						                            	Datadic is a CPN Feature which allows to document Report in the Report. For activating DataDic Generation <a id="DataDicGen" target="_blank" href="#">Call Report with DataDic Option</a> and call option DataDic Used is Help Menu.
-						                            	<script>
-						                       				var PageUrl=document.URL.replace('#','').replace('!','');
-						                       				$("#DataDic").attr("href",PageUrl+"&amp;pINFO=<xsl:value-of select='$vINFO'/>G");
-						                       			</script>
-						                            	<br/>
-						                            	<h2>DataDic in DB Web</h2>
-						                            	<div id="DataDicListDB">Here ...</div>	
-						                            	<h2>DataDic in Local XML</h2>
-						                            	<div id="DataDicListXML">Here ...</div>	
-						                            	<h2>DataDic Not Found</h2>
-						                            	<div id="DataDicListNF">Here ...</div>					
-						                            </p>
+										  	<div id="DEBUG" class="tab-pane fade">
+										    	<h3>Links To help Developpers to Debug Report</h3>
+										    	<p>
+										    		<ul>
+							                       		<li>
+							                       			<a id="ProcessXML" target="_blank" href="#">
+							                       				Process XMLWeb
+							                       			</a>
+							                       		</li>
+														<li>
+															<a id="DBWeb" target="_blank" href="#">
+							                       				DBWeb
+							                       			</a>
+														</li>
+														<li>
+															<a id="ProcessDBWeb" target="_blank" href="#">
+							                       				Process DBWeb
+							                       			</a>
+														</li>
+														<li>
+															<a id="ProcessXMLandTransf" target="_blank" href="#">
+							                       				Process XML and Transformation
+							                       			</a>
+														</li>
+														<li>
+															<a id="DataDic" target="_blank" href="#">
+							                       				Call Report with DataDic Option
+							                       			</a>
+														</li>
+														<li>
+															<a id="Data" target="_blank" href="#">
+							                       				Call Report with Data's in 'Queries used'
+							                       			</a>
+														</li>
+													</ul>
+													<script>
+					                       				var PageUrl=document.URL;
+					                       				$("#ProcessXML").attr("href",PageUrl.replace('XMLWeb/ProcessDescriptor','XMLWeb/ShowDescriptor'));
+					                       				$("#DBWeb").attr("href",PageUrl.replace('XMLWeb/','DBWeb/'));
+					                       				$("#ProcessDBWeb").attr("href",PageUrl.replace('XMLWeb/ProcessDescriptor','DBWeb/ShowDescriptor'));
+					                       				$("#ProcessXMLandTransf").attr("href",PageUrl.replace('XMLWeb/ProcessDescriptor','XMLWeb/ShowDescriptor').replace('#','')+'&amp;showTransformations=TRUE');
+					                       				$("#DataDic").attr("href",PageUrl+"&amp;pINFO=<xsl:value-of select='$vINFO'/>G");
+					                       				$("#Data").attr("href",PageUrl+"&amp;pINFO=<xsl:value-of select='$vINFO'/>X");
+					                       			</script>
+										    	</p>
 										  	</div>
-											<xsl:if test="$vPROFILE!='User' or $vNodeConfig='Local'">
-											  	<div id="DEBUG" class="tab-pane fade">
-											    	<h3>Links To help Developpers to Debug Report</h3>
-											    	<p>
-											    		<ul>
-								                       		<li>
-								                       			<a id="ProcessXML" target="_blank" href="#">
-								                       				Process XMLWeb
-								                       			</a>
-								                       		</li>
-															<li>
-																<a id="DBWeb" target="_blank" href="#">
-								                       				DBWeb
-								                       			</a>
-															</li>
-															<li>
-																<a id="ProcessDBWeb" target="_blank" href="#">
-								                       				Process DBWeb
-								                       			</a>
-															</li>
-															<li>
-																<a id="ProcessXMLandTransf" target="_blank" href="#">
-								                       				Process XML and Transformation
-								                       			</a>
-															</li>
-															<li>
-																<a id="DataDic" target="_blank" href="#">
-								                       				Call Report with DataDic Option
-								                       			</a>
-															</li>
-															<li>
-																<a id="Data" target="_blank" href="#">
-								                       				Call Report with Data's in 'Queries used'
-								                       			</a>
-															</li>
-														</ul>
-														<script>
-						                       				var PageUrl=document.URL.replace('#','').replace('!','');
-						                       				$("#ProcessXML").attr("href",PageUrl.replace('XMLWeb/ProcessDescriptor','XMLWeb/ShowDescriptor'));
-						                       				$("#DBWeb").attr("href",PageUrl.replace('XMLWeb/','DBWeb/'));
-						                       				$("#ProcessDBWeb").attr("href",PageUrl.replace('XMLWeb/ProcessDescriptor','DBWeb/ShowDescriptor'));
-						                       				$("#ProcessXMLandTransf").attr("href",PageUrl.replace('XMLWeb/ProcessDescriptor','XMLWeb/ShowDescriptor')+'&amp;showTransformations=TRUE');
-						                       				$("#DataDic").attr("href",PageUrl+"&amp;pINFO=<xsl:value-of select='$vINFO'/>G");
-						                       				$("#Data").attr("href",PageUrl+"&amp;pINFO=<xsl:value-of select='$vINFO'/>X");
-						                       			</script>
-											    	</p>
-											  	</div>
-											</xsl:if>
 										</div>
 			                        </div>
 			                    </div>
@@ -1051,7 +963,6 @@
                     </xsl:if>
                     <div class="row">
                         <div class="col-md-12">
-	
 							<br/>
 							<!--overrules bootstrap style to make form smaller & additional collapseble panel styling-->
 							<style>
@@ -1066,7 +977,7 @@
 							<form id="inputform" class="form-horizontal " role="form" data-toggle="validator" action="/../../../LRF/XMLWeb/ProcessDescriptor/descriptor/{$link}" method="get" >	<!-- Use "get" to allow export to Excel via button in report-->
 								<!-- portion to call a field for each parameter-->
 								<xsl:for-each select = "//dbquery[@id='Report_Prompt']/rows/row">
-									<xsl:sort select="@dbn_repp_param_order" order="ascending" data-type="number"/>
+									<xsl:sort select="@dbn_repp_param_order" />
 									<!-- Define column width for prompt parameters -->
 									<xsl:variable name="vCOLWIDTH">
 										<xsl:choose>
@@ -1167,7 +1078,6 @@
 											</xsl:otherwise>
 										</xsl:choose>
 									</xsl:variable>
-									<xsl:variable name="vSelectType" select="lower-case(@dbn_repp_param_validation)"/>
 									<!--the class form-group is required for the validator-->
 									<div class="form-group {$vCOLWIDTH}">
 										<label for="{@dbn_repp_param}" class="col-sm-4 control-label">
@@ -1182,54 +1092,6 @@
 										</label>
 										<div class="col-sm-8">
 											<xsl:choose>
-												<!-- Dynamic Dropdown -->
-												<xsl:when test="lower-case(@dbn_repp_param_type)='dynamic-drop-down'">
-													<xsl:variable name='vparam' select="@dbn_repp_param"/>
-													<xsl:variable name="vQueryID" select="@dbn_repp_param_type_detail"/>
-													<!--xsl:variable name="vSelectType" select="lower-case(@dbn_repp_param_validation)"/-->
-													<xsl:variable name="pPat">:</xsl:variable>
-													<xsl:variable name="pRep">','</xsl:variable>
-													<xsl:variable name='LOSVVal' select="replace(//dbquery[1]/descriptor/parameters/param[@name=$vparam]/attribute::value, $pPat, $pRep)"/>
-													<div class="input-group">
-														<xsl:if test="lower-case(@dbn_repp_param_mandatory)= 'y' ">
-															<span class="input-group-addon" aria-hidden="true" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="This field is required"><span class="glyphicon glyphicon-hand-down"/></span>
-														</xsl:if>
-														<xsl:element name='select'>
-															<xsl:attribute name="multiple">multiple</xsl:attribute>
-															<xsl:attribute name='id'>id_<xsl:value-of select="$vparam"/></xsl:attribute>	
-															<xsl:attribute name='name'><xsl:value-of select="$vparam"/></xsl:attribute>	
-															<xsl:attribute name='class'>selectpicker form-control</xsl:attribute>
-															<xsl:attribute name="data-actions-box">true</xsl:attribute>
-															<xsl:attribute name="data-selected-text-format">count&gt;2</xsl:attribute>
-															<xsl:if test="$vSelectType='singleselect'">
-																<xsl:attribute name="data-max-options">1</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="lower-case(@dbn_repp_param_mandatory)= 'y' ">
-																<xsl:attribute name="required">true</xsl:attribute>
-															</xsl:if>
-															<xsl:variable name='LOVVal'>
-																<xsl:for-each select="//dbquery[@id=$vQueryID]/rows/row">
-																	<xsl:text>'</xsl:text><xsl:value-of select="@*[1]"/><xsl:text>','</xsl:text><xsl:value-of select="@*[2]"/><xsl:text>'</xsl:text>
-																	<xsl:if test="position()!=last()"><xsl:text>,</xsl:text></xsl:if>
-																</xsl:for-each>
-															</xsl:variable>
-															<script type="text/javascript">
-																 var DDContent = [<xsl:value-of select='$LOVVal'/>]
-																 MRN_ComboBox(DDContent,'');
-															</script>
-														</xsl:element>
-														<xsl:copy-of select="$vHELP"/><!-- Parameter Help -->
-														<script>
-															$(document).ready(function () {
-																$('.selectpicker').selectpicker({ style: 'btn btn-sm btn-default', size: 6, liveSearch: true });
-																<xsl:if test="string-length(//dbquery[1]/descriptor/parameters/param[@name=$vparam]/attribute::value) gt 0">
-																	$('.selectpicker').selectpicker('val', ['<xsl:value-of select='$LOSVVal'/>']);
-																	$('.selectpicker').selectpicker('refresh');
-																</xsl:if>
-															});
-														</script>
-													</div>
-												</xsl:when>
 												<!-- Dropdown -->
 												<xsl:when test="lower-case(@dbn_repp_param_type)='drop-down'">
 													<xsl:variable name='vparam' select="@dbn_repp_param"/>
@@ -1268,14 +1130,6 @@
 																	<xsl:choose>
 																		<xsl:when test="lower-case(@dbn_repp_param_format)='datepicker'">
 																			<xsl:attribute name="pattern">^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$</xsl:attribute>
-																			<xsl:if test="$vSelectType='months'">
-																				<xsl:attribute name="data-date-minviewmode">1</xsl:attribute>
-																				<xsl:attribute name="data-date-maxviewmode">2</xsl:attribute>
-																			</xsl:if>
-																			<xsl:if test="$vSelectType='years'">
-																				<xsl:attribute name="data-date-minviewmode">2</xsl:attribute>
-																				<xsl:attribute name="data-date-maxviewmode">2</xsl:attribute>
-																			</xsl:if>
 																		</xsl:when>
 																		<xsl:otherwise>
 																			<!--xsl:attribute name="pattern">[a-zA-Z0-9-]*</xsl:attribute-->
@@ -1292,14 +1146,6 @@
 																<input type="text" class="form-control input-sm {@dbn_repp_param_format}" id="id_{@dbn_repp_param}" name="{@dbn_repp_param}" value="{$vVALUE}" required="true">
 																	<xsl:if test="lower-case(@dbn_repp_param_format)='datepicker'">
 																		<xsl:attribute name="pattern">^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$</xsl:attribute>
-																		<xsl:if test="$vSelectType='months'">
-																				<xsl:attribute name="data-date-minviewmode">1</xsl:attribute>
-																				<xsl:attribute name="data-date-maxviewmode">2</xsl:attribute>
-																			</xsl:if>
-																			<xsl:if test="$vSelectType='years'">
-																				<xsl:attribute name="data-date-minviewmode">2</xsl:attribute>
-																				<xsl:attribute name="data-date-maxviewmode">2</xsl:attribute>
-																			</xsl:if>
 																	</xsl:if>
 																</input>
 																<xsl:copy-of select="$vHELP"/><!-- Parameter Help -->
@@ -1315,7 +1161,7 @@
 																<span class="input-group-addon">
 																	<input type="checkbox" id="id_{@dbn_repp_param}" name="{@dbn_repp_param}" aria-label="checkbox">
 																		<xsl:variable name='vparam'><xsl:value-of select="@dbn_repp_param"/></xsl:variable>
-																		<xsl:if test="//dbquery[1]/descriptor/parameters/param[@name=$vparam]/attribute::value='on'">
+																		<xsl:if test="lower-case(//dbquery[@id='Report_Prompt']/descriptor/parameters/param[@name=$vparam]/attribute::value)='on'">
 																			<xsl:attribute name="checked">checked</xsl:attribute>
 																		</xsl:if>
 																	</input>
@@ -1340,14 +1186,6 @@
 																	<xsl:choose>
 																		<xsl:when test="lower-case(@dbn_repp_param_format)='datepicker'"><!-- datepicker, never wildcards allowed-->
 																			<xsl:attribute name="pattern">^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$</xsl:attribute>
-																			<xsl:if test="$vSelectType='months'">
-																				<xsl:attribute name="data-date-minviewmode">1</xsl:attribute>
-																				<xsl:attribute name="data-date-maxviewmode">2</xsl:attribute>
-																			</xsl:if>
-																			<xsl:if test="$vSelectType='years'">
-																				<xsl:attribute name="data-date-minviewmode">2</xsl:attribute>
-																				<xsl:attribute name="data-date-maxviewmode">2</xsl:attribute>
-																			</xsl:if>
 																		</xsl:when>
 																		<xsl:otherwise>
 																			<!--xsl:attribute name="pattern">^[a-zA-Z0-9# -]*$</xsl:attribute-->
@@ -1532,19 +1370,6 @@
 											Added to replace parameter name to '' if value is not filled
 											This Solution allows Default parameter in DBWeb to be taken into Account 
 										-->
-										<script>
-											var myForm = document.getElementById('BListOfPrompts_<xsl:value-of select="$tLOPSource"/>');
-											myForm.onsubmit = function() {
-											    var allInputs = myForm.getElementsByTagName('input');
-											    var input, i;
-
-											    for(i = 0; input = allInputs[i]; i++) {
-											        if(input.getAttribute('name') &amp;&amp; !input.value) {
-											            input.setAttribute('name', '');
-											        }
-											    }
-											};
-										</script>
 										<button type="submit" class="btn btn-primary">Execute query</button>
 									</div>
 								</div>
@@ -1569,38 +1394,13 @@
 									// Close the options panel
 									$('.collapsible').click();
 									// Bind datepicker classes
-									$('.datepicker').each(function(){
-										var dpMode = $(this).attr('data-date-minviewmode');
-										console.log(dpMode);
-										if(typeof dpMode !== typeof undefined &amp;&amp; dpMode !== false){
-											if(dpMode==1){
-												$(this).datepicker({
-													format: "yyyy-mm-dd",
-													minViewMode: 1,
-													maxViewMode: 2,
-													orientation: 'bottom left',
-													autoclose: true
-												});
-											}
-											if(dpMode==2){
-												$(this).datepicker({
-													format: "yyyy-mm-dd",
-													minViewMode: 2,
-													maxViewMode: 2,
-													orientation: 'bottom left',
-													autoclose: true
-												});
-											}
-										} else {
-											$(this).datepicker({
-												format: "yyyy-mm-dd",
-												weekStart: 1,
-												calendarWeeks: true,
-												autoclose: true,
-												todayHighlight: true,
-												orientation: 'bottom left'
-											});
-										}
+									$('.datepicker').datepicker({
+										format: "yyyy-mm-dd",
+										weekStart: 1,
+										calendarWeeks: true,
+										autoclose: true,
+										todayHighlight: true,
+										orientation: 'bottom left'
 									});
 									//Allow popovers, required for info and help button
 									$('[data-toggle="popover"]').popover();

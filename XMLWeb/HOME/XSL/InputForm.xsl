@@ -31,36 +31,33 @@
 	<body>
 		<xsl:variable name="vNode_URL" select="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_node_url"/>
 		<xsl:variable name="vReport_URL" select="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_url"/>
-			<!--xsl:call-template name="Report_NavBar"/-->
-			<div class="container">
-				<center>
-					<a href="/"><img src="/{$vHtDocsConfig}/CPN/img/logo/{$vNodeConfig}/Logo.png"/></a>
-					<br/>
-					<h1>Input Form for Report<br/><small><xsl:value-of select="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_name"/></small></h1>
-					<br/>
-					<xsl:call-template name="BInputform">
-						<xsl:with-param name="tIFLayout" select="'S'"/>
-					</xsl:call-template>
-					<xsl:if test="$vUseDataModel='Y'">
-						<xsl:variable name="TName">Logging_<xsl:value-of select="$vRID"/></xsl:variable>
-						<xsl:call-template name="Generic_Table_DBWEB">
-							<xsl:with-param name="DBWEB_Name" select="'Logging'"/>
-							<xsl:with-param name="UdTN" select="$TName"/>
-							<xsl:with-param name="Show_Empty" select="'N'"/> 
-							<xsl:with-param name="Lang" select="$vLANG"/>
-							<xsl:with-param name="TableClass" select="'display cell-border'"/> 
-							<xsl:with-param name="RepDic" select="'N'"/> 
-							<xsl:with-param name="MaxRecords" select="5"/>
-							<xsl:with-param name="ForceFooter" select="'N'"/>
-							<xsl:with-param name="Col_Filtering" select="'N'"/>
-							<xsl:with-param name="Col_Sorting" select="'0-desc'"/>
-							<xsl:with-param name="Frame" select="'YC'"/>
-							<xsl:with-param name="TableWidth" select="'95%'"/>
-							<xsl:with-param name="Detail_Data" select="'Generic'"/>
-						</xsl:call-template>
-					</xsl:if>
-				</center>
-			</div>
+		<center>
+			<a href="/"><img src="/{$vHtDocsConfig}/CPN/img/logo/{$vNodeConfig}/Logo.png"/></a>
+			<br/>
+			<h1>Input Form for Report<br/><small><xsl:value-of select="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_name"/></small></h1>
+			<br/>
+			<xsl:call-template name="BInputform">
+				<xsl:with-param name="tIFLayout" select="'S'"/>
+			</xsl:call-template>
+			<xsl:if test="$vUseDataModel='Y'">
+				<xsl:variable name="TName">Logging_<xsl:value-of select="$vRID"/></xsl:variable>
+				<xsl:call-template name="Generic_Table_DBWEB">
+					<xsl:with-param name="DBWEB_Name" select="'Logging'"/>
+					<xsl:with-param name="UdTN" select="$TName"/>
+					<xsl:with-param name="Show_Empty" select="'N'"/> 
+					<xsl:with-param name="Lang" select="$vLANG"/>
+					<xsl:with-param name="TableClass" select="'display cell-border'"/> 
+					<xsl:with-param name="RepDic" select="'N'"/> 
+					<xsl:with-param name="MaxRecords" select="5"/>
+					<xsl:with-param name="ForceFooter" select="'N'"/>
+					<xsl:with-param name="Col_Filtering" select="'N'"/>
+					<xsl:with-param name="Col_Sorting" select="'0-desc'"/>
+					<xsl:with-param name="Frame" select="'YC'"/>
+					<xsl:with-param name="TableWidth" select="'95%'"/>
+					<xsl:with-param name="Detail_Data" select="'Generic'"/>
+				</xsl:call-template>
+			</xsl:if>
+		</center>
 		</body>
 	<xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>
 </xsl:template>

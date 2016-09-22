@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Common Pillar Node FW - Components - By CPN Dev Core Team
-	  Version : 1.0.4
 	  XXTBDXX : Means To be deleted in next Version -->
 
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -42,6 +41,7 @@
 	</xsl:character-map-->
 	
 	<!-- Logging 
+	
 	==Report_Components==
 	* 
 	==Node_Config==
@@ -100,7 +100,6 @@
 		      <title>
 		        <xsl:call-template name="FromDic2Rep">
 		            <xsl:with-param name="Title2S" select="'PAGE_NAME'"/>
-		            <xsl:with-param name="dictionary" select="$dictionary"/>
 		            <xsl:with-param name="tDDConfig" select="'C'"/>
 		          </xsl:call-template>
 		      </title>
@@ -111,7 +110,6 @@
 		        <h1>
 		          <xsl:call-template name="FromDic2Rep">
 		            <xsl:with-param name="Title2S" select="'REPORT_TITLE'"/>
-		            <xsl:with-param name="dictionary" select="$dictionary"/>
 		          </xsl:call-template>
 		        </h1>
 		      </center>   
@@ -149,30 +147,30 @@
 				<!-- JS and CSS Common Pilar Node -->
 					<!-- js -->
 						<!-- Jquery -->
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/jQuery-2.1.4/jquery-2.1.4.min.js"></script>
 
 						<!-- dataTable -->
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/JSZip-2.5.0/jszip.js"></script>
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/pdfmake-0.1.18/build/pdfmake.js"></script>
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/pdfmake-0.1.18/build/vfs_fonts.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/DataTables-1.10.12/js/jquery.dataTables.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.2.2/js/dataTables.buttons.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.2.2/js/buttons.colVis.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.2.2/js/buttons.flash.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.2.2/js/buttons.html5.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.2.2/js/buttons.print.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/ColReorder-1.3.2/js/dataTables.colReorder.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/DataTables-1.10.9/js/jquery.dataTables.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.0.3/js/dataTables.buttons.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.0.3/js/buttons.colVis.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.0.3/js/buttons.flash.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.0.3/js/buttons.html5.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.0.3/js/buttons.print.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/ColReorder-1.2.0/js/dataTables.colReorder.js"></script>
 						<!--script type="text/javascript" charset="utf-8" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/ColReorderWithResize/js/ColReorderWithResize.js"></script--> 
 
 						
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Responsive-2.1.0/js/dataTables.responsive.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Scroller-1.4.2/js/dataTables.scroller.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Select-1.2.0/js/dataTables.select.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Responsive-1.0.7/js/dataTables.responsive.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Scroller-1.3.0/js/dataTables.scroller.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Select-1.0.1/js/dataTables.select.js"></script>
 						
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/dataTables_Bootstrap/js/dataTables.bootstrap.js"></script>
 
 						<!-- Bootstrap -->
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/Bootstrap-3.3.6/js/bootstrap.min.js"></script>
+						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 						
 						<!-- Bootstrap Datepicker -->
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/datepicker/js/bootstrap-datepicker.js"></script>
@@ -195,24 +193,24 @@
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/flot/jquery.flot.time.js"></script>	
 						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/flot/jquery.flot.symbol.js"></script>
 						<!-- Modal Popup (To be removed) -->
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/mpopup/jquery.magnific-popup.js"></script>
-						<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/bootstrap-select-v1.10.0/dist/js/bootstrap-select.min.js"></script>
+						<script type="text/javascript" src="/Default2/CPN/extras/mpopup/jquery.magnific-popup.js"></script>
+						
 						
 					<!-- CSS -->
 						
 						<!-- Bootstrap -->
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/Bootstrap-3.3.6/css/bootstrap.css" />
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/Bootstrap-3.3.6/css/bootstrap-theme.css" />
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/bootstrap-3.3.5/css/bootstrap.css" />
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/bootstrap-3.3.5/css/bootstrap-theme.css" />
 						<!-- DatePicker -->
 						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/datepicker/css/bootstrap-datepicker3.css" />
 						
 						<!-- dataTable -->		
 						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/dataTables_Bootstrap/css/dataTables.bootstrap.css"/>
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.2.2/css/buttons.dataTables.css"/>
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/ColReorder-1.3.2/css/colReorder.dataTables.css"/>
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Responsive-2.1.0/css/responsive.dataTables.css"/>
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Scroller-1.4.2/css/scroller.dataTables.css"/>
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Select-1.2.0/css/select.dataTables.css"/>
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Buttons-1.0.3/css/buttons.dataTables.css"/>
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/ColReorder-1.2.0/css/colReorder.dataTables.css"/>
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Responsive-1.0.7/css/responsive.dataTables.css"/>
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Scroller-1.3.0/css/scroller.dataTables.css"/>
+						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/DataTables_Pkg/Select-1.0.1/css/select.dataTables.css"/>
 						
 						<!-- Modal Popup -->
 						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/mpopup/magnific-popup.css" media="all"/>
@@ -226,7 +224,6 @@
 						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/highlight/default.css"/>
 						<!-- CNP Defense - Allows Backwards compatibilty with FW2 -->
 						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/css/CPN.css" media="all"/>
-						<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/bootstrap-select-v1.10.0/dist/css/bootstrap-select.min.css" />
 						
 						<!-- Favicon -->
 						<link rel="shortcut icon" type="image/x-icon" href="/{$vHtDocsConfig}/CPN/img/logo/{$vNodeConfig}/favicon.ico" />		
@@ -330,52 +327,10 @@
 		<xsl:param name="tLocal" select="'NO'"/> 		<!-- Yes for Local and NO (Default) for MR Node - Depreacated Do Not Use -->
 		<xsl:param name="tLanguage" select="$vLANG"/> 		<!-- EN (Default) - English/FR - Français/NL - Nederlands -->
 		
-		<!-- Generic Dynamic Modal Load (Modal) and only in Main Mode to Avoid Duplicates -->
-		<xsl:if test="$vMODE='Main'">
-			<div id="CPN_DYNPOPUP" class="modal fade" role="dialog">
-		        <div class="modal-dialog modal-lg">
-		            <!-- Modal content-->
-		            <div class="modal-content" id="CPN_DYNPOPUP_CONTENT">
-		               	<div class="modal-header">
-		                    <button type="button" class="close" data-dismiss="modal">X</button>
-		                    <h4 class="modal-title">Dynamic Pop-Up</h4>
-		                </div>
-		                <div class="modal-body" >
-		                    <div class="row">
-		                        <div class="col-md-12">
-		                            <center>
-		                            	<h2>Loading of Source Page in Progress...</h2> 
-		                            <img src="/{$vHtDocsConfig}/CPN/img/HorWait.gif"/>
-		                            <br/>
-		                            If Nothing appears after 5 secondes ... Contact Node Administrator.
-		                            </center>
-		                        </div>
-		                    </div>
-		                </div>
-		                <div class="modal-footer">
-		                    <center>
-							        <div class="col-md-10">
-			                            <p style="font-style:italic;color:red">This report has been build with <b>Report CPN (Common Pilar Node Framework)</b></p>
-			                        </div>
-			                </center>
-		                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		                </div>
-		                <script>
-		                	$('#CPN_DYNPOPUP').on('hidden.bs.modal', function () {   
-								$(this).removeData('bs.modal');
-							})
-
-		                </script>
-		            </div>
-		        </div>
-		    </div>
-		</xsl:if>
-		
 		<!-- Security -->
 		<xsl:call-template name="ReportSecurity">
 			<xsl:with-param name="tSecType" select="$tSecType"/>
 		</xsl:call-template>
-		
 		<!-- Classical checks -->
 		<xsl:call-template name="Checks"/>
 
@@ -383,7 +338,7 @@
 		<xsl:choose>
 			<!-- Header is ALWAYS Present except if KPI in Explorer mode or Drill-down or Pop-Up -->
 			<xsl:when test="//dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value='Drill-Down' or //dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value='Pop-Up' or //dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value='Drill-Down2'">
-				<!-- Don't Show Header / Don't Show KPI Toolbar -->
+			<!-- Don't Show Header / Don't Show KPI Toolbar -->
 			</xsl:when>
 			<!-- KPI value found and Exploring Mode is NO -->
 			<xsl:when test="//dbquery[1]/descriptor/parameters/param[@name='pKPI']/@value and //dbquery[1]/descriptor/parameters/param[@name='pEXPLORE']/@value='NO'">
@@ -444,6 +399,173 @@
 		<xsl:param name="tLocal" select="'NO'"/> 		<!-- Yes for Local and NO (Default) for MR Node - Depreacated Do Not Use -->
 		<xsl:param name="tLanguage" select="$vLANG"/> 	<!-- EN (Default) - English/FR - Français/NL - Nederlands -->
 		
+		<!-- Generation of DataDic List-->
+		<xsl:variable name="GenRepDicParam" select="distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pINFO']/@value)"/>
+		<xsl:if test="contains($GenRepDicParam,'G')">
+			<xsl:call-template name="TNotif">
+				<xsl:with-param name="tMsg" select="'You have called Report in Data Dictionary Mode. A file will be generated will all Data Dictionary Used in this Report'"/>
+				<xsl:with-param name="tTitle" select="'T32 - Data Dictionary Generation'"/> 
+				<xsl:with-param name="tType" select="1"/> 	
+				<xsl:with-param name="tAppear" select="1000"/>
+				<xsl:with-param name="tDuration" select="2000"/>  	
+			</xsl:call-template>
+			<!-- Lodal Form -->
+			<div id="CPN_Generate_DataDic" class="modal modal-wide fade">
+		        <div class="modal-dialog">
+	            	<!-- Modal content-->
+		            <div class="modal-content">	            
+			            <div class="modal-header">
+	        				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+	        				<h4 class="modal-title">Data Dictionary Used in Report</h4>
+	      				</div>
+	      				<div class="modal-body">
+					        <p>
+								<center>
+									<table class="cell-border" cellpadding="0" cellspacing="0" border="0" width="80%" id="dT_GeneratedDD">
+								        <thead>
+								        	<tr>
+								        		<th>DBWeb</th>
+								        		<th>Type</th>
+								        		<th>SubType</th>
+								        		<th>Mode</th>
+								        		<th>Report Id</th>
+								        		<th>ILIAS Hint</th>
+								        		<th>Field Name</th>
+								        		<th>Lang</th>
+								        		<th>Caption</th>
+								        		<th>PopUp</th>
+								        		<th>Show</th>
+								        	</tr>
+								        </thead>
+								        <tbody>
+											<xsl:for-each select = "//dbquery[not(@id='Report_Info' or @id='Report_Prompt' or @id='KPI' or @id='DATA_DICTIONARY' or @id='TEMPLATE' or @id='ILIAS_GROUP' or @id='ILIAS_USER' or @id='NODE_SECURITY' or @id='NISM' or @id='USER' or @id='ALL_DATA_DICTIONARY')]/columns/column">
+							                	<xsl:variable name="DDField" select="@name"/>
+								                <xsl:if test="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@HINT_NO=''">
+								                	<tr>
+								                		<td><xsl:value-of select="../../@id"/></td>
+								                		<td>REPORT</td>
+								                		<td>FIELD</td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='FR']/@MODE"/>
+								                		</td>
+								                		<td><xsl:value-of select="$vRID"/></td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='FR']/@HINT_NO"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='FR']/@NAME"/>
+								                		</td>
+								                		<td>FR</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='FR']/@FIELD_NAME"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='FR']/@HINT"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='FR']/@POPUP"/>
+								                		</td>
+								                	</tr>
+								                	<tr>
+								                		<td><xsl:value-of select="../../@id"/></td>
+								                		<td>REPORT</td>
+								                		<td>FIELD</td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='NL']/@FIELD_NAME"/>
+								                		</td>
+								                		<td><xsl:value-of select="$vRID"/></td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='NL']/@HINT_NO"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='NL']/@MODE"/>
+								                		</td>
+								                		<td>NL</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='NL']/@FIELD_NAME"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='NL']/@HINT"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='NL']/@POPUP"/>
+								                		</td>
+								                	</tr>
+								                	<tr>
+								                		<td><xsl:value-of select="../../@id"/></td>
+								                		<td>REPORT</td>
+								                		<td>FIELD</td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='EN']/@FIELD_NAME"/>
+								                		</td>
+								                		<td><xsl:value-of select="$vRID"/></td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='EN']/@HINT_NO"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='EN']/@MODE"/>
+								                		</td>
+								                		<td>EN</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='EN']/@FIELD_NAME"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='EN']/@HINT"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField and @LANG='EN']/@POPUP"/>
+								                		</td>
+								                	</tr>
+								                </xsl:if>
+								                <xsl:if test="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@HINT_NO!=''">
+								                	<tr>
+								                		<td><xsl:value-of select="../../@id"/></td>
+								                		<td>REPORT</td>
+								                		<td>FIELD</td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@FIELD_NAME"/>
+								                		</td>
+								                		<td><xsl:value-of select="$vRID"/></td>
+														<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@HINT_NO"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@MODE"/>
+								                		</td>
+								                		<td>IL</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@FIELD_NAME"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@HINT"/>
+								                		</td>
+								                		<td>
+								                			<xsl:value-of select="//dbquery[@id='ALL_DATA_DICTIONARY']/rows/row[@COLUMN_DATA=$DDField]/@POPUP"/>
+								                		</td>
+								                	</tr>
+								                </xsl:if>
+							                </xsl:for-each>		
+								        </tbody>
+								    </table>
+								    <xsl:call-template name="Node_Std_Table">
+										<xsl:with-param name="Table_Name" select="'GeneratedDD'"/>
+										<xsl:with-param name="dT_Type" select="'99'"/>
+										<xsl:with-param name="Records" select="-1"/>
+										<xsl:with-param name="Col_Filtering" select="'N'"/>
+										<xsl:with-param name="Col_Hidden" select="'0'"/>
+										<xsl:with-param name="dT_XLS" select="'Y'"/>		
+									</xsl:call-template>
+								</center>
+					        </p>
+					    </div>   
+				     	<div class="modal-footer">
+	        				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      				</div> 
+		            </div>
+		        </div>
+		    </div>
+		</xsl:if>
+		
 		<xsl:choose>
 			<!-- Header is ALWAYS Present except if KPI in Explorer mode or Drill-down -->
 			<xsl:when test="//dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value='Drill-Down' or //dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value='Pop-Up' or //dbquery[1]/descriptor/parameters/param[@name='pMODE']/@value='Drill-Down2'">
@@ -464,12 +586,11 @@
 				<xsl:call-template name="DBWeb_Decryptor">
 					<xsl:with-param name="tUQD" select="$UQD"/>
 				</xsl:call-template>
-				<!-- Call Data Dictionarry Details DEPREACATED Do Not Use 
+				<!-- Call Data Dictionarry Details -->
 				<xsl:call-template name="DataDic_Decryptor">
 					<xsl:with-param name="tUDDD" select="$UDDD"/>
 					<xsl:with-param name="tLanguage" select="$tLanguage"/>
 				</xsl:call-template>
-				-->
 			</xsl:when>
 			<xsl:when test="(//dbquery[1]/descriptor/parameters/param[@name='pKPI']/@value and //dbquery[1]/descriptor/parameters/param[@name='pEXPLORE']/@value='YES')">
 				<!-- Show Footer / Show Decryptor and DD -->
@@ -479,12 +600,11 @@
 				<xsl:call-template name="DBWeb_Decryptor">
 					<xsl:with-param name="tUQD" select="$UQD"/>
 				</xsl:call-template>
-				<!-- Call Data Dictionarry Details DEPREACATED Do Not Use 
+				<!-- Call Data Dictionarry Details -->
 				<xsl:call-template name="DataDic_Decryptor">
 					<xsl:with-param name="tUDDD" select="$UDDD"/>
 					<xsl:with-param name="tLanguage" select="$tLanguage"/>
 				</xsl:call-template>
-				-->
 				<!-- Call Footer-->
 				<xsl:call-template name="Footer">
 					<xsl:with-param name="tDebug" select="$tDebug"/> 	
@@ -509,12 +629,11 @@
 				<xsl:call-template name="DBWeb_Decryptor">
 					<xsl:with-param name="tUQD" select="$UQD"/>
 				</xsl:call-template>
-				<!-- Call Data Dictionarry Details DEPREACATED Do Not Use 
+				<!-- Call Data Dictionarry Details -->
 				<xsl:call-template name="DataDic_Decryptor">
 					<xsl:with-param name="tUDDD" select="$UDDD"/>
 					<xsl:with-param name="tLanguage" select="$tLanguage"/>
 				</xsl:call-template>
-				-->
 				<!-- Call Footer ONLY -->
 				<xsl:call-template name="Footer">
 					<xsl:with-param name="tDebug" select="$tDebug"/> 	
@@ -531,7 +650,6 @@
 	********************************************** -->
 
 	<xsl:template name="Checks"> 					<!-- Several Checks -->
-			
 		<!-- Check if Node Settings are defined if no go Message and redirect to Settings -->
 			<script>			
 				if(localStorage.getItem('<xsl:value-of select="$vNodeConfig"/>_Settings')===null) {
@@ -563,7 +681,6 @@
 						};
 					};
 			</script>
-		
 		<!-- Usage Local Storage for Storage of Debug Infos. Initialisation -->
 			<script>
 				<!-- TO DEBUG - Check if Debug Length is greater that 1000 char. If yes -> Clear 
@@ -576,7 +693,6 @@
 				//alert(localStorage.getItem('<xsl:value-of select="$vNodeConfig"/>_Debug'));
 				-->
 			</script>
-		
 		<!-- Check metaData. Only for Pilar Nodes/Can be used on Local Node ... To be tested -->
 			<xsl:if test="$vPROFILE!='User'">
 				<xsl:choose>
@@ -631,7 +747,6 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:if>
-		
 		<!-- pRID Missing Notification -->
 			<xsl:if test="$vRID='' or not($vRID) or $vRID='0' or //dbquery[@id='Report_Info']/rows/row/@dbn_rep_id=''">
 				<xsl:if test="$vKPI='' or not($vKPI)">
@@ -644,7 +759,24 @@
 					</xsl:call-template>
 				</xsl:if>	
 			</xsl:if>
-		
+		<!-- pLANG not correct -->
+			<!-- DEPREACATED 2016.0 Check first in URL 
+			<script>
+				if (document.URL.indexOf("pLANG=FR")==-1 &amp;&amp; document.URL.indexOf("pLANG=NL")==-1 &amp;&amp; document.URL.indexOf("pLANG=EN")==-1) {
+					LangMsg='<center><h1>Incorrect Language parameter <small>(pLANG)</small></h1><h2>in your URL</h2></center>Parameter pLANG <u><b>MUST</b></u> be present in your URL and only 3 values are allowed : FR, NL or EN.<br/>Incorrect use of pLANG can cause bad report rendering (Layout).<br/>Possible Cause :<ul><li>Parameter Language not defined in the <a href="/" target="_blank">Node Homepage</a>. Go on Homepage and select language on the Upper Right Part of Homepage</li><li>Bad Link. Modify link or communicate bad link to Report Owner. For Pilar Node contact per EMail <xsl:value-of select="$vWebMaster"/></li></ul>You can also modify link manually<br/>'
+					MagPopUp(LangMsg);
+				};
+			</script>
+			-->
+			<xsl:if test="not($vLANG='FR' or $vLANG='NL' or $vLANG='EN')">
+				<xsl:call-template name="TNotif">
+					<xsl:with-param name="tMsg" select="'Parameter pLANG is Missing,Empty or not equal to FR-NL-EN. The Default Value EN has been applied. Please Check.'"/>
+					<xsl:with-param name="tTitle" select="'T03 - Parameter Problem (pLANG)'"/> 
+					<xsl:with-param name="tType" select="4"/> 	
+					<xsl:with-param name="tAppear" select="1000"/>
+					<xsl:with-param name="tDuration" select="2000"/>  	
+				</xsl:call-template>
+			</xsl:if>
 		<!-- Check if Language pLANG is FR/NL/EN -->
 			<xsl:if test="not(substring(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pLANG']/@value),1,2)='FR' or substring(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pLANG']/@value),1,2)='NL' or substring(distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pLANG']/@value),1,2)='EN')">
 				<xsl:call-template name="TNotif">
@@ -655,14 +787,12 @@
 					<xsl:with-param name="tDuration" select="2000"/>  	
 				</xsl:call-template>
 			</xsl:if>
-		
 		<!-- Local Report Used throught intranet -->
 			<script>
 				if (document.URL.indexOf("mrnode")==-1 &amp;&amp; document.URL.indexOf("opsnode")==-1 &amp;&amp; document.URL.indexOf("qrnode")==-1 &amp;&amp; document.URL.indexOf("localhost")==-1) {
 					MRNNotif('3','T19 - Using a Local Dev Node ... Be Aware','You are requesting a report on a Local Node. No garanties are provided on data validity',10,"ALL",'<xsl:value-of select="$vNodeConfig"/>');
 				};
 			</script>
-		
 		<!-- Main Notification (For Administrators) only for Direct report (Main) -->
 			<xsl:if test="$vMODE='Main' or not($vMODE) or $vMODE=''">
 				<!-- Notifications only for Node Admin and Local Node Admin -->
@@ -685,80 +815,12 @@
 							<xsl:with-param name="tDuration" select="5000"/> 	
 						</xsl:call-template>
 					</xsl:if>
-				</xsl:if>				
-			</xsl:if>
-			
-		<!-- PROBLEM !!!! Check ReportLog only for Pilar Nodes AND if Report Id is used -->
-			<xsl:if test="not($vRID='' or $vRID='0') and $vNodeConfig!='Local' and 1=2">
-				<!-- Report modified (Not Modal) -->
-				<script>
-					<!-- Call Function to Create/Check LogRep and Display Log Warning and appearance of Improve -->
-					CheckReportLog(<xsl:value-of select="$vRID"/>,<xsl:value-of select="//dbquery[@id='Report_Info']/rows/row/@log"/>,<xsl:value-of select="$vPeriodEncourageInDays"/>,<xsl:value-of select="$vPeriodEncourageTrigger"/>,<xsl:value-of select="$vTotalEncourageTrigger"/>,'<xsl:value-of select="$vLANG"/>');
-				</script>
-				<center>
-					<div id="logRepId_{$vRID}" style="display:none" class='col-md-8 col-md-offset-2 alert alert-warning alert-dismissible' role='alert'>
-						<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>x</span></button>
-						<strong>Warning!</strong> This Report has been <b>modified since your last visit</b>. We recommend to Reset the layout to avoid problem with Result Layout (Buttons, moving Columns, Filters, ...). If you want to see modifications performed, place your mouse marker 
-						<a href="#!">
-							<xsl:attribute name='style'>cursor:help;text-decoration: none</xsl:attribute>
-							<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_REPORT_LOG.xml?repid=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
-								<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
-							<b>here</b>
-						</a>.
-						<div class="row"/>
-						<br/>
-						<button data-toggle="modal" data-target="#CPN_Report_Toolbox" class="col-md-3 col-md-offset-2 btn btn-warning" type="button">
-							Click here to reset Layout
-						</button>
-						<button class="col-md-3 col-md-offset-2 btn btn-primary" type="button">
-							<xsl:attribute name="onclick">var ReportSettings =JSON.parse(localStorage.getItem('Report_<xsl:value-of select="$vRID"/>_Settings'));ReportSettings.LastModifId='<xsl:value-of select="//dbquery[@id='Report_Info']/rows/row/@log"/>';localStorage.setItem('Report_<xsl:value-of select="$vRID"/>_Settings',JSON.stringify(ReportSettings));$('#logRepId_<xsl:value-of select="$vRID"/>').hide();</xsl:attribute>
-							Don't show this message again
-						</button>
-					</div>
-					<div class="row"/>
-				</center>
-				
-			
-				<!-- Status Warning based on vRepStatWarning (Not Modal) -->
-				<xsl:variable name="vREPSTATUS" select="//dbquery[@id='Report_Info']/rows/row[1]/@dbn_rep_stat"/>
-				<xsl:if test="contains($vRepStatWarning,concat($vQUOTE,$vREPSTATUS,$vQUOTE))">
-					<center>
-						<div id="StatusRepId_{$vRID}" class='col-md-8 col-md-offset-2 alert alert-warning alert-dismissible' role='alert'>
-							<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>x</span></button>
-							<div class="col-md-6">
-								<center>
-									<big><strong>Warning!</strong></big>
-								</center>
-								Report Status is <b><xsl:value-of select="//dbquery[@id='Report_Info']/rows/row[1]/@dbn_rep_status"/> since <xsl:value-of select="substring(//dbquery[@id='Report_Info']/rows/row[1]/@dbn_rep_date,1,10)"/></b>
-								<br/>
-								See
-								<a data-toggle="modal" data-target="#CPN_DYNPOPUP" href="/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_REPORT_LOG.xml?repid={$vRID}">
-									<xsl:attribute name='style'>cursor:help;text-decoration: none</xsl:attribute>
-									<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_REPORT_LOG.xml?repid=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
-										<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
-									<b>Logging</b>
-								</a> and Remarks for more details.
-							</div>
-							<a target="FeedbackRep" href="{$vNodeRedirect}?pRID={$vNodeFeedback}&amp;pVRID={$vRID}&amp;pLANG={$vLANG}">
-								<button class="col-md-4 col-md-offset-1 btn btn-info" type="button">
-									Click here to perform a Feedback
-								</button>
-							</a>
-							<div class="row"/>
-							<br/>
-					    	<i>
-					    		<xsl:call-template name="SPE_Feature">                            
-						            <xsl:with-param name="FieldVal" select="concat('MRN_SPE00#',//dbquery[@id='Report_Info']/rows/row[1]/@dbn_rep_remarks)"/>
-						        </xsl:call-template>	
-						    </i>
-						</div>
-						<div class="row"/>
-					</center>
 				</xsl:if>
-			</xsl:if>
-						
-		<!-- DEPREACATED since 1.0.4 by MIB - Report Status Notification -->
-			<!--xsl:choose>
+				
+			</xsl:if>	
+		<!-- Report Status Notification -->
+			<xsl:choose>
+				<!-- Status 8 - Report Replaced -->
 				<xsl:when test="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_stat='8'">
 					<xsl:call-template name="TNotif">
 						<xsl:with-param name="tMsg" select="'This Report has been Replaced. Please use the new one.'"/>
@@ -768,6 +830,7 @@
 						<xsl:with-param name="tDuration" select="2000"/>  	
 					</xsl:call-template>
 				</xsl:when>
+				<!-- Status 9 - Report Suppressed -->
 				<xsl:when test="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_stat='9'">
 					<xsl:call-template name="TNotif">
 						<xsl:with-param name="tMsg" select="'This report has been suppressed. If you need to use this report, contact MR-Mgt (Call EMS) and justify the usage of this report.'"/>
@@ -777,6 +840,7 @@
 						<xsl:with-param name="tDuration" select="2000"/>  	
 					</xsl:call-template>
 				</xsl:when>
+				<!-- Status 10 - Report Disabled -->
 				<xsl:when test="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_stat='10'">
 					<xsl:call-template name="TNotif">
 						<xsl:with-param name="tMsg" select="'This Report has been disabled for Performance Reason.'"/>
@@ -786,6 +850,7 @@
 						<xsl:with-param name="tDuration" select="2000"/>  	
 					</xsl:call-template>
 				</xsl:when>
+				<!-- Status 11 - Disabled -->
 				<xsl:when test="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_stat='11'">
 					<xsl:call-template name="TNotif">
 						<xsl:with-param name="tMsg" select="'This report is disabled. Please contact MR-Mgt if you need to use it by means of an EMS Call.'"/>
@@ -795,6 +860,7 @@
 						<xsl:with-param name="tDuration" select="2000"/>  	
 					</xsl:call-template>
 				</xsl:when>
+				<!-- Report in Soon Replaced -->
 				<xsl:when test="//dbquery[@id='Report_Info']/rows/row/@dbn_rep_accept='109'">
 					<xsl:call-template name="TNotif">
 						<xsl:with-param name="tMsg" select="'This Report will be soon replaced please test the new version and modify your favorite'"/>
@@ -805,9 +871,9 @@
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:otherwise>
-					
+					<!-- Do Nothing -->
 				</xsl:otherwise>
-			</xsl:choose-->
+			</xsl:choose>
 	</xsl:template>
 	<xsl:template name="ReportSecurity"> 			<!-- Security Mechanism -->
 		<xsl:param name="tSecType" select="'None'"/>	<!-- MANDATORY 'None'/'User'/		Security Type -->
@@ -1107,30 +1173,18 @@
 							</xsl:variable>
 							<xsl:variable name="POPREP_URL">
 								<xsl:choose>
-									<!-- Organism (BS) -->
-									<xsl:when test="$Param_1='01'">
-										<xsl:if test="$vDeployedNode='N'">http://mrnode.mil.intra</xsl:if>/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I4/IL_MR_I4.xml?pRID=321&amp;pORG=<xsl:value-of select="$Param_3"/>
-									</xsl:when>
+									<!-- Organism -->
+									<xsl:when test="$Param_1='01'">http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I4/IL_MR_I4.xml?pRID=321&amp;pORG=<xsl:value-of select="$Param_3"/></xsl:when>
 									<!-- Person -->
-									<xsl:when test="$Param_1='02'">
-										<xsl:if test="$vDeployedNode='N'">http://mrnode.mil.intra</xsl:if>/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I0/IL_MR_I0.xml?pRID=320&amp;pIDENTIFIER=<xsl:value-of select="$Param_3"/>&amp;pTYPE=<xsl:value-of select="$Param_2"/>
-									</xsl:when>
-									<!-- Lookup (BS) -->
-									<xsl:when test="$Param_1='03'">
-										<xsl:if test="$vDeployedNode='N'">http://mrnode.mil.intra</xsl:if>/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_LOOKUPCODE.xml?pRID=322&amp;pTYPE=<xsl:value-of select="$Param_2"/>&amp;pCODE=<xsl:value-of select="$Param_3"/>
-									</xsl:when>
+									<xsl:when test="$Param_1='02'">http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I0/IL_MR_I0.xml?pRID=320&amp;pIDENTIFIER=<xsl:value-of select="$Param_3"/>&amp;pTYPE=<xsl:value-of select="$Param_2"/></xsl:when>
+									<!-- Lookup -->
+									<xsl:when test="$Param_1='03'">http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_LOOKUP/IL_MR_LOOKUP.xml?pRID=322&amp;pTYPE=<xsl:value-of select="$Param_2"/>&amp;pCODE=<xsl:value-of select="$Param_3"/></xsl:when>
 									<!-- EMS -->
-									<xsl:when test="$Param_1='04'">
-										<xsl:if test="$vDeployedNode='N'">http://mrnode.mil.intra</xsl:if>/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/OT_EMS/OT_EMS.xml?pRID=323&amp;pCALLEMS=<xsl:value-of select="$Param_3"/>
-									</xsl:when>
+									<xsl:when test="$Param_1='04'">http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/OT_EMS/OT_EMS.xml?pRID=323&amp;pCALLEMS=<xsl:value-of select="$Param_3"/></xsl:when>
 									<!-- NSN -->
-									<xsl:when test="$Param_1='05'">
-										<xsl:if test="$vDeployedNode='N'">http://mrnode.mil.intra</xsl:if>/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I2/IL_MR_I2.xml?pRID=319&amp;pNSN=<xsl:value-of select="$Param_3"/>
-									</xsl:when>
+									<xsl:when test="$Param_1='05'">http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I2/IL_MR_I2.xml?pRID=319&amp;pNSN=<xsl:value-of select="$Param_3"/></xsl:when>
 									<!-- ASSET -->
-									<xsl:when test="$Param_1='06'">
-										<xsl:if test="$vDeployedNode='N'">http://mrnode.mil.intra</xsl:if>/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I1/IL_MR_I1.xml?pRID=318&amp;pASSET=<xsl:value-of select="$Param_3"/>
-									</xsl:when>
+									<xsl:when test="$Param_1='06'">http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_I1/IL_MR_I1.xml?pRID=318&amp;pASSET=<xsl:value-of select="$Param_3"/></xsl:when>
 									<xsl:otherwise>
 										<!-- Undefined -->
 									</xsl:otherwise>	
@@ -1163,32 +1217,19 @@
 										<xsl:attribute name='href'><xsl:value-of select="$POPREP_URL"/>&amp;pLANG=<xsl:value-of select="$vLANG"/></xsl:attribute>
 										<xsl:attribute name='target'>_blank</xsl:attribute>
 									</xsl:when>
-									<xsl:when test="$Param_4='2'">
-										<xsl:attribute name='title'>Click to Open Pop-Up Details Report in Modal Mode</xsl:attribute>
-										<xsl:attribute name='href'><xsl:value-of select="$POPREP_URL"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;pMODE=MPop-Up</xsl:attribute>
-										<xsl:attribute name='data-toggle'>modal</xsl:attribute>
-										<xsl:attribute name='data-target'>#CPN_DYNPOPUP</xsl:attribute>
-										<xsl:attribute name='role'>button</xsl:attribute>
-										<xsl:attribute name='data-trigger'>hover</xsl:attribute>
-									</xsl:when>
-									<xsl:otherwise><!-- 0 -->
+									<xsl:otherwise>
 										<xsl:attribute name='title'>Cursor on Value to See Pop-Up</xsl:attribute><xsl:attribute name='href'>javascript:void(0);</xsl:attribute>
 										<xsl:attribute name='style'>color: #228A06;cursor:help;</xsl:attribute>
 									</xsl:otherwise>	
 								</xsl:choose>
-								<xsl:if test="$Param_4!='2'">
-									<xsl:attribute name='onmouseover'>return showPopup('<xsl:value-of select="$POPREP_URL"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;pMODE=Pop-Up&amp;XXX='+Math.floor(Math.random()*1001),400);</xsl:attribute>	
-									<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
-								</xsl:if>
+								<xsl:attribute name='onmouseover'>return showPopup('<xsl:value-of select="$POPREP_URL"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;pMODE=Pop-Up&amp;XXX='+Math.floor(Math.random()*1001),400);</xsl:attribute>	
+								<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
 								<xsl:choose>
-									<xsl:when test="$Param_4='2'">
-										<span data-toggle="popover"  data-trigger="hover"  data-content="Click to Open Pop-Up Details Report in Modal Mode"><xsl:value-of select="$Param_5"/></span>
-									</xsl:when>
 									<xsl:when test="not($Param_5) or $Param_5!=''">
 										<xsl:value-of select="$Param_5"/>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:value-of select="$Param_5"/>
+										<xsl:value-of select="$Param_3"/>
 									</xsl:otherwise>	
 								</xsl:choose>
 							</xsl:element>
@@ -1720,18 +1761,6 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</td>
-	</xsl:template>
-	<xsl:template match="@*" mode="genericXTableCel">	<!-- Special Feature outside SQL: Usage is xsl:template match="node()|@*" mode="genericTableCel" From MC (Claerhout) -->		
-		<xsl:choose>
-			<xsl:when test="starts-with(.,'MRN_SPE')">
-				<xsl:call-template name="SPE_Feature">
-					<xsl:with-param name="FieldVal" select="."/>
-				</xsl:call-template>
-			</xsl:when>				
-			<xsl:otherwise>
-				<xsl:value-of select="."/>
-			</xsl:otherwise>
-		</xsl:choose>
 	</xsl:template>
 	<xsl:template name="Generic_Table_DBWEB"> 		<!-- Generation of BS Frame with Content (Generic or Not) -->
 		<xsl:param name="DBWEB_Name" select="'TO_BE_FILLED'"/>	<!-- MANDATORY 		DBWeb Query id-attribute  -->
@@ -2306,14 +2335,14 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>	
-		<!-- <br/> : Removed by MIB 16-06-01 to compact -->
+		<br/>
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			<xsl:attribute name="id">dT_<xsl:value-of select="$UniqdTN"/></xsl:attribute>
 			<xsl:attribute name="class"><xsl:value-of select="$TableClass"/></xsl:attribute>
 			<thead class="MRBlock">			
 				<tr>
 					<xsl:for-each select = "(//dbquery[@id=$DBWEB_Name])[1]/columns/column">
-						<th>
+						<th class="MRNFC18">
 							<xsl:choose>
 								<xsl:when test="$RepDic='N'">
 									<xsl:value-of select="@name"/>
@@ -2432,13 +2461,12 @@
 					    var keyValue2 = [];
 						var url = window.location.href;
 						var URLRep = url.substring(0,url.indexOf("?")).substring(url.substring(0,url.indexOf("?")).indexOf("LRF/XMLWeb/Process")-1);
-						var getLocalStorageData = localStorage.getItem('DataTables_dT_<xsl:value-of select="$Table_Name"/>_'+URLRep);
-						keyValue2=JSON.parse(getLocalStorageData);
+						keyValue2=JSON.parse(localStorage.getItem('DataTables_dT_<xsl:value-of select="$Table_Name"/>_'+URLRep));
 						$('#dT_<xsl:value-of select="$Table_Name"/> tfoot th.CPN_Search').each( function () {
 					        if(keyValue2===null){
 					        	var Filtervalue = '';
 					        	$(this).append( ' <input class="f{$Table_Name}" type="text" size="1" value="'+ Filtervalue +'" placeholder="" />' );
-					        } else {
+					        	} else {
 					        	var Filtervalue = keyValue2.columns[$(this).index()].search.search;
 					        	if (Filtervalue==='') {
 					        		<!-- Inputbox Initialisation -->
@@ -2447,11 +2475,9 @@
 					        		<!-- Inputbox Filled with filter -->
 					        		$(this).append( ' <input class="f{$Table_Name}" type="text" size="1" style="background-color:#f1c40f" value="'+ Filtervalue +'" placeholder="" />' );
 					        		}
-					        };
+					        	};
 					    } );
 					</xsl:if>
-					//GLOBAL ARRAY TO STORE COLUMNS THAT NEED TO BE WRAPPED
-					var wrapColumns = [];
 					
 					<!-- Used in XTable if Records is set = 0. Calculation of XTab Rows and determine if Paging is activated -->
 					if($('#dT_<xsl:value-of select="$Table_Name"/> tr').length &lt; 25) {
@@ -2486,7 +2512,6 @@
 							"buttons": [
 							{
 								extend: 'colvis',
-								collectionLayout: 'three-column',
 								text: function() {
 									var totCols = $('#dT_<xsl:value-of select="$Table_Name"/> thead th').length;
 									<xsl:choose>
@@ -2521,60 +2546,9 @@
 					            	{
 					                text: 'Export to XLS',
 					                extend: 'excelHtml5',
-					                footer: false,
-									exportOptions: {
-										columns: ':visible',
-										format: {
-											body: function( data, row, column, node){
-												if(data.match(/&lt;br\s*\/?&gt;/gmi)){
-													wrapColumns.push(column);
-													//FOR IE, other browsers data.replace(/&lt;br\s*\/?&gt;/gmi, '\n'); ???
-													return data.replace(/&lt;br&gt;/gmi, '\r\n');
-												} else {
-													//Strip html tags from data content
-													return data.replace(/&lt;\/?[^&gt;]+(&gt;|$)/gmi, '');
-												};
-											},
-											footer: function( data, columnIdx){
-												if(data.indexOf('script')!=-1){
-													return '';
-												} else {
-													return data.trim();
-												}
-											}
-										}
-									}
-									//,customizeData: function(data){
-										//data.footer = data.header;
-									//}
-									,customize: function(xlsx){
-										//COLORIZE AND ADD BORDER TO FIRST ROW
-										var sheet = xlsx.xl.worksheets['sheet1.xml'];
-										$('row:first c',sheet).attr('s','42');
-										// Check and apply wrapped cells (Line breaks in cell)
-										if(wrapColumns.length!=0){
-											for(var i=0; i &lt; wrapColumns.length; i++){
-												var exCol = String.fromCharCode(65+wrapColumns[i]);
-												$('row c[r^='+exCol+']:gt(0)',sheet).attr('s','55');
-											}
-										}
-										// ADD AUTOFILTERS TO COLUMNS
-										// Get column count
-										var lastCol = sheet.getElementsByTagName('col').length - 1;
-										var colRange = createCellPos( lastCol ) + '1';
-										// Get reference to the worksheet and parse it to xml nodes
-										// Has to be done this way to avoid creation of namespace atributes.
-										var afSerializer = new XMLSerializer();
-										var xmlString = afSerializer.serializeToString(sheet);
-										var parser = new DOMParser();
-										var xmlDoc = parser.parseFromString(xmlString,'text/xml');
-										//Create autofilter and add it to the worksheet
-										var xlsxFilter = xmlDoc.createElementNS('http://schemas.openxmlformats.org/spreadsheetml/2006/main','autoFilter');
-										var filterAttr = xmlDoc.createAttribute('ref');
-										filterAttr.value = 'A1:' + colRange;
-										xlsxFilter.setAttributeNode(filterAttr);
-										sheet.getElementsByTagName('worksheet')[0].appendChild(xlsxFilter);
-									}
+					                exportOptions: {
+					                    columns: ':visible'
+					                }
            						 }
 					            </xsl:if><xsl:if test="$dT_PDF='Y'">
 					            ,{
@@ -2583,12 +2557,7 @@
 					                message: 'CPN FW : Generated by <xsl:value-of select="$vCDN"/>',
 					                exportOptions: {
 					                    columns: ':visible'
-					                },
-					                customize: function (doc) {
-								        doc.defaultStyle.fontSize = 8;
-								        doc.styles.tableHeader.fontSize = 8;
-								        doc.styles.title.fontSize = 10;
-								    }
+					                }
            						 }
            						 ,{
 					                text: 'PDF Html5 (Land)',
@@ -2597,12 +2566,7 @@
 					                orientation: 'landscape',
 					                exportOptions: {
 					                    columns: ':visible'
-					                },
-					                customize: function (doc) {
-								        doc.defaultStyle.fontSize = 8;
-								        doc.styles.tableHeader.fontSize = 8;
-								        doc.styles.title.fontSize = 10;
-								    }
+					                }
            						 },
            						{
 					                text: 'PDF (alt Port)',
@@ -2610,12 +2574,7 @@
 					                message: 'CPN FW : Generated by <xsl:value-of select="$vCDN"/>',
 					                exportOptions: {
 					                    columns: ':visible'
-					                },
-					                customize: function (doc) {
-								        doc.defaultStyle.fontSize = 8;
-								        doc.styles.tableHeader.fontSize = 8;
-								        doc.styles.title.fontSize = 10;
-								    }
+					                }
 					             },
            						{
 					                text: 'PDF (alt Land)',
@@ -2624,12 +2583,7 @@
 					                orientation: 'landscape',
 					                exportOptions: {
 					                    columns: ':visible'
-					                },
-					                customize: function (doc) {
-								        doc.defaultStyle.fontSize = 8;
-								        doc.styles.tableHeader.fontSize = 8;
-								        doc.styles.title.fontSize = 10;
-								    }
+					                }
            						 }</xsl:if>
            						  ]
 					        },</xsl:if>
@@ -2654,23 +2608,7 @@
 											MRNNotif('1','T06 - Tables Result Personnalization Cleared','State Cleared (Column Filters, Visibility and Ordering). Reset will take effect on next Refresh or Query for the table contained in this block',10,'ALL','<xsl:value-of select="$vNodeConfig"/>');
 											}
                 					},
-                					<xsl:if test="$dT_Print='Y'">
-									,{
-										extend: 'print',
-										autoPrint: false,
-										exportOptions: {
-											columns: ':visible',
-										},
-										customize: function (win) {
-											$(win.document.body).find('table').addClass('display').css('font-size', '9px');
-											$(win.document.body).find('tr:nth-child(odd) td').each(function(index){
-												$(this).css('background-color','#D0D0D0');
-											});
-											$(win.document.body).find('h1').css('text-align','center');
-											
-										}
-									}
-									</xsl:if>
+                					<xsl:if test="$dT_Print='Y'">'print'</xsl:if>
 					            ]
 					        }
 					        <xsl:if test="$dT_HeatMap='Y'">
@@ -2848,36 +2786,8 @@
 						
 						dt_Table_Detail ('dT_<xsl:value-of select="$Table_Name"/>',oTable_dT_<xsl:value-of select="$Table_Name"/>,dT_URL,'<xsl:value-of select="$vLANG"/>','<xsl:value-of select="$vNodeConfig"/>');
 					</xsl:if>
-					<!-- Mark ALL datatables global search boxes when not empty -->
-					$('input.form-control.input-sm').filter('[type="search"]').each(function(){
-						if($(this).val()!=''){
-							$(this).css('background-color','#f1c40f');
-						}
-					});
-					<!-- Add event to check searchbox changes -->
-					$('input.form-control.input-sm').filter('[type="search"]').on('keyup change', function(){
-						if($(this).val()!=''){
-							$(this).css('background-color','#f1c40f');
-						} else {
-							$(this).css('background-color','#ffffff');
-						}
-					});
 					
-					//Convert a number to excel column range
-					function createCellPos( n ){
-						var ordA = 'A'.charCodeAt(0);
-						var ordZ = 'Z'.charCodeAt(0);
-						var len = ordZ - ordA + 1;
-						var s = "";
-
-						while( n >= 0 ) {
-							s = String.fromCharCode(n % len + ordA) + s;
-							n = Math.floor(n / len) - 1;
-						}
-
-						return s;
-					}
-				</script>
+				</script>	 					
 			</xsl:when>
 			<xsl:when test="$dT_Type='98'">
 				<!-- Used for KPI Dashboard for Structure -->
@@ -2942,7 +2852,7 @@
 			</xsl:otherwise>
 		</xsl:choose>	
 	</xsl:template>
-		<xsl:template name="DynamicXTable"> 			<!-- Dynamic Crosstable and DD on Detail  -->
+	<xsl:template name="DynamicXTable"> 			<!-- Dynamic Crosstable and DD on Detail  -->
 		<xsl:param name="XTable_Name" select="'XTABName01'"/> 		<!-- Unique Name for dataTable -->
 		<xsl:param name="DBWEB" select="'KPI_SUMMARY'"/>
 		<xsl:param name="vKPI" select="'NONE'"/>
@@ -2958,8 +2868,8 @@
 		<xsl:param name="vCodeR2" select="'NONE'"/> 		<!-- Allow PopUp with LookUps Code. Code Type must be provided. Value found will display Code explanation for R2 -->
 		<xsl:param name="vCodeC1" select="'NONE'"/> 		<!-- Allow PopUp with LookUps Code. Code Type must be provided. Value found will display Code explanation for C1 -->
 		<xsl:param name="CalcType" select="'SUM'"/> 		<!-- Calculation Type for Totals. Default 'SUM'/ 'AVG' /'VAL' With Sum HORTOT and VERTOT are available and with 'VAL' Special Features can be used -->
-		<xsl:param name="HORTOT" select="'YES'"/> 			<!-- Show Horizontal Total (Right). Default 'YES'/'NO' (Only with SUM) -->
-		<xsl:param name="VERTOT" select="'YES'"/> 			<!-- Show Vertical Total (Bottom). Default 'YES'/'NO' (Only with SUM) -->
+		<xsl:param name="HORTOT" select="'YES'"/> 			<!-- Show Horizontal Total (Right). Default 'YES'/'NO' -->
+		<xsl:param name="VERTOT" select="'YES'"/> 			<!-- Show Vertical Total (Bottom). Default 'YES'/'NO' -->
 		<xsl:param name="NRT" select="'NRT'"/>				<!-- Default NRT (RT) -->
 		<xsl:param name="NREC" select="'NO'"/>				<!-- Show value in NREC. Defult 'NO'/'YES' -->
 		<xsl:param name="DD" select="'YES'"/>				<!-- Values in XTABLE are Hyperlinks. Defult 'NO'/'YES' -->
@@ -2969,14 +2879,10 @@
 		<xsl:param name="dT_HeatMap" select="$vNodeHeatMap"/>			<!-- Show heatmap button. Default 'Y' / 'Y' -->
 		<xsl:param name="vAddInfo1" select="''"/> 			<!-- Additional Info 1 at end -->
 		<xsl:param name="vAddInfo2" select="''"/> 			<!-- Additional Info 2 at end -->
-		<xsl:param name="vWidth" select="'AUTO'"/> 			<!-- Xtable Width Default 'AUTO' / width in % -->
 		
-		<table class="display cell-border" align="center" width="{$vWidth}">
-			<xsl:if test="$vWidth!='AUTO'">
-				<xsl:attribute name="width"><xsl:value-of select="$vWidth"/></xsl:attribute>
-			</xsl:if>
+		<br/>
+		<table class="display cell-border" align="center">
 			<xsl:attribute  name="id">dT_<xsl:value-of select="$XTable_Name"/></xsl:attribute>
-			<!-- XTable Header -->
 			<thead>
 				<xsl:attribute name="class">
 					<xsl:choose>
@@ -2987,47 +2893,23 @@
 				</xsl:attribute>
 				<tr>
 					<th>
-						<!-- xsl:value-of select="$vR1"/-->
-						<xsl:call-template name="FromDic2Rep">
-							<xsl:with-param name="Title2S" select="$vR1"/>
-							<xsl:with-param name="Lang" select="$Lang"/>
-							<xsl:with-param name="dictionary" select="$dictionary"/>
-							<xsl:with-param name="tDDConfig" select="'C'"/>
-						</xsl:call-template>
+						<xsl:value-of select="$vR1"/>
 					</th>
 					<xsl:if test="$vInfoR1!=''">
 						<th>
 							<xsl:attribute name="class">MRNC11</xsl:attribute>
-							<!--xsl:value-of select="$vInfoR1"/-->
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vInfoR1"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'C'"/>
-							</xsl:call-template>
+							<xsl:value-of select="$vInfoR1"/>
 						</th>
 					</xsl:if>
 					<xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">
 						<th>
-							<!-- xsl:value-of select="$vR2"/-->
-						<xsl:call-template name="FromDic2Rep">
-							<xsl:with-param name="Title2S" select="$vR2"/>
-							<xsl:with-param name="Lang" select="$Lang"/>
-							<xsl:with-param name="dictionary" select="$dictionary"/>
-							<xsl:with-param name="tDDConfig" select="'C'"/>
-						</xsl:call-template>
+							<xsl:value-of select="$vR2"/>
 						</th>
 					</xsl:if>
 					<xsl:if test="$vInfoR2!=''">
 						<th>
 							<xsl:attribute name="class">MRNC11</xsl:attribute>
-							<!--xsl:value-of select="$vInfoR2"/-->
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vInfoR2"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'C'"/>
-							</xsl:call-template>
+							<xsl:value-of select="$vInfoR2"/>
 						</th>
 					</xsl:if>
 					<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
@@ -3054,35 +2936,19 @@
 							</th>
 						</xsl:if>
 					</xsl:for-each-group>
-					<!-- Only Horiz Total is possible with SUM -->
-					<xsl:choose>
-						<xsl:when test="$HORTOT='YES' and $CalcType='SUM'">
-							 <th align='center'>Totals</th>			
-						</xsl:when>
-						<xsl:otherwise/>
-					</xsl:choose>  
+					<xsl:if test="$HORTOT='YES'">
+						<th align='center'>Totals</th>
+					</xsl:if>
 					<xsl:if test="$vAddInfo1!=''">
 						<th>
 							<xsl:attribute name="class">MRNC11</xsl:attribute>
-							<!--xsl:value-of select="$vAddInfo1"/-->
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vAddInfo1"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'C'"/>
-							</xsl:call-template>
+							<xsl:value-of select="$vAddInfo1"/>
 						</th>
 					</xsl:if>
 					<xsl:if test="$vAddInfo2!=''">
 						<th>
 							<xsl:attribute name="class">MRNC11</xsl:attribute>
-							<!--xsl:value-of select="$vAddInfo2"/-->
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vAddInfo2"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'C'"/>
-							</xsl:call-template>
+							<xsl:value-of select="$vAddInfo2"/>
 						</th>
 					</xsl:if>
 				</tr>
@@ -3100,8 +2966,7 @@
 								<td>
 									<xsl:attribute name="data-order"><xsl:value-of select="replace($v1Row,',','.')"/></xsl:attribute>
 									<xsl:attribute name="class">MRNC11</xsl:attribute>
-									<!--xsl:value-of select="$v1Row"/-->
-									<xsl:apply-templates select="@*[local-name() = $vR1]" mode="genericXTableCel"/>
+									<xsl:value-of select="$v1Row"/>
 								</td>
 							</xsl:if>
 							<xsl:if test="$vCodeR1!='NONE'">
@@ -3127,8 +2992,7 @@
 									<td>
 										<xsl:attribute name="data-order"><xsl:value-of select="replace($v2Row,',','.')"/></xsl:attribute>
 										<xsl:attribute name="class">MRNC12</xsl:attribute>
-										<!--xsl:value-of select="$v2Row"/-->
-										<xsl:apply-templates select="@*[local-name() = $vR2]" mode="genericXTableCel"/>
+										<xsl:value-of select="$v2Row"/>
 									</td>
 								</xsl:if>
 								<xsl:if test="$vCodeR2!='NONE'">
@@ -3229,157 +3093,138 @@
 										</td> 
 									</xsl:otherwise>
 								</xsl:choose>       
-							</xsl:for-each-group>
-							<!-- Only Horiz Total is possible with SUM -->
-							<xsl:choose>
-								<xsl:when test="$HORTOT='YES' and $CalcType='SUM'">
-									<td align="center">
-										<xsl:if test="$DD='YES'">
-											<xsl:attribute name="class">MRNCF18</xsl:attribute>
+							</xsl:for-each-group>  
+							<xsl:if test="$HORTOT='YES' and $CalcType='SUM'">
+								<td align="center">
+									<xsl:if test="$DD='YES'">
+										<xsl:attribute name="class">MRNCF18</xsl:attribute>
+										<xsl:choose>
+											<xsl:when test="$CalcType='SUM'">
+												<xsl:attribute name="data-order"><xsl:value-of select="sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR)"/></xsl:attribute>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:attribute name="data-order">???</xsl:attribute>
+											</xsl:otherwise>
+										</xsl:choose>
+										<b><xsl:element name='a'>
+											<xsl:attribute name='href'>#!</xsl:attribute>
+											<xsl:attribute name='title'>Click to See Details <xsl:if test="$NREC='YES'">(<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NREC),'###,###')" /> Records)</xsl:if></xsl:attribute>
+											<!-- File name without extra parameter -->
+											<xsl:if test="$XMLFileName!='name.xml'">
+												<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vR1"/>=<xsl:value-of select="$v1Row"/><xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">&amp;p<xsl:value-of select="$vR2"/>=<xsl:value-of select="$v2Row"/></xsl:if>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
+											</xsl:if>
+											<!-- File name with extra parameter -->
+											<xsl:if test="$XMLFileParamName!='name.xml'">
+												<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vR1"/>=<xsl:value-of select="$v1Row"/><xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">&amp;p<xsl:value-of select="$vR2"/>=<xsl:value-of select="$v2Row"/></xsl:if>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
+											</xsl:if>
 											<xsl:choose>
 												<xsl:when test="$CalcType='SUM'">
-													<xsl:attribute name="data-order"><xsl:value-of select="sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR)"/></xsl:attribute>
+													<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR),'###,###')" />
 												</xsl:when>
 												<xsl:otherwise>
-													<xsl:attribute name="data-order">???</xsl:attribute>
+													???
 												</xsl:otherwise>
 											</xsl:choose>
-											<b><xsl:element name='a'>
-												<xsl:attribute name='href'>#!</xsl:attribute>
-												<xsl:attribute name='title'>Click to See Details <xsl:if test="$NREC='YES'">(<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NREC),'###,###')" /> Records)</xsl:if></xsl:attribute>
-												<!-- File name without extra parameter -->
-												<xsl:if test="$XMLFileName!='name.xml'">
-													<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vR1"/>=<xsl:value-of select="$v1Row"/><xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">&amp;p<xsl:value-of select="$vR2"/>=<xsl:value-of select="$v2Row"/></xsl:if>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
-												</xsl:if>
-												<!-- File name with extra parameter -->
-												<xsl:if test="$XMLFileParamName!='name.xml'">
-													<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vR1"/>=<xsl:value-of select="$v1Row"/><xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">&amp;p<xsl:value-of select="$vR2"/>=<xsl:value-of select="$v2Row"/></xsl:if>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
-												</xsl:if>
-												<xsl:choose>
-													<xsl:when test="$CalcType='SUM'">
-														<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR),'###,###')" />
-													</xsl:when>
-													<xsl:otherwise>
-														???
-													</xsl:otherwise>
-												</xsl:choose>
-											</xsl:element></b>
-										</xsl:if>
-										<xsl:if test="$DD='NO'">
-											<xsl:attribute name="class">MRNC04</xsl:attribute>
+										</xsl:element></b>
+									</xsl:if>
+									<xsl:if test="$DD='NO'">
+										<xsl:attribute name="class">MRNC04</xsl:attribute>
+										<xsl:choose>
+											<xsl:when test="$CalcType='SUM'">
+												<xsl:attribute name="data-order"><xsl:value-of select="sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR)"/></xsl:attribute>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:attribute name="data-order">???</xsl:attribute>
+											</xsl:otherwise>
+										</xsl:choose>
+										<b>
 											<xsl:choose>
 												<xsl:when test="$CalcType='SUM'">
-													<xsl:attribute name="data-order"><xsl:value-of select="sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR)"/></xsl:attribute>
+													<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR),'###,###')" />
 												</xsl:when>
 												<xsl:otherwise>
-													<xsl:attribute name="data-order">???</xsl:attribute>
+													???
 												</xsl:otherwise>
 											</xsl:choose>
-											<b>
-												<xsl:choose>
-													<xsl:when test="$CalcType='SUM'">
-														<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vR1])=$v1Row and (@*[local-name() = $vR2])=$v2Row]/@NBR),'###,###')" />
-													</xsl:when>
-													<xsl:otherwise>
-														???
-													</xsl:otherwise>
-												</xsl:choose>
-											</b>
-										</xsl:if>
-									</td> 			
-								</xsl:when>
-								<xsl:otherwise/>
-							</xsl:choose>  
+										</b>
+									</xsl:if>
+								</td> 			
+							</xsl:if>
 							<xsl:if test="$vAddInfo1!=''">
 								<td>
-									<!-- 1.0.4 External Spexsl:call-template name="SPE_Feature">
+									<xsl:call-template name="SPE_Feature">
 										<xsl:with-param name="FieldVal" select="@*[local-name() = $vAddInfo1]"/>
-									</xsl:call-template-->
-									<xsl:apply-templates select="@*[local-name() = $vAddInfo1]" mode="genericXTableCel"/>
+									</xsl:call-template>
 								</td>
 							</xsl:if>	
 							<xsl:if test="$vAddInfo2!=''">
 								<td>
-									<!-- 1.0.4 xsl:call-template name="SPE_Feature">
+									<xsl:call-template name="SPE_Feature">
 										<xsl:with-param name="FieldVal" select="@*[local-name() = $vAddInfo2]"/>
-									</xsl:call-template-->
-									<xsl:apply-templates select="@*[local-name() = $vAddInfo2]" mode="genericXTableCel"/>
+									</xsl:call-template>
 								</td>
 							</xsl:if>			
 						</tr>
 					</xsl:for-each-group>
 				</xsl:for-each-group>
 			</tbody>
-				
-			<tfoot>
-				<tr class="MRNCF18">
-					<th class="CPN_Search">
-						<xsl:call-template name="FromDic2Rep">
-							<xsl:with-param name="Title2S" select="$vR1"/>
-							<xsl:with-param name="Lang" select="$Lang"/>
-							<xsl:with-param name="dictionary" select="$dictionary"/>
-							<xsl:with-param name="tDDConfig" select="'IP'"/>
-						</xsl:call-template>
-					</th>
-					<xsl:if test="$vInfoR1!=''">
+			<xsl:if test="$VERTOT='YES' and $CalcType='SUM'">	
+				<tfoot>
+					<tr class="MRNCF18">
 						<th class="CPN_Search">
 							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vInfoR1"/>
+								<xsl:with-param name="Title2S" select="@name"/>
 								<xsl:with-param name="Lang" select="$Lang"/>
 								<xsl:with-param name="dictionary" select="$dictionary"/>
 								<xsl:with-param name="tDDConfig" select="'IP'"/>
 							</xsl:call-template>
 						</th>
-					</xsl:if>
-					<xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">
-						<th class="CPN_Search">
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vR2"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'IP'"/>
-							</xsl:call-template>
-						</th>
-						<xsl:if test="$vInfoR2!=''">
+						<xsl:if test="$vInfoR1!=''">
 							<th class="CPN_Search">
 								<xsl:call-template name="FromDic2Rep">
-									<xsl:with-param name="Title2S" select="$vInfoR2"/>
+									<xsl:with-param name="Title2S" select="@name"/>
 									<xsl:with-param name="Lang" select="$Lang"/>
 									<xsl:with-param name="dictionary" select="$dictionary"/>
 									<xsl:with-param name="tDDConfig" select="'IP'"/>
 								</xsl:call-template>
 							</th>
 						</xsl:if>
-					</xsl:if>
-					<xsl:choose>
-						<xsl:when test="$VERTOT='YES' and $CalcType='SUM'">
-							<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-								<xsl:sort select="@*[local-name() = $vC1]"/>
-								<xsl:variable name="vCol"><xsl:value-of select="@*[local-name() = $vC1]"/></xsl:variable>
-								<th align="center">
-									<xsl:if test="$DD='YES'">
-										<xsl:element name='a'>
-											<xsl:attribute name='href'>#!</xsl:attribute>
-											<xsl:attribute name='title'>Click to See Details <xsl:if test="$NREC='YES'">(<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vCol]/@NREC),'###,###')" /> Records)</xsl:if></xsl:attribute>
-											<!-- File name without extra parameter -->
-											<xsl:if test="$XMLFileName!='name.xml'">
-												<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vC1"/>=<xsl:value-of select="$vCol"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
-											</xsl:if>
-											<!-- File name with extra parameter -->
-											<xsl:if test="$XMLFileParamName!='name.xml'">
-												<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vC1"/>=<xsl:value-of select="$vCol"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
-											</xsl:if>
-											<xsl:choose>
-												<xsl:when test="$CalcType='SUM'">
-													<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vCol]/@NBR),'###,###')" />
-												</xsl:when>
-												<xsl:otherwise>
-													???
-												</xsl:otherwise>
-											</xsl:choose>
-										</xsl:element>
-									</xsl:if>
-									<xsl:if test="$DD='NO'">
+						<xsl:if test="$vR1!=$vR2 and $vR2!='NONE'">
+							<th class="CPN_Search">
+								<xsl:call-template name="FromDic2Rep">
+									<xsl:with-param name="Title2S" select="@name"/>
+									<xsl:with-param name="Lang" select="$Lang"/>
+									<xsl:with-param name="dictionary" select="$dictionary"/>
+									<xsl:with-param name="tDDConfig" select="'IP'"/>
+								</xsl:call-template>
+							</th>
+							<xsl:if test="$vInfoR2!=''">
+								<th class="CPN_Search">
+									<xsl:call-template name="FromDic2Rep">
+										<xsl:with-param name="Title2S" select="@name"/>
+										<xsl:with-param name="Lang" select="$Lang"/>
+										<xsl:with-param name="dictionary" select="$dictionary"/>
+										<xsl:with-param name="tDDConfig" select="'IP'"/>
+									</xsl:call-template>
+								</th>
+							</xsl:if>
+						</xsl:if>
+						<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
+							<xsl:sort select="@*[local-name() = $vC1]"/>
+							<xsl:variable name="vCol"><xsl:value-of select="@*[local-name() = $vC1]"/></xsl:variable>
+							<th align="center">
+								<xsl:if test="$DD='YES'">
+									<xsl:element name='a'>
+										<xsl:attribute name='href'>#!</xsl:attribute>
+										<xsl:attribute name='title'>Click to See Details <xsl:if test="$NREC='YES'">(<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vCol]/@NREC),'###,###')" /> Records)</xsl:if></xsl:attribute>
+										<!-- File name without extra parameter -->
+										<xsl:if test="$XMLFileName!='name.xml'">
+											<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vC1"/>=<xsl:value-of select="$vCol"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
+										</xsl:if>
+										<!-- File name with extra parameter -->
+										<xsl:if test="$XMLFileParamName!='name.xml'">
+											<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vC1"/>=<xsl:value-of select="$vCol"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
+										</xsl:if>
 										<xsl:choose>
 											<xsl:when test="$CalcType='SUM'">
 												<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vCol]/@NBR),'###,###')" />
@@ -3388,35 +3233,35 @@
 												???
 											</xsl:otherwise>
 										</xsl:choose>
-									</xsl:if>
-								</th>							
-							</xsl:for-each-group>
-							<xsl:if test="$HORTOT='YES' and $VERTOT='YES' and $CalcType='SUM'">
-								<th align="center">
-									<xsl:attribute name="class">MRNCF19</xsl:attribute>
-									<xsl:if test="$DD='YES'">
-										<xsl:element name='a'>
-											<xsl:attribute name='href'>#!</xsl:attribute>
-											<xsl:attribute name='title'>Click to See Details <xsl:if test="$NREC='YES'">(<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row/@NREC),'###,###')" /> Records)</xsl:if></xsl:attribute>
-											<!-- File name without extra parameter -->
-											<xsl:if test="$XMLFileName!='name.xml'">
-												<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL',,'<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
-											</xsl:if>
-											<!-- File name with extra parameter -->
-											<xsl:if test="$XMLFileParamName!='name.xml'">
-												<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
-											</xsl:if>
-											<xsl:choose>
-												<xsl:when test="$CalcType='SUM'">
-													<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row/@NBR),'###,###')" />
-												</xsl:when>
-												<xsl:otherwise>
-													???
-												</xsl:otherwise>
-											</xsl:choose>
-										</xsl:element>
-									</xsl:if>
-									<xsl:if test="$DD='NO'">
+									</xsl:element>
+								</xsl:if>
+								<xsl:if test="$DD='NO'">
+									<xsl:choose>
+										<xsl:when test="$CalcType='SUM'">
+											<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vCol]/@NBR),'###,###')" />
+										</xsl:when>
+										<xsl:otherwise>
+											???
+										</xsl:otherwise>
+									</xsl:choose>
+								</xsl:if>
+							</th>							
+						</xsl:for-each-group>
+						<xsl:if test="$HORTOT='YES' and $VERTOT='YES' and $CalcType='SUM'">
+							<th align="center">
+								<xsl:attribute name="class">MRNCF19</xsl:attribute>
+								<xsl:if test="$DD='YES'">
+									<xsl:element name='a'>
+										<xsl:attribute name='href'>#!</xsl:attribute>
+										<xsl:attribute name='title'>Click to See Details <xsl:if test="$NREC='YES'">(<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row/@NREC),'###,###')" /> Records)</xsl:if></xsl:attribute>
+										<!-- File name without extra parameter -->
+										<xsl:if test="$XMLFileName!='name.xml'">
+											<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL',,'<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
+										</xsl:if>
+										<!-- File name with extra parameter -->
+										<xsl:if test="$XMLFileParamName!='name.xml'">
+											<xsl:attribute name='onclick'>var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pMODE=Drill-Down&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;XXX='+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);MRNNotif('1','Drill-Down','Load : &lt;a href="'+TargetLoad+'" target="_blank">'+TargetLoad+' &lt;/a> in '+TargetDiv,10,'ALL','<xsl:value-of select="$vNodeConfig"/>')</xsl:attribute>
+										</xsl:if>
 										<xsl:choose>
 											<xsl:when test="$CalcType='SUM'">
 												<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row/@NBR),'###,###')" />
@@ -3425,45 +3270,43 @@
 												???
 											</xsl:otherwise>
 										</xsl:choose>
-									</xsl:if>
-								</th>
-							</xsl:if>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-								<td align="center"><!--N/A(1)--></td>
-							</xsl:for-each-group>
-							<xsl:if test="not($HORTOT='NO' and $VERTOT='NO') and $CalcType='SUM'">
-								<td align="center"><!--N/A(2)--></td>
-							</xsl:if>	
-						</xsl:otherwise>
-					</xsl:choose>
-					
-					<xsl:if test="$vAddInfo1!=''">
-						<!--th class="CPN_Search"-->
-						<th class="CPN_Search">
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vAddInfo1"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'IP'"/>
-							</xsl:call-template>
-						</th>
-					</xsl:if>
-					<xsl:if test="$vAddInfo2!=''">
-						<!--th class="CPN_Search"-->
-						<th class="CPN_Search">
-							<xsl:call-template name="FromDic2Rep">
-								<xsl:with-param name="Title2S" select="$vAddInfo2"/>
-								<xsl:with-param name="Lang" select="$Lang"/>
-								<xsl:with-param name="dictionary" select="$dictionary"/>
-								<xsl:with-param name="tDDConfig" select="'IP'"/>
-							</xsl:call-template>
-						</th>
-					</xsl:if>
-				</tr>
-			</tfoot>
-			
+									</xsl:element>
+								</xsl:if>
+								<xsl:if test="$DD='NO'">
+									<xsl:choose>
+										<xsl:when test="$CalcType='SUM'">
+											<xsl:value-of select="format-number(sum(//dbquery[@id=$DBWEB]/rows/row/@NBR),'###,###')" />
+										</xsl:when>
+										<xsl:otherwise>
+											???
+										</xsl:otherwise>
+									</xsl:choose>
+								</xsl:if>
+							</th>
+						</xsl:if>
+						<xsl:if test="$vAddInfo1!=''">
+							<th class="CPN_Search">
+								<xsl:call-template name="FromDic2Rep">
+									<xsl:with-param name="Title2S" select="@name"/>
+									<xsl:with-param name="Lang" select="$Lang"/>
+									<xsl:with-param name="dictionary" select="$dictionary"/>
+									<xsl:with-param name="tDDConfig" select="'IP'"/>
+								</xsl:call-template>
+							</th>
+						</xsl:if>
+						<xsl:if test="$vAddInfo2!=''">
+							<th class="CPN_Search">
+								<xsl:call-template name="FromDic2Rep">
+									<xsl:with-param name="Title2S" select="@name"/>
+									<xsl:with-param name="Lang" select="$Lang"/>
+									<xsl:with-param name="dictionary" select="$dictionary"/>
+									<xsl:with-param name="tDDConfig" select="'IP'"/>
+								</xsl:call-template>
+							</th>
+						</xsl:if>
+					</tr>
+				</tfoot>
+			</xsl:if>
 		</table>
 
 		<xsl:call-template name="Node_Std_Table">
@@ -3490,537 +3333,221 @@
 			</script>
 		</xsl:if>
 	</xsl:template>
-	
-	<!-- New From NN And improved by MIB 1.0.4 -->
-	<xsl:template name="DynamicGraph"> 			<!-- DHTMLX_Graph test -->
-		<xsl:param name="DBWEB" select="'GRAPH'"/> 								<!-- QueryString Name -->
-		<xsl:param name="XTable_Name" select="generate-id(//dbquery[@id=$DBWEB]/@id)"/> 	<!-- Unique DHTMLX_Graph Name -->
-		<xsl:param name="tLibrary" select="'Flot'"/> 		<!-- Library : Flot/DHTMLX/HighCharts --> 
-		<xsl:param name="tview" select="'stackedBar'"/> 	
-			<!-- Graph Type : 
-					Flot : stackedBar
-					DHTMLX : pie/bar/donut (1D) and stackedBar (2D)
-					Highcharts : area/column/line (2D and 1D)
-					See Doc on Wiki -->
-		<xsl:param name="tVals" select="'NBR'"/> 			<!-- Aggregation value : Field name in QueryString -->
-		<xsl:param name="vR1" select="''"/> 		<!-- X axis -->
-		<xsl:param name="vR2" select="''"/> 		<!-- Y axis -->
-		<xsl:param name="vC1" select="''"/> 			<!--  -->
-		<xsl:param name="vCodeR1" select="'NONE'"/> 		<!--  -->
-		<xsl:param name="vCodeR2" select="'NONE'"/> 		<!--  -->
-		<xsl:param name="vCodeC1" select="'NONE'"/> 		<!--  -->
-		<xsl:param name="CalcType" select="'SUM'"/> 		<!-- SUM or AVG -->
-		<xsl:param name="tGraphWidth" select="'900px'"/> 		<!-- Graph Width -->
-		<xsl:param name="tGraphHeigth" select="'400px'"/> 		<!-- graph Height -->
-		<xsl:param name="vKPI" select="'NONE'"/> 				<!-- For MR Node Only -->
-		<xsl:param name="vVKEYD" select="'NONE'"/> 				<!-- For MR Node Only -->
-		<xsl:param name="XMLFileName" select="'name.xml'"/> 	<!-- Depreacated -->
-		<xsl:param name="XMLFileParamName" select="'name.xml'"/> 	<!-- For Drill-Down -->
-		<xsl:param name="InTab" select="'NO'"/> 				<!-- YES/NO for DHTMLX only -->
-		
-		<!-- Depreacated Notification -->
-		<xsl:if test="$XMLFileName!='name.xml'">
-			<xsl:call-template name="TNotif">
-				<xsl:with-param name="tMsg" select="'Message for Developpers : Parameter XMLFileName is used in Template DynamicGraph. We recommend to use only XMLFileParamName. Please warn Developpers or Administrators if this message appears.'"/>
-				<xsl:with-param name="tTitle" select="'T46 - Param XMLFileName Depracated'"/> 
-				<xsl:with-param name="tType" select="3"/> 	
-				<xsl:with-param name="tAppear" select="1000"/>
-				<xsl:with-param name="tDuration" select="2000"/>  	
-			</xsl:call-template>
-		</xsl:if>
-		
-		<xsl:choose>
-			<xsl:when test="$tLibrary='Flot'">
-				<!-- Start Graph Component -->
-				<script>
-					$(function(){		
-						// Allows Drill-Down on Legend Value
-						function DDGraphLegend(val){
+	<xsl:template name="DynamicGraph"> 				<!-- Dynamic (Stacked) Graph and DD on Detail -->
+		<xsl:param name="XTable_Name" select="'XTABName01'"/>
+		<xsl:param name="DBWEB" select="'KPI_SUMMARY'"/>
+		<xsl:param name="vKPI" select="'NONE'"/>
+		<xsl:param name="vVKEYD" select="'NONE'"/>
+		<xsl:param name="XMLFileName" select="'name.xml'"/>
+		<xsl:param name="XMLFileParamName" select="'name.xml'"/>
+		<xsl:param name="vR1" select="'YEAR'"/>
+		<xsl:param name="vR2" select="'STATUS'"/>
+		<xsl:param name="vC1" select="'PRIORITY'"/>
+		<xsl:param name="vCodeR1" select="'NONE'"/>
+		<xsl:param name="vCodeR2" select="'NONE'"/>
+		<xsl:param name="vCodeC1" select="'NONE'"/>
+		<xsl:param name="CalcType" select="'SUM'"/> <!-- SUM or AVG -->
+
+		<!-- Start Graph Component -->
+		<script>
+			$(function(){		
+				// Allows Drill-Down on Legend Value
+				function DDGraphLegend(val){
+					var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';
+					<!-- File name without extra parameter -->
+					<xsl:if test="$XMLFileName!='name.xml'">
+						var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vC1"/>='+val+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
+					</xsl:if>
+					<!-- File name with extra parameter -->
+					<xsl:if test="$XMLFileParamName!='name.xml'">
+						var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>p<xsl:value-of select="$vC1"/>='+val+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
+					</xsl:if>
+					loadDiv(TargetDiv,TargetLoad);
+				}
+				// Create href string to call report with extra parameters
+				function clickToHref() {
+
+					// Url of the report up to the "?" character
+					var sReportURL = '<xsl:value-of select="/dbqueries/dbquery[@id='Report_Info']/rows/row/@dbn_rep_node_url" /><xsl:value-of select="/dbqueries/dbquery[@id='Report_Info']/rows/row/@dbn_rep_url" />' + '?';
+
+					// Array containing all possible report parameters
+					var aReportParam = [
+						<xsl:for-each select="/dbqueries/dbquery[@id='Report_Info']/descriptor/parameters/param">
+							'<xsl:value-of select="@name" />', '<xsl:value-of select="@value" />',
+						</xsl:for-each>
+					];
+
+					// Update the parameters array using the functions arguments
+					for(var i = 0; i &lt; arguments.length; i=i+2) {
+						aReportParam[aReportParam.indexOf(arguments[i])+1] = arguments[i+1]
+					}
+
+					// Convert the parameters array into a formatted parameters string
+					var sReportParam = ''
+					for (var i=0; i &lt; aReportParam.length; i=i+2) {
+						sReportParam = sReportParam + aReportParam[i] + '=' + escape(aReportParam[i+1]) + '&amp;';
+					}
+
+					// Concatenate and return the base url and its new parameters
+					//alert(sReportURL + sReportParam);
+					return sReportURL + sReportParam;
+				};
+
+				// Function to chart
+				$.fn.chartMRN<xsl:value-of select='$XTable_Name'/> = (function() {
+					// Variable to hold xaxis tick labels and their anchor formatting. href is defined at click event.
+					var ticksLabels = [
+						<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
+							<xsl:sort select="@*[local-name() = $vR1]" data-type="text" order="ascending" />
+							[<xsl:value-of select="position()" />,'<xsl:value-of select="@*[local-name() = $vR1]"/>'],
+						</xsl:for-each-group>
+					];
+
+					// Variable Holding the series' specific data
+					var chartData = [
+						<!-- Group and sort to create the series -->
+						<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
+							<xsl:sort select="@*[local-name() = $vC1]" data-type="text" order="ascending" />
+							<xsl:variable name="vVROW1"><xsl:value-of select="@*[local-name() = $vC1]" /></xsl:variable>
+							{
+								label: '<xsl:value-of select="$vVROW1" />',
+								data: [
+									<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
+										<xsl:sort select="@*[local-name() = $vR1]" data-type="text" order="ascending" />
+										<xsl:variable name="vVCOL1"><xsl:value-of select="@*[local-name() = $vR1]" /></xsl:variable>
+										[
+											<xsl:value-of select="position()" />,
+											<xsl:choose>
+												<xsl:when test="$CalcType='SUM'">
+													<xsl:value-of select="sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vVROW1 and (@*[local-name() = $vR1]) = $vVCOL1]/@NBR)" />
+												</xsl:when>
+												<xsl:when test="$CalcType='AVG'">
+													<xsl:value-of select="avg(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vVROW1 and (@*[local-name() = $vR1]) = $vVCOL1]/@NBR)" />
+												</xsl:when>
+												<xsl:otherwise>
+													???
+												</xsl:otherwise>
+											</xsl:choose>
+										],
+									</xsl:for-each-group>
+								]
+							},
+						</xsl:for-each-group>
+					];
+					
+					// Variable to hold the global chart options
+					var chartOptions = {
+
+						grid: {
+							borderWidth: 0,
+							margin: 0,
+							hoverable: true,
+							clickable: true,
+						},
+
+						legend: {
+							container: $("#legendIniMrc"),
+							noColumns: 2,
+							labelFormatter: function(label,series){
+								//return '&lt;a href=' + clickToHref('pSTATUS',label) + '&gt;' + label + '&lt;/a&gt;';
+								//return "&lt;span onclick='DDGraphLegend(\"" + label + "\")'&gt;" + label + "&lt;/span&gt;";
+								//return "&lt;span onclick='alert(\"" + label + "\")'&gt;" + label + "&lt;/span&gt;";
+								return "&lt;span onclick='var TargetDiv = \"DD_<xsl:value-of select='$vKPI'/>_<xsl:value-of select='$vVKEYD'/>\";var TargetLoad = \"<xsl:if test="$XMLFileName!='name.xml'"><xsl:value-of select='$XMLFileName'/>?</xsl:if><xsl:if test="$XMLFileParamName!='name.xml'"><xsl:value-of select='$XMLFileParamName'/>&amp;</xsl:if>pRID=<xsl:value-of select='$vRID'/>&amp;pKPI=<xsl:value-of select='$vKPI'/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select='$vVKEYD'/>&amp;p<xsl:value-of select='$vC1'/>="+label+"&amp;pMODE=Drill-Down&amp;XXX=\"+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);'&gt;" + label + "&lt;/span&gt;";
+							},
+						},
+
+						xaxis: {
+							mode: null,
+							tickSize: 1,
+							tickLength: 0,
+							ticks: ticksLabels,
+						},
+
+						series: {
+							bars: {
+								show: true,
+								fill: .75, // 0 and false are fully tranparent, 1 fully opaque, true = default
+								lineWidth: 0, // Remove bar border
+								barWidth: .5,
+								align: 'center' // To algin with tick
+							},
+							stack: 0
+						}
+
+					};
+
+					// Function to build the chart and place it in its container
+					$.plot("#chartMRN<xsl:value-of select='$XTable_Name'/>", chartData, chartOptions);
+
+					// Rotate xaxis tick labels to avoid overlapping ticks. Maximum to be defined manually.
+					if (ticksLabels.length > 18) {
+						$("#chartMRN .flot-x-axis div.flot-tick-label").css(
+							"transform", "translateX(25%) translateY(25%) rotate(45deg)",
+							"transform-origin", "0 0",
+							"cursor", "pointer"
+						);
+					};
+
+					// Interactive xaxis labels. Needs to increase zIndex to access the tick by clicking.
+					$(".flot-tick-label").css(
+						"zIndex","1000",
+						"cursor", "pointer"
+					);
+					$(".flot-x-axis .flot-tick-label").click(function() {
+						
+						// OK - alert('Action 1 on X Label. Value :'+$(this).text());
+						
+						var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';
+						<!-- File name without extra parameter -->
+						<xsl:if test="$XMLFileName!='name.xml'">
+							var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+$(this).text()+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
+						</xsl:if>
+						<!-- File name with extra parameter -->
+						<xsl:if test="$XMLFileParamName!='name.xml'">
+							var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+$(this).text()+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
+						</xsl:if>
+						loadDiv(TargetDiv,TargetLoad);
+					} );
+
+					// Interactive chart bars
+					// Strange 2 times VKEYD
+					$("#chartMRN<xsl:value-of select='$XTable_Name'/>").bind("plotclick", function(event, pos, item) {
+						if (item) {
+							//OK - alert('Action 2 on details. Value :'+ item.series.xaxis.ticks[item.dataIndex].label + ' and '+item.series.label);
 							var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';
 							<!-- File name without extra parameter -->
 							<xsl:if test="$XMLFileName!='name.xml'">
-								var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vC1"/>='+val+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
+								var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vR1"/>='+ item.series.xaxis.ticks[item.dataIndex].label + '&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vC1"/>='+item.series.label+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
 							</xsl:if>
 							<!-- File name with extra parameter -->
 							<xsl:if test="$XMLFileParamName!='name.xml'">
-								var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>p<xsl:value-of select="$vC1"/>='+val+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
+								var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+ item.series.xaxis.ticks[item.dataIndex].label + '&amp;p<xsl:value-of select="$vC1"/>='+item.series.label+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
 							</xsl:if>
 							loadDiv(TargetDiv,TargetLoad);
 						}
-						// Create href string to call report with extra parameters
-						function clickToHref() {
 
-							// Url of the report up to the "?" character
-							var sReportURL = '<xsl:value-of select="/dbqueries/dbquery[@id='Report_Info']/rows/row/@dbn_rep_node_url" /><xsl:value-of select="/dbqueries/dbquery[@id='Report_Info']/rows/row/@dbn_rep_url" />' + '?';
+					} );
 
-							// Array containing all possible report parameters
-							var aReportParam = [
-								<xsl:for-each select="/dbqueries/dbquery[@id='Report_Info']/descriptor/parameters/param">
-									'<xsl:value-of select="@name" />', '<xsl:value-of select="@value" />',
-								</xsl:for-each>
-							];
+				} );
 
-							// Update the parameters array using the functions arguments
-							for(var i = 0; i &lt; arguments.length; i=i+2) {
-								aReportParam[aReportParam.indexOf(arguments[i])+1] = arguments[i+1]
-							}
+				// Call the plot function
+				$().chartMRN<xsl:value-of select='$XTable_Name'/>();
+				$(".flot-x-axis .flot-tick-label").css('cursor', 'pointer');
+				$("#legendIniMrc").css('cursor', 'pointer');
 
-							// Convert the parameters array into a formatted parameters string
-							var sReportParam = ''
-							for (var i=0; i &lt; aReportParam.length; i=i+2) {
-								sReportParam = sReportParam + aReportParam[i] + '=' + escape(aReportParam[i+1]) + '&amp;';
-							}
-
-							// Concatenate and return the base url and its new parameters
-							//alert(sReportURL + sReportParam);
-							return sReportURL + sReportParam;
-						};
-
-						// Function to chart
-						$.fn.chartMRN<xsl:value-of select='$XTable_Name'/> = (function() {
-							// Variable to hold xaxis tick labels and their anchor formatting. href is defined at click event.
-							var ticksLabels = [
-								<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
-									<xsl:sort select="@*[local-name() = $vR1]" data-type="text" order="ascending" />
-									[<xsl:value-of select="position()" />,'<xsl:value-of select="@*[local-name() = $vR1]"/>'],
-								</xsl:for-each-group>
-							];
-
-							// Variable Holding the series' specific data
-							var chartData = [
-								<!-- Group and sort to create the series -->
-								<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-									<xsl:sort select="@*[local-name() = $vC1]" data-type="text" order="ascending" />
-									<xsl:variable name="vVROW1"><xsl:value-of select="@*[local-name() = $vC1]" /></xsl:variable>
-									{
-										label: '<xsl:value-of select="$vVROW1" />',
-										data: [
-											<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
-												<xsl:sort select="@*[local-name() = $vR1]" data-type="text" order="ascending" />
-												<xsl:variable name="vVCOL1"><xsl:value-of select="@*[local-name() = $vR1]" /></xsl:variable>
-												[
-													<xsl:value-of select="position()" />,
-													<xsl:choose>
-														<xsl:when test="$CalcType='SUM'">
-															<xsl:value-of select="sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vVROW1 and (@*[local-name() = $vR1]) = $vVCOL1]/@NBR)" />
-														</xsl:when>
-														<xsl:when test="$CalcType='AVG'">
-															<xsl:value-of select="avg(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vVROW1 and (@*[local-name() = $vR1]) = $vVCOL1]/@NBR)" />
-														</xsl:when>
-														<xsl:otherwise>
-															???
-														</xsl:otherwise>
-													</xsl:choose>
-												],
-											</xsl:for-each-group>
-										]
-									},
-								</xsl:for-each-group>
-							];
-							
-							// Variable to hold the global chart options
-							var chartOptions = {
-
-								grid: {
-									borderWidth: 0,
-									margin: 0,
-									hoverable: true,
-									clickable: true,
-								},
-
-								legend: {
-									container: $("#legendIniMrc"),
-									noColumns: 2,
-									labelFormatter: function(label,series){
-										//return '&lt;a href=' + clickToHref('pSTATUS',label) + '&gt;' + label + '&lt;/a&gt;';
-										//return "&lt;span onclick='DDGraphLegend(\"" + label + "\")'&gt;" + label + "&lt;/span&gt;";
-										//return "&lt;span onclick='alert(\"" + label + "\")'&gt;" + label + "&lt;/span&gt;";
-										return "&lt;span onclick='var TargetDiv = \"DD_<xsl:value-of select='$vKPI'/>_<xsl:value-of select='$vVKEYD'/>\";var TargetLoad = \"<xsl:if test="$XMLFileName!='name.xml'"><xsl:value-of select='$XMLFileName'/>?</xsl:if><xsl:if test="$XMLFileParamName!='name.xml'"><xsl:value-of select='$XMLFileParamName'/>&amp;</xsl:if>pRID=<xsl:value-of select='$vRID'/>&amp;pKPI=<xsl:value-of select='$vKPI'/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select='$vVKEYD'/>&amp;p<xsl:value-of select='$vC1'/>="+label+"&amp;pMODE=Drill-Down&amp;XXX=\"+Math.floor(Math.random()*1001);loadDiv(TargetDiv,TargetLoad);'&gt;" + label + "&lt;/span&gt;";
-									},
-								},
-
-								xaxis: {
-									mode: null,
-									tickSize: 1,
-									tickLength: 0,
-									ticks: ticksLabels,
-								},
-
-								series: {
-									bars: {
-										show: true,
-										fill: .75, // 0 and false are fully tranparent, 1 fully opaque, true = default
-										lineWidth: 0, // Remove bar border
-										barWidth: .5,
-										align: 'center' // To algin with tick
-									},
-									stack: 0
-								}
-
-							};
-
-							// Function to build the chart and place it in its container
-							$.plot("#chartMRN<xsl:value-of select='$XTable_Name'/>", chartData, chartOptions);
-
-							// Rotate xaxis tick labels to avoid overlapping ticks. Maximum to be defined manually.
-							if (ticksLabels.length > 18) {
-								$("#chartMRN .flot-x-axis div.flot-tick-label").css(
-									"transform", "translateX(25%) translateY(25%) rotate(45deg)",
-									"transform-origin", "0 0",
-									"cursor", "pointer"
-								);
-							};
-
-							// Interactive xaxis labels. Needs to increase zIndex to access the tick by clicking.
-							$(".flot-tick-label").css(
-								"zIndex","1000",
-								"cursor", "pointer"
-							);
-							$(".flot-x-axis .flot-tick-label").click(function() {
-								
-								// OK - alert('Action 1 on X Label. Value :'+$(this).text());
-								
-								var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';
-								<!-- File name without extra parameter -->
-								<xsl:if test="$XMLFileName!='name.xml'">
-									var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+$(this).text()+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
-								</xsl:if>
-								<!-- File name with extra parameter -->
-								<xsl:if test="$XMLFileParamName!='name.xml'">
-									var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+$(this).text()+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
-								</xsl:if>
-								loadDiv(TargetDiv,TargetLoad);
-							} );
-
-							// Interactive chart bars
-							// Strange 2 times VKEYD
-							$("#chartMRN<xsl:value-of select='$XTable_Name'/>").bind("plotclick", function(event, pos, item) {
-								if (item) {
-									//OK - alert('Action 2 on details. Value :'+ item.series.xaxis.ticks[item.dataIndex].label + ' and '+item.series.label);
-									var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';
-									<!-- File name without extra parameter -->
-									<xsl:if test="$XMLFileName!='name.xml'">
-										var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;p<xsl:value-of select="$vR1"/>='+ item.series.xaxis.ticks[item.dataIndex].label + '&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vC1"/>='+item.series.label+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
-									</xsl:if>
-									<!-- File name with extra parameter -->
-									<xsl:if test="$XMLFileParamName!='name.xml'">
-										var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+ item.series.xaxis.ticks[item.dataIndex].label + '&amp;p<xsl:value-of select="$vC1"/>='+item.series.label+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
-									</xsl:if>
-									loadDiv(TargetDiv,TargetLoad);
-								}
-
-							} );
-
-						} );
-
-						// Call the plot function
-						$().chartMRN<xsl:value-of select='$XTable_Name'/>();
-						$(".flot-x-axis .flot-tick-label").css('cursor', 'pointer');
-						$("#legendIniMrc").css('cursor', 'pointer');
-
-					});
-				</script>
-				<!-- End Graph Component-->
-				<br/>
-				<table width="100%" border="0">
-					<td width="80%" align="center">
-						<div class="demo-placeholder" style="width:800px; height:450px;">
-							<xsl:attribute name="id">chartMRN<xsl:value-of select='$XTable_Name'/></xsl:attribute>
-						</div>
-					</td>
-					<td width="20%" align="center"><div class="" id="legendIniMrc"></div></td>
-				</table> 
-			</xsl:when>
-			<xsl:when test="$tLibrary='DHTMLX'">
-				<!-- DHTMLX Graph Module -->
-				<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/dhtmlxSuite_v401_pro/codebase/dhtmlx.css"/>
-				<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/dhtmlxSuite_v401_pro/codebase/dhtmlx.js"/>
-	       		<script>		
-					function Chart2DD(val1,val2){
-						var TargetDiv = 'DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/>';
-						<xsl:choose>
-							<xsl:when test="$XMLFileParamName!='name.xml' and $vR1=$vC1">								
-								var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+val1+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
-								loadDiv(TargetDiv,TargetLoad);
-							</xsl:when>
-							<!-- Depreacated do not use Use ALWAYS this -->
-							<xsl:when test="$XMLFileName!='name.xml' and $vR1=$vC1">
-								var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+val1+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);	
-								loadDiv(TargetDiv,TargetLoad);
-							</xsl:when>
-							<xsl:when test="$XMLFileParamName!='name.xml' and $vR1!=$vC1">								
-								var TargetLoad = '<xsl:value-of select="$XMLFileParamName"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+val1+'&amp;p<xsl:value-of select="$vC1"/>='+val2+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);
-								loadDiv(TargetDiv,TargetLoad);
-							</xsl:when>
-							<!-- Depreacated do not use Use ALWAYS this -->
-							<xsl:when test="$XMLFileName!='name.xml' and $vR1!=$vC1">
-								var TargetLoad = '<xsl:value-of select="$XMLFileName"/>?pRID=<xsl:value-of select="$vRID"/>&amp;pKPI=<xsl:value-of select="$vKPI"/>&amp;pEXPLORE=Yes&amp;pVKEYD=<xsl:value-of select="$vVKEYD"/>&amp;pLANG=<xsl:value-of select="$vLANG"/>&amp;p<xsl:value-of select="$vR1"/>='+val1+'&amp;p<xsl:value-of select="$vC1"/>='+val2+'&amp;pMODE=Drill-Down&amp;XXX='+Math.floor(Math.random()*1001);	
-								loadDiv(TargetDiv,TargetLoad);
-							</xsl:when>
-							<xsl:otherwise>
-								alert('No XMLFileParamName Parameter defined in Graph Template for Drill-Down');
-							</xsl:otherwise>
-						</xsl:choose>
-					};
-
-					var <xsl:value-of select="//dbquery[@id=$DBWEB]/@id"/>_dataset = [
-					<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
-						<xsl:sort select="@*[local-name() = $vR1]" data-type="text" order="ascending" />
-						<xsl:variable name="vVROW1" select="@*[local-name() = $vR1]"/>
-							<xsl:choose>
-								<!-- Graph with one value based on R1 -->
-								<xsl:when test="$vR1=$vC1">
-									{<xsl:value-of select="$vR1"/>:"<xsl:value-of select="@*[local-name() = $vR1]" />",
-									NBR:"<xsl:value-of select='sum(current-group()/@NBR)'/>",},
-								</xsl:when>
-								<!-- Graph based on 2 values R1 and R2 -->
-								<xsl:when test="$vR1!=$vC1">
-									<xsl:for-each-group select = "current-group()" group-by="@*[local-name() = $vR1]">
-										<xsl:variable name="vVCOL1" select="@*[local-name() = $vR1]"/>
-										{<xsl:value-of select="$vR1"/>:"<xsl:value-of select="@*[local-name() = $vR1]" />",
-										<xsl:for-each-group select="current-group()" group-by="@*[local-name() = $vC1]">
-											<xsl:sort select="$vC1"/>
-											<xsl:variable name="vVCOL1" select="@*[local-name() = $vC1]"/>
-											"<xsl:value-of select="@*[local-name() = $vC1]" />":"<xsl:value-of select='sum(current-group()/@NBR)'/>",
-										</xsl:for-each-group>},
-									</xsl:for-each-group>
-									
-								</xsl:when>
-								<xsl:otherwise>
-									
-								</xsl:otherwise>
-							</xsl:choose>	
-					</xsl:for-each-group>];
-					<xsl:choose>
-						<xsl:when test="$vR1=$vC1">
-							$(function () {
-								var chart =  new dhtmlXChart({
-									view:"<xsl:value-of select="$tview"/>",
-									container:"<xsl:value-of select="$XTable_Name"/>",
-									value:"#NBR#",
-									tooltip:"#NBR#",
-									label:"#<xsl:value-of select='$vR1'/>#",
-									<!--pieInnerText:"#<xsl:value-of select='$vR1'/>#",-->
-									gradient:1,
-									legend:{
-										<!--width: 75,-->
-										align:"right",
-										valign:"middle",
-										template:"#<xsl:value-of select='$vR1'/>#"
-									},
-
-									shadow:false
-								});
-								
-								chart.parse(<xsl:value-of select = "//dbquery[@id=$DBWEB]/@id"/>_dataset,"json");
-								chart.attachEvent("onItemClick", function(id){
-								    <!--alert(chart.get(id).<xsl:value-of select='$vR1'/>);-->
-								    Chart2DD(chart.get(id).<xsl:value-of select='$vR1'/>,'NONE');
-								})
-								chart.attachEvent("onLegendClick", function(object){
-								    <!--alert(object);-->
-								    return true;
-								});
-							});
-						</xsl:when>
-						<xsl:when test="$vR1!=$vC1">
-							<xsl:if test="$InTab='NO'">
-								$(function () {
-							</xsl:if>
-							<xsl:if test="$InTab='YES'">
-								function Generate_<xsl:value-of select="$XTable_Name"/> () {
-							</xsl:if>
-								var colors = ["#E33FC7","#A244EA","#476CEE","#36ABEE","#58DCCD","#A7EE70","#D3EE36","#EED236","#EE9336","#EE4339"];
-								var chart =  new dhtmlXChart({
-									view:"<xsl:value-of select="$tview"/>", //stackedArea,stackedBar
-									container:"<xsl:value-of select="$XTable_Name"/>",
-								    value:"#DUMMY#",
-						            label:"#DUMMY#",
-						            color: "#58dccd",
-						            gradient:"falling",
-									<!--width:60,-->
-									tooltip:{
-										template:"#DUMMY#"
-									},
-									xAxis:{
-										template:"'#<xsl:value-of select='$vR1'/>#"
-									},
-									yAxis:{},
-									legend:{
-										values:[
-										<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-											<xsl:sort select="$vC1"/>
-											<xsl:variable name="vColor" select="@*[local-name() = $vC1]"/>
-											{text:"<xsl:if test="vCodeC1!='NONE'"><xsl:value-of select='$vCodeC1'/></xsl:if><xsl:value-of select='$vColor'/>",color:colors[<xsl:value-of select='position()-1'/>]},
-										</xsl:for-each-group>
-										],
-										valign:"middle",
-										align:"right",
-										width:90,
-										layout:"y"
-									}
-								});
-
-								<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-									<xsl:sort select="$vC1"/>
-									<xsl:variable name="vCOlG" select="@*[local-name() = $vC1]"/>
-									chart.addSeries({
-									    value:"#<xsl:value-of select='$vCOlG'/>#",
-										color:colors[<xsl:value-of select='position()-1'/>],
-										label:"#<xsl:value-of select='$vCOlG'/>#",
-										tooltip:{
-											template:"#<xsl:value-of select='$vCOlG'/>#"
-										}
-									});
-								</xsl:for-each-group>
-								chart.parse(<xsl:value-of select = "//dbquery[@id=$DBWEB]/@id"/>_dataset,"json");
-								<!--
-								chart.attachEvent("onItemClick", function(id){
-								    alert(chart.get(id).<xsl:value-of select='$vR1'/>);
-									Chart2DD(chart.get(id).<xsl:value-of select='$vR1'/>);
-								})
-								-->
-								chart.attachEvent("onItemClick", function(id, event){
-									var LegendTitle =
-									[
-									<xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-										<xsl:sort select="$vC1"/>
-										'<xsl:value-of select='@*[local-name() = $vC1]'/>',
-									</xsl:for-each-group>
-									];
-										
-									var target = event.target||event.srcElement;
-									<!--alert(chart.get(id).<xsl:value-of select='$vR1'/>+' / '+LegendTitle[target.getAttribute("userdata")-1]);-->
-									Chart2DD(chart.get(id).<xsl:value-of select='$vR1'/>,LegendTitle[target.getAttribute("userdata")-1]);
-									
-								});
-								chart.attachEvent("onLegendClick", function(object){
-								    <!--alert(object);-->
-								    return true;
-								});
-							}<xsl:if test="$InTab='NO'">)</xsl:if>;
-							
-						</xsl:when>
-						<xsl:otherwise>
-							<script>
-								alert('???');
-							</script>
-						</xsl:otherwise>
-					</xsl:choose>
-				</script>	
-				<div id="{$XTable_Name}" style="width:{$tGraphWidth};height:{$tGraphHeigth};border:1px solid #A4BED4;">
-					<xsl:if test="$InTab='YES'">
-						<div id="Warning_{$XTable_Name}">
-							<br/>
-							<center>
-								<button class="btn btn-primary" type="button" onclick="Generate_{$XTable_Name}();$('#Warning_{$XTable_Name}').hide()">A DHTMLX Graph in Tab must be Generated. Please click ...</button>
-							</center>
-						</div>
-					</xsl:if>
+			});
+		</script>
+		<br/>
+		<table width="100%" border="0">
+			<td width="80%" align="center">
+				<div class="demo-placeholder" style="width:800px; height:450px;">
+					<xsl:attribute name="id">chartMRN<xsl:value-of select='$XTable_Name'/></xsl:attribute>
 				</div>
-				
-			</xsl:when>
-			<xsl:when test="$tLibrary='HighCharts'">
-				<xsl:choose>
-					<xsl:when test="$vR1=$vC1">
-						<script>
-							alert('HighCharts 1D Later');
-						</script>
-					</xsl:when>
-					<xsl:when test="$vR1!=$vC1">
-						<script>
-							$(function () {
-							    $('#<xsl:value-of select='$XTable_Name'/>').highcharts({
-							        chart: {
-							            type: '<xsl:value-of select="$tview"/>' 
-							        },
-							        title: {
-							            text: 'Title ... FromDic2Rep'
-							        },
-							        xAxis: {
-							            categories: [
-							            <xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
-											<xsl:sort select="$vR1"/>
-											'<xsl:value-of select='@*[local-name() = $vR1]'/>',
-										</xsl:for-each-group>
-										]
-							        },
-							        yAxis: {
-							            min: 0,
-							            title: {
-							                text: 'Total fruit consumption'
-							            },
-							            stackLabels: {
-							                enabled: true,
-							                style: {
-							                    fontWeight: 'bold',
-							                    color: (Highcharts.theme &amp;&amp; Highcharts.theme.textColor) || 'gray'
-							                }
-							            }
-							        },
-							        legend: {
-							            align: 'right',
-							            x: -30,
-							            verticalAlign: 'top',
-							            y: 25,
-							            floating: true,
-							            backgroundColor: (Highcharts.theme &amp;&amp; Highcharts.theme.background2) || 'white',
-							            borderColor: '#CCC',
-							            borderWidth: 1,
-							            shadow: false
-							        },
-							        tooltip: {
-							            headerFormat: '<b>{point.x}</b><br/>',
-							            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-							        },
-							        plotOptions: {
-							            column: {
-							                stacking: 'normal',
-							                dataLabels: {
-							                    enabled: true,
-							                    color: (Highcharts.theme &amp;&amp; Highcharts.theme.dataLabelsColor) || 'white',
-							                    style: {
-							                        textShadow: '0 0 3px black'
-							                    },
-							                }
-							            },
-							        },
-							        series: [
-							        <xsl:for-each-group select = "//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vC1]">
-										<xsl:variable name="vVCOL1" select="@*[local-name() = $vC1]"/>
-										{name: "<xsl:value-of select="$vVCOL1"/>",
-										data : [
-											<xsl:for-each-group select="//dbquery[@id=$DBWEB]/rows/row" group-by="@*[local-name() = $vR1]">
-												<xsl:sort select="$vR1"/>
-												<xsl:variable name="vVROW1" select="@*[local-name() = $vR1]"/>
-												<xsl:value-of select='sum(//dbquery[@id=$DBWEB]/rows/row[(@*[local-name() = $vC1])=$vVCOL1 and (@*[local-name() = $vR1]) = $vVROW1]/@NBR)'/>,
-											</xsl:for-each-group>
-										]},
-									</xsl:for-each-group>
-									]		
-							    });
-							});
-						</script>
-					</xsl:when>
-					<xsl:otherwise>
-						<script>
-							alert('HighCharts 3D perhaps later');
-						</script>
-					</xsl:otherwise>
-				</xsl:choose>
-						
-				<script src="/{$vHtDocsConfig}/CPN/extras/Highcharts-4.1.9/js/highcharts.js"></script>
-				<script src="/{$vHtDocsConfig}/CPN/extras/Highcharts-4.1.9/js/modules/exporting.js"></script>
-				<div id="{$XTable_Name}" style="width:{$tGraphWidth};height:{$tGraphHeigth};border:1px solid #A4BED4;"></div>
-			</xsl:when>
-			<xsl:otherwise>
-				<script>
-					alert('Library Graph Unknown');
-				</script>
-			</xsl:otherwise>
-		</xsl:choose>
-    </xsl:template>
-	
+			</td>
+			<td width="20%" align="center"><div class="" id="legendIniMrc"></div></td>
+		</table>
+		<!-- End Graph Component--> 
+	</xsl:template>
 	<xsl:template name="PivotTable">
 		<xsl:param name="tDBWeb" select="'PIVOT'"/> 				<!-- QueryString Name -->
 		<xsl:param name="tUPN" select="generate-id(//dbquery[@id=$tDBWeb]/@id)"/> 	<!-- Unique Pivot Name -->
@@ -4109,19 +3636,10 @@
 		<xsl:variable name="vDic4TitleDD" select="//dbquery[@id='DATA_DICTIONARY']/rows/row[@NAME=$Title2S]/@FIELD_NAME"/>
 		<xsl:variable name="vDicHint" select="//dbquery[@id='DATA_DICTIONARY']/rows/row[@NAME=$Title2S]/@HINT_NO"/>
 		<xsl:variable name="vDic4TitleLDD" select="$dictionary//Label[@ID=$Title2S]/LabelText[upper-case(@lang)=$Lang]"/>
-		
-		<xsl:variable name="GenRepDicParam" select="distinct-values(//dbquery[1]/descriptor/parameters/param[@name='pINFO']/@value)"/>
+
 		<xsl:choose>
 			<!-- Field is in DBWeb -->
 			<xsl:when test="$vDic4TitleDD!='' or $vDic4TitleDD">
-				<!-- Datadic List Generation in Report ToolBox -->
-				<xsl:if test="contains($GenRepDicParam,'G')">
-					<script>
-						var DataDicListDB =localStorage.getItem('DataDic_DB_<xsl:value-of select="$vRID"/>');
-						DataDicListDB = DataDicListDB+' <xsl:value-of select="$Title2S"/>,';
-						localStorage.setItem('DataDic_DB_<xsl:value-of select="$vRID"/>',DataDicListDB);
-					</script>
-				</xsl:if>
 				<!-- Not ILIAS -->
 				<xsl:if test="$vDicHint=''">
 					<xsl:choose>
@@ -4245,14 +3763,6 @@
 			</xsl:when>
 			<!-- Field is in RepDic -->
 			<xsl:when test="$vDic4TitleLDD!='' or $vDic4TitleLDD">
-				<!-- Datadic List Generation in Report ToolBox -->
-				<xsl:if test="contains($GenRepDicParam,'G')">
-					<script>
-						var DataDicListXML =localStorage.getItem('DataDic_XML_<xsl:value-of select="$vRID"/>');
-						DataDicListXML = DataDicListXML+' <xsl:value-of select="$Title2S"/>,';
-						localStorage.setItem('DataDic_XML_<xsl:value-of select="$vRID"/>',DataDicListXML);
-					</script>
-				</xsl:if>
 				<xsl:choose>
 					<!-- Caption - NO Icon - Popup (Normal Rule) -->
 					<!-- Caption - No Icon - No Popup (Field Title) -->
@@ -4302,14 +3812,6 @@
 			</xsl:when>
 			<!-- In RepDic ... Show It -->
 			<xsl:otherwise>
-				<!-- Datadic List Generation in Report ToolBox -->
-				<xsl:if test="contains($GenRepDicParam,'G')">
-					<script>
-						var DataDicListNF =localStorage.getItem('DataDic_NF_<xsl:value-of select="$vRID"/>');
-						DataDicListNF = DataDicListNF+' <xsl:value-of select="$Title2S"/>,';
-						localStorage.setItem('DataDic_NF_<xsl:value-of select="$vRID"/>',DataDicListNF);
-					</script>
-				</xsl:if>
 				<xsl:choose>
 					<!-- Caption - NO Icon - Popup (Normal Rule) -->
 					<!-- Caption - No Icon - No Popup (Field Title) -->
@@ -4505,26 +4007,40 @@
 				<xsl:with-param name="dictionary" select="$vGenRepDic"/>
 				<xsl:with-param name="tDDKey" select="303"/>
 			</xsl:call-template>  
-			<!-- MIB 1.0.4b1 -->
-			<span data-toggle="modal" data-target="#CPN_DYNPOPUP" href="/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_EXTRACT_STATUS.xml?pKPI={$vKPI}&amp;pRID={$vRID}">
-				<xsl:choose>
-					<xsl:when test="$tDOK = 'OK'"><xsl:attribute name="class">status green</xsl:attribute></xsl:when>
-					<xsl:when test="$tDOK = 'Not OK'"><xsl:attribute name="class">status red</xsl:attribute></xsl:when>
-					<xsl:otherwise><xsl:attribute name="class">status grey</xsl:attribute></xsl:otherwise>
-				</xsl:choose>
-				<xsl:attribute name='style'>cursor:help;text-decoration: none</xsl:attribute>
-				<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_EXTRACT_STATUS.xml?pKPI=<xsl:value-of select="$vKPI"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
-					<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
-			</span>
-			- SQL 
-			<span href="#" data-toggle="modal" data-target="#CPN_Report_DBWebDescriptor" role="button">
-				<xsl:choose>
-					<xsl:when test="$tEOK = 0"><xsl:attribute name="class">status green</xsl:attribute></xsl:when>
-					<xsl:when test="$tEOK >= 0"><xsl:attribute name="class">status red</xsl:attribute></xsl:when>
-					<xsl:otherwise><xsl:attribute name="class">status grey</xsl:attribute></xsl:otherwise>
-				</xsl:choose>
-			</span>
-
+			<xsl:choose>
+				<!-- Extraction OK and SQL OK -->
+				<xsl:when test="$tEOK = '0' and $tDOK = 'OK' ">
+					<span class="status green">
+						<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_POPUP2/DBN_POPUP_Rep_Status_Extrac.xml?pKPI=<xsl:value-of select="$vKPI"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
+						<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
+					</span>
+					- SQL <a href="#" data-toggle="modal" data-target="#CPN_Report_DBWebDescriptor" role="button"><span class="status green"></span></a> 
+				</xsl:when>
+				<!-- Extraction NOK and SQL OK -->
+				<xsl:when test="$tEOK = '0' and $tDOK != 'OK' ">
+					<span class="status red">
+						<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_POPUP2/DBN_POPUP_Rep_Status_Extrac.xml?pKPI=<xsl:value-of select="$vKPI"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
+						<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
+					</span>
+					- SQL <a href="#" data-toggle="modal" data-target="#CPN_Report_DBWebDescriptor" role="button"><span class="status green"></span></a>
+				</xsl:when>
+				<!-- Extraction OK and SQL NOK -->
+				<xsl:when test="$tEOK != '0' and $tDOK = 'OK' ">
+					<span class="status green">
+						<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_POPUP2/DBN_POPUP_Rep_Status_Extrac.xml?pKPI=<xsl:value-of select="$vKPI"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
+						<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
+					</span>
+					- SQL <a href="#" data-toggle="modal" data-target="#CPN_Report_DBWebDescriptor" role="button"><span class="status red"></span></a> 
+				</xsl:when>
+				<!-- Extraction NOK and SQL NOK -->
+				<xsl:otherwise>
+					<span class="status red">
+						<xsl:attribute name='onmouseover'>return showPopup('/LRF/XMLWeb/ProcessDescriptor/descriptor/LRF2/IL_MR_POPUP2/DBN_POPUP_Rep_Status_Extrac.xml?pKPI=<xsl:value-of select="$vKPI"/>&amp;pRID=<xsl:value-of select="$vRID"/>&amp;XXX='+Math.floor(Math.random()*1001),500);</xsl:attribute>
+						<xsl:attribute name='onmouseout'>return nd();</xsl:attribute>
+					</span>
+					- SQL <a href="#" data-toggle="modal" data-target="#CPN_Report_DBWebDescriptor" role="button"><span class="status red"></span></a>
+				</xsl:otherwise>
+			</xsl:choose>
 		</th>
 	</xsl:template>
 	<xsl:template name="DBWeb_Decryptor"> 			<!-- DBWEB Decriptor (Show Queries Mechanism) -->
@@ -5741,17 +5257,7 @@
 			</div>
 		</div>
 	</xsl:template>
-	
-<!-- 
-	 *********************************************
-	 ***   			   DO NOT USE 				**
-	 ***   			ONLY FOR MR NODE 	 		**
-	 ***   				FOR KPI 				**
-	 ***   			WILL BE REMOVE SOON 		**
-	 *********************************************
--->
-
-	<xsl:template name="DataDic_Decryptor"> 			<!-- FW2 : Data Dictionary decriptor DEPREACATED - Do Not Use -->
+	<xsl:template name="DataDic_Decryptor"> 			<!-- FW2 : Data Dictionary decriptor -->
 		<xsl:param name="tUDDD" select="'UDDD_NONE'"/>
 		<xsl:param name="tLanguage" select="'EN'"/>
 		
@@ -5784,6 +5290,15 @@
 		</div>
 	</xsl:template>
 	
+<!-- 
+	 *********************************************
+	 ***   			   DO NOT USE 				**
+	 ***   			ONLY FOR MR NODE 	 		**
+	 ***   				FOR KPI 				**
+	 ***   			WILL BE REMOVE SOON 		**
+	 *********************************************
+-->
+
 	<xsl:template name="KPI_Toolbar"> 					<!-- Template For KPI Version 2 (without EXPLORER Page) -->
 		<xsl:param name="tDebug" select="'YES'"/> 				<!-- Do Not Use - Depreacated -->
 		<xsl:param name="tEXPLORE" select="'EXPLORE_UNK'"/> 	

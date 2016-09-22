@@ -63,10 +63,7 @@
 		</head>
 		<body>
 			<!-- Report Layout Template (Top) -->
-			<xsl:call-template name="Body_Start">
-				<xsl:with-param name="tRepDic" select="$vRepDic"/>
-			</xsl:call-template>
-
+			<xsl:call-template name="Body_Start"/>
 			
 			<!-- Generate a "classical Title" -->
 			<center>
@@ -78,7 +75,6 @@
 			<!-- Call Template for generation of Generic Table Result based on Querysting "IL_MR_Sample" -->
 			<xsl:call-template name="Generic_Table_DBWEB">
 				<xsl:with-param name="DBWEB_Name" select="'IL_MR_SAMPLE'"/>
-				<xsl:with-param name="dictionary" select="$vRepDic"/>
 				<xsl:with-param name="UdTN" select="'SAMPLE02_A'"/>	
 			</xsl:call-template>
 
@@ -88,7 +84,6 @@
 					<xsl:call-template name="FromDic2Rep">
 						<xsl:with-param name="Title2S" select="'REPORT02B_TITLE'"/>
 						<xsl:with-param name="Lang" select="$vLANG"/>
-						<xsl:with-param name="dictionary" select="$vRepDic"/>
 					</xsl:call-template>
 					<xsl:value-of select="$vFUNCTION"/>
 				</h1>
@@ -116,9 +111,7 @@
 			</center>
 				
 			<!-- Report Layout Template (Bottom) -->
-			<xsl:call-template name="Body_End">
-				<xsl:with-param name="tRepDic" select="$vRepDic"/> 	<!-- Dictionary ? Type relative Path or No (Default) -->
-			</xsl:call-template>
+			<xsl:call-template name="Body_End"/>
 		</body>
 	<xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>
 </xsl:template>

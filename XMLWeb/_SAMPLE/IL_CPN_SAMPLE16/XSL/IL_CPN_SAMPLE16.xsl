@@ -63,7 +63,7 @@
       	<xsl:call-template name="Node_Std_Head"/>
       	<!-- Titre 'manuel' de la Page/Onglet -->
 	    <title>
-	      SAMPLE 12
+	      SAMPLE 16
 	    </title>
     </head>
 		<body>
@@ -73,102 +73,148 @@
 			<!-- Main Bloc - Affiche le Tableau Croisé et l'explication en Drill-Down cette partie n'est pas exécutée -->
 			<xsl:if test="$vMODE='Main'">
 				<center>
-					<h1>Sample 12</h1>
+					<h1>Sample 16</h1>
+					<a target="_blank" href="http://localhost/Default2/CPN/extras/dhtmlxSuite_v401_pro/samples/dhtmlxChart/">Documentation</a> 
 				</center>		
+				
 				<div class="col-md-12">
-					<ul class="nav nav-tabs">
-					  <li class="active"><a data-toggle="tab" href="#homeA">Dynamic Crosstab Summary (with Drill-Down)</a></li>
-					  <li><a data-toggle="tab" href="#menu1A">Dynamic Graph Summary (with Drill-Down)</a></li>
-					  <li><a data-toggle="tab" href="#menu1P">Pivot Table</a></li>
-					  <li><a data-toggle="tab" href="#menu2A"><font color="red">Uncollapse</font></a></li>
-					</ul>
-					<div class="tab-content">
-					  <div id="homeA" class="tab-pane fade in active">
-					    <h3>
-							Titre
-					    </h3>
-					    <p>
-					    	<xsl:variable name="TNameDD">XTAB_SAMPLE</xsl:variable>
-							<xsl:call-template name="Generic_Table_DBWEB">
-								<xsl:with-param name="DBWEB_Name" select="'SUMMARY'"/>
-								<xsl:with-param name="UdTN" select="$TNameDD"/>
-								<xsl:with-param name="Show_Empty" select="'N'"/> 
-								<xsl:with-param name="MaxRecords" select="-1"/>
-								<xsl:with-param name="ForcedTitle" select="'Summary'"/>
-								<xsl:with-param name="Frame" select="'N'"/> 
-								<xsl:with-param name="TableWidth" select="'70%'"/>
-								<xsl:with-param name="Detail_Data" select="'SPE_01_XTAB_ASS'"/> 
-							</xsl:call-template>
-					    </p>
-					  </div>
-					  <div id="menu1A" class="tab-pane fade">
-					    <h3>
-					    	Titre
-					    </h3>
-					    	<div style="width:100%; height:500px;">
-								<br/>
-								<xsl:variable name="vXMLFileName">IL_CPN_SAMPLE12.xml</xsl:variable>
-								<!-- Determine Which LLOOK Code is associated with values for XTAB -->
-								<xsl:variable name="vCodeGR1">
-									<xsl:choose>
-										<xsl:when test="$vGR1='STATUS'">AS</xsl:when>
-										<xsl:otherwise>NONE</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-								<xsl:variable name="vCodeGR2">
-									<xsl:choose>
-										<xsl:when test="$vGR2='STATUS'">AS</xsl:when>
-										<xsl:otherwise>NONE</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-								<xsl:variable name="vCodeGC1">
-									<xsl:choose>
-										<xsl:when test="$vGC1='STATUS'">AS</xsl:when>
-										<xsl:otherwise>NONE</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-								<!-- Call Dynamic Graph -->
-								<xsl:variable name="TNameDD">GRTAB_SAMPLE</xsl:variable>
-								<xsl:call-template name="DynamicGraph">
-									<xsl:with-param name="XTable_Name" select="$TNameDD"/>
-									<xsl:with-param name="vR1" select="$vGR1"/>
-									<xsl:with-param name="vR2" select="$vGR2"/>
-									<xsl:with-param name="vC1" select="$vGC1"/>
-									<xsl:with-param name="vCodeR1" select="$vCodeGR1"/>
-									<xsl:with-param name="vCodeR2" select="$vCodeGR2"/>
-									<xsl:with-param name="vCodeC1" select="$vCodeGC1"/>
-									<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
-									<xsl:with-param name="XMLFileName" select="$vXMLFileName"/>
-									<xsl:with-param name="vKPI" select="$vKPI"/>
-									<xsl:with-param name="vVKEYD" select="$vVKEYD"/>
-								</xsl:call-template>
-							</div>
-					  </div>
-					  <div id="menu1P" class="tab-pane fade">
-					    <p>
-					    	<!-- Creation of a Dynamic Pivot Table -->
-					    	<xsl:call-template name="PivotTable">
-					    		<xsl:with-param name="tRows" select="'STATUS'"/>
-								<xsl:with-param name="tCols" select="'ORGANISM'"/>
-								<xsl:with-param name="tAgg" select="'Count'"/>
-								<xsl:with-param name="tRender" select="'Table Barchart'"/>
-							</xsl:call-template>
-					    </p>
-					  </div>
-					  <div id="menu2A" class="tab-pane fade">
-					    <p/>
-					  </div>
-					</div>
+				    <h3>
+						This tab shows Result in XTable
+				    </h3>
+				    <p>
+				    	<xsl:variable name="TNameDD">XTAB_SAMPLE</xsl:variable>
+						<xsl:call-template name="Generic_Table_DBWEB">
+							<xsl:with-param name="DBWEB_Name" select="'SUMMARY'"/>
+							<xsl:with-param name="UdTN" select="$TNameDD"/>
+							<xsl:with-param name="Show_Empty" select="'N'"/> 
+							<xsl:with-param name="MaxRecords" select="-1"/>
+							<xsl:with-param name="ForcedTitle" select="'Summary'"/>
+							<xsl:with-param name="Frame" select="'N'"/> 
+							<xsl:with-param name="TableWidth" select="'70%'"/>
+							<xsl:with-param name="Detail_Data" select="'SPE_01_XTAB_ASS'"/> 
+						</xsl:call-template>
+				    </p>
+			  	</div>
+			  	<div class="row"/>
+			  	<center><h2>1 Dimention : pie/donut/line</h2></center>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_01'"/>
+						<xsl:with-param name="tview" select="'pie'"/>
+						<xsl:with-param name="vR1" select="'FUNCTION'"/>
+						<xsl:with-param name="vR2" select="'FUNCTION'"/>
+						<xsl:with-param name="vC1" select="'FUNCTION'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/> 		<!-- Graph Width -->
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/> 		<!-- graph Height -->
+		
+					</xsl:call-template>
+				</div>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_02'"/>
+						<xsl:with-param name="tview" select="'donut'"/>
+						<xsl:with-param name="vR1" select="'ORGANISM'"/>
+						<xsl:with-param name="vR2" select="'ORGANISM'"/>
+						<xsl:with-param name="vC1" select="'ORGANISM'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/> 		<!-- Graph Width -->
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/> 		<!-- graph Height -->
+					</xsl:call-template>
+				</div>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_03'"/>
+						<xsl:with-param name="tview" select="'line'"/>
+						<xsl:with-param name="vR1" select="'STATUS'"/>
+						<xsl:with-param name="vR2" select="'STATUS'"/>
+						<xsl:with-param name="vC1" select="'STATUS'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/> 		<!-- Graph Width -->
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/> 		<!-- graph Height -->
+					</xsl:call-template>
+				</div>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_04'"/>
+						<xsl:with-param name="tview" select="'pie3D'"/>
+						<xsl:with-param name="vR1" select="'STATUS'"/>
+						<xsl:with-param name="vR2" select="'STATUS'"/>
+						<xsl:with-param name="vC1" select="'STATUS'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/> 		<!-- Graph Width -->
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/> 		<!-- graph Height -->
+					</xsl:call-template>
+				</div>
+				<div class="row"/>
+				<center><h2>2 Dimentions</h2></center>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_05'"/>
+						<xsl:with-param name="tview" select="'stackedBar'"/>
+						<xsl:with-param name="vR1" select="'ORGANISM'"/>
+						<xsl:with-param name="vR2" select="'FUNCTION'"/>
+						<xsl:with-param name="vC1" select="'FUNCTION'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/>
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/>
+					</xsl:call-template>
+				</div>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_06'"/>
+						<xsl:with-param name="tview" select="'radar'"/>
+						<xsl:with-param name="vR1" select="'ORGANISM'"/>
+						<xsl:with-param name="vR2" select="'FUNCTION'"/>
+						<xsl:with-param name="vC1" select="'FUNCTION'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/> 		<!-- Graph Width -->
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/> 		<!-- graph Height -->
+					</xsl:call-template>
+				</div>
+				<div class="col-md-4">
+			    	<xsl:call-template name="DynamicGraph">
+						<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
+						<xsl:with-param name="tLibrary" select="'DHTMLX'"/>
+						<xsl:with-param name="XTable_Name" select="'Sample15_dhtmlx_07'"/>
+						<xsl:with-param name="tview" select="'area'"/>
+						<xsl:with-param name="vR1" select="'STATUS'"/>
+						<xsl:with-param name="vR2" select="'STATUS'"/>
+						<xsl:with-param name="vC1" select="'FUNCTION'"/>
+						<xsl:with-param name="tVals" select="'NBR'"/>
+						<xsl:with-param name="XMLFileName" select="'IL_CPN_SAMPLE16.xml'"/>
+						<xsl:with-param name="tGraphWidth" select="'100%'"/>
+						<xsl:with-param name="tGraphHeigth" select="'300px'"/>
+					</xsl:call-template>
 				</div>
 			</xsl:if>
+			<!-- Force Page Break Layout in BootStrap See Web for more details or remove this line to see effect-->
+			<div class="row"/>
 			<!-- Drill-Down Bloc -->
 			<div>
 				<xsl:attribute name="id">DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/></xsl:attribute>
 				<!--<xsl:if test="$vMODE='Drill-Down'">-->
-					<xsl:variable name="TNameDD">ASSET_DETAILS</xsl:variable>
 					<xsl:call-template name="Generic_Table_DBWEB">
 						<xsl:with-param name="DBWEB_Name" select="'DETAILS'"/>
-						<xsl:with-param name="UdTN" select="$TNameDD"/>
+						<xsl:with-param name="UdTN" select="Sample_15_ASSET_DETAILS"/>
 						<xsl:with-param name="Show_Empty" select="'N'"/> 
 						<xsl:with-param name="ForceFooter" select="'Y'"/>
 						<xsl:with-param name="Col_Hidden" select="'4,6'"/>
@@ -200,7 +246,7 @@
 	<xsl:choose>
 		<xsl:when test="$Detail_Data='SPE_01_XTAB_ASS'">
 			
-			<xsl:variable name="vXMLFileName">IL_CPN_SAMPLE12.xml</xsl:variable>
+			<xsl:variable name="vXMLFileName">IL_CPN_SAMPLE15.xml</xsl:variable>
 			<!-- Determine Which LLOOK Code is associated with values for XTAB -->
 			<xsl:variable name="vCodeR1">
 				<xsl:choose>

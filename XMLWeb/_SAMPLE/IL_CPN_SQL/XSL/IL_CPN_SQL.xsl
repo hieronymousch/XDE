@@ -81,7 +81,6 @@
 			<xsl:call-template name="Generic_Table_DBWEB">
 				<xsl:with-param name="DBWEB_Name" select="'SQL'"/>
 				<xsl:with-param name="Show_Empty" select="'Y'"/> 
-				<xsl:with-param name="dictionary" select="$vRepDic"/> 
 				<xsl:with-param name="MaxRecords" select="-1"/>
 				<xsl:with-param name="Frame" select="'YO'"/> <!-- Possible : YO/YC/Y/YT -->
 				<xsl:with-param name="Detail_Data" select="'SPE01_SQL'"/> <!-- exp: concat('Templ_Data_',@id) -->
@@ -95,7 +94,6 @@
 				<xsl:with-param name="Col_Sorting" select="concat($vSORTCOL,'-',$vSORTTYPE)"/>
 				<xsl:with-param name="ForceFooter" select="'Y'"/> 
 				<xsl:with-param name="Col_Filtering" select="$vFILTER"/>
-				<xsl:with-param name="dictionary" select="$vRepDic"/> 
 				<xsl:with-param name="MaxRecords" select="$vLIMIT"/>
 				<xsl:with-param name="Frame" select="'YO'"/> <!-- Possible : YO/YC/Y/YT -->
 				<xsl:with-param name="Detail_Data" select="'Generic'"/> <!-- exp: concat('Templ_Data_',@id) -->
@@ -117,7 +115,7 @@
 	<xsl:choose>
 		<xsl:when test="$Detail_Data='SPE01_SQL'">
 			<br/>
-			<form  width="100%" style='margin-bottom:0px;' method='get' action="" >
+			<form  width="100%" style='margin-bottom:0px;' method='post' action="" >
 				<div class="row">
 					<div class="form-group col-md-2">
 						<label for="usr">
@@ -205,7 +203,7 @@
 					 	</input>
 					</div> 	
 					<div class="form-group col-md-1">
-					  	<label for="sel1">(ord)</label>
+					  	<label for="sel1"><font color="blue">Ord : </font></label>
 					  	<select class="form-control" id="sel1">
 					   		<xsl:attribute name='name'>vSORTTYPE</xsl:attribute>
 							<xsl:if test="$vSORTTYPE='asc'">
@@ -254,15 +252,18 @@
 					  			<li>
 					  				List of Special features available 
 									<xsl:call-template name="SPE_Feature">
-										<xsl:with-param name="FieldVal" select="concat('MRN_SPE20#MRN_SPE_FEATURES.xml?pLANG=',$vLANG,'#_blank#1#Here')"/>
+										<xsl:with-param name="FieldVal" select="concat('MRN_SPE20#../CPN_SPE_FEATURES/CPN_SPE_FEATURES.xml?pLANG=',$vLANG,'#_blank#1#Here')"/>
 									</xsl:call-template>
+								</li>
+					  			<li>
+					  				<a href="http://erd.idcn.mil.intra/erd/mainframe" target="ERD">ERD - Entity Relationship Diagram tool</a> (Documents relationships between Datamart's entities)
 					  			</li>
 					  		</ul>
 					  	</font> 
 					</div>
 					<div class="form-group col-md-3">
 						<center>
-							<br/><br/><br/>
+							<br/><br/>
 							<input class="btn-lg active btn-info" type='submit' value='Execute'/>
 						</center>
 					</div>

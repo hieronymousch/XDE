@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Common Pillar Node FW - Components - By CPN Dev Core Team
-	  Version : 1.0.4
 	  XXTBDXX : Means To be deleted in next Version -->
 
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -2427,18 +2426,23 @@
 						RemoveGhost('dT_<xsl:value-of select="$Table_Name"/>'); 
 					-->					
 					<!-- Column Based Filtering Box Part 1/2-->
+				try{
 					<xsl:if test="$Col_Filtering!='None'">
 						<!-- Setup - add a text input to each footer cell -->
 					    var keyValue2 = [];
 						var url = window.location.href;
 						var URLRep = url.substring(0,url.indexOf("?")).substring(url.substring(0,url.indexOf("?")).indexOf("LRF/XMLWeb/Process")-1);
-						var getLocalStorageData = localStorage.getItem('DataTables_dT_<xsl:value-of select="$Table_Name"/>_'+URLRep);
-						keyValue2=JSON.parse(getLocalStorageData);
+						try{
+							keyValue2=JSON.parse(localStorage.getItem('DataTables_dT_<xsl:value-of select="$Table_Name"/>_'+URLRep));
+						}
+						catch(err){
+							console.log(err)
+						}
 						$('#dT_<xsl:value-of select="$Table_Name"/> tfoot th.CPN_Search').each( function () {
-					        if(keyValue2===null){
+					        if(keyValue2.length===null){
 					        	var Filtervalue = '';
 					        	$(this).append( ' <input class="f{$Table_Name}" type="text" size="1" value="'+ Filtervalue +'" placeholder="" />' );
-					        } else {
+					        	} else {
 					        	var Filtervalue = keyValue2.columns[$(this).index()].search.search;
 					        	if (Filtervalue==='') {
 					        		<!-- Inputbox Initialisation -->
@@ -2447,9 +2451,13 @@
 					        		<!-- Inputbox Filled with filter -->
 					        		$(this).append( ' <input class="f{$Table_Name}" type="text" size="1" style="background-color:#f1c40f" value="'+ Filtervalue +'" placeholder="" />' );
 					        		}
-					        };
+					        	};
 					    } );
 					</xsl:if>
+				}
+				catch(err){
+					console.log(err)
+				}
 					//GLOBAL ARRAY TO STORE COLUMNS THAT NEED TO BE WRAPPED
 					var wrapColumns = [];
 					
@@ -2486,7 +2494,6 @@
 							"buttons": [
 							{
 								extend: 'colvis',
-								collectionLayout: 'three-column',
 								text: function() {
 									var totCols = $('#dT_<xsl:value-of select="$Table_Name"/> thead th').length;
 									<xsl:choose>

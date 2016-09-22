@@ -47,20 +47,22 @@
 		<meta name="author" content="Drijkoningen Dirk, Ibanez Crescencio"/>
 			<head>
 				<!-- js -->
-					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/jQuery-2.1.4/jquery-2.1.4.min.js"></script>
-					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
+					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/Bootstrap-3.3.6/js/bootstrap.min.js"></script>
 					<script type="text/javascript" src="/{$vHtDocsConfig}/Home/js/bootstrap-select.js"></script>
 					<script type="text/javascript" src="/{$vHtDocsConfig}/Home/js/sidebar.js"></script>
 					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/js/CPN.js"></script>
 					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/toastr/toastr.js"></script>
 					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/extras/mpopup/jquery.magnific-popup.js"></script>
+					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/js/local.js"></script>
+					<script type="text/javascript" src="/{$vHtDocsConfig}/CPN/js/overlib.js"></script>
 							
 				<!-- CSS -->
 					
 					<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/toastr/toastr.css"/>
 					<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/fonts/linecons/css/linecons.css" />
 					<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/fonts/fontawesome/css/font-awesome.min.css" />
-					<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/bootstrap-3.3.5/css/bootstrap.min.css" />
+					<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/Bootstrap-3.3.6/css/bootstrap.min.css" />
 					<link rel="stylesheet" type="text/css" href="/{$vHtDocsConfig}/CPN/extras/mpopup/magnific-popup.css" media="all"/>
 					<link rel="shortcut icon" type="image/x-icon" href="/{$vHtDocsConfig}/CPN/img/logo/{$vNodeConfig}/favicon.ico" />	
 					
@@ -134,7 +136,7 @@
 						</div>
 						<ul class="sidebar-nav">
 							<li>
-								<a href="Settings.xml" title="Settings"><div class="fa fa-cog"></div>Settings</a>
+								<a href="Settings.xml?pRID=10103&amp;pLANG={$vLANG}" title="Settings"><div class="fa fa-cog"></div>Settings</a>
 							</li>
 							<li class="submenu"><!-- class REQUIRED when creating a submenu-->
 								<a href="#"><div class="fa fa-database"></div>Common Pillar Nodes<div class="glyphicon glyphicon-menu-right pull-right"></div></a>
@@ -220,22 +222,17 @@
 						<!--nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"-->
 							<div>
 								<div class="row">
-									<div class="col-md-1 navbar-inverse">
-										<!--span class="fa fa-bars" id="menu-toggle" title="Show / Hide full menu."></span-->
+									<div class="col-md-8 collapse navbar-inverse navbar-collapse" style="text-align:center;">
 										<ul class="nav navbar-nav navbar-inverse navbar-left">	
 											<li>
 						                        <span class="fa fa-bars" id="menu-toggle" title="Show / Hide full menu."></span>
 						                    </li>
-										</ul>
-									</div>
-									<div class="col-md-8 collapse navbar-inverse navbar-collapse" style="text-align:center;">
-										<ul class="nav navbar-nav navbar-inverse navbar-left">	
 											<li class="active">
 						                        <a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 						                    </li>
 						                    <li>
 						                        <script>
-						                            document.write('<a href="http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/MRN_UAUT/MRN_REDIR/REDIR.xml?pLANG={$vLANG}&amp;pRID=2000" target="_blank">CPN Status</a>')
+						                            document.write('<a href="http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/HOME/Redir.xml?pLANG={$vLANG}&amp;pRID=2000" target="_blank">CPN FW Status</a>')
 						                        </script>  
 						                    </li>
 						                    <li>
@@ -251,14 +248,14 @@
 						                    <li class="dropdown">
 						                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
 						                        <ul class="dropdown-menu">
-						                        	<li><a href="http://cdclprdicp02.idcn.mil.intra/iforum/index.php?board=46.0" target="Forum">Forum DB Node</a></li>
-						                            <li><a href="http://cdclprdicp02.idcn.mil.intra/iforum/index.php?board=58.0" target="Forum">Forum CPN FW</a></li>
+						                        	<li><a href="http://icp.idcn.mil.intra/iforum/index.php?board=46.0" target="Forum">Forum DB Node</a></li>
+						                            <li><a href="http://icp.idcn.mil.intra/iforum/index.php?board=58.0" target="Forum">Forum CPN FW</a></li>
 						                            <li role="separator" class="divider"></li>
 						                            <li>
 						                            	<xsl:choose>
 						                            		<xsl:when test="$vLANG='FR' or $vLANG='NL'">
 						                            			<script type="text/javascript">
-										                            document.write('<a href="http://cdclprdicp02.idcn.mil.intra/bedef'+ NodeSetArr.Language.toLowerCase() +'/index.php?title=CPC" target="_blank">CPN Community</a>')
+										                            document.write('<a href="http://icp.idcn.mil.intra/bedef'+ NodeSetArr.Language.toLowerCase() +'/index.php?title=CPC" target="_blank">CPN Community</a>')
 										                        </script>
 						                            		</xsl:when>
 						                            		<xsl:otherwise>
@@ -271,7 +268,7 @@
 						                            	<xsl:choose>
 						                            		<xsl:when test="$vLANG='FR' or $vLANG='NL'">
 						                            			<script type="text/javascript">
-										                            document.write('<a href="http://cdclprdicp02.idcn.mil.intra/bedef'+ NodeSetArr.Language.toLowerCase() +'/index.php?title=CPN" target="_blank">Doc on Wiki</a>')
+										                            document.write('<a href="http://icp.idcn.mil.intra/bedef'+ NodeSetArr.Language.toLowerCase() +'/index.php?title=CPN" target="_blank">Doc on Wiki</a>')
 										                        </script>
 						                            		</xsl:when>
 						                            		<xsl:otherwise>
@@ -347,10 +344,12 @@
 						                        </ul>
 						                    </li>
 						                    <li class="dropdown">
-						                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Query Buider <span class="caret"></span></a>
+						                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AdHoc Query<span class="caret"></span></a>
 						                        <ul class="dropdown-menu">
-						                            <li><a href="/QueryBuilder/" target="QueryBuider">Query Builder (Provided by MR C&amp;I)</a></li>
+						                            <li><a href="/LRF/XMLWeb/ProcessDescriptor/descriptor/_SAMPLE/IL_CPN_SQL/IL_CPN_SQL.xml?pLANG={$vLANG}&amp;pRID=10033" target="ERD">Adhoc Query (Provided by CPN)</a></li>
 						                            <li role="separator" class="divider"></li>
+						                            <li><a href="http://erd.idcn.mil.intra/erd/mainframe" target="ERD">Query Builder (Provided by MR C&amp;I)</a></li>
+						                            <li><a href="/QueryBuilder/" target="QueryBuider">ERD</a></li>
 						                            <li><a href="#" target="QB_Documentation">Documentation</a></li>
 						                            <li>
 						                            	<div class="navbar-contact">
@@ -374,7 +373,6 @@
 						                            <li><a href="/admin.php" target="adminer">Adminer</a></li>
 						                            <li role="separator" class="divider"></li>
 						                            <li><a href="/phpmyadmin" target="adminer">PHPMyAdmin 3</a></li>
-						                            <li><a href="/phpMyAdmin-4.0.10.8" target="adminer">PHPMyAdmin 4</a></li>
 						                        </ul>
 						                    </li>
 						                    <li class="dropdown">
@@ -485,154 +483,13 @@
 						  	<div id="menu1" class="tab-pane fade col-md-offset-1">
 						    	<h2>What's New</h2>
 						    	<p>
-						    		<h3>In Current Version (RC1) :</h3>
-						    		This version is probably the last version before Production Version 1.0. 
-						    		<ul>
-						    			<li>
-						    				Problem with SPE00 is now Fixed. By MIB (Cdt Ibanez)
-						    			</li>
-						    			<li>
-						    				Samples Updated and modified to be in accordance with Wiki Documentation. By MIB (Cdt Ibanez)
-						    			</li>
-						    			<li>
-						    				Documentation is available only in French in ILIAS Wiki. PLEASE Help US 
-						    				<ul>
-						    					<li>to translate</li>
-						    					<li>to comment ONLY in Discussion Pages the Documentation</li>
-						    				</ul>
-						    				Entry point Pages are  
-						    				<ul>
-						    					<li>DB Node (Category)</li>
-						    					<li>CPN</li>
-						    				</ul>
-						    				By MIB (Cdt Ibanez)
-						    			</li>
-						    			<li>
-						    				Dictionary Parameter in correctly used by Title/Page Name/Block Query and Fields. By MIB (Cdt Ibanez)
-						    			</li>
-						    			<li>
-						    				Bug in Multiple Drill-Down2 (now OK). By MIB (Cdt Ibanez)
-						    			</li>
-						    			<li>
-						    				Language is now correctly used in Drill-Down Mode (Only English in previous version). By MIB (Cdt Ibanez)
-						    			</li>
-						    			<li>
-						    				Added indication of number of colums shown versus total in a Table generated by dataTable. Thanks DD - Dirk Drijkoningen (10W Data Cell - QR Node ILIAS Admin) ! 
-						    			</li>
-						    			<li>
-						    				Sorting on numbers in a XTable is now Correct. Thanks Dirk Drijkoningen (10W Data Cell - QR Node ILIAS Admin) ! 
-						    			</li>
-						    			<li>
-						    				Parameter HeatMap added for Xtable. This parameter allows to colorized the XTable with a Heatmap (Color Darkness background based on value in XTable). Thanks Dirk Drijkoningen (10W Data Cell - QR Node ILIAS Admin) ! 
-						    			</li>
-						    			<li>
-						    				Remarks (?) are now correctly displayed in Prompts. Thanks Dirk Drijkoningen (10W Data Cell - QR Node ILIAS Admin) ! 
-						    			</li>
-						    			<li>
-						    				Pop-up Background is now fixed. Thanks Dirk Drijkoningen (10W Data Cell - QR Node ILIAS Admin) ! 
-						    			</li>
-						    			<li>
-						    				2 news parameters added in Node Config for Feedback and DataDic (Only for Pillar Nodes). By MIB (Cdt Ibanez)
-						    			</li>
-						    		</ul>
-						    		<h3>CPN Ver 1.0 Beta 6 :</h3>
-						    		<ul>
-						    			<li>
-						    				Prompt sometimes empty (for a specific language) ... solved. Used of Param 'En' if 'Fr' or 'Nl' empty
-						    			</li>
-						    			<li>
-						    				Datadic popup colored based on case and italic only applied if nothing found.
-						    			</li>
-						    			<li>
-						    				Multiple Drill-Down2 in same report generate multiple Drill-Down2 for Each Drill-Down (Side-Effect). Solved with correction in CPN.js (Don't forget to update Default2)
-						    			</li>
-						    			<li>
-						    				Drill-Down2 generates a Pop-Up for Report Debugging.
-						    			</li>
-						    			<li>
-						    				Datadictionnary problem in Xtable and XGraph. Solved. Tip (Don't fill pLANG in $XMLFileName or $XMLFileParamName). Idem for DD2
-						    			</li>
-						    			<li>
-						    				Drill-Down on Graph (Template XGRAPH) is now effective (plus Cursor)
-						    			</li>
-						    			<li>
-						    				At this moment the tooltip created by opentip, partially hides behind the top navbar.
-											<br/>Example: hover over "Accuracy" or in the grey bar over "Node List of Report's".
-											<br/>Thanks DD
-						    			</li>
-						    		</ul>
-						    		<h3>CPN Ver 1.0 Beta 5 :</h3>
-						    		<ul>
-						    			<li>
-						    				Language Switching now correct for All Node Configuration
-						    			</li>
-						    			<li>
-						    				Status Node (base on dbn_entities) is now correct and Report Accuracy also
-						    			</li>
-						    			<li>
-						    				Side-Effet on dataTable filter when Input tag used is now disappeared
-						    			</li>
-						    			<li>
-						    				About (See Menu) enhanced with parameters info and Authentication can be activated on Pillar Node. Use pUSER parameter in Reports. 
-						    			</li>
-						    			<li>
-						    				Added Generic Template for Tabulation (Not full Ops) 
-						    			</li>
-						    		</ul>
-						    		<h3>CPN Ver 1.0 Beta 4 :</h3>
-						    		<ul>
-						    			<li>
-						    				Added Query Builder provided by MR C&amp;I. This tool is NOT part of CNP FW. Bugs, remarks and questions must be forwarded to MR C&amp;I. Query builder has been adapted to work on latest version of DBNode (DBWeb retrieveEntities.xml)
-						    			</li>
-						    			<li>
-						    				Solved Bugs See Topics 2077,2078,2081,2076,2079
-						    			</li>
-						    			<li>
-						    				Report Info, About, Block Info, Block Toolbox, Queries Used enhanced.
-						    			</li>
-						    			<li>
-						    				Acceptance Env (See MR Node - MR_Accept) added (Pink).
-						    			</li>
-						    			<li>
-						    				Added MS Access Database called NodeManagement.accdb located in htdoc. This tool helps user to manage 
-						    				<ul>
-						    					<li>Report in local node (Report DataModel)</li>
-						    					<li>local Indexes</li>
-						    				</ul>
-
-						    			</li>
-						    		</ul>
-						    		<h3>CPN Ver 1.0 Beta 3 :</h3>
-						    		<ul>
-						    			<li>
-						    				New Sample Added (01) - Generate which generate report with 1 Call-Template
-						    			</li>
-						    			<li>
-						    				Sample 2 includes examples of different type of Prompts (Radio, Date Picker, Dropbox, Mandatory)
-						    			</li>
-						    			<li>
-						    				Link adapted for image in Special Features (SPE20). Now Pillar Node icon are shown properly + option 0 for no icon.
-						    			</li>
-						    			<li>
-						    				SPE02 adapted : works with redirect page define in Node_config.xsl (param vNodeRedirect)
-						    			</li>
-						    			<li>
-						    				Template Node_Std_Table simplified : all nodes use same dt_Type (Default is 99 - All options). Caution : you can preset options in Node_Config
-						    			</li>
-						    		</ul>
+						    		See on CPN FW Version Logging Page on ILIAS Wiki
 						    	</p>
 						  	</div>
 						  	<div id="menu2" class="tab-pane fade col-md-offset-1">
 						    	<h3>Current Bug's not yet solved</h3>
 						    	<p>
-						    		<ul>
-						    			<li>
-						    				All known Bugs are solved 
-						    			</li>
-						    			<li>
-						    				Next version will be probably the Production Version 1.0 
-						    			</li>
-						    		</ul>
+						    		See on CPN FW Forum
 						    	</p>
 						  	</div>
 						  	<div id="menu3" class="tab-pane fade col-md-offset-1">
@@ -642,7 +499,7 @@
 						    		Bemilcom : 9-2400-1469
 						    		EMail : Crescencio.ibanez@mil.be
 						    		<h4>Forum</h4>
-						    		You can post question and answer questions posted by other user ... <a target="_blank" href="http://cdclprdicp02.idcn.mil.intra/iforum/index.php?board=58.0">There</a>
+						    		You can post question and answer questions posted by other user ... <a target="_blank" href="http://icp.idcn.mil.intra/iforum/index.php?board=58.0">There</a>
 						    		<h4>Feedback</h4>
 						    		You can provide Feedback <a target="_blank" href="http://mrnode.mil.intra/LRF/XMLWeb/ProcessDescriptor/descriptor/MRN_UAUT/MRN_EVAL/MRN_EVAL.xml?pRID=1064&amp;pVRID=2000&amp;pLANG={$vLANG}">There</a>
 						    		<br/><br/>
@@ -690,6 +547,8 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+	
+
 	<xsl:include href='../../COMMON/Node_Config.xsl'/>
 	<xsl:include href='../../COMMON/Report_Components.xsl'/>
 	<!--xsl:include href='CPN.xsl'/-->

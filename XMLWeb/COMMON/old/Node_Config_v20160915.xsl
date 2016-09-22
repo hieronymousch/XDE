@@ -25,11 +25,9 @@
 			 	<xsl:variable name="vURL_OPSN" select="'http://opsnode.mil.intra'"/>
 			 	<xsl:variable name="vURL_QRN" select="'http://qrnode.mil.intra/ILIAS'"/>
 			 	<xsl:variable name="vURL_WIKI" select="'http://icp.mil.intra/'"/>
-			 	<xsl:variable name="vURL_DAM" select="'https://cdclprdptllb01.idcn.mil.intra/iliasrestservice/rest/dam'"/> 
-			 	<!-- For NSN add /PARTS/1005-13-112-2513/0 -->
 	 		<!-- Global variables -->
 			 	<xsl:variable name="vHtDocsConfig" select="'Default2'"/> 	<!-- Folder Name containing CPN Configuation Files -->
-			 	<xsl:variable name="vNodeConfig" select="'Local'"/> 		<!-- Folder Name containing Node Configuation Files (MRN_Prod/MRN_Accept/OPSN_Prod/QRNI_Prod/Local)-->
+			 	<xsl:variable name="vNodeConfig" select="'MRN_Accept'"/> 		<!-- Folder Name containing Node Configuation Files (MRN_Prod/MRN_Accept/OPSN_Prod/QRNI_Prod/Local)-->
 			 	<xsl:variable name="vDeployedNode" select="'N'"/> 		<!-- Deployed Node ? Y/N Default 'N'-->
 			 	<xsl:variable name="vNodedT" select="'99'"/> 		<!-- Default dataTable Config-->
 			 	<xsl:variable name="vNodedTXLS" select="'Y'"/> 		<!-- Default XLS in dT (Y/N)-->
@@ -39,19 +37,19 @@
 				<xsl:variable name="vNodeHeatMap" select="'Y'"/> 	<!-- Show HeatMap (Y/N) -->
 				<xsl:variable name="vTabDefault" select="'pill'"/> 	<!-- Default Tab type (tab/pill) -->
 				<xsl:variable name="vNodeNRT" select="'NRT'"/> 		<!-- Std color for Query Block : NRT=Grey (datamart) / RT for Real-Time ILIAS -->
-			 	<xsl:variable name="vNodeName" select="'My Local Node'"/> 		<!-- Node Name MR Node/QR Node ILIAS/Ops Node/Local Node -->
-			 	<xsl:variable name="vWebMaster" select="'Your Name'"/>	<!-- Node POC (Administrators) -->
+			 	<xsl:variable name="vNodeName" select="'MR Node'"/> 		<!-- Node Name MR Node/QR Node ILIAS/Ops Node/Local Node -->
+			 	<xsl:variable name="vWebMaster" select="'Cdt IBANEZ C. and Adjt DUBUS R.'"/>	<!-- Node POC (Administrators) -->
 			 	<xsl:variable name="vNodeRedirect" select="'/LRF/XMLWeb/ProcessDescriptor/descriptor/HOME/Redir.xml'"/> 	<!-- Redirect Page URL--> 
 			 	<xsl:variable name="vNodeInputFormType" select="'M'"/> 			<!-- Default Input Method -->
 			 	<xsl:variable name="vUseDataModel" select="'Y'"/> 	<!-- Use CPN Report Data Model (Y or N). If No : Basic Prompt, no Info on Report, ... -->
-			 	<xsl:variable name="vNodeFeedback" select="-1"/> 			<!-- Pillar Node : RepId for Feedback/-1 If N/A -->
-			 	<xsl:variable name="vNodeDataDic" select="-1"/>			<!-- Pillar Node : RepId for DataDic/-1 If N/A -->
-			 	<xsl:variable name="vListAdminCDN">'CDN1','CDN2'</xsl:variable> 		<!-- Pillar Node : Administrators CDN login -->
-				<xsl:variable name="vListDevCDN">'CDN3','CDN4'</xsl:variable> 	<!-- Pillar Node : Developpers CDN login -->
-				<xsl:variable name="vRepStatWarning">'99'</xsl:variable> 	<!-- Report Status for which a warning will be displayed -->
+			 	<xsl:variable name="vNodeFeedback" select="3008"/> 			<!-- Pillar Node : RepId for Feedback/-1 If N/A -->
+			 	<xsl:variable name="vNodeDataDic" select="3007"/>			<!-- Pillar Node : RepId for DataDic/-1 If N/A -->
+			 	<xsl:variable name="vListAdminCDN">'IBANEZ.C','DUBUS.R','DRIJKONINGEN.P','DRIJKONINGEN.D','DE WOLF.D','BALTUS.O'</xsl:variable> 		<!-- Pillar Node : Administrators CDN login -->
+				<xsl:variable name="vListDevCDN">'CORNIL.P','BRUGGHE.HA','VAN OVERBEKE.D','COLLE.B'</xsl:variable> 	<!-- Pillar Node : Developpers CDN login -->
+				<xsl:variable name="vRepStatWarning">'8','9','10','93','94'</xsl:variable> 	<!-- Report Status for which a warning will be displayed -->
 				<xsl:variable name="vPeriodEncourageInDays">7</xsl:variable> 		<!-- Number of days for Encouraging Message -->
-				<xsl:variable name="vPeriodEncourageTrigger">1000</xsl:variable> 		<!-- Number of Hits in Period to Generate Encouraging Message -->
-				<xsl:variable name="vTotalEncourageTrigger">2500</xsl:variable> 		<!-- Number of Cumulated Hits for Encouraging Message (multiple of) -->
+				<xsl:variable name="vPeriodEncourageTrigger">100</xsl:variable> 		<!-- Number of Hits in Period to Generate Encouraging Message -->
+				<xsl:variable name="vTotalEncourageTrigger">250</xsl:variable> 		<!-- Number of Cumulated Hits for Encouraging Message (multiple of) -->
 				<xsl:variable name="vMGT" select="'MR-MGT'"/> 						<!-- Pillar Node : NISM management -->
 				<xsl:variable name="vNIMSBaseUrl" select="'/ressources/MISM/'"/> 	<!-- Pillar Node : NISM Base Url -->
 			<!-- Mandatory Parameters -->

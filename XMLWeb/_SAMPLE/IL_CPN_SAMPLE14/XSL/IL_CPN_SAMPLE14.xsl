@@ -41,42 +41,59 @@
 
 <!-- Several Golbal Variables used in CPN are declared in Node_Config (example : vRID,vLANG,vMODE,...) --> 
 <!-- Variable Declaration Classical and for THIS Report  -->
-<xsl:variable name="vRepDic" select="document('../RepDic.xml')" />
 <!-- Variable Declaration End -->
 
 <xsl:template match='/'>	
 	<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html></xsl:text>
-	<meta http-equiv="x-ua-compatible" content="IE=EDGE"/>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="description" content="Bootstrap Sidebar Template for CPN HomePage"/>
-	<meta name="author" content="Ibanez Crescencio"/>
 		<head>
+			<meta http-equiv="x-ua-compatible" content="IE=EDGE"/>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="description" content="Sample 15"/>
+			<meta name="author" content="Ibanez Crescencio, Drijkoningen Dirk"/>
 			<!-- Load Std Head from From CPN + Local (Require include Node_Config.xsl and Report_Components.xsl in Common Folder -->
 			<xsl:call-template name="Node_Std_Head"/>
 			<!-- Titre 'manuel' de la Page/Onglet -->
 			<title>
-				SAMPLE 01
+				SAMPLE 14
 			</title>
 		</head>
+		
 		<body>
 			<!-- Report Layout Template (Top) -->
 			<xsl:call-template name="Body_Start"/>
-
-			<!-- Titre 'manuel' DANS la page web -->
+			<!-- Cet appel à Template permet de générer le Titre du rapport en fonction de la langue (RepDic) -->
 			<center>
-				<h1>
-					SAMPLE 01 : Basic Layout in CPN FrameWork (CPN FW)
-				</h1>
-			</center>		
-			
-			<center>
-				...<br/>...<br/>...<br/>
-				<h2>
-					Hello World <small>or my future Report</small>
-				</h2>
-				...<br/>There is no Prompts<br/>There is no 'Real' Query<br/>
+				<h1>Sample 14</h1>
+						
+				<p style="text-align:center;font-weight:bold;font-style:italic;">Demo for Date Picker and Dynamic Drop Down parameters</p>
+				<div style="width:90%;display:inline-block;">
+					<div style="width:50%;float:left;text-align:left;">
+						<strong>Date Picker</strong><br/>
+						In table dbn_report_parameters:<br/>
+						dbn_repp_param_format = datepicker<br/>
+						dbn_repp_param_validation = months or years (empty for default days)<br/>
+						dbn_repp_param_mandatory = Y or N
+					</div>
+					<div style="width:50%;float:left;text-align:left;">
+						<strong>Dynamic Drop Down</strong><br/>
+						This is a drop down created by a query! This query must create records with 2 fields. A DATA and DISPLAY field. Data will be used as value and Display is the text shown in the drop down.<br/>
+						In table dbn_report_parameters:<br/>
+						dbn_repp_param_type = Dynamic-Drop-Down<br/>
+						dbn_repp_param_type_detail = the queryID to use<br/>
+						dbn_repp_param_validation = singleselect or multiselect
+					</div>
+				</div>
 			</center>
+			
+			<xsl:call-template name="Generic_Table_DBWEB">
+				<xsl:with-param name="DBWEB_Name" select="'IL_MR_SAMPLE'"/>
+				<xsl:with-param name="UdTN" select="'IL_MR_SAMPLE_14'"/>
+				<xsl:with-param name="ForcedTitle" select="'Sample 14 - Date Picker &amp; Dynamic Drop Down'"/>	
+				<!-- Ligne permettant de déterminer le lien du Drill-Down. Ce paramètre doit toujours être associé à un SPE_05 avec la clé d'interrogation du paramètre. Ici le nr de Asset ATTENTION le paramètre PLANG est automatiquement ajouté ainsi que pMODE=Drill-Down2, donc ne pas les mentionner -->
+				<!--xsl:with-param name="DDURL" select="'../IL_CPN_SAMPLE07/IL_CPN_SAMPLE07.xml?pRID=1007&amp;pFUNCTION='"/-->
+			</xsl:call-template>
+			
 			<!-- Report Layout Template (Bottom) -->
 			<xsl:call-template name="Body_End"/>
 		</body>

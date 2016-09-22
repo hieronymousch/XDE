@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<descriptor>
+   <report type="main">
+      <url>http://mrnode.mil.intra:8080/LRF/XMLWeb/ProcessDescriptor/descriptor/XMLWeb/_CPN_FW/LRF2/IL_MR_POPUP2/DBN_POPUP_Rep_Status_Extrac.xml</url>
+      <domain/>
+      <subdomain/>
+      <title>DBN_Report_Status</title>
+      <description/>
+      <secure>1</secure>
+      <techPOC/>
+      <changeHistory>
+         <version id="1" date="22-08-2014">Add main</version>
+      </changeHistory>
+      <tables/>
+      <help/>
+   </report>
+   <label>DBN_Report_Status</label>
+   <source type="url">DBWeb/ProcessDescriptor/descriptor/CPN/CPN_SYSTEM_POPUP/CPN_SYSTEM_POPUP_EXTRACT_STATUS.xml</source>
+   <processing type="xsl">CPN/CPN_SYSTEM_POPUP/XSL/CPN_SYSTEM_POPUP_EXTRACT_STATUS.xsl</processing>
+   <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

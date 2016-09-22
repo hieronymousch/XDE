@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
 <!-- START : Use this to avoid error illegal characters html --> 
 <xsl:output method="html" indent="yes" use-character-maps="no-control-characters"/>
 <xsl:character-map name="no-control-characters">
@@ -39,16 +40,13 @@
 </xsl:character-map>
 <!-- END : Use this to avoid error illegal characters html -->  
 
+<!-- Template Call to generate a complete basic report based on a single QueryString -->
 <xsl:template match='/'>  
    <xsl:call-template name="GenerateReport">
       <xsl:with-param name="DBWEB_Name" select="'IL_MR_SAMPLE'"/>
-      <!-- Remove this line to Test Data Dictionary ... RepDic.xml required-->
-      <xsl:with-param name="dictionary" select="document('../RepDic.xml')"/>
-      <!--Remove this line to Test Data Dictionary -->
       <xsl:with-param name="Col_Hidden" select="'3'"/>
       <xsl:with-param name="Col_Sorting" select="'2-desc'"/>
       <xsl:with-param name="Col_Total" select="'9'"/>
-      <!--xsl:with-param name="NRT" select="'RT'"/--> 
    </xsl:call-template>
 </xsl:template>
 

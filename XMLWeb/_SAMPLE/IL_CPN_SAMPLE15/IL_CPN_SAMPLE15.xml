@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<descriptor>
+ <label>CPN_SAMPLE</label>
+ <source type="url">DBWeb/ProcessDescriptor/descriptor/_SAMPLE/IL_CPN_SAMPLE15/IL_CPN_SAMPLE15.xml</source>
+ <processing type="xsl">_SAMPLE/IL_CPN_SAMPLE15/XSL/IL_CPN_SAMPLE15.xsl</processing>
+ <result type="text/html; charset=UTF-8" header="no"/>
+</descriptor>

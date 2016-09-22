@@ -48,130 +48,131 @@
 <xsl:variable name="vIDRID" select="//dbquery[1]/descriptor/parameters/param[@name='pIDRID']/@value"/>
 
 <xsl:template match='/'>	
-	<!-- Generate HTML5 WebPage : Not good for Layout Reasons -->
-	<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html></xsl:text>
-	<meta http-equiv="x-ua-compatible" content="IE=10"/>	
-	<html>
-		<head>
-			<!-- Load Std Head from From MRN_Config (Require include Node_Config.xsl -->
-			<xsl:call-template name="Node_Std_Head"/>
-			<title>
-				<xsl:value-of select='$vNodeName'/> Reports List
-			</title>
-		</head>
+	<xsl:if test="$vMODE='Main'">		
+		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html></xsl:text>
+			<meta http-equiv="x-ua-compatible" content="IE=EDGE"/>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="description" content="Bootstrap Sidebar Template for CPN HomePage"/>
+			<meta name="author" content="Ibanez Crescencio"/>
+				<head>
+					<xsl:call-template name="Node_Std_Head"/>
+					<title>
+						<xsl:value-of select='$vNodeName'/> Reports List
+					</title>
+				</head>
+				<body>
+					<xsl:call-template name="Body_Start"/>
 		
-		<body>	
-			<!-- Main Bloc visible on report openning  -->
-			<xsl:call-template name="Checks"/>
-			<xsl:if test="$vMODE='Main'">		
-				<xsl:call-template name="Report_NavBar"/>
-				<center>
-					<h1>
-						<xsl:call-template name="FromDic2Rep">
-							<xsl:with-param name="Title2S" select="'PAGE_TITLE_REPORT_LIST'"/>
-							<xsl:with-param name="Lang" select="$vLANG"/>
-							<xsl:with-param name="dictionary" select="$vRepDic"/>
-						</xsl:call-template>
-					</h1>
-				</center>
-				<xsl:variable name="ColHidden">
-					<xsl:choose>
-						<xsl:when test="$vLANG='FR'">
-							4,5,10
-						</xsl:when>
-						<xsl:when test="$vLANG='NL'">
-							3,5,9
-						</xsl:when>
-						<xsl:otherwise>
-							3,4
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:variable>
-				<xsl:variable name="TName">DD_REPORT_LIST</xsl:variable>
-				<xsl:call-template name="Generic_Table_DBWEB">
-					<xsl:with-param name="DBWEB_Name" select="'REP_LIST'"/>
-					<xsl:with-param name="UdTN" select="$TName"/>
-					<xsl:with-param name="Show_Empty" select="'N'"/> 
-					<xsl:with-param name="Lang" select="$vLANG"/>
-					<xsl:with-param name="RepDic" select="'Y'"/> 
-					<xsl:with-param name="Col_Hidden" select="$ColHidden"/>
-					<xsl:with-param name="Col_Sorting" select="'1-asc'"/>
-					<xsl:with-param name="dictionary" select="$vRepDic"/>
-					<xsl:with-param name="MaxRecords" select="9999"/>
-					<xsl:with-param name="Frame" select="'YO'"/>
-					<xsl:with-param name="TableWidth" select="'80%'"/>
-					<xsl:with-param name="Detail_Data" select="'Generic'"/>
-					<xsl:with-param name="DDURL" select="'CPN_REP_LIST.xml?pIDRID='"/>
-				</xsl:call-template>
-			</xsl:if>
-			<xsl:if test="$vMODE='Drill-Down2'">
-				<xsl:variable name="TableNameDD">REP_DETAILS_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
-				<xsl:call-template name="Generic_Table_DBWEB">
-					<xsl:with-param name="DBWEB_Name" select="'REP_DETAILS'"/>
-					<xsl:with-param name="UdTN" select="$TableNameDD"/>
-					<xsl:with-param name="Show_Empty" select="'Y'"/> 
-					<xsl:with-param name="Lang" select="$vLANG"/>
-					<xsl:with-param name="RepDic" select="'Y'"/> 
-					<xsl:with-param name="dictionary" select="$vRepDic"/> 
-					<xsl:with-param name="MaxRecords" select="9999"/>
-					<xsl:with-param name="Frame" select="'YO'"/> 
-					<xsl:with-param name="TableWidth" select="'90%'"/>
-					<xsl:with-param name="Detail_Data" select="'SPE_REP_DETAILS_DD'"/>
-				</xsl:call-template>
-				<xsl:variable name="TableNameDD">REP_VIEWS_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
-				<xsl:call-template name="Generic_Table_DBWEB">
-					<xsl:with-param name="DBWEB_Name" select="'REP_VIEWS'"/>
-					<xsl:with-param name="UdTN" select="$TableNameDD"/>
-					<xsl:with-param name="Show_Empty" select="'N'"/> 
-					<xsl:with-param name="MaxRecords" select="9999"/>
-					<xsl:with-param name="Frame" select="'YC'"/> 
-					<xsl:with-param name="TableWidth" select="'90%'"/>
-					<xsl:with-param name="Detail_Data" select="'Generic'"/>
-				</xsl:call-template>
-				<xsl:variable name="TableNameDD">REP_PARAMS_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
-				<xsl:call-template name="Generic_Table_DBWEB">
-					<xsl:with-param name="DBWEB_Name" select="'REP_PARAMS'"/>
-					<xsl:with-param name="UdTN" select="$TableNameDD"/>
-					<xsl:with-param name="Show_Empty" select="'N'"/> 
-					<xsl:with-param name="Lang" select="$vLANG"/>
-					<xsl:with-param name="RepDic" select="'Y'"/> 
-					<xsl:with-param name="dictionary" select="$vRepDic"/> 
-					<xsl:with-param name="MaxRecords" select="9999"/>
-					<xsl:with-param name="Frame" select="'YC'"/> 
-					<xsl:with-param name="Col_Hidden" select="'0'"/>
-					<xsl:with-param name="TableWidth" select="'90%'"/>
-					<xsl:with-param name="Detail_Data" select="'Generic'"/>
-				</xsl:call-template>
-				<xsl:variable name="TableNameDD">REP_KPI_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
-				<xsl:call-template name="Generic_Table_DBWEB">
-					<xsl:with-param name="DBWEB_Name" select="'REP_KPI'"/>
-					<xsl:with-param name="UdTN" select="$TableNameDD"/>
-					<xsl:with-param name="Show_Empty" select="'N'"/> 
-					<xsl:with-param name="Lang" select="$vLANG"/>
-					<xsl:with-param name="RepDic" select="'Y'"/> 
-					<xsl:with-param name="dictionary" select="$vRepDic"/> 
-					<xsl:with-param name="MaxRecords" select="9999"/>
-					<xsl:with-param name="Frame" select="'YC'"/>
-					<xsl:with-param name="TableWidth" select="'90%'"/>
-					<xsl:with-param name="Detail_Data" select="'Generic'"/>
-				</xsl:call-template>
-				<xsl:variable name="TableNameDD">REP_KPI_DATADIC_<xsl:value-of select="$vIDRID"/></xsl:variable>
-				<xsl:call-template name="Generic_Table_DBWEB">
-					<xsl:with-param name="DBWEB_Name" select="'REP_DD'"/>
-					<xsl:with-param name="UdTN" select="$TableNameDD"/>
-					<xsl:with-param name="Show_Empty" select="'N'"/> 
-					<xsl:with-param name="ForcedTitle" select="'Report Data Dictionary'"/> 
-					<xsl:with-param name="Lang" select="$vLANG"/>
-					<xsl:with-param name="RepDic" select="'Y'"/> 
-					<xsl:with-param name="dictionary" select="$vRepDic"/> 
-					<xsl:with-param name="MaxRecords" select="9999"/>
-					<xsl:with-param name="Frame" select="'YC'"/>
-					<xsl:with-param name="TableWidth" select="'90%'"/>
-					<xsl:with-param name="Detail_Data" select="'Generic'"/>
-				</xsl:call-template>
-			</xsl:if>
-		</body>
-	</html>
+					<center>
+						<h1>
+							<xsl:call-template name="FromDic2Rep">
+								<xsl:with-param name="Title2S" select="'PAGE_TITLE_REPORT_LIST'"/>
+								<xsl:with-param name="Lang" select="$vLANG"/>
+								<xsl:with-param name="dictionary" select="$vRepDic"/>
+							</xsl:call-template>
+						</h1>
+					</center>
+					<xsl:variable name="ColHidden">
+						<xsl:choose>
+							<xsl:when test="$vLANG='FR'">
+								4,5,10
+							</xsl:when>
+							<xsl:when test="$vLANG='NL'">
+								3,5,9
+							</xsl:when>
+							<xsl:otherwise>
+								3,4
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<xsl:variable name="TName">DD_REPORT_LIST</xsl:variable>
+					<xsl:call-template name="Generic_Table_DBWEB">
+						<xsl:with-param name="DBWEB_Name" select="'REP_LIST'"/>
+						<xsl:with-param name="UdTN" select="$TName"/>
+						<xsl:with-param name="Show_Empty" select="'N'"/> 
+						<xsl:with-param name="Lang" select="$vLANG"/>
+						<xsl:with-param name="RepDic" select="'Y'"/> 
+						<xsl:with-param name="Col_Hidden" select="$ColHidden"/>
+						<xsl:with-param name="Col_Sorting" select="'1-asc'"/>
+						<xsl:with-param name="dictionary" select="$vRepDic"/>
+						<xsl:with-param name="MaxRecords" select="9999"/>
+						<xsl:with-param name="Frame" select="'YO'"/>
+						<xsl:with-param name="TableWidth" select="'80%'"/>
+						<xsl:with-param name="Detail_Data" select="'Generic'"/>
+						<xsl:with-param name="DDURL" select="'CPN_REP_LIST.xml?pIDRID='"/>
+					</xsl:call-template>
+		
+					<xsl:call-template name="Body_End"/>	
+				</body>
+		<xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>		
+	</xsl:if>
+	<xsl:if test="$vMODE='Drill-Down2'">
+		<xsl:variable name="TableNameDD">REP_DETAILS_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
+		<xsl:call-template name="Generic_Table_DBWEB">
+			<xsl:with-param name="DBWEB_Name" select="'REP_DETAILS'"/>
+			<xsl:with-param name="UdTN" select="$TableNameDD"/>
+			<xsl:with-param name="Show_Empty" select="'Y'"/> 
+			<xsl:with-param name="Lang" select="$vLANG"/>
+			<xsl:with-param name="RepDic" select="'Y'"/> 
+			<xsl:with-param name="dictionary" select="$vRepDic"/> 
+			<xsl:with-param name="MaxRecords" select="9999"/>
+			<xsl:with-param name="Frame" select="'YO'"/> 
+			<xsl:with-param name="TableWidth" select="'90%'"/>
+			<xsl:with-param name="Detail_Data" select="'SPE_REP_DETAILS_DD'"/>
+		</xsl:call-template>
+		<xsl:variable name="TableNameDD">REP_VIEWS_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
+		<xsl:call-template name="Generic_Table_DBWEB">
+			<xsl:with-param name="DBWEB_Name" select="'REP_VIEWS'"/>
+			<xsl:with-param name="UdTN" select="$TableNameDD"/>
+			<xsl:with-param name="Show_Empty" select="'N'"/> 
+			<xsl:with-param name="MaxRecords" select="9999"/>
+			<xsl:with-param name="Frame" select="'YC'"/> 
+			<xsl:with-param name="TableWidth" select="'90%'"/>
+			<xsl:with-param name="Detail_Data" select="'Generic'"/>
+		</xsl:call-template>
+		<xsl:variable name="TableNameDD">REP_PARAMS_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
+		<xsl:call-template name="Generic_Table_DBWEB">
+			<xsl:with-param name="DBWEB_Name" select="'REP_PARAMS'"/>
+			<xsl:with-param name="UdTN" select="$TableNameDD"/>
+			<xsl:with-param name="Show_Empty" select="'N'"/> 
+			<xsl:with-param name="Lang" select="$vLANG"/>
+			<xsl:with-param name="RepDic" select="'Y'"/> 
+			<xsl:with-param name="dictionary" select="$vRepDic"/> 
+			<xsl:with-param name="MaxRecords" select="9999"/>
+			<xsl:with-param name="Frame" select="'YC'"/> 
+			<xsl:with-param name="Col_Hidden" select="'0'"/>
+			<xsl:with-param name="TableWidth" select="'90%'"/>
+			<xsl:with-param name="Detail_Data" select="'Generic'"/>
+		</xsl:call-template>
+		<xsl:variable name="TableNameDD">REP_KPI_DD_<xsl:value-of select="$vIDRID"/></xsl:variable>
+		<xsl:call-template name="Generic_Table_DBWEB">
+			<xsl:with-param name="DBWEB_Name" select="'REP_KPI'"/>
+			<xsl:with-param name="UdTN" select="$TableNameDD"/>
+			<xsl:with-param name="Show_Empty" select="'N'"/> 
+			<xsl:with-param name="Lang" select="$vLANG"/>
+			<xsl:with-param name="RepDic" select="'Y'"/> 
+			<xsl:with-param name="dictionary" select="$vRepDic"/> 
+			<xsl:with-param name="MaxRecords" select="9999"/>
+			<xsl:with-param name="Frame" select="'YC'"/>
+			<xsl:with-param name="TableWidth" select="'90%'"/>
+			<xsl:with-param name="Detail_Data" select="'Generic'"/>
+		</xsl:call-template>
+		<xsl:variable name="TableNameDD">REP_KPI_DATADIC_<xsl:value-of select="$vIDRID"/></xsl:variable>
+		<xsl:call-template name="Generic_Table_DBWEB">
+			<xsl:with-param name="DBWEB_Name" select="'REP_DD'"/>
+			<xsl:with-param name="UdTN" select="$TableNameDD"/>
+			<xsl:with-param name="Show_Empty" select="'N'"/> 
+			<xsl:with-param name="ForcedTitle" select="'Report Data Dictionary'"/> 
+			<xsl:with-param name="Lang" select="$vLANG"/>
+			<xsl:with-param name="RepDic" select="'Y'"/> 
+			<xsl:with-param name="dictionary" select="$vRepDic"/> 
+			<xsl:with-param name="MaxRecords" select="9999"/>
+			<xsl:with-param name="Frame" select="'YC'"/>
+			<xsl:with-param name="TableWidth" select="'90%'"/>
+			<xsl:with-param name="Detail_Data" select="'Generic'"/>
+		</xsl:call-template>
+	</xsl:if>
 </xsl:template>
 <xsl:template match="row">
 	<!-- For manual tables -->
@@ -234,6 +235,14 @@
 			No specific Content for '<xsl:value-of select="$DBWEB_Name"/>' Detail data : '<xsl:value-of select="$Detail_Data"/>' defined
 		</xsl:otherwise>
 	</xsl:choose>
+</xsl:template>
+<xsl:template match="@View_Used" mode="genericTableCel">                  
+    <td align="center">
+    	<xsl:choose>
+			<xsl:when test=".=0"><span class="label label-warning">No Views ?</span></xsl:when>
+			<xsl:otherwise><span class="label label-info"><xsl:value-of select="."/></span></xsl:otherwise>
+		</xsl:choose>
+    </td>
 </xsl:template>
 <xsl:include href='../../../COMMON/Node_Config.xsl'/>
 <xsl:include href='../../../COMMON/Report_Components.xsl'/>

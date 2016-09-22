@@ -73,13 +73,47 @@
 			</center>		
 			
 			<br/>
+			<ul class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#home">Active Special Features</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#menu1"><font color="red">Depreacated SPE</font></a>
+        </li>
+      </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+              <center>
+                <h3>Active Special Feature</h3>
+              </center>
+              <p>
+                For More Explanation See on Wiki ILIAS
+                <xsl:call-template name="Generic_Table_DBWEB">
+                    <xsl:with-param name="DBWEB_Name" select="'SPE'"/>
+                    <xsl:with-param name="Col_Sorting" select="'1-asc'"/>
+                    <xsl:with-param name="Col_Hidden" select="'0'"/>
+                    <xsl:with-param name="MaxRecords" select="999"/>
+                </xsl:call-template>
+              </p>
+          </div>
+            <div id="menu1" class="tab-pane fade">
+              <center>
+                <h3>Depreacated SPE (DO NOT Use Anymore and replace it by new ones)</h3>
+              </center>
+              <p>
+                <xsl:call-template name="Generic_Table_DBWEB">
+                    <xsl:with-param name="DBWEB_Name" select="'SPE_DEPRECATED'"/>
+                    <xsl:with-param name="Col_Sorting" select="'1-asc'"/>
+                    <xsl:with-param name="Col_Hidden" select="'0'"/>
+                    <xsl:with-param name="MaxRecords" select="999"/>
+                </xsl:call-template>
+              </p>
+            </div>
+        </div>
+  
 			
-			<xsl:call-template name="Generic_Table_DBWEB">
-				<xsl:with-param name="DBWEB_Name" select="'SPE'"/>
-				<xsl:with-param name="Col_Sorting" select="'1-asc'"/>
-				</xsl:call-template>
-			
-			<!-- Report Layout Template (Bottom) -->
+      <!-- Report Layout Template (Bottom) -->
 			<xsl:call-template name="Body_End"/>
 		</body>
 	<xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>
