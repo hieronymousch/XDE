@@ -41,7 +41,8 @@
 
 <!-- Several Golbal Variables used in CPN are declared in Node_Config (example : vRID,vLANG,vMODE,...) --> 
 <!-- Variable Declaration Classical and for THIS Report  -->
-<xsl:variable name="vFUNCTION" select="//dbquery[1]/descriptor/parameters/param[@name='pFUNCTION']/@value"/>
+<xsl:variable name="vORGANISM" select="//dbquery[1]/descriptor/parameters/param[@name='pORGANISM']/@value"/>
+<xsl:variable name="vSTATUS" select="//dbquery[1]/descriptor/parameters/param[@name='pSTATUS']/@value"/>
 <xsl:variable name="vR1" select="//dbquery[1]/descriptor/parameters/param[@name='pR1']/@value"/>
 <xsl:variable name="vR2" select="//dbquery[1]/descriptor/parameters/param[@name='pR2']/@value"/>
 <xsl:variable name="vC1" select="//dbquery[1]/descriptor/parameters/param[@name='pC1']/@value"/>
@@ -62,179 +63,105 @@
       	<xsl:call-template name="Node_Std_Head"/>
       	<!-- Titre 'manuel' de la Page/Onglet -->
 	    <title>
-	      SAMPLE 12
+	      Effectiveness 
 	    </title>
+		<script src="/{$vHtDocsConfig}/CPN/extras/Highcharts-4.1.9/js/highcharts.js"></script>
+				<script src="/{$vHtDocsConfig}/CPN/extras/Highcharts-4.1.9/js/modules/exporting.js"></script>
+		
+			<script type="text/javascript">
+			$(function () {
+				$('#line').highcharts({
+					chart: {
+						type: 'line'
+					},
+					title: {
+						text: 'Effectiveness for '
+					},
+					xAxis: {
+						categories: [<xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'DATE_FIELD']">
+											'<xsl:value-of select='.'/>',
+										</xsl:for-each>]
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Total ASSET'
+						},
+						stackLabels: {
+							enabled: true,
+							style: {
+								fontWeight: 'bold',
+								color: (Highcharts.theme &amp;&amp; Highcharts.theme.textColor) || 'gray'
+							}
+						}
+					},
+					legend: {
+						align: 'right',
+						x: -30,
+						verticalAlign: 'top',
+						y: 25,
+						floating: true,
+						backgroundColor: (Highcharts.theme &amp;&amp; Highcharts.theme.background2) || 'white',
+						borderColor: '#CCC',
+						borderWidth: 1,
+						shadow: false
+					},
+					tooltip: {
+						headerFormat: '<b>{point.x}</b><br/>',
+						pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+					},
+					plotOptions: {
+						column: {
+							stacking: 'normal',
+							dataLabels: {
+								enabled: true,
+								color: (Highcharts.theme &amp;&amp; Highcharts.theme.dataLabelsColor) || 'white',
+								style: {
+									textShadow: '0 0 3px black'
+								}
+							}
+						}
+					},
+					
+					series: [
+							{name: 'ASSETS_AVAIL',
+							data : [
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_AVAIL']">
+											<xsl:value-of select='.'/>,
+										</xsl:for-each>]},
+							{name: 'ASSETS_REAL',
+							data : [
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_REAL']">
+											<xsl:value-of select='.'/>,
+										</xsl:for-each>]},
+							{name: 'ASSETS_THEO',
+							data : [
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
+											<xsl:value-of select='.'/>,
+										</xsl:for-each>]},
+							{name: 'ASSETS_PLAN',
+							data : [
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_PLAN']">
+											<xsl:value-of select='.'/>,
+										</xsl:for-each>]}
+							]		
+				});
+			});
+		</script>
+		
     </head>
 		<body>
 			<!-- Report Layout Template (Top) -->
 			<xsl:call-template name="Body_Start"/>
-						
-			<!-- Main Bloc - Affiche le Tableau Croisé et l'explication en Drill-Down cette partie n'est pas exécutée -->
-			<xsl:if test="$vMODE='Main'">
-				<center>
-					<h1>Sample 12</h1>
-				</center>		
-				<div class="col-md-12">
-					<ul class="nav nav-tabs">
-					  <li ><a data-toggle="tab" href="#homeA">Dynamic Crosstab Summary (with Drill-Down)</a></li>
-					  <li class="active"><a data-toggle="tab" href="#menu1A">Dynamic Graph Summary (with Drill-Down)</a></li>
-					  <li><a data-toggle="tab" href="#menu1P">Pivot Table</a></li>
-					  <li><a data-toggle="tab" href="#menu2A"><font color="red">Uncollapse</font></a></li>
-					</ul>
-					<div class="tab-content">
-					  <div id="homeA" class="tab-pane fade in active">
-					    <h3>
-							Titre
-					    </h3>
-					    <p>
-					    	<xsl:variable name="TNameDD">XTAB_SAMPLE</xsl:variable>
-							<xsl:call-template name="Generic_Table_DBWEB">
-								<xsl:with-param name="DBWEB_Name" select="'EFFECTIVENESS_GLOBAL'"/>
-								<xsl:with-param name="UdTN" select="$TNameDD"/>
-								<xsl:with-param name="Show_Empty" select="'N'"/> 
-								<xsl:with-param name="MaxRecords" select="-1"/>
-								<xsl:with-param name="ForcedTitle" select="'Summary'"/>
-								<xsl:with-param name="Frame" select="'N'"/> 
-								<xsl:with-param name="TableWidth" select="'70%'"/>
-								<xsl:with-param name="Detail_Data" select="'SPE_01_XTAB_ASS'"/> 
-							</xsl:call-template>
-					    </p>
-					  </div>
-					  <div id="menu1A" class="tab-pane fade">
-					    <h3>
-					    	EFFECTIVENESS
-					    </h3>
-					    	<div style="width:100%; height:500px;">
-								<br/>
-								<xsl:variable name="vXMLFileName">EFFECTIVENESS.xml</xsl:variable>
-								<!-- Determine Which LLOOK Code is associated with values for XTAB -->
-								<xsl:variable name="vCodeGR1">
-									<xsl:choose>
-										<xsl:when test="$vGR1='DATE_FIELD'">AS</xsl:when>
-										<xsl:otherwise>NONE</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-								<xsl:variable name="vCodeGR2">
-									<xsl:choose>
-										<xsl:when test="$vGR2='DATE_FIELD'">AS</xsl:when>
-										<xsl:otherwise>NONE</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-								<xsl:variable name="vCodeGC1">
-									<xsl:choose>
-										<xsl:when test="$vGC1='DATE_FIELD'">AS</xsl:when>
-										<xsl:otherwise>NONE</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-								<!-- Call Dynamic Graph -->
-								<xsl:variable name="TNameDD">GRTAB_SAMPLE</xsl:variable>
-								<xsl:call-template name="DynamicGraph">
-									<xsl:with-param name="XTable_Name" select="$TNameDD"/>
-									<xsl:with-param name="vR1" select="$vGR1"/>
-									<xsl:with-param name="vR2" select="$vGR2"/>
-									<xsl:with-param name="vC1" select="$vGC1"/>
-									<xsl:with-param name="vCodeR1" select="$vCodeGR1"/>
-									<xsl:with-param name="vCodeR2" select="$vCodeGR2"/>
-									<xsl:with-param name="vCodeC1" select="$vCodeGC1"/>
-									<xsl:with-param name="DBWEB" select="'SUMMARY'"/>
-									<xsl:with-param name="XMLFileName" select="$vXMLFileName"/>
-									<xsl:with-param name="vKPI" select="$vKPI"/>
-									<xsl:with-param name="vVKEYD" select="$vVKEYD"/>
-								</xsl:call-template>
-							</div>
-					  </div>
-					  <div id="menu1P" class="tab-pane fade">
-					    <p>
-					    	<xsl:call-template name="PivotTable">
-							</xsl:call-template>
-					    </p>
-					  </div>
-					  <div id="menu2A" class="tab-pane fade">
-					    <p/>
-					  </div>
-					</div>
-				</div>
-			</xsl:if>
-			<!-- Drill-Down Bloc -->
-			<div>
-				<xsl:attribute name="id">DD_<xsl:value-of select="$vKPI"/>_<xsl:value-of select="$vVKEYD"/></xsl:attribute>
-				<!--<xsl:if test="$vMODE='Drill-Down'">-->
-					<xsl:variable name="TNameDD">ASSET_DETAILS</xsl:variable>
-					<xsl:call-template name="Generic_Table_DBWEB">
-						<xsl:with-param name="DBWEB_Name" select="'DETAILS'"/>
-						<xsl:with-param name="UdTN" select="$TNameDD"/>
-						<xsl:with-param name="Show_Empty" select="'N'"/> 
-						<xsl:with-param name="ForceFooter" select="'Y'"/>
-						<xsl:with-param name="Col_Hidden" select="'4,6'"/>
-						<xsl:with-param name="Col_Sorting" select="'None'"/>
-						<xsl:with-param name="Col_Filtering" select="'Y'"/>
-						<!--xsl:with-param name="Col_Total" select="'13'"/-->				
-						<xsl:with-param name="MaxRecords" select="9999"/>
-						<xsl:with-param name="Frame" select="'YO'"/>
-						<xsl:with-param name="TableWidth" select="'95%'"/>
-						<xsl:with-param name="Detail_Data" select="'Generic'"/>
-					</xsl:call-template>
-				<!--</xsl:if>-->
-			</div>
+<div class='row'>
+
+				<div id="column" style="min-width: 310px; height: 400px; margin: 0 auto"/></div>
+<div class='row'>				
+				<div id="line" style="min-width: 310px; height: 400px; margin: 0 auto"/></div>			
 			
-			<!-- Report Layout Template (Bottom) -->
 	      	<xsl:call-template name="Body_End"/>
 	    </body>
   	<xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>
-</xsl:template>
-<xsl:template match="row">
-	<!-- For manual tables -->
-	<xsl:param name="DBWEB_Name"/>						<!-- Mandatory : DBWeb Query Name -->
-	<xsl:param name="Node_Conf"/>						<!-- Mandatory default N -->
-	<xsl:param name="dT_Type" select="'99'"/>			<!-- Not mandatory default N -->
-	<xsl:param name="RepDic" select="'N'"/>				<!-- Not mandatory default N -->
-	<xsl:param name="Lang" select="'EN'"/>				<!-- Not mandatory default EN -->
-	<xsl:param name="dictionary"/> 						<!-- Mandatory if RepDic is Y -->
-	<xsl:param name="Detail_Data"/>
-	<xsl:choose>
-		<xsl:when test="$Detail_Data='SPE_01_XTAB_ASS'">
-			
-			<xsl:variable name="vXMLFileName">EFFECTIVENESS.xml</xsl:variable>
-			<!-- Determine Which LLOOK Code is associated with values for XTAB -->
-			<xsl:variable name="vCodeR1">
-				<xsl:choose>
-					<xsl:when test="$vR1='FUNCTION'">AS</xsl:when>
-					<xsl:otherwise>NONE</xsl:otherwise>
-				</xsl:choose>
-			</xsl:variable>
-			<xsl:variable name="vCodeR2">
-				<xsl:choose>
-					<xsl:when test="$vR2='FUNCTION'">AS</xsl:when>
-					<xsl:otherwise>NONE</xsl:otherwise>
-				</xsl:choose>
-			</xsl:variable>
-			<xsl:variable name="vCodeC1">
-				<xsl:choose>
-					<xsl:when test="$vC1='FUNCTION'">AS</xsl:when>
-					<xsl:otherwise>NONE</xsl:otherwise>
-				</xsl:choose>
-			</xsl:variable>
-			<!-- Call Dynamic CrossTab -->
-			<xsl:variable name="XTABName01">XTAB_SUM_ASSET</xsl:variable>
-			<xsl:call-template name="DynamicXTable">
-				<xsl:with-param name="XTable_Name" select="$XTABName01"/>
-				<xsl:with-param name="vR1" select="$vR1"/>
-				<xsl:with-param name="vR2" select="$vR2"/>
-				<xsl:with-param name="vC1" select="$vC1"/>
-				<xsl:with-param name="vCodeR1" select="$vCodeR1"/>
-				<xsl:with-param name="vCodeR2" select="$vCodeR2"/>
-				<xsl:with-param name="vCodeC1" select="$vCodeC1"/>
-				<xsl:with-param name="DBWEB" select="'EFFECTIVENESS_GLOBAL'"/>
-				<xsl:with-param name="XMLFileName" select="$vXMLFileName"/>
-				<xsl:with-param name="vKPI" select="$vKPI"/>
-				<xsl:with-param name="vVKEYD" select="$vVKEYD"/>
-			</xsl:call-template>
-		</xsl:when>
-		<xsl:otherwise>
-			<!-- No Specfic Content defined -->
-			No specific Content for '<xsl:value-of select="$DBWEB_Name"/>' Detail data : '<xsl:value-of select="$Detail_Data"/>' defined
-		</xsl:otherwise>
-	</xsl:choose>
 </xsl:template>
 <xsl:include href='../../../COMMON/Node_Config.xsl'/>
 <xsl:include href='../../../COMMON/Report_Components.xsl'/>
