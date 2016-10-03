@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - SigFox trackers</label>
+	<description>MR NODE FW2 - IoT Trackers</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>
+		
+		<querystring id='IL_TRACKERS' database='dbnode' timeout='10000'>	
+	select
+				ma.asset
+				, ma.function
+				, atl.device
+				, atl.time
+				, atl.Lat
+				, atl.Long
+				, atl.GPSFixAge
+								
+			from a_tracking_logging atl 
+			inner join mrqr_assets ma on atl.device=ma.uii
+			inner join	
+				(
+					select
+					device
+					,max(time) maxtime
+					from a_tracking_logging
+					group by device
+				)latest on atl.device=latest.device and atl.time=latest.maxtime
+			
+
+			where 
+				atl.device like 'pDEVICE'
+				and if ('pASSET'='',true, ma.asset like 'pASSET')
+				and if ('pFUNCTION'='',true, ma.function like 'pFUNCTION')
+			
+			order by atl.device, atl.time desc
+				
+			limit 2000
+			
+		</querystring>			
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='100107'/>		
+		<parameter name='pLANG' value='NL'/>
+		<parameter name='pASSET' />		
+		<parameter name='pFUNCTION'/>		
+		<parameter name='pDEVICE' value='%'/>		
+	</parameters>
+</dbwebdescriptor>
