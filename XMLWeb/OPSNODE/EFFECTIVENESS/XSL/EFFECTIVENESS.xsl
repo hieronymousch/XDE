@@ -75,7 +75,7 @@
 						type: 'line'
 					},
 					title: {
-						text: 'Effectiveness for '
+						text: 'Effectiveness for <xsl:value-of select="//dbquery[1]/descriptor/parameters/param[@name='pFUNCTION']/@value"/> '
 					},
 					xAxis: {
 						categories: [<xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'DATE_FIELD']">
@@ -85,7 +85,7 @@
 					yAxis: {
 						min: 0,
 						title: {
-							text: 'Total ASSET'
+							text: 'Nr of assets'
 						},
 						stackLabels: {
 							enabled: true,
@@ -124,9 +124,9 @@
 					},
 					
 					series: [
-							{name: 'ASSETS_AVAIL',
+							{name: 'ASSETS_THEO',
 							data : [
-							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_AVAIL']">
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]},
 							{name: 'ASSETS_REAL',
@@ -134,11 +134,12 @@
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_REAL']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]},
-							{name: 'ASSETS_THEO',
+							{name: 'ASSETS_OPS',
 							data : [
-							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_OPS']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]},
+							
 							{name: 'ASSETS_PLAN',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_PLAN']">
@@ -153,11 +154,8 @@
 		<body>
 			<!-- Report Layout Template (Top) -->
 			<xsl:call-template name="Body_Start"/>
-<div class='row'>
-
-				<div id="column" style="min-width: 310px; height: 400px; margin: 0 auto"/></div>
 <div class='row'>				
-				<div id="line" style="min-width: 310px; height: 400px; margin: 0 auto"/></div>			
+				<div id="line" style="min-width: 310px; height: 600px; margin: 0 auto"/></div>			
 			
 	      	<xsl:call-template name="Body_End"/>
 	    </body>
