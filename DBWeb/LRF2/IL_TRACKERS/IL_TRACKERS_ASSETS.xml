@@ -11,39 +11,7 @@
 				where dbn_repp_parid='pRID';
 		</querystring>
 		
-		<querystring id='IL_TRACKERS' database='dbnode' timeout='10000'>	
-	select
-				concat('MRN_SPE05#LI',atl.device,'#',atl.device) DD
-				, ma.asset
-				, ma.function
-				, atl.device
-				, atl.time
-				, atl.Lat
-				, atl.Long
-				, atl.GPSFixAge
-								
-			from a_tracking_logging atl 
-			inner join mrqr_assets ma on atl.device=ma.uii
-			inner join	
-				(
-					select
-					device
-					,max(time) maxtime
-					from a_tracking_logging
-					group by device
-				)latest on atl.device=latest.device and atl.time=latest.maxtime
-			
-
-			where 
-				atl.device like 'pDEVICE'
-				and if ('pASSET'='',true, ma.asset like 'pASSET')
-				and if ('pFUNCTION'='',true, ma.function like 'pFUNCTION')
-			
-			order by atl.device, atl.time desc
-				
-			limit 2000
-			
-		</querystring>		
+		
 		<querystring id='IL_TRACKERS_ASSET' database='dbnode' timeout='10000'>	
 		select
 				atl.time
