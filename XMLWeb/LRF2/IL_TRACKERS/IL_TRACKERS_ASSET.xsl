@@ -42,7 +42,7 @@
 <!-- Variables vVKEYD,vRID,vKPI,vLANG,vMODE,vEXPLORE already Declared in Report_Components --> 
 <!-- Variable Declaration Classical  -->
 <xsl:variable name="RepConf" select="'MRN_Prod'"/> 
-
+<xsl:variable name="vRepDic" select="document('IL_MR_SAMPLE_RepDic.xml')" />
 <!-- Variable Declaration End -->
 
 <xsl:template match='/'>	
@@ -68,7 +68,7 @@
 			</xsl:call-template>
 
 			<!-- Ce xsl:if permet de controler si l'extraction MRQR_ASSETS est présente et affiche un message dans le cas contraire -->
-			<xsl:if test="count(//dbquery[@id='IL_TRACKERS']/rows/row)=0">
+			<xsl:if test="count(//dbquery[@id='IL_TRACKERS_ASSET']/rows/row)=0">
 				<center>
 					<h2>This report only runs on localnode .</h2>
 				</center>
@@ -81,14 +81,19 @@
 			<br/>
 			
 			<xsl:call-template name="Generic_Table_DBWEB">
-				<xsl:with-param name="DBWEB_Name" select="'IL_TRACKERS'"/>
-				<xsl:with-param name="UdTN" select="'TRACKERS'"/>
+				<xsl:with-param name="DBWEB_Name" select="'IL_TRACKERS_ASSET'"/>
+				<xsl:with-param name="UdTN" select="'TRACKERS-drill'"/>
 				<xsl:with-param name="ForcedTitle" select="'Tracker details'"/>	
-				<xsl:with-param name="DDURL" select="'../IL_TRACKERS/IL_TRACKERS_ASSET.xml?Mode=Drill-Down&amp;pRID=100108&amp;pDEVICE='"/>
-				
+				<xsl:with-param name="Node_Conf" select="$RepConf"/> 
+ 				<xsl:with-param name="dT_Type" select="'99'"/> 
+ 				<xsl:with-param name="Lang" select="$vLANG"/> 
+ 				<xsl:with-param name="RepDic" select="'N'"/>  
+ 				<xsl:with-param name="dictionary" select="$vRepDic"/> 	 
 
+	
+			
 			</xsl:call-template>
-						
+			
 			<!-- Report Layout Template (Bottom) -->
 			<xsl:call-template name="Body_End">
 				<xsl:with-param name="tDebug" select="'NO'"/> 		<!-- YES or No (Default) -->
