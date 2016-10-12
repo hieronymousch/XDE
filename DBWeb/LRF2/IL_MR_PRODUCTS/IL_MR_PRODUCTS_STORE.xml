@@ -11,57 +11,78 @@
 				select * from dbn_report_parameters
 				where dbn_repp_parid='pRID';
 		</querystring>	
-		<querystring id='IL_MR_PRODUCTS' database='dbnode' timeout="120000">
+		<querystring id='IL_MR_PRODUCTS_STORE' database='dbnode' timeout="120000">
 			Select
 				distinct
-				concat('MRN_SPE05#LI',mn.NSN,'#',mn.NSN) DD
-				, concat('MRN_SPE09#05##',mn.NSN,'#1#',mn.NSN) '_____NSN_____'
+				 concat('MRN_SPE09#05##',mn.NSN,'#1#',mn.NSN) '_____NSN_____'
 				, mn.description 'Description'
 				, mn.description_nl 'Description_NL'
 				, mn.description_fr 'Description_FR'
+				, mn.util_status
 				, mn.alb 'Additional_name'
 				, concat('MRN_SPE09#01##',ma.man_org,'#0#',ma.man_org) 'MatMan'
 				, mn.un_code UN_Code
 				, mn.macode 'macode'
 				, mn.hazard 'hazard'
-				, mn.lot 'LotF'
-				<includeIf paramName="pCONTRACT" isInRequest="true" matches=".+">
-				, mcm.contract 'contract'
-				</includeIf>	
+				, msb.store 'store'
+				, msb.binloc 'binloc'
+				, msb.zone 'zone'
+				, msb.lot 'lot'
+				, msb.expdate
+				, if(mn.lot='Y', if(msb.expdate>now(),'MRN_SPE03#05#Y','MRN_SPE03#F15#N'),'') 'LotOK'
 				, concat('MRN_SPE20#file:\\\\\\G:\\DGMR\\35 Products\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
 			from mrqr_nsn mn 
 				inner join mrqr_macodes ma on mn.macode=ma.macode
 				inner join mrqr_nsn_security_codes mns on mn.nsn=mns.nsn and (left(mns.code,3)='ENV' or left(mns.code,4)='PREV')
+				inner join  mrqr_stock_binloc msb on mn.nsn=msb.nsn and msb.store='pSTORE'
+				
 				<includeIf paramName="pCONTRACT" isInRequest="true" matches=".+">
 				left join  mrqr_contracts_material mcm on mn.nsn=mcm.nsn and mcm.enddate>=now()
 				</includeIf>		
 			
 			where 
-				mn.util_status in (1,2) 
-				and not(mn.un_code is null)
+				not(mn.un_code is null)
 				and if ('pNSN'='',true, mn.NSN like 'pNSN')
 				and if ('pMACODE'='',true, mn.macode like 'pMACODE')
 				and if ('pMATMAN'='',true, ma.man_org like 'pMATMAN')
 				<includeIf paramName="pCONTRACT" isInRequest="true" matches=".+">
 				and mcm.contract like 'pCONTRACT'
 				</includeIf>	
-				and (length(replace(replace('pNSN','%',''),'_',''))&gt;=6 
-                        OR length(replace(replace('pCONTRACT','%',''),'_',''))&gt;=3
-                        OR length(replace(replace('pMATMAN','%',''),'_',''))&gt;=2
-                        OR length(replace(replace('pMACODE','%',''),'_',''))&gt;=3
-                                 
-                        )
+				and length(replace(replace('pSTORE','%',''),'_',''))&gt;=2
+			  
 			order by mn.nsn
 			</querystring>
+			<querystring id='IL_MR_PRODUCTS_STORE_SUMMARY' database='dbnode' timeout="120000">
+			Select
+				distinct
+				  concat('MRN_SPE09#01##',msb.store,'#0#',msb.store)  'store'
+				, msb.binloc 'binloc'
+				, msb.zone 'zone'
+				, msb.lot 'lot'
+				, msb.expdate
+				, if(mn.lot='Y', if(msb.expdate>now(),'MRN_SPE03#05#Y','MRN_SPE03#F15#N'),'') 'LotOK'
+				
+			from mrqr_nsn mn 
+				inner join mrqr_nsn_security_codes mns on mn.nsn=mns.nsn and (left(mns.code,3)='ENV' or left(mns.code,4)='PREV')
+				inner join  mrqr_stock_binloc msb on mn.nsn=msb.nsn 
+											
+			where 
+				not(mn.un_code is null)
+				and mn.NSN like 'pNSN'
+							  
+			order by mn.nsn
+			</querystring>		
+			
 	</queries>	
 	<parameters>
-		<parameter name='pRID' value='100105'/>
+		<parameter name='pRID' value='100109'/>
 		<parameter name='pMODE' value='Main'/>				
 		<parameter name='pLANG' value='EN'/>	
 		<parameter name='pNSN' value=''/>				
 		<parameter name='pCONTRACT' value=''/>				
 		<parameter name='pMATMAN' value=''/>				
 		<parameter name='pMACODE' value=''/>				
-						
+		<parameter name='pSTORE' value=''/>				
+				
 	</parameters>
 </dbwebdescriptor>
