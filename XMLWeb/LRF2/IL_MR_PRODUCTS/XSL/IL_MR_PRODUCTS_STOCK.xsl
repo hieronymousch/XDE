@@ -63,7 +63,7 @@
 			<xsl:call-template name="Node_Std_Head">
 				<xsl:with-param name="Node_Conf" select="$RepConf"/>
 			</xsl:call-template>
-			<title>Products with SDS</title>
+			<title>Products with SDS for store</title>
 		</head>
 		<body>
 			<!-- Report Layout Template (Top) -->
@@ -75,7 +75,7 @@
 			</xsl:call-template>
 
 			<!-- Ce xsl:if permet de controler si l'extraction MRQR_ASSETS est présente et affiche un message dans le cas contraire -->
-			<xsl:if test="count(//dbquery[@id='IL_MR_PRODUCTS']/rows/row)=0">
+			<xsl:if test="count(//dbquery[@id='IL_MR_PRODUCTS_STORE_SUMMARY']/rows/row)=0">
 				<center>
 					<h2>This Report Requires the MRQR documents Extraction in your Local DB Node.</h2>
 				</center>
@@ -99,21 +99,20 @@
 				</h1>
 			</center>		-->
 			<center> 
-				<h1>Products with SDS</h1>
+				<h1>Products with SDS for store</h1>
 			</center>	
 			
 			<br/>
 			
 			<xsl:call-template name="Generic_Table_DBWEB">
-				<xsl:with-param name="DBWEB_Name" select="'IL_MR_PRODUCTS'"/>
-				<xsl:with-param name="UdTN" select="'IL_MR_PRODUCTS'"/>
+				<xsl:with-param name="DBWEB_Name" select="'IL_MR_PRODUCTS_STORE_SUMMARY'"/>
+				<xsl:with-param name="UdTN" select="'IL_MR_PRODUCTS_STORE_SUMMARY'"/>
 				<xsl:with-param name="Node_Conf" select="$RepConf"/>
 				<xsl:with-param name="dT_Type" select="'99'"/>
 				<xsl:with-param name="Lang" select="$vLANG"/>
 				<xsl:with-param name="RepDic" select="'N'"/> 
 				<xsl:with-param name="dictionary" select="$vRepDic"/> 	
-				<xsl:with-param name="ForcedTitle" select="'MSDS'"/>	
-				<xsl:with-param name="DDURL" select="'../IL_MR_PRODUCTS/IL_MR_PRODUCTS_STOCK.xml?Mode=Drill-Down&amp;pNSN='"/>
+				<xsl:with-param name="ForcedTitle" select="'MSDS'"/>			
 			</xsl:call-template>
 			
 			<!-- Report Layout Template (Bottom) -->
