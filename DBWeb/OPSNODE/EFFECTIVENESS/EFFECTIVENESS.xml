@@ -50,8 +50,8 @@
 			SELECT DATE_FORMAT(dates.date_field, '%Y-%m-%d') 'DATE_FIELD'
                    , ifnull(assets_planned,0) 'ASSETS_PLAN'
                     , assets_count 'ASSETS_THEO'
-                    , (assets_count - ifnull(assets_PPM,0) - ifnull(assets_NONOPS,0)) 'ASSETS_REAL'
-					, assets_ops 'ASSETS_OPS' 
+					, (assets_count - ifnull(assets_NONOPS,0)) 'ASSETS_OPS'
+                    , (assets_count - ifnull(assets_PPM,0)) 'ASSETS_REAL'
                   
 			FROM
                 (
@@ -90,7 +90,7 @@
 				left join
 				(
 					select date_field, date_tk
-						,  ifnull(COUNT(marp.ASSET),0) AS assets_PPM
+						,  ifnull(COUNT(distinct marp.ASSET),0) AS assets_PPM
 					FROM mrqr_assets_remaining_potential marp 
 					inner join mrqr_assets ma on marp.asset=ma.asset
 					inner join mrqr_ppms mp on marp.ppm=mp.ppm
@@ -106,8 +106,7 @@
 					GROUP BY date_tk	
 				) ppm_sum
 				on dates.date_tk=ppm_sum.date_tk
-				
-				left join
+					left join
 				(
 					select date_field, date_tk
 						,  ifnull(COUNT(maol.ASSET),0) AS assets_NONOPS
@@ -141,26 +140,8 @@
 				) inops_sum
 				on dates.date_tk=inops_sum.date_tk
 				
-					
 				
-				left join
-				(
-				select date_field, date_tk
-						,  ifnull(COUNT(maol.ASSET),0) AS assets_OPS
-					FROM mrqr_assets_ops_status_last maol
-					inner join mrqr_assets ma on maol.asset=ma.asset
-					, damrsysl_calendar_dates
-					
-					 WHERE ma.HIGHER_ASSET IS NULL
-						and ma.function like 'pFUNCTION'
-						and maol.status='O'
-						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
-                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
-					
-					GROUP BY date_tk	
-				) ops_sum 
-				on dates.date_tk=ops_sum.date_tk
-		
+	
 			WHERE
 				(length(replace(replace('pFUNCTION','%',''),'_',''))&gt;=2 
 
