@@ -75,7 +75,7 @@
 						type: 'line'
 					},
 					title: {
-						text: 'Effectiveness for <xsl:value-of select="//dbquery[1]/descriptor/parameters/param[@name='pFUNCTION']/@value"/> '
+						text: 'Effectiveness for <xsl:value-of select="//dbquery[1]/descriptor/parameters/param[@name='pFUNCTION']/@value"/> and organism <xsl:value-of select="//dbquery[1]/descriptor/parameters/param[@name='pORGANISM']/@value"/> '
 					},
 					xAxis: {
 						categories: [<xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'DATE_FIELD']">
@@ -124,23 +124,22 @@
 					},
 					
 					series: [
-							{name: 'ASSETS_THEO',
+							{name: 'Total Assets',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]},
-							{name: 'ASSETS_REAL',
+							{name: 'Assets PrevMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_REAL']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]},
-							{name: 'ASSETS_OPS',
+							{name: 'Assets CorrMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_OPS']">
 											<xsl:value-of select='.'/>,
-										</xsl:for-each>]},
-							
-							{name: 'ASSETS_PLAN',
+										</xsl:for-each>]},		
+							{name: 'Assets Planned and in Ops',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_PLAN']">
 											<xsl:value-of select='.'/>,
