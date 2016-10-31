@@ -72,6 +72,7 @@
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
                         AND MFRDATE &lt;= date_field
+						AND ma.organism like 'pORGANISM'
 					GROUP BY date_tk
 				) exist_sum
                 on dates.date_tk=exist_sum.date_tk
@@ -87,6 +88,7 @@
 						AND mo.parent='0Z'
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
                         AND MFRDATE &lt;= date_field
+						AND ma.organism like 'pORGANISM'
 					GROUP BY date_tk
 				) deployed_sum
                 on dates.date_tk=deployed_sum.date_tk
@@ -101,6 +103,9 @@
                     WHERE mum.function like 'pFUNCTION'
 						AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt; DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
 						AND date_field &gt;= mpu.start_date AND date_field &lt; mpu.end_date
+						
+						AND mpu.PARTICIPATING_UNIT like 'pORGANISM'
+						
 					GROUP BY date_tk
 					
 				) plan_sum
@@ -121,11 +126,13 @@
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
                         AND date_field &gt;= DATE_ADD(CURRENT_DATE, INTERVAL marp.remaining_potential DAY) 
                         AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL marp.remaining_potential+mp.duration DAY) 
-						
+						AND ma.organism like 'pORGANISM'
+
 					GROUP BY date_tk	
 				) ppm_sum
 				on dates.date_tk=ppm_sum.date_tk
-					left join
+				
+				left join
 				(
 					select date_field, date_tk
 						,  ifnull(COUNT(maol.ASSET),0) AS assets_NONOPS
@@ -154,7 +161,8 @@
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
                         AND date_field &gt;= maol.statusdate
                         AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL immob.avg_immob HOUR) 
-						
+						AND ma.organism like 'pORGANISM'
+
 					GROUP BY date_tk	
 				) inops_sum
 				on dates.date_tk=inops_sum.date_tk
@@ -174,6 +182,7 @@
 		<parameter name='pMODE' value='Main'/>		
 		<parameter name='pINFO' value='IPDT'/>
 		<parameter name='pFUNCTION' value='IV8T' />	
+		<parameter name='pORGANISM' value='%' />	
 		<parameter name='pR1' value='STATUS'/>
 		<parameter name='pR2' value='STATUS'/>
 		<parameter name='pC1' value='DATE_FIELD'/>
