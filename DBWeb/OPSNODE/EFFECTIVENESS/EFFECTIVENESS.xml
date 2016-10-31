@@ -46,7 +46,7 @@
 																
 																-->
 
-		<querystring id='SUMMARY' database='dbnode' timeout="90000">
+		<querystring id='SUMMARY' database='dbnode' timeout="120000">
 			SELECT DATE_FORMAT(dates.date_field, '%Y-%m-%d') 'DATE_FIELD'
                    , ifnull(assets_planned,0) 'ASSETS_PLAN'
                     , assets_count 'ASSETS_THEO'
