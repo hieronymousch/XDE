@@ -119,7 +119,7 @@
 								ma.asset
 								, avg(IMMOBILISATION) avg_immob
 							FROM 
-								mrqr_work mw inner join mrqr_assets ma 
+								mrqr_work mw inner join mrqr_assets ma on ma.asset=mw.asset
 							where	not(mw.ops_status_top='O' )
 									and not(mw.ops_status_top is null) 
 									and ma.function like 'pFUNCTION'
