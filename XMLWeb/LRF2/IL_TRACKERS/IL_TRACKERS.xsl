@@ -84,7 +84,7 @@
 				<xsl:with-param name="DBWEB_Name" select="'IL_TRACKERS'"/>
 				<xsl:with-param name="UdTN" select="'TRACKERS'"/>
 				<xsl:with-param name="ForcedTitle" select="'Tracker details'"/>	
-				<xsl:with-param name="DDURL" select="'../IL_TRACKERS/IL_TRACKERS_ASSET.xml?Mode=Drill-Down&amp;pRID=100108&amp;pDEVICE='"/>
+				<xsl:with-param name="DDURL" select="'../IL_TRACKERS/IL_TRACKERS_ASSET.xml?pRID=100108&amp;pDEVICE='"/>
 				
 
 			</xsl:call-template>
