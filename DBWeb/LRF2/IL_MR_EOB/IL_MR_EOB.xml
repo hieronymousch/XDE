@@ -10,7 +10,7 @@
 				select * from dbn_report_parameters
 				where dbn_repp_parid='pRID';
 		</querystring>
-		<querystring id='IL_MR_EOB_CONTRACT' database='dbnode' timeout='10000'>	
+		<querystring id='IL_MR_EOB_CONTACT' database='dbnode' timeout='10000'>	
 		select distinct
 			mos.contract
 			, mos.ordernr
