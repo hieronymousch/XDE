@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>MR NODE FW2 - KIM execution</label>
+	<description>MR NODE FW2 - KIM execution</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>
+		<querystring id='IL_MR_EOB_CONTRACT' database='dbnode' timeout='10000'>	
+		select distinct
+			mos.contract
+			, mos.ordernr
+			, mp_LF.email as 'MailPurOrg'
+			, mp_mgr.email as 'MailMatMan'
+			, mp_purorg.email as 'MailLeadServ'
+			-- TO BE UNCOMMENTED AFTER ACTIVATION, mcd.email as 'MailContractor'
+			, 'jeroen.franssen@mil.be' as 'MailContractor'
+		from
+			mrqr_contracts mc 
+			inner join mrqr_contracts_years mcy on mc.contract=mcy.contract and mcy.year=year(now())
+			inner join mrqr_organisms mo_mgr on mc.manager=mo_mgr.organism
+			inner join mrqr_persons mp_mgr on mp_mgr.idnr =mo_mgr.output_resp_idnr
+			inner join mrqr_organisms mo_purorg on mc.pur_org=mo_purorg.organism
+			inner join mrqr_persons mp_purorg on mp_purorg.idnr =mo_purorg.output_resp_idnr
+			inner join mrqr_companies_details mcd on mc.COMPANY_DETAILS_ID=mcd.company_details_id
+			inner join mrqr_contracts_years_imp mcyi on mc.contract=mcyi.contract
+			inner join  mrqr_dynamic_characteristics mdc on mdc.descriptor_value=mc.contract
+			inner join mrqr_orders mos on mos.contract=mc.contract
+			inner join mrqr_organisms mo_LF on mos.pur_org=mo_LF.organism
+			inner join mrqr_persons mp_LF on mp_LF.idnr =mo_LF.output_resp_idnr
+			inner join  mrqr_dynamic_characteristics mdc2 on mdc2.descriptor_value=mos.pur_org
+		where 
+			mos.status='A'
+			and mc.status='A'
+			and mcyi.year=year(now())
+			and mcyi.amount>0
+			and mdc.udt_table='CONTRACTS'
+			and mdc.name='CON_EOB'
+			and mdc.value='YES'
+			and not(mos.contract is null)
+			and mdc2.udt_table='ORGANISMS'
+			and mdc2.name='ORG_EOB_YN'
+			and mdc2.descriptor='org_code'
+			and mdc2.value='YES'
+			
+			AND mos.ordernr='pPORD'
+		
+		</querystring>	
+		
+		
+		<querystring id='IL_MR_EOB' database='dbnode' timeout='10000'>	
+			select 
+				mom.reqno 'TopReqNo'
+				, mom.nsn 'NSN'
+				, mnp.pn 'PartNumber'
+				, mn.description 'Descr'
+				, mom.reqqty 'TopQty'
+				, mom.store 'OrderStore'
+				, mrl.child_reqno 'ChildReqNo'
+				, mrn.qty 'ChildReqQty'
+				, mrn.store 'ChildReqStore'
+				, mr.remark 'ChildComments'
+			from
+				mrqr_orders mos inner join mrqr_orders_material mom on mos.ordernr=mom.ordernr
+				inner join mrqr_nsn mn on mn.nsn=mom.nsn
+				inner join mrqr_organisms mo_store on mom.store=mo_store.organism
+				inner join mrqr_persons mp_store on mp_store.idnr =mo_store.output_resp_idnr
+			    inner join  mrqr_dynamic_characteristics mdc on mdc.descriptor_value=mos.pur_org
+
+				left join mrqr_catalogue_items mci on mci.nsn=mom.nsn and mci.origin='PCOIN' and year(mci.reg_date)=year(now())
+				left join mrqr_nsn_pn_mfr mnp on mnp.nsn=mci.nsn and mnp.mfr=mci.supplier
+				left join mrqr_requisitions_links mrl on mom.reqno=mrl.reqno
+				left join mrqr_requisitions mr on mr.reqno=mrl.child_reqno
+				left join mrqr_requisitions_nsn mrn on mrl.child_reqno=mrn.reqno and mrn.nsn=mom.nsn
+
+			where 
+				mos.status='A'
+				AND mos.ordernr='pPORD'
+				and not(mos.contract is null)
+				and mdc.udt_table='ORGANISMS'
+				and mdc.name='ORG_EOB_YN'
+				and mdc.descriptor='org_code'
+				and mdc.value='YES'
+						
+			limit 2000
+			
+		</querystring>			
+	
+	
+	
+		
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='100110'/>		
+		<parameter name='pLANG' value='NL'/>
+		<parameter name='pPORD'/>		
+		
+	</parameters>
+</dbwebdescriptor>
