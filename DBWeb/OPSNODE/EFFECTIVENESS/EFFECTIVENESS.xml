@@ -11,46 +11,11 @@
 				where dbn_repp_parid='pRID';
 		</querystring>	
 	                                
-
-<!-- Effectiveness voor Ex                
-                
-                                SELECT DATE_FORMAT(date_field, '%Y-%m-%d') AS date_field
-                                                                , assets_planned 'assets_plan'
-                                                                , ifnull(assets_count,0) 'assets_read'
-                                                                FROM
-                                                                (SELECT date_field,date_tk
-                                                                , sum(mum.nbr_of_assets) AS assets_planned
-                                                                from mrqr_mission_units_material mum 
-                                                                INNER JOIN mrqr_mission_participating_units mpu on mum.omu_id=mpu.omu_id, damrsysl_calendar_dates
-                                                                WHERE mum.function like 'IV8T'
-                                                                and mpu.mission_code='B017283'
-                                                                AND date_field >= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR) AND date_field < DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
-                                                                AND date_field >= mpu.start_date AND date_field < mpu.end_date
-                                                                GROUP BY date_field, date_tk) plan_sum
-                                                                
-                                                                inner join
-                                                                (
-                                                                SELECT  date_tk
-                                                                , COUNT(distinct ma.asset) AS assets_count
-                                                                FROM mrqr_assets ma inner join mrqr_readings mr on ma.asset=mr.asset
-                                                                inner join mrqr_mission_codes mc on mr.mission_code_id=mc.mission_code_id, damrsysl_calendar_dates
-                                                                WHERE ma.HIGHER_ASSET IS NULL
-                                                                and ma.function like 'IV8T'
-                                                                AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
-                                                                AND date_field >= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR) AND date_field < DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
-                                                                AND MFRDATE <= date_field
-                                                                and date(mr.readingdate)=date_field
-                                                                and mc.mission_code='B017283'
-                                                                GROUP BY date_tk) read_sum
-                                                                on plan_sum.date_tk=read_sum.date_tk
-																
-																-->
-
 		<querystring id='SUMMARY' database='dbnode' timeout="120000">
 			SELECT DATE_FORMAT(dates.date_field, '%Y-%m-%d') 'DATE_FIELD'
                    , ifnull(assets_planned,0) + ifnull(assets_abroad,0) 'ASSETS_PLAN'
                     , assets_count 'ASSETS_THEO'
-					, (assets_count - ifnull(assets_NONOPS,0)) 'ASSETS_OPS'
+					, if((assets_count - ifnull(assets_NONOPS,0))&lt;avg_ops.yearly_opscount,(assets_count - ifnull(assets_NONOPS,0)),avg_ops.yearly_opscount) 'ASSETS_OPS'
                     , (assets_count - ifnull(assets_PPM,0)) 'ASSETS_REAL'
 				
                   
@@ -110,6 +75,29 @@
 					
 				) plan_sum
                 on plan_sum.date_tk=dates.date_tk
+				
+				left join 
+						
+				(
+					SELECT date_tk, AVG(opscount) AS yearly_opscount 
+						FROM (SELECT
+								mrqr_assets.function
+								, date_tk
+								, COUNT(mrqr_assets.ASSET) AS opscount
+								FROM mrqr_assets
+									inner join daotg4_functions_global on mrqr_assets.nsn=daotg4_functions_global.nsn and mrqr_assets.function=daotg4_functions_global.function 
+									INNER JOIN mrqr_aosac_intervals ON mrqr_assets.ASSET=mrqr_aosac_intervals.ASSET
+									,damrsysl_calendar_dates
+									
+									WHERE daotg4_functions_global.top=1
+									AND mrqr_assets.STATUS NOT IN('D','A','B','E','O') AND (mrqr_assets.STORE NOT LIKE('%VE') OR mrqr_assets.STORE IS NULL)
+									AND mrqr_aosac_intervals.STATUS IN ('O','Q')
+									AND ADDTIME(date_field, '09:00:00.0') &gt;= STARTDATE AND ADDTIME(date_field, '09:00:00.0') &lt; ENDDATE
+									AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR) AND date_field &lt; CURRENT_DATE
+									and mrqr_assets.function='pFUNCTION'
+									GROUP BY function, date_tk)yearly_sub GROUP BY function
+					
+						)avg_ops on left(avg_ops.date_tk,1)=left(dates.date_tk,1)
 				
 				left join
 				(
