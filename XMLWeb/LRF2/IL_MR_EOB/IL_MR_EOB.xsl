@@ -42,7 +42,7 @@
 <!-- Variables vVKEYD,vRID,vKPI,vLANG,vMODE,vEXPLORE already Declared in Report_Components --> 
 <!-- Variable Declaration Classical  -->
 <xsl:variable name="RepConf" select="'MRN_Prod'"/> 
-<xsl:variable name="vRepDic" select="document('../IL_MR_KIM_RepDic.xml')" /> 
+<xsl:variable name="vRepDic" select="document('./IL_MR_KIM_RepDic.xml')" /> 
 
 <xsl:variable name="dT_Type" select="'99'"/>
 <xsl:variable name="vSampleNBR" select="'06'" />
@@ -134,6 +134,6 @@
 		</body>
 	</html>
 </xsl:template>
-<xsl:include href='../../../COMMON/Node_Config.xsl'/>
-<xsl:include href='../../../COMMON/Report_Components.xsl'/>
+<xsl:include href='../../COMMON/Node_Config.xsl'/>
+<xsl:include href='../../COMMON/Report_Components.xsl'/>
 </xsl:stylesheet>
