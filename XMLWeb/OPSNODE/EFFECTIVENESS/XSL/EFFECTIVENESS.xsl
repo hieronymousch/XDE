@@ -81,7 +81,9 @@
 						categories: [<xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'DATE_FIELD']">
 											'<xsl:value-of select='.'/>',
 										</xsl:for-each>]
+					
 					},
+					
 					yAxis: {
 						min: 0,
 						title: {
@@ -108,10 +110,10 @@
 					},
 					tooltip: {
 						headerFormat: '<b>{point.x}</b><br/>',
-						pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+						pointFormat: '{series.name}: {point.y}<br/>AvailableAssets: {}'
 					},
 					plotOptions: {
-						column: {
+						NIETACTIEF_column: {
 							stacking: 'normal',
 							dataLabels: {
 								enabled: true,
@@ -124,16 +126,19 @@
 					},
 					
 					series: [
-							{name: 'Total Assets',
+							{name: 'Total_Assets',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
 											<xsl:value-of select='.'/>,
-										</xsl:for-each>]},
+										</xsl:for-each>]
+						
+							},
 							{name: 'Assets PrevMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_REAL']">
 											<xsl:value-of select='.'/>,
-										</xsl:for-each>]},
+										</xsl:for-each>]}
+							,
 							{name: 'Assets CorrMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_OPS']">
@@ -144,6 +149,7 @@
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_PLAN']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]}
+										
 							]		
 				});
 			});
