@@ -60,7 +60,7 @@
 					date_field,
 						date_tk
 					from damrsysl_calendar_dates
-					where date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
+					where date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
 				) dates
 				left join
 				(
@@ -70,7 +70,7 @@
                     WHERE ma.HIGHER_ASSET IS NULL
 						and ma.function like 'pFUNCTION'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
-                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
                         AND MFRDATE &lt;= date_field
 						AND ma.organism like 'pORGANISM'
 					GROUP BY date_tk
@@ -86,7 +86,7 @@
 						and ma.function like 'pFUNCTION'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
 						AND mo.parent='0Z'
-                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
                         AND MFRDATE &lt;= date_field
 						AND ma.organism like 'pORGANISM'
 					GROUP BY date_tk
@@ -101,7 +101,7 @@
                     from mrqr_mission_units_material mum 
                     INNER JOIN mrqr_mission_participating_units mpu on mum.omu_id=mpu.omu_id, damrsysl_calendar_dates
                     WHERE mum.function like 'pFUNCTION'
-						AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt; DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
+						AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt; DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
 						AND date_field &gt;= mpu.start_date AND date_field &lt; mpu.end_date
 						
 						AND mpu.PARTICIPATING_UNIT like 'pORGANISM'
@@ -123,7 +123,7 @@
 						and ma.function like 'pFUNCTION'
 						and marp.meter='CD'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
-                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
                         AND date_field &gt;= DATE_ADD(CURRENT_DATE, INTERVAL marp.remaining_potential DAY) 
                         AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL marp.remaining_potential+mp.duration DAY) 
 						AND ma.organism like 'pORGANISM'
@@ -158,7 +158,7 @@
 						and ma.function like 'pFUNCTION'
 						and not(maol.status='O')
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
-                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL 1 YEAR)
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
                         AND date_field &gt;= maol.statusdate
                         AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL immob.avg_immob HOUR) 
 						AND ma.organism like 'pORGANISM'
@@ -181,8 +181,9 @@
 		<parameter name='pLANG' value='EN'/>
 		<parameter name='pMODE' value='Main'/>		
 		<parameter name='pINFO' value='IPDT'/>
-		<parameter name='pFUNCTION' value='IV8T' />	
+		<parameter name='pFUNCTION' value='VDSC' />	
 		<parameter name='pORGANISM' value='%' />	
+		<parameter name='pINTERVAL' value='365' />	
 		<parameter name='pR1' value='STATUS'/>
 		<parameter name='pR2' value='STATUS'/>
 		<parameter name='pC1' value='DATE_FIELD'/>
