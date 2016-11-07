@@ -15,8 +15,9 @@
 			SELECT DATE_FORMAT(dates.date_field, '%Y-%m-%d') 'DATE_FIELD'
                    , ifnull(assets_planned,0) + ifnull(assets_abroad,0) 'ASSETS_PLAN'
                     , assets_count 'ASSETS_THEO'
-					, if((assets_count - ifnull(assets_NONOPS,0))&lt;avg_ops.yearly_opscount,(assets_count - ifnull(assets_NONOPS,0)),avg_ops.yearly_opscount) 'ASSETS_OPS'
+					, (assets_count - ifnull(assets_NONOPS,0)) 'ASSETS_OPS'
                     , (assets_count - ifnull(assets_PPM,0)) 'ASSETS_REAL'
+					, yearly_opscount 'ASSETS_AVG_OPS'
 				
                   
 			FROM
@@ -134,7 +135,7 @@
 								, avg(IMMOBILISATION) avg_immob
 							FROM 
 								mrqr_work mw inner join mrqr_assets ma on ma.asset=mw.asset
-							where	not(mw.ops_status_top='O' )
+							where	not(mw.ops_status_top in ('O','Q'))
 									and not(mw.ops_status_top is null) 
 									and ma.function like 'pFUNCTION'
 							group by asset
@@ -144,7 +145,7 @@
 					
                     WHERE ma.HIGHER_ASSET IS NULL
 						and ma.function like 'pFUNCTION'
-						and not(maol.status='O')
+						and not(maol.status in ('O','Q'))
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
                         AND date_field &gt;= maol.statusdate
