@@ -41,89 +41,109 @@
 
 <!-- Variables vVKEYD,vRID,vKPI,vLANG,vMODE,vEXPLORE already Declared in Report_Components --> 
 <!-- Variable Declaration Classical  -->
-<xsl:variable name="RepConf" select="'MRN_Prod'"/>
-<xsl:variable name="vRepDic" select="document('../IL_MR_SAMPLE_RepDic.xml')" />
-<xsl:variable name="dtSortingCol">1-asc</xsl:variable>
-<!--
-<xsl:variable name="dTColHidden">'NONE'</xsl:variable>
-<xsl:variable name="dtSortingCol">1-asc</xsl:variable>
--->
-<xsl:variable name="dT_Type" select="'99'"/>
-<xsl:variable name="vSampleNBR" select="'03'" />
+
 <!-- Variable Declaration End -->
 
 <xsl:template match='/'>	
 <!-- Generate HTML5 WebPage -->
-	<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html></xsl:text> 
-	<!-- Par défaut, IE utilise le mode de compatibilité - Ici on désactive ce compatibility mode pour IE 9 et 10 -->
-	<meta http-equiv="x-ua-compatible" content="IE=edge"/>
-	<html>
-		<head>
+	<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html></xsl:text>
+    <meta http-equiv="x-ua-compatible" content="IE=EDGE"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Report on MR Node"/>
+    <meta name="author" content="JF"/>
+    	<head>
 			<!-- Load Std Head from From MRN_Config (Require include Node_Config.xsl -->
-			<xsl:call-template name="Node_Std_Head">
-				<xsl:with-param name="Node_Conf" select="$RepConf"/>
-			</xsl:call-template>
-			<title>Products with SDS for store</title>
+			<xsl:call-template name="Node_Std_Head"/>
+			<title>
+	          <xsl:call-template name="FromDic2Rep">
+	            <xsl:with-param name="Title2S" select="'REPORT_PAGE'"/>
+	            <xsl:with-param name="tDDConfig" select="'C'"/>
+	            <xsl:with-param name="Lang" select="$vLANG"/>
+	          </xsl:call-template>
+	        </title>
 		</head>
 		<body>
 			<!-- Report Layout Template (Top) -->
-			<xsl:call-template name="Body_Start">
-				<xsl:with-param name="tDebug" select="'NO'"/> 		<!-- YES or No (Default) -->
-				<xsl:with-param name="tRepDic" select="$vRepDic"/> 	<!-- Dictionary ? Type relative Path or No (Default) -->
-				<xsl:with-param name="tLocal" select="'YES'"/> 		<!-- Yes for Local and NO (Default) for MR Node -->
-				<xsl:with-param name="tLanguage" select="$vLANG"/> 	<!-- EN (Default) - English/FR - Français/NL - Nederlands -->
-			</xsl:call-template>
+			<xsl:call-template name="Body_Start"/>
 
-			<!-- Ce xsl:if permet de controler si l'extraction MRQR_ASSETS est présente et affiche un message dans le cas contraire -->
-			<xsl:if test="count(//dbquery[@id='IL_MR_PRODUCTS_STORE_SUMMARY']/rows/row)=0">
-				<center>
-					<h2>This Report Requires the MRQR documents Extraction in your Local DB Node.</h2>
-				</center>
-			</xsl:if>
-
-			<!-- Cet appel à Template permet de générer un Div montrant les objectifs du rapport en fonction de la langue. Ces objectifs sont repris dans le RepDic 
-			<xsl:call-template name="RepObjective_InfoBox">
-				<xsl:with-param name="Title2S" select="concat('REPORT',$vSampleNBR,'_TITLE')"/>
-				<xsl:with-param name="Lang" select="$vLANG"/>
-				<xsl:with-param name="dictionary" select="$vRepDic"/>
-			</xsl:call-template> -->
-			
-			<!-- Cet appel à Template permet de générer le Titre du rapport en fonction de la langue (RepDic) 
 			<center>
-				<h1>
-					<xsl:call-template name="FromDic2Rep">
-						<xsl:with-param name="Title2S" select="concat('REPORT',$vSampleNBR,'_TITLE')"/>
-						<xsl:with-param name="Lang" select="$vLANG"/>
-						<xsl:with-param name="dictionary" select="$vRepDic"/>
-					</xsl:call-template>
-				</h1>
-			</center>		-->
-			<center> 
-				<h1>Products with SDS for store</h1>
-			</center>	
-			
-			<br/>
+	          <h1>
+	            <xsl:call-template name="FromDic2Rep">
+	              <xsl:with-param name="Title2S" select="'REPORT_TITLE'"/>
+	              <xsl:with-param name="Lang" select="$vLANG"/>
+	            </xsl:call-template>
+	          </h1>
+	        </center>
 			
 			<xsl:call-template name="Generic_Table_DBWEB">
 				<xsl:with-param name="DBWEB_Name" select="'IL_MR_PRODUCTS_STORE_SUMMARY'"/>
 				<xsl:with-param name="UdTN" select="'IL_MR_PRODUCTS_STORE_SUMMARY'"/>
-				<xsl:with-param name="Node_Conf" select="$RepConf"/>
-				<xsl:with-param name="dT_Type" select="'99'"/>
-				<xsl:with-param name="Lang" select="$vLANG"/>
-				<xsl:with-param name="RepDic" select="'N'"/> 
-				<xsl:with-param name="dictionary" select="$vRepDic"/> 	
-				<xsl:with-param name="ForcedTitle" select="'MSDS'"/>			
-			</xsl:call-template>
+        <xsl:with-param name="MaxRecords" select="500"/>	
+		</xsl:call-template>
 			
+      <script>
+        $("img[src$='/Default2/CPN/img/SPE17_X.png']").attr({
+            src: '/Default2/MRN_Prod/img/nothing.png',
+            width: '1px'
+          });
+      </script>
 			<!-- Report Layout Template (Bottom) -->
-			<xsl:call-template name="Body_End">
-				<xsl:with-param name="tDebug" select="'NO'"/> 		<!-- YES or No (Default) -->
-				<xsl:with-param name="tRepDic" select="$vRepDic"/> 	<!-- Dictionary ? Type relative Path or No (Default) -->
-				<xsl:with-param name="tLocal" select="'YES'"/> 		<!-- Yes for Local and NO (Default) for MR Node -->
-				<xsl:with-param name="tLanguage" select="$vLANG"/> 	<!-- EN (Default) - English/FR - Français/NL - Nederlands -->
-			</xsl:call-template>
+			<xsl:call-template name="Body_End"/>
 		</body>
-	</html>
+    <xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>
+</xsl:template>
+<xsl:template match="@NSN" mode="genericTableCel">                  
+    <td align="center" width="15%">
+    	<xsl:call-template name="SPE_Feature">                            
+            <xsl:with-param name="FieldVal" select="concat('MRN_SPE09#05##',.,'#1#',.)"/>
+        </xsl:call-template>
+    </td>
+</xsl:template>
+<xsl:template match="@Description|@Description_NL|@Description_FR" mode="genericTableCel">                  
+    <td align="left" width="10%">
+    	<xsl:value-of select="."/>
+    </td>
+</xsl:template>
+<xsl:template match="@Additional_name" mode="genericTableCel">                  
+    <td align="left" width="10%">
+    	<xsl:value-of select="."/>
+    </td>
+</xsl:template>
+<xsl:template match="@MatMan" mode="genericTableCel">                  
+    <td align="center">
+    	<xsl:call-template name="SPE_Feature">                            
+            <xsl:with-param name="FieldVal" select="concat('MRN_SPE09#01##',.,'#2#',.)"/>
+        </xsl:call-template>
+    </td>
+</xsl:template>
+<xsl:template match="@Status" mode="genericTableCel">                  
+    <td align="center">
+      <xsl:choose>
+        <xsl:when test=".='1'"><span class="label label-success"><xsl:value-of select="."/></span></xsl:when>
+		<xsl:when test=".='2'"><span class="label label-success"><xsl:value-of select="."/></span></xsl:when>
+		<xsl:when test=".='3'"><span class="label label-warning">3</span></xsl:when>
+		<xsl:otherwise><span class="label label-danger"><xsl:value-of select="."/></span></xsl:otherwise>
+      </xsl:choose>
+    </td>
+</xsl:template>
+<xsl:template match="@LotOK" mode="genericTableCel">                  
+    <td align="center">
+      <xsl:choose>
+        <xsl:when test=".='Y'"><span class="label label-success">Yes</span></xsl:when>
+        <xsl:when test=".='N'"><span class="label label-danger">No</span></xsl:when>
+        <xsl:otherwise><span class="label label-warning">N/A</span></xsl:otherwise>
+      </xsl:choose>
+    </td>
+</xsl:template>
+
+<xsl:template match="@DocLink" mode="genericTableCel">                  
+    <td align="center">
+      <span class="glyphicon glyphicon-file"></span><xsl:text> </xsl:text>
+      <xsl:call-template name="SPE_Feature">                            
+          <xsl:with-param name="FieldVal" select="."/>
+      </xsl:call-template>
+    </td>
 </xsl:template>
 <xsl:include href='../../../COMMON/Node_Config.xsl'/>
 <xsl:include href='../../../COMMON/Report_Components.xsl'/>
