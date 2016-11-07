@@ -14,22 +14,22 @@
 		<querystring id='IL_MR_PRODUCTS_STORE' database='dbnode' timeout="120000">
 			Select
 				distinct
-				 concat('MRN_SPE09#05##',mn.NSN,'#1#',mn.NSN) '_____NSN_____'
+				 mn.NSN 'NSN'
 				, mn.description 'Description'
 				, mn.description_nl 'Description_NL'
 				, mn.description_fr 'Description_FR'
-				, mn.util_status
+				, mn.util_status 'Status'
 				, mn.alb 'Additional_name'
-				, concat('MRN_SPE09#01##',ma.man_org,'#0#',ma.man_org) 'MatMan'
+				,ma.man_org 'MatMan'
 				, mn.un_code UN_Code
 				, mn.macode 'macode'
 				, mn.hazard 'hazard'
 				, msb.store 'store'
 				, msb.binloc 'binloc'
 				, msb.zone 'zone'
-				, msb.lot 'lot'
+				, msb.lot 'LotNr'
 				, msb.expdate
-				, if(mn.lot='Y', if(msb.expdate>now(),'MRN_SPE03#05#Y','MRN_SPE03#F15#N'),'') 'LotOK'
+				, if(mn.lot='Y', if(msb.expdate>now(),'Y','N'),'N/A') 'LotOK'
 				, concat('MRN_SPE20#file:\\\\\\G:\\DGMR\\35 Products\\index\\',mn.nsn,'.HTML#_blank#8#','OpenDoc') 'DocLink'
 			from mrqr_nsn mn 
 				inner join mrqr_macodes ma on mn.macode=ma.macode

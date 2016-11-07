@@ -15,12 +15,12 @@
 			Select
 				distinct
 				concat('MRN_SPE05#LI',mn.NSN,'#',mn.NSN) DD
-				, concat('MRN_SPE09#05##',mn.NSN,'#1#',mn.NSN) '_____NSN_____'
+				, mn.NSN 'NSN'
 				, mn.description 'Description'
 				, mn.description_nl 'Description_NL'
 				, mn.description_fr 'Description_FR'
 				, mn.alb 'Additional_name'
-				, concat('MRN_SPE09#01##',ma.man_org,'#0#',ma.man_org) 'MatMan'
+				, ma.man_org 'MatMan'
 				, mn.un_code UN_Code
 				, mn.macode 'macode'
 				, mn.hazard 'hazard'
