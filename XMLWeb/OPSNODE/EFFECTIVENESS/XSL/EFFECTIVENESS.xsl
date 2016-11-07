@@ -126,12 +126,17 @@
 					},
 					
 					series: [
-							{name: 'Total_Assets',
+							{name: 'Total Assets',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]
-						
+							},
+							{name: 'Assets YrAvg Operational',
+							data : [
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_AVG_OPS']">
+											<xsl:value-of select='.'/>,
+										</xsl:for-each>]
 							},
 							{name: 'Assets PrevMaint',
 							data : [
