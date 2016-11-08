@@ -72,7 +72,7 @@
 			$(function () {
 				$('#line').highcharts({
 					chart: {
-						type: 'line'
+						
 					},
 					title: {
 						text: 'Effectiveness for <xsl:value-of select="//dbquery[1]/descriptor/parameters/param[@name='pFUNCTION']/@value"/> and organism <xsl:value-of select="//dbquery[1]/descriptor/parameters/param[@name='pORGANISM']/@value"/> '
@@ -126,30 +126,42 @@
 					},
 					
 					series: [
-							{name: 'Total Assets',
+							{
+							type:'area',
+							color:'#ffffe6',
+							name: 'Total Assets',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]
 							},
-							{name: 'Assets YrAvg Operational',
+							{
+							type:'line',
+							name: 'Assets YrAvg Operational',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_AVG_OPS']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]
 							},
-							{name: 'Assets PrevMaint',
+							{
+							type:'line',
+							name: 'Assets PrevMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_REAL']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]}
 							,
-							{name: 'Assets CorrMaint',
+							{
+							type:'line',
+							name: 'Assets CorrMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_OPS']">
 											<xsl:value-of select='.'/>,
 										</xsl:for-each>]},		
-							{name: 'Assets Planned and in Ops',
+							{
+							type:'area',
+							color: '#FF0000',
+							name: 'Assets Planned and in Ops',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_PLAN']">
 											<xsl:value-of select='.'/>,
