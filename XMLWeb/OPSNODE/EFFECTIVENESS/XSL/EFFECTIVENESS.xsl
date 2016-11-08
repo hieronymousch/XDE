@@ -153,6 +153,7 @@
 							,
 							{
 							type:'line',
+							color:'orange',
 							name: 'Assets CorrMaint',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_OPS']">
