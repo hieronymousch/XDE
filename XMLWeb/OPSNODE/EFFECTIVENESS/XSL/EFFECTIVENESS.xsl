@@ -165,8 +165,21 @@
 			<!-- Report Layout Template (Top) -->
 			<xsl:call-template name="Body_Start"/>
 <div class='row'>				
-				<div id="line" style="min-width: 310px; height: 600px; margin: 0 auto"/></div>			
+				<div id="line" style="min-width: 310px; height: 700px; margin: 0 auto"/></div>			
+				
+		
+Legend:
+<UL>
+				<LI>Total assets: number of assets in unit or Defense (filter organism) </LI>
+				<LI>Assets YrAvg Operational: average number of assets that is operational (AOSAC O&amp;Q) for a unit of Defense (filter organism) </LI>
+				<LI>Assets Prev Maint: Number of assets that haven't got preventive Maint planned for a date. This can be adapted by the MRC and is planning</LI>
+				<LI>Assets Corr Maint: Number of assets that aren't getting corrective Maint. Assets in corrective Maint are taken in account when AOSAC impact for the TopAsset in the Work is different from O&amp;Q (so work is considered to resolve an issue that causes the TopAsset to be InOps. End date for corrective Maint is estimaded based on the average immobilisation of all past works for an asset. </LI>
+				<LI> Assets Planned and in Ops: number of assets that are permanenty used in Ops (Org Parent 0Z) or are planned in OMIPLA by units</LI>
+		</UL>				
 			
+			
+						
+					
 	      	<xsl:call-template name="Body_End"/>
 	    </body>
   	<xsl:text disable-output-escaping='yes'>&lt;/html></xsl:text>
