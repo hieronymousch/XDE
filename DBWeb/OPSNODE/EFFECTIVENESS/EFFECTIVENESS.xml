@@ -96,6 +96,7 @@
 									AND ADDTIME(date_field, '09:00:00.0') &gt;= STARTDATE AND ADDTIME(date_field, '09:00:00.0') &lt; ENDDATE
 									AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR) AND date_field &lt; CURRENT_DATE
 									and mrqr_assets.function='pFUNCTION'
+									and mrqr_assets.organism like 'pORGANISM'
 									GROUP BY function, date_tk)yearly_sub GROUP BY function
 					
 						)avg_ops on left(avg_ops.date_tk,1)=left(dates.date_tk,1)
@@ -162,6 +163,7 @@
 				(length(replace(replace('pFUNCTION','%',''),'_',''))&gt;=2 
 
                         )
+				and dates.date_field>=date(now())		
 			
 		</querystring>
 	</queries>	
