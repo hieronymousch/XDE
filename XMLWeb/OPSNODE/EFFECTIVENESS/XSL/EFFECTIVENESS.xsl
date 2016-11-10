@@ -93,7 +93,7 @@
 							enabled: true,
 							style: {
 								fontWeight: 'bold',
-								color: (Highcharts.theme &amp;&amp; Highcharts.theme.textColor) || 'gray'
+								color: (Highcharts.theme &amp;&amp; Highcharts.theme.textColor) || 'white'
 							}
 						}
 					},
@@ -106,11 +106,13 @@
 						backgroundColor: (Highcharts.theme &amp;&amp; Highcharts.theme.background2) || 'white',
 						borderColor: '#CCC',
 						borderWidth: 1,
-						shadow: false
+						shadow: true
 					},
 					tooltip: {
+					shared:true,
 						headerFormat: '<b>{point.x}</b><br/>',
-						pointFormat: '{series.name}: {point.y}<br/>AvailableAssets: {}'
+									
+					
 					},
 					plotOptions: {
 						NIETACTIEF_column: {
@@ -128,7 +130,7 @@
 					series: [
 							{
 							type:'area',
-							color:'#ffffe6',
+							color:'#009900',
 							name: 'Total Assets',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_THEO']">
@@ -191,7 +193,13 @@ Legend:
 		</UL>				
 			
 			
-						
+			<xsl:call-template name="Generic_Table_DBWEB">
+				<xsl:with-param name="DBWEB_Name" select="'SUMMARY'"/>
+				<xsl:with-param name="UdTN" select="'TABLE'"/>
+				
+				<xsl:with-param name="ForcedTitle" select="'Effectiveness data'"/>	
+								
+			</xsl:call-template>			
 					
 	      	<xsl:call-template name="Body_End"/>
 	    </body>
