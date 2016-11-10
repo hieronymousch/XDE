@@ -139,6 +139,16 @@
 							},
 							{
 							type:'line',
+							lineWidth:0,
+							color:'#009900',
+							name: '<b>#Assets Available</b>',
+							data : [
+							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_AVAILABLE']">
+											<xsl:value-of select='.'/>,
+										</xsl:for-each>]
+							},
+							{
+							type:'line',
 							name: 'Assets YrAvg Operational',
 							data : [
 							    <xsl:for-each select = "//dbquery[@id='SUMMARY']/rows/row/@*[local-name() = 'ASSETS_AVG_OPS']">
