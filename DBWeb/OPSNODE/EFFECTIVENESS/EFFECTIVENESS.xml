@@ -80,7 +80,7 @@
 				left join 
 						
 				(
-					SELECT date_tk, AVG(opscount) AS yearly_opscount 
+					SELECT date_tk, round(AVG(opscount),0) AS yearly_opscount 
 						FROM (SELECT
 								mrqr_assets.function
 								, date_tk
