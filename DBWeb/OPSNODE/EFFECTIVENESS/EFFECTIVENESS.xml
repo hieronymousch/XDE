@@ -18,6 +18,7 @@
 					, (assets_count - ifnull(assets_NONOPS,0)) 'ASSETS_OPS'
                     , (assets_count - ifnull(assets_PPM,0)) 'ASSETS_REAL'
 					, yearly_opscount 'ASSETS_AVG_OPS'
+					, (assets_count-ifnull(assets_NONOPS,0)-ifnull(assets_PPM,0)-ifnull(assets_planned,0)-ifnull(assets_abroad,0)) 'ASSETS_AVAILABLE'
 				
                   
 			FROM
@@ -32,8 +33,10 @@
 				(
 					SELECT date_field, date_tk
 						, COUNT(ASSET) AS assets_count
-                    FROM mrqr_assets ma, damrsysl_calendar_dates
+                    FROM mrqr_assets ma inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function 
+					, damrsysl_calendar_dates
                     WHERE ma.HIGHER_ASSET IS NULL
+						and daotg4_functions_global.top=1
 						and ma.function like 'pFUNCTION'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
@@ -47,8 +50,12 @@
 				(
 					SELECT date_field, date_tk
 						, COUNT(ASSET) AS assets_abroad
-                    FROM mrqr_assets ma inner join mrqr_organisms mo on ma.organism=mo.organism , damrsysl_calendar_dates
+                    FROM mrqr_assets ma 
+						inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
+						inner join mrqr_organisms mo on ma.organism=mo.organism 
+					, damrsysl_calendar_dates
                     WHERE ma.HIGHER_ASSET IS NULL
+						and daotg4_functions_global.top=1
 						and ma.function like 'pFUNCTION'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
 						AND mo.parent='0Z'
@@ -107,10 +114,12 @@
 						,  ifnull(COUNT(distinct marp.ASSET),0) AS assets_PPM
 					FROM mrqr_assets_remaining_potential marp 
 					inner join mrqr_assets ma on marp.asset=ma.asset
+					inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
 					inner join mrqr_ppms mp on marp.ppm=mp.ppm
 					, damrsysl_calendar_dates
                     WHERE ma.HIGHER_ASSET IS NULL
 						and ma.function like 'pFUNCTION'
+						AND daotg4_functions_global.top=1
 						and marp.meter='CD'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
@@ -128,7 +137,7 @@
 						,  ifnull(COUNT(maol.ASSET),0) AS assets_NONOPS
 					FROM mrqr_assets_ops_status_last maol
 					inner join mrqr_assets ma on maol.asset=ma.asset
-					
+					inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
 					left join 
 						( 
 							select	
@@ -136,9 +145,11 @@
 								, avg(IMMOBILISATION) avg_immob
 							FROM 
 								mrqr_work mw inner join mrqr_assets ma on ma.asset=mw.asset
+								inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
 							where	not(mw.ops_status_top in ('O','Q'))
 									and not(mw.ops_status_top is null) 
 									and ma.function like 'pFUNCTION'
+									AND daotg4_functions_global.top=1
 							group by asset
 						)immob on immob.asset=maol.asset
 				
@@ -146,6 +157,7 @@
 					
                     WHERE ma.HIGHER_ASSET IS NULL
 						and ma.function like 'pFUNCTION'
+						AND daotg4_functions_global.top=1
 						and not(maol.status in ('O','Q'))
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
