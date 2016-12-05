@@ -23,6 +23,16 @@
                   
 			FROM
                 (
+<<<<<<< .mine
+					select
+					date_field,
+						date_tk
+					from damrsysl_calendar_dates
+					where date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL pBACKINTERVAL DAY) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+				) dates
+				left join
+				(
+=======
 					select
 					date_field,
 						date_tk
@@ -31,6 +41,7 @@
 				) dates
 				left join
 				(
+>>>>>>> .r98
 					SELECT date_field, date_tk
 						, COUNT(ASSET) AS assets_count
                     FROM mrqr_assets ma inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function 
@@ -39,11 +50,41 @@
 						and daotg4_functions_global.top=1
 						and ma.function like 'pFUNCTION'
 						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
+<<<<<<< .mine
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL pBACKINTERVAL DAY) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+=======
                         AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+>>>>>>> .r98
                         AND MFRDATE &lt;= date_field
 						AND ma.organism like 'pORGANISM'
 					GROUP BY date_tk
 				) exist_sum
+<<<<<<< .mine
+                on dates.date_tk=exist_sum.date_tk
+				
+				left join
+				(
+					SELECT date_field, date_tk
+						, COUNT(ASSET) AS assets_abroad
+                    FROM mrqr_assets ma 
+						inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
+						inner join mrqr_organisms mo on ma.organism=mo.organism 
+					, damrsysl_calendar_dates
+                    WHERE ma.HIGHER_ASSET IS NULL
+						and daotg4_functions_global.top=1
+						and ma.function like 'pFUNCTION'
+						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
+						AND mo.parent='0Z'
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL pBACKINTERVAL DAY) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+                        AND MFRDATE &lt;= date_field
+						AND ma.organism like 'pORGANISM'
+					GROUP BY date_tk
+				) deployed_sum
+                on dates.date_tk=deployed_sum.date_tk
+				
+				
+				left join
+=======
                 on dates.date_tk=exist_sum.date_tk
 				
 				left join
@@ -68,13 +109,18 @@
 				
 				
 				left join
+>>>>>>> .r98
                 (
 					SELECT date_field, date_tk
 						, sum(mum.nbr_of_assets) AS assets_planned
                     from mrqr_mission_units_material mum 
                     INNER JOIN mrqr_mission_participating_units mpu on mum.omu_id=mpu.omu_id, damrsysl_calendar_dates
                     WHERE mum.function like 'pFUNCTION'
+<<<<<<< .mine
+						AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL pBACKINTERVAL DAY) AND date_field &lt; DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+=======
 						AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND date_field &lt; DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+>>>>>>> .r98
 						AND date_field &gt;= mpu.start_date AND date_field &lt; mpu.end_date
 						
 						AND mpu.PARTICIPATING_UNIT like 'pORGANISM'
@@ -82,6 +128,96 @@
 					GROUP BY date_tk
 					
 				) plan_sum
+<<<<<<< .mine
+                on plan_sum.date_tk=dates.date_tk
+				
+				left join 
+						
+				(
+					SELECT date_tk, round(AVG(opscount),0) AS yearly_opscount 
+						FROM (SELECT
+								mrqr_assets.function
+								, date_tk
+								, COUNT(mrqr_assets.ASSET) AS opscount
+								FROM mrqr_assets
+									inner join daotg4_functions_global on mrqr_assets.nsn=daotg4_functions_global.nsn and mrqr_assets.function=daotg4_functions_global.function 
+									INNER JOIN mrqr_aosac_intervals ON mrqr_assets.ASSET=mrqr_aosac_intervals.ASSET
+									,damrsysl_calendar_dates
+									
+									WHERE daotg4_functions_global.top=1
+									AND mrqr_assets.STATUS NOT IN('D','A','B','E','O') AND (mrqr_assets.STORE NOT LIKE('%VE') OR mrqr_assets.STORE IS NULL)
+									AND mrqr_aosac_intervals.STATUS IN ('O','Q')
+									AND ADDTIME(date_field, '09:00:00.0') &gt;= STARTDATE AND ADDTIME(date_field, '09:00:00.0') &lt; ENDDATE
+									AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR) AND date_field &lt; CURRENT_DATE
+									and mrqr_assets.function='pFUNCTION'
+									and mrqr_assets.organism like 'pORGANISM'
+									GROUP BY function, date_tk)yearly_sub GROUP BY function
+					
+						)avg_ops on left(avg_ops.date_tk,1)=left(dates.date_tk,1)
+				
+				left join
+				(
+					select date_field, date_tk
+						,  ifnull(COUNT(distinct marp.ASSET),0) AS assets_PPM
+					FROM mrqr_assets_remaining_potential marp 
+					inner join mrqr_assets ma on marp.asset=ma.asset
+					inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
+					inner join mrqr_ppms mp on marp.ppm=mp.ppm
+					, damrsysl_calendar_dates
+                    WHERE ma.HIGHER_ASSET IS NULL
+						and ma.function like 'pFUNCTION'
+						AND daotg4_functions_global.top=1
+						and marp.meter='CD'
+						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL pBACKINTERVAL DAY) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+                        AND date_field &gt;= DATE_ADD(CURRENT_DATE, INTERVAL marp.remaining_potential DAY) 
+                        AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL marp.remaining_potential+mp.duration DAY) 
+						AND ma.organism like 'pORGANISM'
+
+					GROUP BY date_tk	
+				) ppm_sum
+				on dates.date_tk=ppm_sum.date_tk
+				
+				left join
+				(
+					select date_field, date_tk
+						,  ifnull(COUNT(maol.ASSET),0) AS assets_NONOPS
+					FROM mrqr_assets_ops_status_last maol
+					inner join mrqr_assets ma on maol.asset=ma.asset
+					inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
+					left join 
+						( 
+							select	
+								ma.asset
+								, avg(IMMOBILISATION) avg_immob
+							FROM 
+								mrqr_work mw inner join mrqr_assets ma on ma.asset=mw.asset
+								inner join daotg4_functions_global on ma.nsn=daotg4_functions_global.nsn and ma.function=daotg4_functions_global.function
+							where	not(mw.ops_status_top in ('O','Q'))
+									and not(mw.ops_status_top is null) 
+									and ma.function like 'pFUNCTION'
+									AND daotg4_functions_global.top=1
+							group by asset
+						)immob on immob.asset=maol.asset
+				
+					, damrsysl_calendar_dates
+					
+                    WHERE ma.HIGHER_ASSET IS NULL
+						and ma.function like 'pFUNCTION'
+						AND daotg4_functions_global.top=1
+						and not(maol.status in ('O','Q'))
+						AND ma.STATUS NOT IN('D','A','B','E','O') AND (ma.STORE NOT LIKE('%VE') OR ma.STORE IS NULL)
+                        AND date_field &gt;= DATE_SUB(CURRENT_DATE, INTERVAL pBACKINTERVAL DAY) AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL pINTERVAL DAY)
+                        AND date_field &gt;= maol.statusdate
+                        AND date_field &lt;= DATE_ADD(CURRENT_DATE, INTERVAL immob.avg_immob HOUR) 
+						AND ma.organism like 'pORGANISM'
+
+					GROUP BY date_tk	
+				) inops_sum
+				on dates.date_tk=inops_sum.date_tk
+				
+				
+=======
                 on plan_sum.date_tk=dates.date_tk
 				
 				left join 
@@ -170,12 +306,17 @@
 				on dates.date_tk=inops_sum.date_tk
 				
 				
+>>>>>>> .r98
 	
 			WHERE
 				(length(replace(replace('pFUNCTION','%',''),'_',''))&gt;=2 
 
                         )
+<<<<<<< .mine
+				and dates.date_field>=date(now())	
+=======
 				and dates.date_field>=date(now())		
+>>>>>>> .r98
 			
 		</querystring>
 	</queries>	
@@ -184,9 +325,16 @@
 		<parameter name='pLANG' value='EN'/>
 		<parameter name='pMODE' value='Main'/>		
 		<parameter name='pINFO' value='IPDT'/>
+<<<<<<< .mine
 		<parameter name='pFUNCTION' value='VDSC' />	
 		<parameter name='pORGANISM' value='%' />	
 		<parameter name='pINTERVAL' value='365' />	
+		<parameter name='pBACKINTERVAL' value='120' />	
+=======
+		<parameter name='pFUNCTION' value='VDSC' />	
+		<parameter name='pORGANISM' value='%' />	
+		<parameter name='pINTERVAL' value='365' />	
+>>>>>>> .r98
 		<parameter name='pR1' value='STATUS'/>
 		<parameter name='pR2' value='STATUS'/>
 		<parameter name='pC1' value='DATE_FIELD'/>
