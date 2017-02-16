@@ -189,7 +189,7 @@
 			</querystring>	
 			
 			
-		<querystring id='IL_MR_KIM' database='dbnode'>
+		<querystring id='IL_MR_KIM' database='dbnode' timeout="50000">
 			select distinct
 				concat('MRN_SPE05#LI',mpr.pr,'#',mpr.pr) DD
 				, concat('MRN_SPE02#9902&amp;p|PREQ=',mpr.pr,'#',mpr.pr)  PR
