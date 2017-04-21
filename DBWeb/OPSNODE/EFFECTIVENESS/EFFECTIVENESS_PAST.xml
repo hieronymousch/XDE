@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbwebdescriptor version='2.0'>
+	<label>EFFECTIVENESS</label>
+	<description>Effectiveness</description>
+	<queries>
+		<querystring id='Report_Info' database='dbnode'>
+			select distinct  r.*,count(v.dbn_repv_viewname) Views_Used, min(e.Ref_Status) Extr_Status from dbn_report r, dbn_report_views v, dbn_entities e where (v.dbn_repv_viewname = e.ViewName) and (v.dbn_repv_parid = r.dbn_rep_id) and r.dbn_rep_id ='pRID'
+		</querystring>	
+		<querystring id='Report_Prompt' database='dbnode'>
+				select * from dbn_report_parameters
+				where dbn_repp_parid='pRID';
+		</querystring>	
+	                                
+		<querystring id='SUMMARY' database='dbnode' timeout="120000">
+			select
+				date_format( dates.date_field, '%Y-%m-%d' ) 'DATE_FIELD',
+				(ifnull(
+					assets_planned,
+					0
+				)+ ifnull(
+					assets_abroad,
+					0
+				))/assets_count*100 'ASSETS_PLAN',
+				assets_count/assets_count*100 'ASSETS_THEO',
+				(
+					assets_count - ifnull(
+						assets_NONOPS,
+						0
+					)
+				)/assets_count*100 'ASSETS_OPS',
+				
+				yearly_opscount/assets_count*100 'ASSETS_AVG_OPS',
+				(
+					assets_count - ifnull(
+						assets_NONOPS,
+						0
+					)- ifnull(
+						assets_planned,
+						0
+					)- ifnull(
+						assets_abroad,
+						0
+					)
+				)/assets_count*100 'ASSETS_AVAILABLE'
+			, if ((assets_count-ifnull(assets_NONOPS,0)-ifnull(assets_abroad,0))&gt;=ifnull(assets_planned,0),100,((assets_count-ifnull(assets_NONOPS,0)-ifnull(assets_abroad,0))/ifnull(assets_planned,0))*100) as 'Effectiveness'
+			, round((ifnull(assets_planned,0)+ ifnull(assets_abroad,0))/(assets_count - ifnull(assets_NONOPS,	0))*100,2) 'FleetUsage'
+		from
+			(
+				select
+					date_field,
+					date_tk
+				from
+					damrsysl_calendar_dates
+				where
+					date_field &gt;= DATE_SUB(
+						current_date,
+						interval 365 day
+					)
+					and date_field &lt;= DATE_ADD(
+						current_date,
+						interval 10 day
+					)
+			) dates left join(
+				select
+					date_field,
+					date_tk,
+					count( ASSET ) as assets_count
+				from
+					mrqr_assets ma inner join daotg4_functions_global on
+					ma.nsn = daotg4_functions_global.nsn
+					and ma.function = daotg4_functions_global.function,
+					damrsysl_calendar_dates
+				where
+					ma.HIGHER_ASSET is null
+					and daotg4_functions_global.top = 1
+					and ma.function like 'VDSC'
+					and ma.STATUS not in(
+						'D',
+						'A',
+						'B',
+						'E',
+						'O'
+					)
+					and(
+						ma.STORE not like('%VE')
+						or ma.STORE is null
+					)
+					and date_field &gt;= DATE_SUB(
+						current_date,
+						interval 365 day
+					)
+					and date_field &lt;= DATE_ADD(
+						current_date,
+						interval 10 day
+					)
+					and MFRDATE &lt;= date_field
+					and ma.organism like '%'
+				group by
+					date_tk
+			) exist_sum on
+			dates.date_tk = exist_sum.date_tk left join(
+				select
+					date_field,
+					date_tk,
+					count( ASSET ) as assets_abroad
+				from
+					mrqr_assets ma inner join daotg4_functions_global on
+					ma.nsn = daotg4_functions_global.nsn
+					and ma.function = daotg4_functions_global.function inner join mrqr_organisms mo on
+					ma.organism = mo.organism,
+					damrsysl_calendar_dates
+				where
+					ma.HIGHER_ASSET is null
+					and daotg4_functions_global.top = 1
+					and ma.function like 'VDSC'
+					and ma.STATUS not in(
+						'D',
+						'A',
+						'B',
+						'E',
+						'O'
+					)
+					and(
+						ma.STORE not like('%VE')
+						or ma.STORE is null
+					)
+					and mo.parent = '0Z'
+					and date_field &gt;= DATE_SUB(
+						current_date,
+						interval 365 day
+					)
+					and date_field &lt;= DATE_ADD(
+						current_date,
+						interval 10 day
+					)
+					and MFRDATE &lt;= date_field
+					and ma.organism like '%'
+				group by
+					date_tk
+			) deployed_sum on
+			dates.date_tk = deployed_sum.date_tk left join(
+				select
+					date_field,
+					date_tk,
+					sum( mum.nbr_of_assets ) as assets_planned
+				from
+					mrqr_mission_units_material mum inner join mrqr_mission_participating_units mpu on
+					mum.omu_id = mpu.omu_id,
+					damrsysl_calendar_dates
+				where
+					mum.function like 'VDSC'
+					and date_field &gt;= DATE_SUB(
+						current_date,
+						interval 365 day
+					)
+					and date_field &lt; DATE_ADD(
+						current_date,
+						interval 10 day
+					)
+					and date_field &gt;= mpu.start_date
+					and date_field &lt; mpu.end_date
+					and mpu.PARTICIPATING_UNIT like '%'
+				group by
+					date_tk
+			) plan_sum on
+			plan_sum.date_tk = dates.date_tk left join(
+				select
+					date_tk,
+					round( avg( opscount ), 0 ) as yearly_opscount
+				from
+					(
+						select
+							mrqr_assets.function,
+							date_tk,
+							count( mrqr_assets.ASSET ) as opscount
+						from
+							mrqr_assets inner join daotg4_functions_global on
+							mrqr_assets.nsn = daotg4_functions_global.nsn
+							and mrqr_assets.function = daotg4_functions_global.function inner join mrqr_aosac_intervals on
+							mrqr_assets.ASSET = mrqr_aosac_intervals.ASSET,
+							damrsysl_calendar_dates
+						where
+							daotg4_functions_global.top = 1
+							and mrqr_assets.STATUS not in(
+								'D',
+								'A',
+								'B',
+								'E',
+								'O'
+							)
+							and(
+								mrqr_assets.STORE not like('%VE')
+								or mrqr_assets.STORE is null
+							)
+							and mrqr_aosac_intervals.STATUS in(
+								'O',
+								'Q'
+							)
+							and ADDTIME(
+								date_field,
+								'09:00:00.0'
+							)&gt;= STARTDATE
+							and ADDTIME(
+								date_field,
+								'09:00:00.0'
+							)&lt; ENDDATE
+							and date_field &gt;= DATE_SUB(
+								current_date,
+								interval 1 year
+							)
+							and date_field &lt; current_date
+							and mrqr_assets.function = 'VDSC'
+							and mrqr_assets.organism like '%'
+						group by
+							function,
+							date_tk
+					) yearly_sub
+				group by
+					function
+			) avg_ops on
+			left(
+				avg_ops.date_tk,
+				1
+			)= left(
+				dates.date_tk,
+				1
+			) left join(
+					select
+							mrqr_assets.function,
+							date_tk,
+							count( mrqr_assets.ASSET ) as assets_NONOPS
+						from
+							mrqr_assets inner join daotg4_functions_global on
+							mrqr_assets.nsn = daotg4_functions_global.nsn
+							and mrqr_assets.function = daotg4_functions_global.function inner join mrqr_aosac_intervals on
+							mrqr_assets.ASSET = mrqr_aosac_intervals.ASSET,
+							damrsysl_calendar_dates
+						where
+							daotg4_functions_global.top = 1
+							and mrqr_assets.STATUS not in(
+								'D',
+								'A',
+								'B',
+								'E',
+								'O'
+							)
+							and(
+								mrqr_assets.STORE not like('%VE')
+								or mrqr_assets.STORE is null
+							)
+							and not(mrqr_aosac_intervals.STATUS in(
+								'O',
+								'Q'
+							))
+							and ADDTIME(
+								date_field,
+								'09:00:00.0'
+							)&gt;= STARTDATE
+							and ADDTIME(
+								date_field,
+								'09:00:00.0'
+							) &lt; ENDDATE
+							and date_field &gt;= DATE_SUB(
+								current_date,
+								interval 1 year
+							)
+							and date_field &lt; current_date
+							and mrqr_assets.function = 'VDSC'
+							and mrqr_assets.organism like '%'
+						group by
+							function,
+							date_tk	
+			) inops_sum on
+			dates.date_tk = inops_sum.date_tk
+		where
+			(
+				length(
+					replace(
+						replace(
+							'pFUNCTION',
+							'%',
+							''
+						),
+						'_',
+						''
+					)
+				)&gt;= 2
+			)
+			and dates.date_field &lt;= date(
+				now()
+			)
+						
+			
+		</querystring>
+	</queries>	
+	<parameters>
+		<parameter name='pRID' value='100112'/>		
+		<parameter name='pLANG' value='EN'/>
+		<parameter name='pMODE' value='Main'/>		
+		<parameter name='pINFO' value='IPDT'/>
+		<parameter name='pFUNCTION' value='VDSC' />	
+		<parameter name='pORGANISM' value='%' />	
+		<parameter name='pINTERVAL' value='365' />	
+		<parameter name='pR1' value='STATUS'/>
+		<parameter name='pR2' value='STATUS'/>
+		<parameter name='pC1' value='DATE_FIELD'/>
+		<parameter name='pGR1' value='DATE_FIELD'/>
+		<parameter name='pGR2' value='DATE_FIELD'/>
+		<parameter name='pGC1' value='STATUS'/>
+		
+	</parameters>
+</dbwebdescriptor>
